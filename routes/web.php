@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web\WebController;
+use App\Http\Controllers\Web\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ Route::get('cache', function () {
     return 'success';
 });
 
-Route::get('/', [WebController::class,'index'])->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 
 Route::get('/change-languagee/{lang}', function ($lang) {
