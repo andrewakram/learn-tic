@@ -18,8 +18,8 @@ class CreateUserCommentsTable extends Migration
             $table->string('image')->nullable();
             $table->string('title_ar')->nullable();
             $table->string('title_en')->nullable();
-            $table->string('body_ar')->nullable();
-            $table->string('body_en')->nullable();
+            $table->text('body_ar')->nullable();
+            $table->text('body_en')->nullable();
             $table->string('user_type')->nullable();
             $table->timestamps();
         });

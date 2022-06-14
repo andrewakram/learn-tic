@@ -20,8 +20,8 @@ class CreateBlogsTable extends Migration
             $table->string('image')->nullable();
             $table->string('title_ar')->nullable();
             $table->string('title_en')->nullable();
-            $table->string('description_ar')->nullable();
-            $table->string('description_en')->nullable();
+            $table->text('description_ar')->nullable();
+            $table->text('description_en')->nullable();
             $table->timestamps();
         });
     }
