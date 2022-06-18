@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainAdmin;
 
 use App\Http\Requests\MainAdmin\Supervisor\SupervisorCreateRequest;
 use App\Http\Requests\MainAdmin\Supervisor\SupervisorDeleteRequest;
+use App\Http\Requests\MainAdmin\Supervisor\SupervisorIndexRequest;
 use App\Http\Requests\MainAdmin\Supervisor\SupervisorUpdateRequest;
 use App\Models\Admin;
 use Carbon\Carbon;
@@ -13,8 +14,12 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SupervisorController extends Controller
 {
-    public function index()
+    public function index(SupervisorIndexRequest $request)
     {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
         return view('MainAdmin.pages.supervisors.index');
     }
 

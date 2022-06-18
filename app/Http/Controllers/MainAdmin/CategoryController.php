@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainAdmin;
 
 use App\Http\Requests\MainAdmin\Category\CategoryCreateRequest;
 use App\Http\Requests\MainAdmin\Category\CategoryDeleteRequest;
+use App\Http\Requests\MainAdmin\Category\CategoryIndexRequest;
 use App\Http\Requests\MainAdmin\Category\CategoryUpdateRequest;
 use App\Models\Category;
 use Carbon\Carbon;
@@ -13,8 +14,12 @@ use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(CategoryIndexRequest $request)
     {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
         return view('MainAdmin.pages.categories.index');
     }
 

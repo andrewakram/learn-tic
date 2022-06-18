@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainAdmin;
 
 use App\Http\Requests\MainAdmin\City\CityCreateRequest;
 use App\Http\Requests\MainAdmin\City\CityDeleteRequest;
+use App\Http\Requests\MainAdmin\City\CityIndexRequest;
 use App\Http\Requests\MainAdmin\City\CityUpdateRequest;
 use App\Models\City;
 use Carbon\Carbon;
@@ -13,8 +14,12 @@ use Yajra\DataTables\Facades\DataTables;
 
 class CityController extends Controller
 {
-    public function index()
+    public function index(CityIndexRequest $request)
     {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
         return view('MainAdmin.pages.cities.index');
     }
 
