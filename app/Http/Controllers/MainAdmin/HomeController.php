@@ -4,9 +4,6 @@ namespace App\Http\Controllers\MainAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Supervisor;
 
 class HomeController extends Controller
 {

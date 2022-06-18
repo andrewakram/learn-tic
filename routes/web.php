@@ -60,14 +60,31 @@ Route::group([
                 Route::post('/delete', 'SupervisorController@delete')->name('.delete');
                 Route::post('/delete-multi', 'SupervisorController@deleteMulti')->name('.deleteMulti');
             });
+
+            Route::group(['prefix' => 'cities', 'as' => '.cities'], function () {
+                Route::get('/', 'CityController@index');
+                Route::get('getData', 'CityController@getData')->name('.datatable');
+                Route::get('/create', 'CityController@create')->name('.create');
+                Route::post('/store', 'CityController@store')->name('.store');
+                Route::get('/edit/{id}', 'CityController@edit')->name('.edit');
+                Route::post('/update', 'CityController@update')->name('.update');
+                Route::get('/show/{id}', 'CityController@show')->name('.show');
+                Route::post('/delete', 'CityController@delete')->name('.delete');
+                Route::post('/delete-multi', 'CityController@deleteMulti')->name('.deleteMulti');
+            });
+
             Route::group(['prefix' => 'categories', 'as' => '.categories'], function () {
-                Route::get('/', 'SupervisorController@index');
-                Route::get('getData', 'SupervisorController@getData')->name('.datatable');
+                Route::get('/', 'CategoryController@index');
+                Route::get('getData', 'CategoryController@getData')->name('.datatable');
+                Route::get('/create', 'CategoryController@create')->name('.create');
+                Route::post('/store', 'CategoryController@store')->name('.store');
+                Route::get('/edit/{id}', 'CategoryController@edit')->name('.edit');
+                Route::post('/update', 'CategoryController@update')->name('.update');
+                Route::get('/show/{id}', 'CategoryController@show')->name('.show');
+                Route::post('/delete', 'CategoryController@delete')->name('.delete');
+                Route::post('/delete-multi', 'CategoryController@deleteMulti')->name('.deleteMulti');
             });
-            Route::group(['prefix' => 'products', 'as' => '.products'], function () {
-                Route::get('/', 'SupervisorController@index');
-                Route::get('getData', 'SupervisorController@getData')->name('.datatable');
-            });
+
 
         });
     });
