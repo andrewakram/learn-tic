@@ -23,8 +23,12 @@ class CategoryController extends Controller
         return view('MainAdmin.pages.categories.index');
     }
 
-    public function create()
+    public function create(CategoryIndexRequest $request)
     {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
         return view('MainAdmin.pages.categories.create');
     }
 
@@ -40,8 +44,13 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories');
     }
 
-    public function edit($id)
+    public function edit(CategoryIndexRequest $request,$id)
     {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
         $row = Category::findOrFail($id);
         if (!$row) {
             session()->flash('error', 'الحقل غير موجود');

@@ -14,6 +14,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SupervisorController extends Controller
 {
+
     public function index(SupervisorIndexRequest $request)
     {
         $validator = $request->validated();
@@ -23,8 +24,12 @@ class SupervisorController extends Controller
         return view('MainAdmin.pages.supervisors.index');
     }
 
-    public function create()
+    public function create(SupervisorIndexRequest $request)
     {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
         return view('MainAdmin.pages.supervisors.create');
     }
 
@@ -40,8 +45,13 @@ class SupervisorController extends Controller
         return redirect()->route('admin.supervisors');
     }
 
-    public function edit($id)
+    public function edit(SupervisorIndexRequest $request,$id)
     {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
         $row = Admin::findOrFail($id);
         if (!$row) {
             session()->flash('error', 'الحقل غير موجود');
