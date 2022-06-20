@@ -26,6 +26,29 @@ class setLanguage
             session()->put('lang','ar');
             app()->setLocale('ar');
         }
+
+
+
+
+
+        /*
+            if(isset($lang)){
+            
+            if(in_array($lang , ['ar' , 'en'])){
+                session()->put('lang',$lang);
+                app()->setLocale($lang);
+            }else{
+                session()->put('lang','ar');
+                 app()->setLocale('ar');
+            }
+
+        }else{
+            session()->put('lang','ar');
+            app()->setLocale('ar');
+        }
+        
+        
+        */
         //dd(Session::get('lang'));
         return $next($request);
     }

@@ -22,37 +22,37 @@
             <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
             <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
                 <li>
-                    <a href="index.html"><span class="title">Home</span></a>
+                    <a href="{{route('home')}}"><span class="title">Home</span></a>
                 </li>
 
                 <li>
-                    <a href="page-course-v3.html"><span class="title">Courses</span></a>
+                    <a href="{{route('courses')}}"><span class="title">Courses</span></a>
                     <!-- Level Two-->
                     <ul>
                         <li>
-                        <li><a href="page-course-single-v2.html">Course Detailes </a></li>
+                        <li><a href="{{route('course_details')}}">Course Detailes </a></li>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="page-instructors.html"><span class="title">Instructors</span></a>
+                    <a href="{{route('instructors')}}"><span class="title">Instructors</span></a>
                     <!-- Level Two-->
                     <ul>
                         <li>
-                        <li><a href="page-instructors-single.html">Instructor Detailes </a></li>
+                        <li><a href="{{route('instructor_details')}}">Instructor Detailes </a></li>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="page-about.html"><span class="title">About Us</span></a>
+                    <a href="{{route('about_us')}}"><span class="title">About Us</span></a>
                 </li>
 
                 <li>
-                    <a href="page-blog-v1.html"><span class="title">Blog</span></a>
+                    <a href="{{route('blogs')}}"><span class="title">Blog</span></a>
                     <ul>
-                        <li><a href="page-blog-single.html">Single Post</a></li>
+                        <li><a href="{{route('blog_details')}}">Single Post</a></li>
                     </ul>
                 </li>
 
@@ -60,7 +60,7 @@
 
 
                 <li class="last">
-                    <a href="page-contact.html"><span class="title">Contact</span></a>
+                    <a href="{{route('contact_us')}}"><span class="title">Contact</span></a>
                 </li>
             </ul>
 
@@ -77,8 +77,8 @@
 
                                     <li class="list_content">
 
-                                        <a href="#" class="btn btn-thm cart_btns"> Login Student</a>
-                                        <a href="#" class="btn btn-thm3 checkout_btns">Login Teacher</a>
+                                        <a href="{{route('student_login')}}" class="btn btn-thm cart_btns"> Login Student</a>
+                                        <a href="{{route('instructor_login')}}" class="btn btn-thm3 checkout_btns">Login Teacher</a>
                                     </li>
                                 </ul>
                             </li>
@@ -242,38 +242,38 @@
     </div><!-- /.mobile-menu -->
     <nav id="menu" class="stylehome1">
         <ul>
-            <li><a href="index.html">Home </a></li>
+            <li><a href="{{route('home')}}">Home </a></li>
 
-            <li><a href="page-course-v3.html"><span>Courses</span></a>
+            <li><a href="{{route('courses')}}"><span>Courses</span></a>
                 <ul>
                     <li>
-                    <li><a href="page-course-single-v2.html">Course Detailes </a></li>
+                    <li><a href="{{route('course_details')}}">Course Detailes </a></li>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="page-instructors.html"><span class="title">Instructors</span></a>
+                <a href="{{route('instructors')}}"><span class="title">Instructors</span></a>
                 <!-- Level Two-->
                 <ul>
                     <li>
-                    <li><a href="page-instructors-single.html">Instructor Detailes </a></li>
+                    <li><a href="{{route('instructor_details')}}">Instructor Detailes </a></li>
                     </li>
                 </ul>
             </li>
 
             <li>
-                <a href="page-about.html"><span class="title">About Us</span></a>
+                <a href="{{route('about_us')}}"><span class="title">About Us</span></a>
             </li>
 
             <li>
-                <a href="page-blog-v1.html"><span class="title">Blog</span></a>
+                <a href="blogs"><span class="title">Blog</span></a>
                 <ul>
-                    <li><a href="page-blog-single.html">Single Post</a></li>
+                    <li><a href="{{route('blog_details')}}">Single Post</a></li>
                 </ul>
             </li>
 
             <li class="last">
-                <a href="page-contact.html"><span class="title">Contact</span></a>
+                <a href="{{route('contact_us')}}"><span class="title">Contact</span></a>
             </li>
 
 

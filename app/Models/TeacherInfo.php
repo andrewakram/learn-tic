@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Course;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TeacherInfo extends Model
 {
@@ -13,4 +15,7 @@ class TeacherInfo extends Model
         'qualifications', 'university', 'learn_type', 'categoey_id',
         'years_of_exper','desctiption','inquiry_cost_normal','inquiry_cost_urgent'];
 
+        public function category(){
+            return $this->belongsTo(Category::class);
+        }
 }

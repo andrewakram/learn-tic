@@ -10,6 +10,11 @@ use \Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 
+function getLang()
+{
+    return session()->get('lang');
+}
+
 function admin()
 {
     return Auth::guard('admin')->user();
@@ -56,13 +61,13 @@ function msgdata($request,$status,$key,$data)
 
     return $msg;
 }
-function getLang()
-{
-    $lang = request()->header('lang');
-    if($lang)
-        return $lang;
-    return "ar";
-}
+// function getLang()
+// {
+//     $lang = request()->header('lang');
+//     if($lang)
+//         return $lang;
+//     return "ar";
+// }
 function image($path,$url)
 {
     return 'http://'.$_SERVER['SERVER_NAME'].$path.$url;

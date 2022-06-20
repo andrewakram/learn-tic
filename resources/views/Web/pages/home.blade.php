@@ -9,9 +9,9 @@
             <div class="row posr">
                 <div class="col-lg-12">
                     <div class="home-text text-center">
-                        <h2 class="fz50">Find the Best Courses</h2>
+                        <h2 class="fz50">Find the Best Instructors</h2>
                         <p class="color-white">Technology is brining a massive wave of evolution on learning things on different ways.</p>
-                        <a class="btn home_btn" href="#">Ready to get Started?</a>
+                        <a class="btn home_btn" href="{{route('instructors')}}">Ready to get instructor?</a>
                     </div>
                 </div>
             </div>
@@ -117,17 +117,28 @@
                 </div>
             </div>
             <div class="row">
+            <?php $num=1 ?>
+            
+            @foreach ($data['categories'] as $Category)
+            @if($num <= 8)
                 <div class="col-sm-6 col-lg-3">
                     <div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/1.jpg);">
                         <div class="overlay">
                             <div class="details">
-                                <h5>Design</h5>
-                                <p>Over 800 Courses</p>
+                         
+                               
+                            <!--  <h5>{{ $Category->{'title_'.App::getLocale()} }}</h5>-->
+                              <h5> {{ $Category->title }}</h5>
+                                <p>  Over {{$Category->course->count()}} Courses</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3">
+                <?php  $num++ ?>
+                @endif
+                @endforeach
+                
+               <!-- <div class="col-sm-6 col-lg-3">
                     <div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/2.jpg);">
                         <div class="overlay">
                             <div class="details">
@@ -147,6 +158,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-sm-6 col-lg-3">
                     <div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/4.jpg);">
                         <div class="overlay">
@@ -197,6 +209,7 @@
                         </div>
                     </div>
                 </div>
+-->
                 <div class="col-lg-6 offset-lg-3">
                     <div class="courses_all_btn text-center">
                         <a class="btn btn-transparent" href="#">View All Courses</a>
@@ -214,7 +227,7 @@
                     <div class="divider-one">
                         <p class="color-white">STARTING ONLINE LEARNING</p>
                         <h1 class="color-white text-uppercase">Enhance your skIlls wIth best OnlIne courses</h1>
-                        <a class="btn btn-transparent divider-btn" href="#">Get Started Now</a>
+                        <a class="btn btn-transparent divider-btn" href="{{route('courses')}}">Get Started Now</a>
                     </div>
                 </div>
             </div>
@@ -238,8 +251,10 @@
                         <div class="option-isotop">
                             <ul id="filter" class="option-set" data-option-key="filter">
                                 <li class="list-inline-item"><a href="#all" data-option-value="*" class="selected">Developer</a></li>
-                                <li class="list-inline-item"><a href="#business" data-option-value=".business">Business</a></li>
-                                <li class="list-inline-item"><a href="#design" data-option-value=".design">Design</a></li>
+                                
+                                <li class="list-inline-item"><a href="#business" data-option-value=".business">business </a></li>
+                              
+                                <li class="list-inline-item"><a href="#test" data-option-value=".test">test</a></li>
                                 <li class="list-inline-item"><a href="#web" data-option-value=".web">Web</a></li>
                                 <li class="list-inline-item"><a href="#marketing" data-option-value=".marketing">Marketing</a></li>
                             </ul>
@@ -247,7 +262,7 @@
                     </div><!-- FILTER BUTTONS -->
                     <div class="emply-text-sec">
                         <div class="row" id="masonry_abc">
-                            <div class="col-md-6 col-lg-4 col-xl-3 business design">
+                            <div class="col-md-6 col-lg-4 col-xl-3 business test">
                                 <div class="top_courses">
                                     <div class="thumb">
                                         <img class="img-whp" src="{{asset('project')}}/images/courses/t1.jpg" alt="t1.jpg">
@@ -317,7 +332,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4 col-xl-3 web design">
+                            <div class="col-md-6 col-lg-4 col-xl-3 web test">
                                 <div class="top_courses">
                                     <div class="thumb">
                                         <img class="img-whp" src="{{asset('project')}}/images/courses/t3.jpg" alt="t3.jpg">
@@ -563,43 +578,20 @@
                             </li>
                         </ul>
                         <ul class="tes-for">
+                        @foreach ($data['user_comments'] as $user_comment)
+
                             <li>
                                 <div class="testimonial_item">
                                     <div class="details">
-                                        <h5>Ali Tufan</h5>
-                                        <span class="small text-thm">Client</span>
-                                        <p>Customization is very easy with this theme. Clean and quality design and full support for any kind of request! Great theme!</p>
+                                        <h5>{{ $user_comment->title}}</h5>
+                                        <span class="small text-thm">{{ $user_comment->user_type }}</span>
+                                        <p>{{ $user_comment->body }}</p>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="testimonial_item">
-                                    <div class="details">
-                                        <h5>Ali Tufan</h5>
-                                        <span class="small text-thm">Client</span>
-                                        <p>Customization is very easy with this theme. Clean and quality design and full support for any kind of request! Great theme!</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="testimonial_item">
-                                    <div class="details">
-                                        <h5>Ali Tufan</h5>
-                                        <span class="small text-thm">Client</span>
-                                        <p>Customization is very easy with this theme. Clean and quality design and full support for any kind of request! Great theme!</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="testimonial_item">
-                                    <div class="details">
-                                        <h5>Ali Tufan</h5>
-                                        <span class="small text-thm">Client</span>
-                                        <p>Customization is very easy with this theme. Clean and quality design and full support for any kind of request! Great theme!</p>
-                                    </div>
-                                </div>
-                            </li>
+                         @endforeach
                         </ul>
+                
                     </div>
                 </div>
             </div>
@@ -620,6 +612,7 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-6">
                     <div class="blog_slider_home1">
+                    @foreach ($data['blogs_slider'] as $blog_slider)
                         <div class="item">
                             <div class="blog_post one">
                                 <div class="thumb">
@@ -634,48 +627,15 @@
                                             <li class="list-inline-item"><a href="#"><i class="flaticon-placeholder"></i> Vancouver, Canada</a></li>
                                         </ul>
                                     </div>
-                                    <h4>Elegant Light Box Paper Cut Dioramas New Design Conference</h4>
+                                    <h4>{{ $blog_slider->{'title_'.Session::get('lang')} }}</h4>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="blog_post one">
-                                <div class="thumb">
-                                    <div class="post_title">Events</div>
-                                    <img class="img-fluid w100" src="{{asset('project')}}/images/blog/1a.jpg" alt="1a.jpg">
-                                    <a class="post_date" href="#"><span>28 <br> March</span></a>
-                                </div>
-                                <div class="details">
-                                    <div class="post_meta">
-                                        <ul>
-                                            <li class="list-inline-item"><a href="#"><i class="flaticon-calendar"></i> 8:00 am - 5:00 pm</a></li>
-                                            <li class="list-inline-item"><a href="#"><i class="flaticon-placeholder"></i> Vancouver, Canada</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4>Elegant Light Box Paper Cut Dioramas New Design Conference</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="blog_post one">
-                                <div class="thumb">
-                                    <div class="post_title">Events</div>
-                                    <img class="img-fluid w100" src="{{asset('project')}}/images/blog/1b.jpg" alt="1b.jpg">
-                                    <a class="post_date" href="#"><span>28 <br> March</span></a>
-                                </div>
-                                <div class="details">
-                                    <div class="post_meta">
-                                        <ul>
-                                            <li class="list-inline-item"><a href="#"><i class="flaticon-calendar"></i> 8:00 am - 5:00 pm</a></li>
-                                            <li class="list-inline-item"><a href="#"><i class="flaticon-placeholder"></i> Vancouver, Canada</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4>Elegant Light Box Paper Cut Dioramas New Design Conference</h4>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                       
                     </div>
                 </div>
+                @foreach ($data['blogs'] as $blog)
                 <div class="col-md-6 col-lg-3 col-xl-3">
                     <div class="blog_post">
                         <div class="thumb">
@@ -684,27 +644,17 @@
                         </div>
                         <div class="details">
                             <h5>Marketing</h5>
-                            <h4>A Solution Built for Teachers</h4>
+                            <h4>{{ $blog->{'title_'.Session::get('lang')} }}</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 col-xl-3">
-                    <div class="blog_post">
-                        <div class="thumb">
-                            <img class="img-fluid w100" src="{{asset('project')}}/images/blog/3.jpg" alt="3.jpg">
-                            <a class="post_date" href="#">July 21, 2019</a>
-                        </div>
-                        <div class="details">
-                            <h5>Business</h5>
-                            <h4>An Overworked Newspaper Editor</h4>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+               
             </div>
             <div class="row mt50">
                 <div class="col-lg-12">
                     <div class="read_more_home text-center">
-                        <h4>Like what you see? <a href="#">See more posts<span class="flaticon-right-arrow pl10"></span></a></h4>
+                        <h4>Like what you see? <a href="{{route('blogs')}}">See more posts<span class="flaticon-right-arrow pl10"></span></a></h4>
                     </div>
                 </div>
             </div>
