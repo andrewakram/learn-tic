@@ -230,11 +230,11 @@
         var blog_id = $(this).data("id") ;
 		alert(blog_id);
 
-		var test = "{{ route('blogs') }}"   + '/' + blog_id ;
+		var test = "{{ route('blog_details' , ['" + blog_id +"']) }}" ;
 		alert(test)
         $.ajax({
            // url:   "{{ URL::to('blogs') }}/" + blog_id,
-		   url: "{{ route('blogs') }}"  + '/' + blog_id,
+		   url: "{{ route('blog_details' , ['" + blog_id +"']) }}"  ,
 			type: "GET",
             dataType : 'json',
 			data: {

@@ -78,7 +78,7 @@
 									<a href="#">
 										<div class="details">
 											<div class="tc_content">
-												<p> ALI AHMED </p>
+												<p>{{ $Course->teacher->teacherInfo->full_name}} </p>
 												<h5>{{ $Course->title}} </h5>
 												<p>{{ $Course->body}}</p>
 											</div>
@@ -110,6 +110,8 @@
 							</div>
 						</div>
 						@endforeach
+
+						{{$data['Courses'] -> links()}}
 						
 						
 					</div>

@@ -10,10 +10,10 @@ class CoursesController extends Controller
 {
     public function index()
     {
-        $data['Courses'] = Course::select('id','title_' . getLang() . '  as title',
+        $data['Courses'] = Course::select('id','teacher_id','title_' . getLang() . '  as title',
          'body_' . getLang() . '  as body',
         'price_before' , 'price_after'
-         )->paginate(6);
+         )->paginate(2);
 
 
          

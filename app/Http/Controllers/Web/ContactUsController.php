@@ -9,6 +9,9 @@ class ContactUsController extends Controller
 {
     public function index()
     {
-        return view('Web.pages.contact_us');
+        $data = Setting::get();
+         
+
+        return view('Web.pages.contact_us' , compact('data'));
     }
 }

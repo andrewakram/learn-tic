@@ -24,15 +24,23 @@
 	<section class="our-contact">
 		<div class="container">
 			<div class="row">
-			@foreach($data as $row)
+			
 				<div class="col-sm-6 col-lg-4">
 					<div class="contact_localtion text-center">
 						<div class="icon"><span class="flaticon-placeholder-1"></span></div>
 						<h4>Our Location</h4>
-						<p> {{$row->value}} </p>
+
+						<p>
+							@if(session()->get('lang') == 'ar')
+							{{$data->where('key' ,'address_ar')->first()->value}}
+							@else
+							 {{$data->where('key' ,'address_en')->first()->value}} 
+							 @endif
+						</p>
+							 
 					</div>
 				</div>
-			@endforeach
+			
 				<div class="col-sm-6 col-lg-4">
 					<div class="contact_localtion text-center">
 						<div class="icon"><span class="flaticon-phone-call"></span></div>
