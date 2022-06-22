@@ -45,4 +45,24 @@ class User extends Authenticatable
     public function teacherInfo(){
         return $this->hasOne(TeacherInfo::class,'teacher_id');
     }
+
+    public function getImageAttribute($image)
+    {
+        if (!empty($image)) {
+            return asset('uploads/User') . '/' . $image;
+        }
+        return asset('default.png');
+    }
+
+    public function setImageAttribute($image)
+    {
+        if (is_file($image)) {
+            $img_name = time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/uploads/User/'), $img_name);
+            $this->attributes['image'] = $img_name;
+        } else {
+            $this->attributes['image'] = $image;
+        }
+
+    }
 }

@@ -123,7 +123,7 @@ class BlogController extends Controller
 
     public function getData()
     {
-        $model = Blog::query()->where('id', '>', 1);
+        $model = Blog::query();
 
         return DataTables::eloquent($model)
             ->addIndexColumn()
