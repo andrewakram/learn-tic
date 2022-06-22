@@ -60,7 +60,7 @@
                     <div class="text-center mb-10">
                         <!--begin::Link-->
                     {{--                        <div class="text-gray-400 fw-bold fs-4">--}}
-                    {{--                            <a href="" class=" fw-bolder" style="color: #F48120">Proten Chef</a>--}}
+                    {{--                            <a href="" class=" fw-bolder" style="color: #5482d5">Proten Chef</a>--}}
                     {{--                        </div>--}}
                     {{--                        <br>--}}
                     <!--end::Link-->
@@ -103,7 +103,7 @@
                     <div class="text-center">
                         <!--begin::Submit button-->
                         <button type="submit" id="kt_sign_in_submit" class="btn btn-lg  w-100 mb-5"
-                                style="background-color: #F48120">
+                                style="background-color: #5482d5">
                             <span class="indicator-label">تسجيل</span>
                             <span class="indicator-progress">جاري التحميل . . .
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>

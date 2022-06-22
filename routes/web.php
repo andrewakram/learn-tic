@@ -16,6 +16,8 @@ use App\Http\Controllers\Web\StudentRegisterController;
 use App\Http\Controllers\Web\InstructorRegisterController;
 use App\Http\Controllers\web\InstructorsDetailsController;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,6 +96,30 @@ Route::group([
                 Route::post('/delete-multi', 'SupervisorController@deleteMulti')->name('.deleteMulti');
             });
 
+            Route::group(['prefix' => 'clients', 'as' => '.clients'], function () {
+                Route::get('/', 'ClientController@index');
+                Route::get('getData', 'ClientController@getData')->name('.datatable');
+                Route::get('/create', 'ClientController@create')->name('.create');
+                Route::post('/store', 'ClientController@store')->name('.store');
+                Route::get('/edit/{id}', 'ClientController@edit')->name('.edit');
+                Route::post('/update', 'ClientController@update')->name('.update');
+                Route::get('/show/{id}', 'ClientController@show')->name('.show');
+                Route::post('/delete', 'ClientController@delete')->name('.delete');
+                Route::post('/delete-multi', 'ClientController@deleteMulti')->name('.deleteMulti');
+            });
+
+            Route::group(['prefix' => 'teachers', 'as' => '.teachers'], function () {
+                Route::get('/', 'TeacherController@index');
+                Route::get('getData', 'TeacherController@getData')->name('.datatable');
+                Route::get('/create', 'TeacherController@create')->name('.create');
+                Route::post('/store', 'TeacherController@store')->name('.store');
+                Route::get('/edit/{id}', 'TeacherController@edit')->name('.edit');
+                Route::post('/update', 'TeacherController@update')->name('.update');
+                Route::get('/show/{id}', 'TeacherController@show')->name('.show');
+                Route::post('/delete', 'TeacherController@delete')->name('.delete');
+                Route::post('/delete-multi', 'TeacherController@deleteMulti')->name('.deleteMulti');
+            });
+
             Route::group(['prefix' => 'cities', 'as' => '.cities'], function () {
                 Route::get('/', 'CityController@index');
                 Route::get('getData', 'CityController@getData')->name('.datatable');
@@ -129,6 +155,31 @@ Route::group([
                 Route::post('/delete', 'BlogController@delete')->name('.delete');
                 Route::post('/delete-multi', 'BlogController@deleteMulti')->name('.deleteMulti');
             });
+
+            Route::group(['prefix' => 'courses', 'as' => '.courses'], function () {
+                Route::get('/', 'CourseController@index');
+                Route::get('getData', 'CourseController@getData')->name('.datatable');
+                Route::get('/create', 'CourseController@create')->name('.create');
+                Route::post('/store', 'CourseController@store')->name('.store');
+                Route::get('/edit/{id}', 'CourseController@edit')->name('.edit');
+                Route::post('/update', 'CourseController@update')->name('.update');
+                Route::get('/show/{id}', 'CourseController@show')->name('.show');
+                Route::post('/delete', 'CourseController@delete')->name('.delete');
+                Route::post('/delete-multi', 'CourseController@deleteMulti')->name('.deleteMulti');
+                Route::get('/course-sections/{course_id}', 'CourseController@courseSections')
+                    ->name('.courseSections');
+                Route::get('/course-sections/getData/{course_id}', 'CourseController@getCourseSectionsData')
+                    ->name('.courseSections.datatable');
+                Route::get('/course-lessons/{section_id}', 'CourseController@courseLessons')
+                    ->name('.courseLessons');
+                Route::get('/course-lessons/getData/{section_id}', 'CourseController@getCourseLessonsData')
+                    ->name('.courseLessons.datatable');
+            });
+
+            // Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {
+            //     Route::get('/edit', [SettingController::class, 'index']);
+            //     Route::post('/update', [SettingController::class, 'update'])->name('.update');
+            // });
 
         });
     });

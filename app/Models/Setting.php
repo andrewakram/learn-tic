@@ -11,4 +11,24 @@ class Setting extends Model
 
     protected $fillable = ['key','value'];
 
+    public static function setMany($data)
+    {
+        foreach ($data as $key => $value) {
+            Self::set($key, $value);
+        }
+    }
+
+    public static function set($key, $value)
+    {
+        if (is_array($value)) {
+            $value = json_encode($value);
+        }
+//        if ($key == 'logo_ar' || $key == 'logo_en' || $key == 'fav_icon') {
+//            $img_name = time() . uniqid() . '.' . $value->getClientOriginalExtension();
+//            $value->move(public_path('/uploads/Settings/'), $img_name);
+//            $value = $img_name;
+//        }
+        Self::updateOrCreate(['key' => $key], ['value' => $value]);
+    }
+
 }

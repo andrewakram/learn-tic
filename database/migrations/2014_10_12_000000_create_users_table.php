@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->enum('provider', ['google', 'facebook', 'other'])->default('other');
             $table->longText('social_id')->nullable();
             $table->bigInteger('points')->nullable();
-            $table->enum('gender', ['mail', 'femail'])->default('mail');
+            $table->enum('gender', ['male', 'femail'])->default('male');
             $table->string('nationality')->nullable();
             $table->bigInteger('rate')->default('0');
             $table->string('image')->nullable();
