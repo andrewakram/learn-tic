@@ -4,6 +4,8 @@ namespace App\Http\Controllers\MainAdmin;
 
 use App\Http\Requests\MainAdmin\Course\CourseIndexRequest;
 use App\Models\Course;
+use App\Models\CourseLesson;
+use App\Models\CourseSection;
 use Carbon\Carbon;
 use Illuminate\Routing\Controller;
 use Yajra\DataTables\Facades\DataTables;
@@ -82,7 +84,7 @@ class CourseController extends Controller
             ->addColumn('category', function ($row) {
                 if($row->category){
                     $title = $row->category->title_ar;
-                    return '<a href="" target="_blank" class="" title="'.$title.'">
+                    return '<a href="'.route('admin.categories.edit',[$row->category_id]).'" target="_blank" class="" title="'.$title.'">
                             '.$title.'
                         </a>';
                 }else{
@@ -95,13 +97,10 @@ class CourseController extends Controller
             })
             ->addColumn('actions', function ($row) {
                 $buttons = '';
-                $buttons .= '<a href="' . route('admin.blogs.edit', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
-                            <i class="fa fa-edit"></i>
+                $buttons .= '<a href="' . route('admin.courses.courseSections', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                            <i class="fa fa-eye"></i>
                         </a>';
-                $buttons .= '<a class="btn btn-danger btn-sm delete btn-circle m-1" data-id="' . $row->id . '"  title="حذف">
-                            <i class="fa fa-trash"></i>
-                        </a>';
-//                }
+
                 return $buttons;
             })
             ->rawColumns(['actions','select','image',
@@ -109,7 +108,82 @@ class CourseController extends Controller
                 'course_time','rate',
                 'teacher','category','created_at'])
             ->make();
+    }
 
+    public function courseSections(CourseIndexRequest $request,$course_id)
+    {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $course = Course::findOrFail($course_id);
+        return view('MainAdmin.pages.courses.course-sections',compact('course'));
+    }
+
+    public function getCourseSectionsData($course_id)
+    {
+        $model = CourseSection::query()->where('course_id',$course_id);
+
+        return DataTables::eloquent($model)
+            ->addIndexColumn()
+            ->addColumn('select',function ($row){
+                return '<div class="form-check form-check-sm form-check-custom form-check-solid me-3 ">
+                    <input class="form-check-input checkboxes" type="checkbox"  value="'.$row->id.'" />
+                </div>';
+            })
+            ->addColumn('actions', function ($row) {
+                $buttons = '';
+                $buttons .= '<a href="' . route('admin.courses.courseLessons', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                            <i class="fa fa-eye"></i>
+                        </a>';
+
+                return $buttons;
+            })
+            ->rawColumns(['actions','select'])
+            ->make();
+    }
+
+    public function courseLessons(CourseIndexRequest $request,$section_id)
+    {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $section = CourseSection::findOrFail($section_id);
+        $course = Course::findOrFail($section->course_id);
+        return view('MainAdmin.pages.courses.course-lessons',compact('course','section'));
+    }
+
+    public function getCourseLessonsData($section_id)
+    {
+        $model = CourseLesson::query()->where('section_id',$section_id);
+
+        return DataTables::eloquent($model)
+            ->addIndexColumn()
+            ->addColumn('select',function ($row){
+                return '<div class="form-check form-check-sm form-check-custom form-check-solid me-3 ">
+                    <input class="form-check-input checkboxes" type="checkbox"  value="'.$row->id.'" />
+                </div>';
+            })
+            ->addColumn('section', function ($row) {
+                if($row->courseSection){
+                    return '<b class="badge badge-info">'.$row->courseSection->title_ar.'</b>';
+                }else{
+                    return '<b class="badge badge-info">'.'-'.'</b>';
+                }
+            })
+            ->addColumn('actions', function ($row) {
+                $buttons = '';
+                $buttons .= '<a href="' . route('admin.courses.courseLessons', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                            <i class="fa fa-eye"></i>
+                        </a>';
+
+                return $buttons;
+            })
+            ->rawColumns(['actions','section','select'])
+            ->make();
     }
 
 

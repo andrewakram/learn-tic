@@ -132,6 +132,14 @@ Route::group([
                 Route::get('/show/{id}', 'CourseController@show')->name('.show');
                 Route::post('/delete', 'CourseController@delete')->name('.delete');
                 Route::post('/delete-multi', 'CourseController@deleteMulti')->name('.deleteMulti');
+                Route::get('/course-sections/{course_id}', 'CourseController@courseSections')
+                    ->name('.courseSections');
+                Route::get('/course-sections/getData/{course_id}', 'CourseController@getCourseSectionsData')
+                    ->name('.courseSections.datatable');
+                Route::get('/course-lessons/{section_id}', 'CourseController@courseLessons')
+                    ->name('.courseLessons');
+                Route::get('/course-lessons/getData/{section_id}', 'CourseController@getCourseLessonsData')
+                    ->name('.courseLessons.datatable');
             });
 
             Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {

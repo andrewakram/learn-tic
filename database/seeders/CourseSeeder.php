@@ -27,7 +27,7 @@ class CourseSeeder extends Seeder
         $data = [
             [
                 'teacher_id' => $teacher[0]->id,
-                'categoey_id' => $category[0]->id,
+                'category_id' => $category[0]->id,
                 'title_ar' => '1كورس لغة عربية',
                 'title_en' => '1Arabic Lang Course',
                 'body_ar' => '1كورس لغة عربية',
@@ -39,7 +39,7 @@ class CourseSeeder extends Seeder
             ],
             [
                 'teacher_id' => $teacher[0]->id,
-                'categoey_id' => $category[0]->id,
+                'category_id' => $category[0]->id,
                 'title_ar' => '2كورس لغة عربية',
                 'title_en' => '2Arabic Lang Course',
                 'body_ar' => '2كورس لغة عربية',
@@ -51,7 +51,7 @@ class CourseSeeder extends Seeder
             ],
             [
                 'teacher_id' => $teacher[1]->id,
-                'categoey_id' => $category[1]->id,
+                'category_id' => $category[1]->id,
                 'title_ar' => '1كورس لغة انجليزية',
                 'title_en' => '1English Lang Course',
                 'body_ar' => '1كورس لغة انجليزية',
@@ -63,7 +63,7 @@ class CourseSeeder extends Seeder
             ],
             [
                 'teacher_id' => $teacher[1]->id,
-                'categoey_id' => $category[1]->id,
+                'category_id' => $category[1]->id,
                 'title_ar' => '2كورس لغة انجليزية',
                 'title_en' => '2English Lang Course',
                 'body_ar' => '2كورس لغة انجليزية',
@@ -75,7 +75,7 @@ class CourseSeeder extends Seeder
             ],
             [
                 'teacher_id' => $teacher[2]->id,
-                'categoey_id' => $category[2]->id,
+                'category_id' => $category[2]->id,
                 'title_ar' => '1كورس لغة فرنسية',
                 'title_en' => '1France Lang Course',
                 'body_ar' => '1كورس لغة فرنسية',
@@ -87,7 +87,7 @@ class CourseSeeder extends Seeder
             ],
             [
                 'teacher_id' => $teacher[2]->id,
-                'categoey_id' => $category[2]->id,
+                'category_id' => $category[2]->id,
                 'title_ar' => '2كورس لغة فرنسية',
                 'title_en' => '2France Lang Course',
                 'body_ar' => '2كورس لغة فرنسية',
@@ -102,7 +102,7 @@ class CourseSeeder extends Seeder
         foreach ($data as $get) {
             $course = Course::updateOrCreate($get);
             CourseCity::create([
-                'categoey_id'=> $get['categoey_id'],
+                'category_id'=> $get['category_id'],
                 'teacher_id'=> $get['teacher_id'],
                 'city_id'=> $city->id,
                 'course_id' => $course->id
@@ -112,29 +112,31 @@ class CourseSeeder extends Seeder
                 'teacher_id'=> $get['teacher_id'],
                 'course_id'=> $course->id,
                 'title_ar'=> "القسم الاول " . $get['title_ar'],
-                'title_en' => "first Section "  . $get['title_ar']
+                'title_en' => "first Section "  . $get['title_en']
             ]);
             $course_section2 = CourseSection::create([
                 'teacher_id'=> $get['teacher_id'],
                 'course_id'=> $course->id,
                 'title_ar'=> "القسم الثاني " . $get['title_ar'],
-                'title_en' => "second Section "  . $get['title_ar']
+                'title_en' => "second Section "  . $get['title_en']
             ]);
             ///////////////////////////
             //////////////course lessons
             CourseLesson::create([
                 'teacher_id'=> $get['teacher_id'],
                 'course_id'=> $course->id,
+                'section_id'=> $course_section1->id,
                 'title_ar'=> "الدرس الاول " . $get['title_ar'],
-                'title_en'=> "first lesson "  . $get['title_ar'],
+                'title_en'=> "first lesson "  . $get['title_en'],
                 'link'=> "google.com",
                 'file' => null
             ]);
             CourseLesson::create([
                 'teacher_id'=> $get['teacher_id'],
                 'course_id'=> $course->id,
+                'section_id'=> $course_section2->id,
                 'title_ar'=> "الدرس الثاني " . $get['title_ar'],
-                'title_en'=> "second lesson "  . $get['title_ar'],
+                'title_en'=> "second lesson "  . $get['title_en'],
                 'link'=> "google.com",
                 'file' => null
             ]);

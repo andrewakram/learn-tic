@@ -10,6 +10,10 @@ class CourseLesson extends Model
     use HasFactory;
 
     protected $fillable = [
-        'teacher_id','course_id','title_ar','title_en','link','file'
+        'teacher_id','course_id','section_id','title_ar','title_en','link','file'
     ];
+
+    public function courseSection(){
+        return $this->belongsTo(CourseSection::class,'section_id');
+    }
 }

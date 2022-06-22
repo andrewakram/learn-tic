@@ -10,7 +10,7 @@ class Course extends Model
     use HasFactory;
 
     protected $fillable = [
-        'categoey_id','teacher_id','title_ar','title_en','body_ar','body_en',
+        'category_id','teacher_id','title_ar','title_en','body_ar','body_en',
         'price_before','price_after','points','rate','course_time',
     ];
 
@@ -19,7 +19,15 @@ class Course extends Model
     }
 
     public function category(){
-        return $this->belongsTo(Category::class,'categoey_id');
+        return $this->belongsTo(Category::class,'category_id');
+    }
+
+    public function courseSections(){
+        return $this->hasMany(CourseSection::class,'course_id');
+    }
+
+    public function courseCities(){
+        return $this->hasMany(CourseCity::class,'course_id');
     }
 
     public function getImageAttribute($image)

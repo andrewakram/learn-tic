@@ -17,6 +17,7 @@ class CreateCourseLessonsTable extends Migration
             $table->id();
             $table->foreignId('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreignId('section_id')->references('id')->on('course_sections')->onDelete('cascade');
             $table->text('title_ar')->nullable();
             $table->text('title_en')->nullable();
             $table->string('link')->nullable();

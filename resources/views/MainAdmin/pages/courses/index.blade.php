@@ -34,16 +34,16 @@
                 <div class="d-flex align-items-center py-1">
                     <!--begin::Wrapper-->
                     <!--begin::Button-->
-                    <a href="{{route('admin.courses.create')}}" class="btn btn-sm btn-success"
+{{--                    <a href="{{route('admin.courses.create')}}" class="btn btn-sm btn-success"--}}
 {{--                       data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id=""--}}
-                    ><i class="fa fa-plus"></i>
-                        أضف
-                    </a>
-                    <a  class="btn btn-sm btn-danger m-1"
-                           data-bs-toggle="modal" data-bs-target="#dynamic" id="bulk_delete_btn">
-                        <i class="fa fa-trash"></i>
-                        حذف متعدد
-                    </a>
+{{--                    ><i class="fa fa-plus"></i>--}}
+{{--                        أضف--}}
+{{--                    </a>--}}
+{{--                    <a  class="btn btn-sm btn-danger m-1"--}}
+{{--                           data-bs-toggle="modal" data-bs-target="#dynamic" id="bulk_delete_btn">--}}
+{{--                        <i class="fa fa-trash"></i>--}}
+{{--                        حذف متعدد--}}
+{{--                    </a>--}}
 
                     <!--end::Button-->
                 </div>

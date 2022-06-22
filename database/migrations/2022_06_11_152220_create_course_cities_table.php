@@ -15,7 +15,7 @@ class CreateCourseCitiesTable extends Migration
     {
         Schema::create('course_cities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('categoey_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreignId('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');

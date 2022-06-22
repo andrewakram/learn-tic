@@ -10,6 +10,10 @@ class CourseCity extends Model
     use HasFactory;
 
     protected $fillable = [
-        'categoey_id','teacher_id','city_id','course_id'
+        'category_id','teacher_id','city_id','course_id'
     ];
+
+    public function city(){
+        return $this->belongsTo(City::class,'city_id');
+    }
 }
