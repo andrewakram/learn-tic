@@ -78,7 +78,7 @@
 									<a href="#">
 										<div class="details">
 											<div class="tc_content">
-												<p> Ali TUFAN</p>
+												<p> ALI AHMED </p>
 												<h5>{{ $Course->title}} </h5>
 												<p>{{ $Course->body}}</p>
 											</div>

@@ -2,23 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Blog;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Admin extends Model
+class Admin extends Authenticatable
 {
     use HasFactory;
 
     protected $fillable = ['name', 'email', 'phone', 'password', 'active', 'suspend', 'image', 'type'];
 
-    public function setPasswordAttribute($password)
-    {
-        if (!empty($password)) {
-            $this->attributes['password'] = bcrypt($password);
-        } else {
-            $this->attributes['password'] = bcrypt('123456');
-        }
+
+    public function blog(){
+        return $this->hasMany(Blog::class);
     }
+
+//    public function setPasswordAttribute($password)
+//    {
+//        if (!empty($password)) {
+//            $this->attributes['password'] = bcrypt($password);
+//        } else {
+//            $this->attributes['password'] = bcrypt('123456');
+//        }
+//    }
 
     public function getImageAttribute($image)
     {

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\TeacherInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,6 +25,11 @@ class Course extends Model
     public function user()
     {
         return $this->belongsTo(User::class );
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(TeacherInfo::class , 'teacher_id' );
     }
 
 

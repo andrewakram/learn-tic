@@ -51,9 +51,7 @@
 
                 <li>
                     <a href="{{route('blogs')}}"><span class="title">Blog</span></a>
-                    <ul>
-                        <li><a href="{{route('blog_details')}}">Single Post</a></li>
-                    </ul>
+                    
                 </li>
 
 
@@ -267,9 +265,7 @@
 
             <li>
                 <a href="blogs"><span class="title">Blog</span></a>
-                <ul>
-                    <li><a href="{{route('blog_details')}}">Single Post</a></li>
-                </ul>
+                
             </li>
 
             <li class="last">

@@ -296,43 +296,19 @@
 							</li>
 						</ul>
 						<ul class="tes-for">
-							<li>
-								<div class="testimonial_item">
-									<div class="details">
-										<h5>Ali Tufan</h5>
-										<span class="small text-thm">Client</span>
-										<p>Customization is very easy with this theme. Clean and quality design and full support for any kind of request! Great theme!</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="testimonial_item">
-									<div class="details">
-										<h5>Ali Tufan</h5>
-										<span class="small text-thm">Client</span>
-										<p>Customization is very easy with this theme. Clean and quality design and full support for any kind of request! Great theme!</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="testimonial_item">
-									<div class="details">
-										<h5>Ali Tufan</h5>
-										<span class="small text-thm">Client</span>
-										<p>Customization is very easy with this theme. Clean and quality design and full support for any kind of request! Great theme!</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="testimonial_item">
-									<div class="details">
-										<h5>Ali Tufan</h5>
-										<span class="small text-thm">Client</span>
-										<p>Customization is very easy with this theme. Clean and quality design and full support for any kind of request! Great theme!</p>
-									</div>
-								</div>
-							</li>
-						</ul>
+                        @foreach ($data['user_comments'] as $user_comment)
+
+                            <li>
+                                <div class="testimonial_item">
+                                    <div class="details">
+                                        <h5>{{ $user_comment->title}}</h5>
+                                        <span class="small text-thm">{{ $user_comment->user_type }}</span>
+                                        <p>{{ $user_comment->body }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                         @endforeach
+                        </ul>
 					</div>
 				</div>
 			</div>

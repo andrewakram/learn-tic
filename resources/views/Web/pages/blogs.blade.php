@@ -95,59 +95,37 @@
 			<div class="row">
 				<div class="col-lg-8 col-xl-9">
 					<div class="main_blog_post_content">
-						<a href="page-blog-single.html">
-							<div class="mbp_thumb_post">
+					@foreach ($blogs as $blog)
+
+						<a href="" >
+							<div class="mbp_thumb_post mt35  my_blog" id="my_blog_{{$blog -> id }}"  data-id="{{$blog -> id }}"  >
 								<div class="thumb">
 									<img class="img-fluid" src="{{asset('project')}}/images/blog/12.jpg" alt="12.jpg">
 									<div class="tag">Marketing</div>
 									<div class="post_date"><h2>28</h2> <span>DECEMBER</span></div>
 								</div>
 								<div class="details">
-									<h3>Learning, Friendship and Fun</h3>
+									<h3>{{ $blog->title}}</h3>
 									<ul class="post_meta">
 										<li><a href="#"><span class="flaticon-profile"></span></a></li>
-										<li><a href="#"><span>Ali Tufan</span></a></li>
+										<li><a href="#"><span>ahmed ali</span></a></li>
 										<li><a href="#"><span class="flaticon-comment"></span></a></li>
 										<li><a href="#"><span>7 comments</span></a></li>
 									</ul>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+								 <!--test-->
+									<?php $string = $blog->description ;
+										if (strlen($string) > 300) {
+										$description = substr($string, 0, 300). ' ...';
+										} else {
+										$description = $string;
+										}
+										 echo $description; 
+									?>
+
 								</div>
 							</div>
 						</a>
-						<div class="mbp_thumb_post mt35">
-							<div class="thumb">
-								<img class="img-fluid" src="{{asset('project')}}/images/blog/13.jpg" alt="13.jpg">
-								<div class="tag">Marketing</div>
-								<div class="post_date"><h2>28</h2> <span>DECEMBER</span></div>
-							</div>
-							<div class="details">
-								<h3>An Indigenous Anatolian Syllabic Script From 3500 Years Ago</h3>
-								<ul class="post_meta">
-									<li><a href="#"><span class="flaticon-profile"></span></a></li>
-									<li><a href="#"><span>Ali Tufan</span></a></li>
-									<li><a href="#"><span class="flaticon-comment"></span></a></li>
-									<li><a href="#"><span>7 comments</span></a></li>
-								</ul>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-							</div>
-						</div>
-						<div class="mbp_thumb_post mt35">
-							<div class="thumb">
-								<img class="img-fluid" src="{{asset('project')}}/images/blog/14.jpg" alt="14.jpg">
-								<div class="tag">Marketing</div>
-								<div class="post_date"><h2>28</h2> <span>DECEMBER</span></div>
-							</div>
-							<div class="details">
-								<h3>World Heath Day in LA 2019</h3>
-								<ul class="post_meta">
-									<li><a href="#"><span class="flaticon-profile"></span></a></li>
-									<li><a href="#"><span>Ali Tufan</span></a></li>
-									<li><a href="#"><span class="flaticon-comment"></span></a></li>
-									<li><a href="#"><span>7 comments</span></a></li>
-								</ul>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-							</div>
-						</div>
+					@endforeach
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="mbp_pagination mt20">
@@ -240,5 +218,33 @@
 @endsection
 
 @section('script')
+<script type="text/javascript">
+	
 
+  $(function () {
+	
+	
+
+
+    $('.my_blog').on('click', function () {
+        var blog_id = $(this).data("id") ;
+		alert(blog_id);
+
+		var test = "{{ route('blogs') }}"   + '/' + blog_id ;
+		alert(test)
+        $.ajax({
+           // url:   "{{ URL::to('blogs') }}/" + blog_id,
+		   url: "{{ route('blogs') }}"  + '/' + blog_id,
+			type: "GET",
+            dataType : 'json',
+			data: {
+                
+                id: blog_id
+            },
+			success: function() { alert('Success'); },
+        error: function() { alert('Error'); }
+        });
+    });
+});
+</script>
 @endsection

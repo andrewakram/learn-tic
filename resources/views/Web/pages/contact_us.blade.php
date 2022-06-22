@@ -24,13 +24,15 @@
 	<section class="our-contact">
 		<div class="container">
 			<div class="row">
+			@foreach($data as $row)
 				<div class="col-sm-6 col-lg-4">
 					<div class="contact_localtion text-center">
 						<div class="icon"><span class="flaticon-placeholder-1"></span></div>
 						<h4>Our Location</h4>
-						<p>Collin Street West, Victor 8007, Australia.</p>
+						<p> {{$row->value}} </p>
 					</div>
 				</div>
+			@endforeach
 				<div class="col-sm-6 col-lg-4">
 					<div class="contact_localtion text-center">
 						<div class="icon"><span class="flaticon-phone-call"></span></div>
