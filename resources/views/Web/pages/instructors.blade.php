@@ -237,7 +237,7 @@
 					</div>
 					<div class="row">
 					@foreach ($instractors as $instructor)
-						<div class="col-sm-6 col-lg-6 col-xl-4">
+						<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="{{$instructor->teacher_id}}">
 							<div class="team_member style3 text-center mb30">
 								<div class="instructor_col">
 									<div class="thumb">
@@ -245,7 +245,17 @@
 									</div>
 									<div class="details">
 										<h4>{{$instructor->full_name}}</h4>
-										<p>Web Design, Photoshop </p>
+										
+
+										<p>
+										@if(session()->get('lang') == 'ar')
+											{{$instructor -> category -> title_ar}} 
+										@else
+											{{$instructor -> category -> title_en}} 
+										@endif
+										
+										</p>
+
 										<ul>
 											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
 											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -468,4 +478,11 @@
 
 @section('script')
 
+<script type="text/javascript">
+
+        $('.my_teacher').on('click', function () {
+            var instructor_id = $(this).data("id") ;
+            window.location.href = '/instructor-details/' + instructor_id ,true;
+        });
+    </script>
 @endsection

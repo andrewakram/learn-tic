@@ -97,7 +97,7 @@
 					<div class="main_blog_post_content">
 					@foreach ($blogs as $blog)
 
-                        <div class="mbp_thumb_post mt35  my_blog" id="my_blog_{{$blog -> id }}"  data-id="{{$blog -> id }}"  >
+                        <div class="mbp_thumb_post mt35  my_blog"   data-id="{{$blog -> id }}"  >
 								<div class="thumb">
 									<img class="img-fluid" src="{{$blog->image}} " alt="12.jpg">
 									<div class="tag">Marketing</div>

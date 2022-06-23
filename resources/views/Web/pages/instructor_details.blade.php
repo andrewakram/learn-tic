@@ -9,7 +9,7 @@
 			<div class="row">
 				<div class="col-xl-6 offset-xl-3 text-center">
 					<div class="breadcrumb_content">
-						<h4 class="breadcrumb_title">ALI TUFAN   </h4>
+						<h4 class="breadcrumb_title"> {{$teacher_details -> teacherInfo -> full_name}}   </h4>
 						<ol class="breadcrumb">
 						    <li class="breadcrumb-item"><a href="#">Home</a></li>
 						    <li class="breadcrumb-item active" aria-current="page">Instructor</li>
@@ -35,12 +35,12 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="course-tab" data-toggle="tab" href="#course" role="tab" aria-controls="course" aria-selected="false">Appointment</a>
                                     </li>
-                                    
-                                  
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
                                         <div class="row">
+
+                                       @foreach($teacher_details -> teacherInfo -> category -> courses  as $course ) 
                                             <div class="col-lg-6 col-xl-4">
                                                 <div class="top_courses">
                                                     <div class="thumb">
@@ -53,8 +53,14 @@
                                                     </div>
                                                     <div class="details">
                                                         <div class="tc_content">
-                                                            <p>Ali TUFAN</p>
-                                                            <h5>Introduction Web Design with HTML</h5>
+                                                            <p>{{$teacher_details -> teacherInfo -> full_name}}</p>
+                                                            <h5>
+                                                            @if(session()->get('lang') == 'ar')
+                                                                 {{$course -> title_ar }}
+                                                            @else
+                                                                 {{$course -> title_en }}
+                                                            @endif
+                                                                </h5>
                                                             <ul class="tc_review">
                                                                 <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
                                                                 <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -71,11 +77,18 @@
                                                                 <li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>
                                                                 <li class="list-inline-item"><a href="#">25</a></li>
                                                             </ul>
-                                                            <div class="tc_price float-right">$69.95</div>
+                                                            
+                                                            <div class="tc_price float-right">
+                                                                @if(!empty($course->price_after))
+                                                                    <del class="original_price">${{ $course->price_after}}</del> 
+                                                                @endif 
+                                                                ${{$course->price_before}}
+                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        @endforeach
                                             <div class="col-lg-6 col-xl-4">
                                                 <div class="top_courses">
                                                     <div class="thumb">
@@ -450,11 +463,11 @@
 				</div>
 				<div class="col-lg-4 col-xl-3 teacher_info"  >
                     <div class="teacher_avatar">
-                        <img  src="{{asset('project')}}/images/team/teacher1.jpg" alt="teacher.png">
-                        <h3> Jon Andarson </h3>
-                        <span> Web Devekoper</span>
-                        <span> andarson@aducat.com</span>
-                        <span> +(222) 3456 278 </span>
+                        <img  src="{{$teacher_details -> image }}" alt="teacher.png">
+                        <h3> {{$teacher_details -> teacherInfo -> full_name}} </h3>
+                        <span>{{$teacher_details ->teacherInfo -> category -> title_ar}}</span>
+                        <span> {{$teacher_details -> email}}</span>
+                        <span> {{$teacher_details -> phone }}</span>
                     </div>
                     <div class="teacher_social">
                         <a href="" class="fa fa-facebook-f"></a>
@@ -486,10 +499,8 @@
 
                     <div class="teacher_about">
                         <h3> About Me</h3>
-                        <p>Lorem ipsum dolor sit amet conse ctetur adipi sicing elit. Aut animi sed labo rum. Nam
-                            esse
-                            ipsum ab mole stias rem corr upti moles tiae expe dita hic aspe riores eius, vitae unde
-                            neces sitat ibus, mai ore bland itiis magni.
+                        <p>
+                            {{$teacher_details -> teacherInfo -> desctiption}}
                         </p>
                      </div>
                      <div class=" ui_kit_button search_btn mb0">

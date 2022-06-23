@@ -46,7 +46,7 @@ Route::get('about-us', [AboutUsController::class,'index'])->name('about_us');
 Route::get('courses', [CoursesController::class,'index'])->name('courses');
 Route::get('course-details', [CoursesController::class,'courseDetails'])->name('course_details');
 Route::get('instructors', [InstructorsController::class,'index'])->name('instructors');
-Route::get('instructor-details', [InstructorsDetailsController::class,'index'])->name('instructor_details');
+Route::get('instructor-details/{instructor_id}', [InstructorsController::class,'instructorDetails'])->name('instructor_details');
 Route::get('blogs', [BlogsController::class,'index'])->name('blogs');
 Route::get('blog-details/{blog_id}', [BlogsController::class,'blogDetails'])->name('blog_details');
 Route::get('contact-us', [ContactUsController::class,'index'])->name('contact_us');

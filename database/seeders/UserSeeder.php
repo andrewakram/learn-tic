@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
                 'learn_type' => "remote",
                 'categoey_id' => 1,
                 'years_of_exper' => 5,
-                'desctiption' => "test test test".$i,
+                'desctiption' => "Lorem ipsum dolor sit amet conse ctetur adipi sicing elit. Aut animi sed labo rum. Nam esse ipsum ab mole stias rem corr upti moles tiae expe dita hic aspe riores eius, vitae unde neces sitat ibus, mai ore bland itiis magni.                ".$i,
                 'inquiry_cost_normal' => 100,
                 'inquiry_cost_urgent' => 200
             ]);

@@ -25,4 +25,6 @@ class TeacherInfo extends Model
         return $this->belongsTo(Category::class,'categoey_id');
     }
 
+    
+
 }

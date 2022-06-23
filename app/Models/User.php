@@ -33,10 +33,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    public function course()
-    {
-       return $this->hasMany(Course::class ,'teacher_id' , 'id');
-    }
+   
 
 
     /**
