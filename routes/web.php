@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\web\SettingController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\web\BlogsController;
 use App\Http\Controllers\web\AboutUsController;
@@ -10,6 +9,7 @@ use App\Http\Controllers\web\ContactUsController;
 use App\Http\Controllers\web\InstructorsController;
 use App\Http\Controllers\web\BlogsDetailsController;
 use App\Http\Controllers\Web\StudentLoginController;
+use App\Http\Controllers\MainAdmin\SettingController;
 use App\Http\Controllers\web\CourseDetailsController;
 use App\Http\Controllers\Web\InstructorLoginController;
 use App\Http\Controllers\Web\StudentRegisterController;
@@ -176,10 +176,10 @@ Route::group([
                     ->name('.courseLessons.datatable');
             });
 
-            // Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {
-            //     Route::get('/edit', [SettingController::class, 'index']);
-            //     Route::post('/update', [SettingController::class, 'update'])->name('.update');
-            // });
+             Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {
+               Route::get('/edit', [SettingController::class, 'index']);
+               Route::post('/update', [SettingController::class, 'update'])->name('.update');
+             });
 
         });
     });

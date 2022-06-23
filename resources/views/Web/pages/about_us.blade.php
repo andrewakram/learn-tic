@@ -28,26 +28,28 @@
 					<div class="about_content">
 						<h3>
 							@if(session()->get('lang') == 'ar')
-								{{ $data['title_arabic'] }}
+								{{$data['about_title_arabic'] }}
 							@else
-							 	{{$data['title_english']}} 
+								{{$data['about_title_english'] }} 
 							@endif
+							
 						</h3>
 						
-						<p class="color-black22 mt20">
-							@if(session()->get('lang') == 'ar')
-								{!! $data['body_arabic'] !!}
+						<p>
+						@if(session()->get('lang') == 'ar')
+								{!! $data['about_body_arabic']  !!}
 							@else
-							 	{!! $data['body_english'] !!}
-							@endif
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis,et quasi architecto beatae vitae dicta sunt explicabo.</p>
-						<p class="mt15">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis,et quasi architecto beatae vitae dicta sunt explicabo.</p>
-						<p class="mt20">Nemo enim ipsam,voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia,consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.,Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, adipisci velit, sed quia non numquam eius modi tempora</p>
+								{!! $data['about_body_english'] !!} 
+						 @endif
+						
+							
+						</p>
+							
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="about_thumb">
-						<img class="img-fluid" src="{{asset('project')}}/images/about/8.jpg" alt="8.jpg">
+						<img class="img-fluid" src="{{$data['about_image']}}" alt="about us.jpg">
 					</div>
 				</div>
 			</div>
@@ -95,16 +97,39 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="about_whoweare">
-						<h4>Who We Are</h4>
-						<p class="mt25">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis,et quasi architecto beatae vitae dicta sunt explicabo.</p>
-						<p class="mt25">Nemo enim ipsam,voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia,consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.,Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, adipisci velit, sed quia non numquam eius modi tempora</p>
+						<h4>
+							@if(session()->get('lang') == 'ar')
+								{{$data['vision_title_arabic'] }}
+							@else
+								{{$data['vision_title_english'] }} 
+							@endif
+						</h4>
+						<p>
+							@if(session()->get('lang') == 'ar')
+								{!! $data['vision_body_arabic'] !!}
+							@else
+								{!! $data['vision_body_english'] !!} 
+							@endif
+						</p>
+
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="about_whoweare">
-						<h4>What We Do</h4>
-						<p class="mt25">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis,et quasi architecto beatae vitae dicta sunt explicabo.</p>
-						<p class="mt25">Nemo enim ipsam,voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia,consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.,Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, adipisci velit, sed quia non numquam eius modi tempora</p>
+					<h4>
+							@if(session()->get('lang') == 'ar')
+								{{$data['Message_title_arabic'] }}
+							@else
+								{{$data['Message_title_english'] }} 
+							@endif
+						</h4>
+						<p>
+							@if(session()->get('lang') == 'ar')
+								{!! $data['Message_body_arabic'] !!}
+							@else
+								{!! $data['Message_body_english'] !!} 
+							@endif
+						</p>
 					</div>
 				</div>
 			</div>
@@ -139,15 +164,27 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="team_slider">
+
+
+					@foreach($data['popular_teachers'] as $popular_teacher)
+	
 						<div class="item">
 							<div class="team_member text-center">
 								<div class="instructor_col">
 									<div class="thumb">
-										<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">
+										<img class="img-fluid img-rounded-circle" src="{{$popular_teacher -> teacher->image}}" alt="6.png">
 									</div>
 									<div class="details">
-										<h4>Andrew Williams</h4>
-										<p>Web Design, Photoshop</p>
+										<h4> {{$popular_teacher -> full_name}}</h4>
+
+										<p>
+											@if(session()->get('lang') == 'ar')
+											{{$popular_teacher -> category->title_ar}} 
+											@else
+											{{$popular_teacher -> category->title_en}} 
+											@endif
+											
+										</p>
 										<ul>
 											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
 											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -166,6 +203,7 @@
 								</div>
 							</div>
 						</div>
+					@endforeach
 						<div class="item">
 							<div class="team_member text-center">
 								<div class="instructor_col">
