@@ -5,6 +5,8 @@
 <meta name="keywords" content="academy, college, coursera, courses, education, elearning, kindergarten, lms, lynda, online course, online education, school, training, udemy, university">
 <meta name="description" content="Edumy - LMS Online Education Course & School HTML Template">
 <meta name="CreativeLayers" content="ATFN">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <!-- css file -->
 <link rel="stylesheet" href="{{asset('project')}}/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{asset('project')}}/css/style.css">

@@ -16,13 +16,13 @@ class CoursesController extends Controller
          )->paginate(2);
 
 
-         
+
         // $data['Courses'] = Course::with('teacher')->get();
         return view('Web.pages.courses',compact('data'));
     }
-    public function CourseDetails()
+    public function courseDetails()
     {
         return view('Web.pages.course_details' );
     }
-    
+
 }

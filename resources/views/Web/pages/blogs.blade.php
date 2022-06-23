@@ -97,8 +97,7 @@
 					<div class="main_blog_post_content">
 					@foreach ($blogs as $blog)
 
-						<a href="" >
-							<div class="mbp_thumb_post mt35  my_blog" id="my_blog_{{$blog -> id }}"  data-id="{{$blog -> id }}"  >
+                        <div class="mbp_thumb_post mt35  my_blog" id="my_blog_{{$blog -> id }}"  data-id="{{$blog -> id }}"  >
 								<div class="thumb">
 									<img class="img-fluid" src="{{$blog->image}} " alt="12.jpg">
 									<div class="tag">Marketing</div>
@@ -119,12 +118,12 @@
 										} else {
 										$description = $string;
 										}
-										 echo $description; 
+										 echo $description;
 									?>
 
 								</div>
 							</div>
-						</a>
+
 					@endforeach
 						<div class="row">
 							<div class="col-lg-12">
@@ -219,31 +218,16 @@
 
 @section('script')
 <script type="text/javascript">
-	
+
 
   $(function () {
-	
-	
+
+
 
 
     $('.my_blog').on('click', function () {
         var blog_id = $(this).data("id") ;
-		alert(blog_id);
-
-		var test = "{{ route('blog_details' , ['" + blog_id +"']) }}" ;
-		alert(test)
-        $.ajax({
-           // url:   "{{ URL::to('blogs') }}/" + blog_id,
-		   url: "{{ route('blog_details' , ['" + blog_id +"']) }}"  ,
-			type: "GET",
-            dataType : 'json',
-			data: {
-                
-                id: blog_id
-            },
-			success: function() { alert('Success'); },
-        error: function() { alert('Error'); }
-        });
+        window.location.href = '/blog-details/' + blog_id ,true;
     });
 });
 </script>

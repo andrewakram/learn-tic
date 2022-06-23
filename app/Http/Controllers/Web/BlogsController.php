@@ -13,9 +13,10 @@ class BlogsController extends Controller
         $blogs = Blog::select('id','title_' . getLang() . '  as title' ,'description_' . getLang() . '  as description')->paginate(3);
         return view('Web.pages.blogs' , compact('blogs'));
     }
-    public function GetBlogDetails($id)
-    { 
-       // $blog_details = Blog::where("id", $id)->get();
-        return view('Web.pages.blog_details');
+    public function blogDetails(Request $request)
+    {
+//        return redirect(route('admin.home'));
+        $blog_details = Blog::findOrFail($request->blog_id)->first();
+        return view('Web.pages.blog_details',compact('blog_details'));
     }
 }
