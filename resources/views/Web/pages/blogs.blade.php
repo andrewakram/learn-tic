@@ -100,7 +100,7 @@
 						<a href="" >
 							<div class="mbp_thumb_post mt35  my_blog" id="my_blog_{{$blog -> id }}"  data-id="{{$blog -> id }}"  >
 								<div class="thumb">
-									<img class="img-fluid" src="{{asset('project')}}/images/blog/12.jpg" alt="12.jpg">
+									<img class="img-fluid" src="{{$blog->image}} " alt="12.jpg">
 									<div class="tag">Marketing</div>
 									<div class="post_date"><h2>28</h2> <span>DECEMBER</span></div>
 								</div>

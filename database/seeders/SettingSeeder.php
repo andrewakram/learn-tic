@@ -38,54 +38,17 @@ class SettingSeeder extends Seeder
                 'key' => 'working_hours_en',
                 'value' => 'From 9 am to 11 amً',
             ],
-             [
-                'key' => 'icon_location',
-                'value' => 'flaticon-placeholder-1',
-            ],
-             [
-                'key' => 'icon_call',
-                'value' => 'flaticon-phone-call',
-            ],
-            [
-                'key' => 'icon_email',
-                'value' => 'flaticon-email',
-            ],
-            [
-                'key' => 'title_address_ar',
-                'value' => 'عنوانا',
-            ],
-             [
-                'key' => 'title_address_en',
-                'value' => 'Our Location',
-            ],
-            [
-                'key' => 'title_email_ar',
-                'value' => 'البريد الالكترونى',
-            ],
-            [
-                'key' => 'title_email_en',
-                'value' => 'Our Email',
-            ],
-             [
-                'key' => 'title_phone_ar',
-                'value' => 'الهاتف',
-            ],
-            [
-                'key' => 'title_phone_en',
-                'value' => 'Phone',
-            ],
-
             [
                 'key' => 'phone_1',
-                'value' => '01201636129',
+                'value' => '012345678',
 
             ], [
                 'key' => 'phone_2',
-                'value' => '0101231123',
+                'value' => '0123456789',
 
             ], [
                 'key' => 'email_1',
-                'value' => 'proten_chef@gmail.com',
+                'value' => 'LearnTic@gmail.com',
 
             ], [
                 'key' => 'email_2',

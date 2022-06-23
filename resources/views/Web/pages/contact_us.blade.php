@@ -29,30 +29,32 @@
 					<div class="contact_localtion text-center">
 						<div class="icon"><span class="flaticon-placeholder-1"></span></div>
 						<h4>Our Location</h4>
-
 						<p>
 							@if(session()->get('lang') == 'ar')
-							{{$data->where('key' ,'address_ar')->first()->value}}
+								{{$data['title_arabic']}}
 							@else
-							 {{$data->where('key' ,'address_en')->first()->value}} 
+							 	{{$data['title_english']}} 
 							 @endif
-						</p>
-							 
+						</p>	 
 					</div>
 				</div>
 			
 				<div class="col-sm-6 col-lg-4">
 					<div class="contact_localtion text-center">
 						<div class="icon"><span class="flaticon-phone-call"></span></div>
-						<h4>Our Location</h4>
-						<p class="mb0">Mobile: (+096) 468 235 <br> Fax: (+096) 468 235</p>
+						<h4>Our phone</h4>
+						<p class="mb0">
+						{{$data['phone']}} 
+						</p>
 					</div>
 				</div>
 				<div class="col-sm-6 col-lg-4">
 					<div class="contact_localtion text-center">
 						<div class="icon"><span class="flaticon-email"></span></div>
-						<h4>Write Some Words</h4>
-						<p>Info@LearnTic.com</p>
+						<h4>Our Email</h4>
+						<p>
+						{{$data['email']}} 
+						</p>
 					</div>
 				</div>
 			</div>

@@ -129,7 +129,7 @@
                                
                             <!--  <h5>{{ $Category->{'title_'.App::getLocale()} }}</h5>-->
                               <h5> {{ $Category->title }}</h5>
-                                <p>  Over {{$Category->course->count()}} Courses</p>
+                                <p>  Over {{$Category->courses->count()}} Courses</p>
                             </div>
                         </div>
                     </div>

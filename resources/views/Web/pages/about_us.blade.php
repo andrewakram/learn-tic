@@ -26,8 +26,21 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="about_content">
-						<h3>Our Values</h3>
-						<p class="color-black22 mt20">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis,et quasi architecto beatae vitae dicta sunt explicabo.</p>
+						<h3>
+							@if(session()->get('lang') == 'ar')
+								{{ $data['title_arabic'] }}
+							@else
+							 	{{$data['title_english']}} 
+							@endif
+						</h3>
+						
+						<p class="color-black22 mt20">
+							@if(session()->get('lang') == 'ar')
+								{!! $data['body_arabic'] !!}
+							@else
+							 	{!! $data['body_english'] !!}
+							@endif
+							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis,et quasi architecto beatae vitae dicta sunt explicabo.</p>
 						<p class="mt15">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis,et quasi architecto beatae vitae dicta sunt explicabo.</p>
 						<p class="mt20">Nemo enim ipsam,voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia,consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.,Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, adipisci velit, sed quia non numquam eius modi tempora</p>
 					</div>

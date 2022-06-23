@@ -49,7 +49,7 @@ Route::get('instructors', [InstructorsController::class,'index'])->name('instruc
 Route::get('instructor-details', [InstructorsDetailsController::class,'index'])->name('instructor_details');
 Route::get('blogs', [BlogsController::class,'index'])->name('blogs');
 Route::get('blog_details/{id}', [BlogsController::class,'GetBlogDetails'])->name('blog_details');
-Route::get('contact-us', [SettingController::class,'index'])->name('contact_us');
+Route::get('contact-us', [ContactUsController::class,'index'])->name('contact_us');
 Route::get('instructor-login', [InstructorLoginController::class,'index'])->name('instructor_login');
 Route::get('instructor-signup', [InstructorRegisterController::class,'index'])->name('instructor_register');
 Route::get('student-login', [StudentLoginController::class,'index'])->name('student_login');
