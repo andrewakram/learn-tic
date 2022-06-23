@@ -217,12 +217,11 @@
 @endsection
 
 @section('script')
-<script type="text/javascript">
+    <script type="text/javascript">
 
-
-    $('.my_blog').on('click', function () {
-        var blog_id = $(this).data("id") ;
-        window.location.href = '/blog-details/' + blog_id ,true;
-    });
-</script>
+        $('.my_blog').on('click', function () {
+            var blog_id = $(this).data("id") ;
+            window.location.href = '/blog-details/' + blog_id ,true;
+        });
+    </script>
 @endsection
