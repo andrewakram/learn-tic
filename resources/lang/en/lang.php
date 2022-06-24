@@ -42,6 +42,18 @@ return [
     'freeze_success' => 'day selected frozen successfully',
     'noOrderMeals' => 'no days for this order!',
     'PhoneExists' => 'Phone Exists please use other phone!',
+    //
+    'contact_us' => ' Contact Us' ,
+    'email' => ' Our Email',
+    'phone' => ' Phone',
+    'location' => ' Our Location',
+    'contact_title'=> ' Send a Message  ',
+    'contact_p'=> ' You can contact us and reply as soon as possible    ',
+    'name_form'=> ' Name',
+    'subject_form'=> '  Subject',
+    'message_form'=> '  Your Message',
+    'button_form' => '  Send Now ',
+    'home' => 'Home' ,
 
 
 ];

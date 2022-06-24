@@ -65,7 +65,7 @@
 					
 						<div class="col-lg-12 p0">
 						
-							<div class="courses_list_content">
+							<div class="courses_list_content my_course"  data-id="{{$Course -> id }}" >
 							
 								<div class="top_courses list">
 									<div class="thumb">
@@ -75,7 +75,7 @@
 											<a class="tc_preview_course" href="#">Preview Course</a>
 										</div>
 									</div>
-									<a href="#">
+									
 										<div class="details">
 											<div class="tc_content">
 												<p>{{ $Course->teacher->teacherInfo->full_name}} </p>
@@ -105,7 +105,7 @@
 												</ul>
 											</div>
 										</div>
-									</a>
+									
 								</div>
 							</div>
 						</div>
@@ -421,5 +421,11 @@
 @endsection
 
 @section('script')
+<script type="text/javascript">
 
+        $('.my_course').on('click', function () {
+            var course_id = $(this).data("id") ;
+            window.location.href = '/course-details/' + course_id ,true;
+        });
+    </script>
 @endsection

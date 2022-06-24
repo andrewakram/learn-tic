@@ -560,8 +560,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
+            <div class="row row_mytestmonial" >
+                <div class="col-lg-6 offset-lg-3 mytestmonial">
                     <div class="testimonialsec">
                         <ul class="tes-nav">
                             <li>

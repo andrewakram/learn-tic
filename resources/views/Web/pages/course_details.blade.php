@@ -14,7 +14,7 @@
 								<div class="cs_instructor">
 									<ul class="cs_instrct_list float-left mb0">
 										<li class="list-inline-item"><img class="thumb" src="{{asset('project')}}/images/team/4.png" alt="4.png"></li>
-										<li class="list-inline-item"><a class="color-white" href="#">Ali TUFAN</a></li>
+										<li class="list-inline-item"><a class="color-white" href="#">{{$course_details -> teacher -> teacherInfo ->full_name}}</a></li>
 										<li class="list-inline-item"><a class="color-white" href="#">Last updated 11/2019</a></li>
 									</ul>
 									<ul class="cs_watch_list float-right mb0">
@@ -23,7 +23,14 @@
 										<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-share"> Share</span></a></li>
 									</ul>
 								</div>
-								<h3 class="cs_title color-white">Designing a Responsive Mobile Website with Muse</h3>
+								<h3 class="cs_title color-white">
+									@if(session()->get('lang') == 'ar')
+										{{$course_details -> title_ar}}
+									@else
+										{{$course_details -> title_en}} 
+									@endif
+									
+								</h3>
 								<ul class="cs_review_seller">
 									<li class="list-inline-item"><a class="color-white" href="#"><span>Best Seller</span></a></li>
 									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -518,7 +525,13 @@
 				</div>
 				<div class="col-lg-4 col-xl-3">
 					<div class="instructor_pricing_widget csv2">
-						<div class="price"><span>Price</span> $49.00 <small>$69.00</small></div>
+						<div class="price"><span>Price</span>
+							${{$course_details->price_before}} 
+							@if(!empty($course_details->price_after))
+								<del class="original_price">${{ $course_details->price_after}}</del> 
+							@endif
+							
+						 </div>
 						<a href="#" class="cart_btnss">Add To Cart</a>
 						<a href="#" class="cart_btnss_white">Consultation</a>
 						<h5 class="subtitle text-left">Includes</h5>

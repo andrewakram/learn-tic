@@ -245,7 +245,6 @@
 									</div>
 									<div class="details">
 										<h4>{{$instructor->full_name}}</h4>
-										
 
 										<p>
 										@if(session()->get('lang') == 'ar')
@@ -253,7 +252,6 @@
 										@else
 											{{$instructor -> category -> title_en}} 
 										@endif
-										
 										</p>
 
 										<ul>

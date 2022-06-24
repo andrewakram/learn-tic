@@ -28,11 +28,7 @@
                 <li>
                     <a href="{{route('courses')}}"><span class="title">Courses</span></a>
                     <!-- Level Two-->
-                    <ul>
-                        <li>
-                        <li><a href="{{route('course_details')}}">Course Detailes </a></li>
-                        </li>
-                    </ul>
+                    
                 </li>
 
                 <li>
@@ -239,11 +235,7 @@
             <li><a href="{{route('home')}}">Home </a></li>
 
             <li><a href="{{route('courses')}}"><span>Courses</span></a>
-                <ul>
-                    <li>
-                    <li><a href="{{route('course_details')}}">Course Detailes </a></li>
-                    </li>
-                </ul>
+                
             </li>
             <li>
                 <a href="{{route('instructors')}}"><span class="title">Instructors</span></a>

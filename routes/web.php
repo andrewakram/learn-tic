@@ -44,7 +44,7 @@ Route::get('cache', function () {
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('about-us', [AboutUsController::class,'index'])->name('about_us');
 Route::get('courses', [CoursesController::class,'index'])->name('courses');
-Route::get('course-details', [CoursesController::class,'courseDetails'])->name('course_details');
+Route::get('course-details/{course_id}', [CoursesController::class,'courseDetails'])->name('course_details');
 Route::get('instructors', [InstructorsController::class,'index'])->name('instructors');
 Route::get('instructor-details/{instructor_id}', [InstructorsController::class,'instructorDetails'])->name('instructor_details');
 Route::get('blogs', [BlogsController::class,'index'])->name('blogs');

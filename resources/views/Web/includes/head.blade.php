@@ -8,10 +8,17 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- css file -->
-<link rel="stylesheet" href="{{asset('project')}}/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{asset('project')}}/css/style.css">
-<!-- Responsive stylesheet -->
-<link rel="stylesheet" href="{{asset('project')}}/css/responsive.css">
+@if(session()->get('lang') == 'ar')
+    <link rel="stylesheet" href="{{asset('project')}}/css/ar-bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('project')}}/css/ar-style.css">
+    <link rel="stylesheet" href="{{asset('project')}}/css/ar-responsive">
+@else
+    <link rel="stylesheet" href="{{asset('project')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('project')}}/css/style.css">
+    <!-- Responsive stylesheet -->
+    <link rel="stylesheet" href="{{asset('project')}}/css/responsive.css">
+@endif
+
 <!-- Title -->
 <title>Edumy - LMS Online Education Course & School HTML Template</title>
 <!-- Favicon -->

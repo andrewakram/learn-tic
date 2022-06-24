@@ -20,9 +20,11 @@ class CoursesController extends Controller
         // $data['Courses'] = Course::with('teacher')->get();
         return view('Web.pages.courses',compact('data'));
     }
-    public function courseDetails()
+    public function courseDetails(Request $request)
     {
-        return view('Web.pages.course_details' );
+        $course_details = Course::findOrFail($request->course_id);
+        $title = 'title_' . getLang();
+        return view('Web.pages.course_details' ,compact('course_details' , 'title') );
     }
-
+   
 }
