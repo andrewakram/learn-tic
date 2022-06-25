@@ -85,6 +85,40 @@ class PageSeeder extends Seeder
                 'image' => 'values9.png',
                 'type' => 'section1',
             ],
+            [
+                'title_ar' => ' إنشاء دورة عبر الإنترنت   ',
+                'title_en' => 'Create Online Course  ',
+                'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء   </p>',
+                'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
+                'image' => 'values9.png',
+                'type' => 'section2',
+            ],
+            [
+                'title_ar' => 'تفاعل مع الطلاب ',
+                'title_en' => 'Interact with Students   ',
+                'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء.   </p>',
+                'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
+                'image' => 'values9.png',
+                'type' => 'section3',
+            ],
+            [
+                'title_ar' => 'لوحة تحكم للمستخدميين  ',
+                'title_en' => 'Create Account',
+                'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء.   </p>',
+                'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
+                'image' => 'values9.png',
+                'type' => 'section4',
+            ],
+            [
+                'title_ar' => 'لماذا تتعلم على منصتنا ',
+                'title_en' => 'Why learn on our  website  ',
+                'body_ar' => '<h5>يمكنك التعلم بسهولة من المنزل لوجود نظام كامل يساعدك كل من الطالب والمعلم</h5><p>يمكن للطالب أن يتعلم بسهولة عن طريق نظامنا وأيضا يمكن للمعلم التدريس بسهولة تامة , رفع المستوى التعليمي والأكاديمي للطلبة في جميع مراحل التعليم الأساسي والتعليم العالي	.</p>',
+                'body_en' => '<h5>Striving to make the web a more beautiful place every single day</h5>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>',
+                'image' => 'values9.png',
+                'type' => 'home_about',
+            ],
+
 
         ];
         foreach ($data as $get) {

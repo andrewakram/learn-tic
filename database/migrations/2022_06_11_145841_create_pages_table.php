@@ -21,7 +21,7 @@ class CreatePagesTable extends Migration
             $table->text('body_en');
             $table->string('image')->nullable();
             $table->enum('type',
-                ['about','terms','privacy','other','our_values','our_story','section1'])
+                ['about','terms','privacy','other','our_values','our_story','section1','section2','section3','section4','home_about'])
                 ->default('other');
 
             $table->timestamps();

@@ -27,9 +27,8 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-6">
                     <div class="about_home3">
-                        <h3> What We Do</h3>
-                        <h5>Striving to make the web a more beautiful place every single day</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                        <h3> {{$data['home_about']->title }}</h3>
+                        {!! $data['home_about']->body !!}
                         <a href="#" class="btn about_btn_home3">View More</a>
                         <!--	<ul class="partners_thumb_list">
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/1.png" alt="1.png"></a></li>
@@ -46,8 +45,8 @@
                             <div class="home3_about_icon_box one">
                                 <span class="icon"><span class="flaticon-account"></span></span>
                                 <div class="details">
-                                    <h4>Create Account</h4>
-                                    <p>Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.</p>
+                                    <h4>{{$data['section1']->title }}</h4>
+                                    <p>{!! $data['section1']->body !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -55,8 +54,8 @@
                             <div class="home3_about_icon_box two">
                                 <span class="icon"><span class="flaticon-online"></span></span>
                                 <div class="details">
-                                    <h4>Create Online Course</h4>
-                                    <p>Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.</p>
+                                    <h4>{{$data['section2']->title }}</h4>
+                                    <p>{!! $data['section2']->body !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -64,8 +63,8 @@
                             <div class="home3_about_icon_box three">
                                 <span class="icon"><span class="flaticon-student-1"></span></span>
                                 <div class="details">
-                                    <h4>Interact with Students</h4>
-                                    <p>Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.</p>
+                                    <h4>{{$data['section3']->title }}</h4>
+                                    <p>{!! $data['section3']->body !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -73,8 +72,8 @@
                             <div class="home3_about_icon_box four">
                                 <span class="icon"><span class="flaticon-employee"></span></span>
                                 <div class="details">
-                                    <h4>Achieve Your Goals</h4>
-                                    <p>Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.</p>
+                                    <h4>{{$data['section4']->title }}</h4>
+                                    <p>{!! $data['section4']->body !!}</p>
                                 </div>
                             </div>
                         </div>
