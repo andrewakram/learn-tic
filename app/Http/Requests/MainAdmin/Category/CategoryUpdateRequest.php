@@ -29,6 +29,7 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             'row_id' => 'required|exists:categories,id',
+            'image' => 'sometimes|image|mimes:png,jpg,jpeg',
             'title_ar' => 'required',
             'title_en' => 'required',
         ];

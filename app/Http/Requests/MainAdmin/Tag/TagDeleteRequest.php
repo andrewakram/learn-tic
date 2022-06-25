@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\MainAdmin\Teacher;
+namespace App\Http\Requests\MainAdmin\Tag;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TeacherIndexRequest extends FormRequest
+class TagDeleteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +25,10 @@ class TeacherIndexRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
-            //
+            'row_id' => 'required|exists:tags,id',
         ];
     }
 }

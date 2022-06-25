@@ -30,28 +30,28 @@ Route::group([
                 Route::post('/delete-multi', 'SupervisorController@deleteMulti')->name('.deleteMulti');
             });
 
-            Route::group(['prefix' => 'clients', 'as' => '.clients'], function () {
-                Route::get('/', 'ClientController@index');
-                Route::get('getData', 'ClientController@getData')->name('.datatable');
-                Route::get('/create', 'ClientController@create')->name('.create');
-                Route::post('/store', 'ClientController@store')->name('.store');
-                Route::get('/edit/{id}', 'ClientController@edit')->name('.edit');
-                Route::post('/update', 'ClientController@update')->name('.update');
-                Route::get('/show/{id}', 'ClientController@show')->name('.show');
-                Route::post('/delete', 'ClientController@delete')->name('.delete');
-                Route::post('/delete-multi', 'ClientController@deleteMulti')->name('.deleteMulti');
+            Route::group(['prefix' => 'students', 'as' => '.students'], function () {
+                Route::get('/', 'StudentController@index');
+                Route::get('getData', 'StudentController@getData')->name('.datatable');
+                Route::get('/create', 'StudentController@create')->name('.create');
+                Route::post('/store', 'StudentController@store')->name('.store');
+                Route::get('/edit/{id}', 'StudentController@edit')->name('.edit');
+                Route::post('/update', 'StudentController@update')->name('.update');
+                Route::get('/show/{id}', 'StudentController@show')->name('.show');
+                Route::post('/delete', 'StudentController@delete')->name('.delete');
+                Route::post('/delete-multi', 'StudentController@deleteMulti')->name('.deleteMulti');
             });
 
-            Route::group(['prefix' => 'teachers', 'as' => '.teachers'], function () {
-                Route::get('/', 'TeacherController@index');
-                Route::get('getData', 'TeacherController@getData')->name('.datatable');
-                Route::get('/create', 'TeacherController@create')->name('.create');
-                Route::post('/store', 'TeacherController@store')->name('.store');
-                Route::get('/edit/{id}', 'TeacherController@edit')->name('.edit');
-                Route::post('/update', 'TeacherController@update')->name('.update');
-                Route::get('/show/{id}', 'TeacherController@show')->name('.show');
-                Route::post('/delete', 'TeacherController@delete')->name('.delete');
-                Route::post('/delete-multi', 'TeacherController@deleteMulti')->name('.deleteMulti');
+            Route::group(['prefix' => 'instructors', 'as' => '.instructors'], function () {
+                Route::get('/', 'InstructorController@index');
+                Route::get('getData', 'InstructorController@getData')->name('.datatable');
+                Route::get('/create', 'InstructorController@create')->name('.create');
+                Route::post('/store', 'InstructorController@store')->name('.store');
+                Route::get('/edit/{id}', 'InstructorController@edit')->name('.edit');
+                Route::post('/update', 'InstructorController@update')->name('.update');
+                Route::get('/show/{id}', 'InstructorController@show')->name('.show');
+                Route::post('/delete', 'InstructorController@delete')->name('.delete');
+                Route::post('/delete-multi', 'InstructorController@deleteMulti')->name('.deleteMulti');
             });
 
             Route::group(['prefix' => 'cities', 'as' => '.cities'], function () {
@@ -108,6 +108,18 @@ Route::group([
                     ->name('.courseLessons');
                 Route::get('/course-lessons/getData/{section_id}', 'CourseController@getCourseLessonsData')
                     ->name('.courseLessons.datatable');
+            });
+
+            Route::group(['prefix' => 'tags', 'as' => '.tags'], function () {
+                Route::get('/', 'TagController@index');
+                Route::get('getData', 'TagController@getData')->name('.datatable');
+                Route::get('/create', 'TagController@create')->name('.create');
+                Route::post('/store', 'TagController@store')->name('.store');
+                Route::get('/edit/{id}', 'TagController@edit')->name('.edit');
+                Route::post('/update', 'TagController@update')->name('.update');
+                Route::get('/show/{id}', 'TagController@show')->name('.show');
+                Route::post('/delete', 'TagController@delete')->name('.delete');
+                Route::post('/delete-multi', 'TagController@deleteMulti')->name('.deleteMulti');
             });
 
             Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {

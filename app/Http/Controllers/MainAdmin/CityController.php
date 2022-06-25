@@ -112,7 +112,7 @@ class CityController extends Controller
 
     public function getData()
     {
-        $model = City::query()->where('id', '>', 1);
+        $model = City::query();
 
         return DataTables::eloquent($model)
             ->addIndexColumn()

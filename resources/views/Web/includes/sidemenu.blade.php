@@ -90,7 +90,7 @@
                            </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">العملاء</span>
+                        <span class="menu-title">الطلاب</span>
                     </a>
                 </div>
                 <div class="menu-item">

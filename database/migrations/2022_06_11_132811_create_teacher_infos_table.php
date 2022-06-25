@@ -20,7 +20,7 @@ class CreateTeacherInfosTable extends Migration
             $table->string('full_name')->nullable();
             $table->string('national_id')->nullable();
             $table->string('residence_id')->nullable();
-            $table->text('qualifications')->nullable();
+            $table->enum('qualifications', ['PHD', 'Master','Bachlore','other'])->default('other');
             $table->string('university')->nullable();
             $table->enum('learn_type', ['remote', 'site'])->default('remote');
             $table->integer('years_of_exper')->nullable();

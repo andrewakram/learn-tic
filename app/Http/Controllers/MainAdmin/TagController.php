@@ -2,94 +2,89 @@
 
 namespace App\Http\Controllers\MainAdmin;
 
-use App\Http\Requests\MainAdmin\Category\CategoryCreateRequest;
-use App\Http\Requests\MainAdmin\Category\CategoryDeleteRequest;
-use App\Http\Requests\MainAdmin\Category\CategoryIndexRequest;
-use App\Http\Requests\MainAdmin\Category\CategoryUpdateRequest;
-use App\Models\Category;
+use App\Http\Requests\MainAdmin\Tag\TagCreateRequest;
+use App\Http\Requests\MainAdmin\Tag\TagDeleteRequest;
+use App\Http\Requests\MainAdmin\Tag\TagIndexRequest;
+use App\Http\Requests\MainAdmin\Tag\TagUpdateRequest;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
-    public function index(CategoryIndexRequest $request)
+    public function index(TagIndexRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
-        return view('MainAdmin.pages.categories.index');
+        return view('MainAdmin.pages.tags.index');
     }
 
-    public function create(CategoryIndexRequest $request)
+    public function create(TagIndexRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
-        return view('MainAdmin.pages.categories.create');
+        return view('MainAdmin.pages.tags.create');
     }
 
-    public function store(CategoryCreateRequest $request)
+    public function store(TagCreateRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
 
-        Category::create($validator);
+        Tag::create($validator);
         session()->flash('success', 'تم الإضافة بنجاح');
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.tags');
     }
 
-    public function edit(CategoryIndexRequest $request,$id)
+    public function edit(TagIndexRequest $request,$id)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
 
-        $row = Category::findOrFail($id);
+        $row = Tag::findOrFail($id);
         if (!$row) {
             session()->flash('error', 'الحقل غير موجود');
             return redirect()->back();
         }
-        return view('MainAdmin.pages.categories.edit', compact('row'));
+        return view('MainAdmin.pages.tags.edit', compact('row'));
     }
 
-    public function update(CategoryUpdateRequest $request)
+    public function update(TagUpdateRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
 
-        $row = Category::findOrFail($request->row_id);
+        $row = Tag::findOrFail($request->row_id);
 
         $row->update([
             'title_ar' => $request->title_ar,
             'title_en' => $request->title_en,
         ]);
 
-        if ($request->has('image') && is_file($request->image)) {
-            $row->update(['image' => $request->image]);
-        }
-        $row->save();
-
         session()->flash('success', 'تم التعديل بنجاح');
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.tags');
     }
 
-    public function delete(CategoryDeleteRequest $request)
+    public function delete(TagDeleteRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
 
-        Category::find($request->row_id)->delete();
+        Tag::find($request->row_id)->delete();
         session()->flash('success', 'تم الحذف بنجاح');
         return response()->json(['message' => 'Success']);
     }
@@ -110,19 +105,21 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
+        Tag::findOrFail($id)->delete();
         session()->flash('success', 'تم الحذف بنجاح');
         return back();
     }
 
     public function getData()
     {
-        $model = Category::query();
+        $model = Tag::query();
 
         return DataTables::eloquent($model)
             ->addIndexColumn()
-            ->editColumn('image', function ($row) {
-                return '<a class="symbol symbol-50px"><span class="symbol-label" style="background-image:url(' . $row->image . ');"></span></a>';
+            ->editColumn('link', function ($row) {
+                return '<a href="' . $row->link . '" class="" title="الرابط" target="_blank">
+                            الرابط
+                        </a>';
             })
             ->editColumn('created_at', function ($row) {
                 return Carbon::parse($row->created_at)->translatedFormat("Y-m-d (H:i) A");
@@ -134,7 +131,7 @@ class CategoryController extends Controller
             })
             ->addColumn('actions', function ($row) {
                 $buttons = '';
-                $buttons .= '<a href="' . route('admin.categories.edit', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                $buttons .= '<a href="' . route('admin.tags.edit', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
                             <i class="fa fa-edit"></i>
                         </a>';
                 $buttons .= '<a class="btn btn-danger btn-sm delete btn-circle m-1" data-id="' . $row->id . '"  title="حذف">
@@ -143,7 +140,7 @@ class CategoryController extends Controller
 //                }
                 return $buttons;
             })
-            ->rawColumns(['actions','image','select', 'created_at'])
+            ->rawColumns(['actions','link','select', 'created_at'])
             ->make();
 
     }

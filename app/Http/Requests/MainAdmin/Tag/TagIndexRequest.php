@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\MainAdmin\Category;
+namespace App\Http\Requests\MainAdmin\Tag;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CategoryCreateRequest extends FormRequest
+class TagIndexRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,9 +27,7 @@ class CategoryCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|image|mimes:png,jpg,jpeg',
-            'title_ar' => 'required',
-            'title_en' => 'required',
+            //
         ];
     }
 }

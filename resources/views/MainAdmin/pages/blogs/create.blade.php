@@ -54,7 +54,7 @@
                 <form action="{{route('admin.blogs.store')}}" method="post" enctype="multipart/form-data"
                       class="form d-flex flex-column flex-lg-row gap-7 gap-lg-10">
                 @csrf
-                <!--begin::Aside column-->
+                    <!--begin::Aside column-->
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px">
                         <!--begin::Thumbnail settings-->
                         <div class="card card-flush py-4">

@@ -57,6 +57,18 @@
                                 <span class="menu-title">المشرفين</span>
                             </a>
                         </div>
+                        <div class="menu-item me-lg-1">
+                            <a class="menu-link @if(request()->segment(2) == 'students') active @endif py-3"
+                               href="{{route('admin.students')}}">
+                                <span class="menu-title">الطلاب</span>
+                            </a>
+                        </div>
+                        <div class="menu-item me-lg-1">
+                            <a class="menu-link @if(request()->segment(2) == 'instructors') active @endif py-3"
+                               href="{{route('admin.instructors')}}">
+                                <span class="menu-title">المدرسين</span>
+                            </a>
+                        </div>
                     </div>
                     <!--end::Menu-->
                 </div>

@@ -24,7 +24,7 @@
                         <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
                         <!--end::Separator-->
                         <!--begin::Description-->
-                        <small class=" fs-3 fw-bold my-1 ms-1" style="color: #5482d5">العملاء</small>
+                        <small class=" fs-3 fw-bold my-1 ms-1" style="color: #5482d5">Tags</small>
                         <!--end::Description-->
                     </h1>
                     <!--end::Title-->
@@ -34,16 +34,16 @@
                 <div class="d-flex align-items-center py-1">
                     <!--begin::Wrapper-->
                     <!--begin::Button-->
-{{--                    <a href="{{route('admin.clients.create')}}" class="btn btn-sm btn-success"--}}
+                    <a href="{{route('admin.tags.create')}}" class="btn btn-sm btn-success"
 {{--                       data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id=""--}}
-{{--                    ><i class="fa fa-plus"></i>--}}
-{{--                        أضف--}}
-{{--                    </a>--}}
-{{--                    <a  class="btn btn-sm btn-danger m-1"--}}
-{{--                           data-bs-toggle="modal" data-bs-target="#dynamic" id="bulk_delete_btn">--}}
-{{--                        <i class="fa fa-trash"></i>--}}
-{{--                        حذف متعدد--}}
-{{--                    </a>--}}
+                    ><i class="fa fa-plus"></i>
+                        أضف
+                    </a>
+                    <a  class="btn btn-sm btn-danger m-1"
+                           data-bs-toggle="modal" data-bs-target="#dynamic" id="bulk_delete_btn">
+                        <i class="fa fa-trash"></i>
+                        حذف متعدد
+                    </a>
 
                     <!--end::Button-->
                 </div>
@@ -73,15 +73,11 @@
                                     </div>
                                 </th>
                                 <th class=" min-w-10px">#</th>
-                                <th class=" min-w-10px">الصورة</th>
-                                <th class=" min-w-10px">الاسم</th>
-                                <th class=" min-w-10px">الجوال</th>
-                                <th class=" min-w-10px">البريد الإلكتروني</th>
-                                <th class=" min-w-10px">حالة الحساب</th>
-                                <th class=" min-w-10px">حالة الإيقاف</th>
-                                <th class=" min-w-10px">النقاط</th>
-                                <th class=" min-w-10px">تاريخ التسجيل</th>
-                                <th class=" min-w-10px">العمليات</th>
+                                <th class=" min-w-10px">الرابط</th>
+                                <th class=" min-w-100px">الاسم (عربي)</th>
+                                <th class=" min-w-100px">الاسم (انجليزي)</th>
+                                <th class=" min-w-100px">تاريخ الانشاء</th>
+                                <th class=" min-w-100px">العمليات</th>
 
                             </tr>
                             <!--end::Table row-->
@@ -114,7 +110,7 @@
                 </div>
                 <div class="modal-body">
                     <h5> هل أنت متأكد أنك تريد الحذف؟ </h5>
-                    <form id="delete_multi_form" method="post" action="{{route('admin.clients.deleteMulti')}}">
+                    <form id="delete_multi_form" method="post" action="{{route('admin.tags.deleteMulti')}}">
                         @csrf
                         <input type="hidden" name="ids" id="ids">
                     </form>
@@ -177,7 +173,7 @@
                                 '                                <tr>' +
                                 '                                    <td style="text-align: center">  <p style="padding-right:150px">Learn-Tic</p></td>' +
                                 '                                    <td style="text-align: right"> <img src="{{asset('default.png')}}" width="150px" height="150px" /> </td>' +
-                                '                                    <td style="text-align: right"><p>عنوان التقرير : العملاء</p>' +
+                                '                                    <td style="text-align: right"><p>عنوان التقرير : الأقسام</p>' +
                                 '                                                                  <p>تاريخ التقرير : {{ Carbon\Carbon::now()->translatedFormat('l Y/m/d') }}</p>' +
                                 '                                                                  <p>وقت التقرير : {{ Carbon\Carbon::now()->translatedFormat('h:i a') }}</p></td>' +
                                 '                                </tr> ' +
@@ -208,17 +204,13 @@
 
 
                 ],
-                ajax: '{{ route('admin.clients.datatable') }}',
+                ajax: '{{ route('admin.tags.datatable') }}',
                 "columns": [
                     {"data": 'select', "searchable": false, "orderable": false},
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', "searchable": false, "orderable": false},
-                    {"data": "image", "searchable": false, "orderable": false},
-                    {"data": "name", "searchable": true, "orderable": false},
-                    {"data": "phone", "searchable": true, "orderable": false},
-                    {"data": "email", "searchable": true, "orderable": false},
-                    {"data": "active", "searchable": false, "orderable": false},
-                    {"data": "suspend", "searchable": false, "orderable": false},
-                    {"data": "points", "searchable": false, "orderable": false},
+                    {"data": "link", "searchable": false, "orderable": false},
+                    {"data": "title_ar", "searchable": true, "orderable": false},
+                    {"data": "title_en", "searchable": true, "orderable": false},
                     {"data": "created_at", "searchable": false, "orderable": false},
                     {"data": 'actions', name: 'actions', orderable: false, searchable: false}
                 ]
@@ -309,7 +301,7 @@
                 if (result.value) {
                     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                     $.ajax({
-                        url: '{{route('admin.clients.delete')}}',
+                        url: '{{route('admin.tags.delete')}}',
                         type: "post",
                         data: {'row_id':  id, _token: CSRF_TOKEN},
                         dataType: "JSON",

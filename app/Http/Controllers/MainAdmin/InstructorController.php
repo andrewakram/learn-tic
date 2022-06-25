@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\MainAdmin;
 
-use App\Http\Requests\MainAdmin\Teacher\TeacherIndexRequest;
-use App\Http\Requests\MainAdmin\Teacher\TeacherUpdateRequest;
+use App\Http\Requests\MainAdmin\Instructor\InstructorIndexRequest;
+use App\Http\Requests\MainAdmin\Instructor\InstructorUpdateRequest;
 use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
@@ -14,18 +14,18 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
-class TeacherController extends Controller
+class InstructorController extends Controller
 {
-    public function index(TeacherIndexRequest $request)
+    public function index(InstructorIndexRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
-        return view('MainAdmin.pages.teachers.index');
+        return view('MainAdmin.pages.instructors.index');
     }
 
-    public function edit(TeacherIndexRequest $request,$id)
+    public function edit(InstructorIndexRequest $request,$id)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
@@ -36,10 +36,10 @@ class TeacherController extends Controller
             session()->flash('error', 'الحقل غير موجود');
             return redirect()->back();
         }
-        return view('MainAdmin.pages.teachers.edit',compact('row'));
+        return view('MainAdmin.pages.instructors.edit',compact('row'));
     }
 
-    public function update(TeacherUpdateRequest $request)
+    public function update(InstructorUpdateRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
@@ -51,7 +51,7 @@ class TeacherController extends Controller
         $row->save();
 
         session()->flash('success', 'تم التعديل بنجاح');
-        return redirect()->route('MainAdmin.teachers');
+        return redirect()->route('MainAdmin.instructors');
     }
 
     public function getData()
@@ -101,16 +101,16 @@ class TeacherController extends Controller
             ->addColumn('actions', function ($row) use ($auth){
                 $buttons = '';
 //                if ($auth->can('sliders.update')) {
-                    $buttons .= '<a href="'.route('admin.teachers.edit',[$row->id]).'" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                    $buttons .= '<a href="'.route('admin.instructors.edit',[$row->id]).'" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
                             <i class="fa fa-edit"></i>
                         </a>';
 //                }
 //                if ($auth->can('sliders.delete')) {
-//                    $buttons .= '<a href="'.route('MainAdmin.teachers.orders',[$row->id]).'" class="btn btn-warning btn-sm btn-circle m-1" title="الطلبات">
+//                    $buttons .= '<a href="'.route('MainAdmin.instructors.orders',[$row->id]).'" class="btn btn-warning btn-sm btn-circle m-1" title="الطلبات">
 //                            <i class="fa fa-cart-plus"></i>
 //                        </a>';
 //                }
-//                $buttons .= '<a href="'.route('MainAdmin.teachers.cancelRequests',[$row->id]).'" class="btn btn-danger btn-sm btn-circle m-1" title="طلبات الإلغاء">
+//                $buttons .= '<a href="'.route('MainAdmin.instructors.cancelRequests',[$row->id]).'" class="btn btn-danger btn-sm btn-circle m-1" title="طلبات الإلغاء">
 //                            <i class="fa fa-recycle"></i>
 //                        </a>';
                 return $buttons;
@@ -124,7 +124,7 @@ class TeacherController extends Controller
     public function userOrders($user_id)
     {
         $user_name = User::whereId($user_id)->select('name')->first()->name;
-        return view('MainAdmin.pages.teachers.orders',compact('user_id','user_name'));
+        return view('MainAdmin.pages.instructors.orders',compact('user_id','user_name'));
     }
 
     public function getUserOrdersData($user_id)
@@ -136,7 +136,7 @@ class TeacherController extends Controller
             ->addIndexColumn()
             ->addColumn('user_name',function ($row){
                 $user_name = $row->User->name;
-                return '<a href="'.route('MainAdmin.teachers.edit',[$row->user_id]).'" class="" title="العميل">
+                return '<a href="'.route('MainAdmin.instructors.edit',[$row->user_id]).'" class="" title="العميل">
                             '.$user_name.'
                         </a>';
             })
@@ -180,7 +180,7 @@ class TeacherController extends Controller
     public function userCancelRequests($user_id)
     {
         $user_name = User::whereId($user_id)->select('name')->first()->name;
-        return view('MainAdmin.pages.teachers.cancel_requests',compact('user_id','user_name'));
+        return view('MainAdmin.pages.instructors.cancel_requests',compact('user_id','user_name'));
     }
 
     public function getCancelRequestsData($user_id)
@@ -193,7 +193,7 @@ class TeacherController extends Controller
             ->addIndexColumn()
             ->addColumn('user_name',function ($row){
                 $user_name = $row->User->name;
-                return '<a href="'.route('MainAdmin.teachers.edit',[$row->user_id]).'" class="" title="العميل">
+                return '<a href="'.route('MainAdmin.instructors.edit',[$row->user_id]).'" class="" title="العميل">
                             '.$user_name.'
                         </a>';
             })

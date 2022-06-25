@@ -74,7 +74,7 @@ class CourseController extends Controller
                 if($row->teacher){
                     $user_name = $row->teacher->name;
                     $user_email = $row->teacher->email;
-                    return '<a href="'.route('admin.teachers.edit',[$row->teacher_id]).'" target="_blank" class="" title="'.$user_email.'">
+                    return '<a href="'.route('admin.instructors.edit',[$row->teacher_id]).'" target="_blank" class="" title="'.$user_email.'">
                             '.$user_name.'
                         </a>';
                 }else{

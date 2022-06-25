@@ -30,7 +30,7 @@ class BlogUpdateRequest extends FormRequest
         return [
             'row_id' => 'required|exists:blogs,id',
             'date' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg',
+            'image' => 'sometimes|image|mimes:png,jpg,jpeg',
             'title_ar' => 'required|min:3|max:191',
             'title_en' => 'required|min:3|max:191',
             'description_ar' => 'required|min:3',

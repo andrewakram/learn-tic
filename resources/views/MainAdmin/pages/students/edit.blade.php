@@ -17,7 +17,7 @@
                      class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
                     <!--begin::Title-->
                     <h1 class="d-flex align-items-center fw-bolder fs-3 my-1" style="color: #5482d5">
-                        تعديل بيانات المدرس
+                        تعديل بيانات الطالب
                     </h1>
                     <!--end::Title-->
                     <!--begin::Separator-->
@@ -33,7 +33,7 @@
                         <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{route('admin.teachers')}}" class="text-muted text-hover-primary">البيانات المدرس</a>
+                            <a href="{{route('admin.students')}}" class="text-muted text-hover-primary">الطلاب</a>
                         </li>
                         <!--end::Item-->
                     </ul>
@@ -50,7 +50,7 @@
             <!--begin::Container-->
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Form-->
-                <form action="{{route('admin.teachers.update')}}" method="post" enctype="multipart/form-data"
+                <form action="{{route('admin.students.update')}}" method="post" enctype="multipart/form-data"
                       class="form d-flex flex-column flex-lg-row gap-7 gap-lg-10">
                     @csrf
                     <input type="hidden" name="row_id" value="{{$row->id}}">
@@ -195,21 +195,6 @@
                     <!--end::Aside column-->
                     <!--begin::Main column-->
                     <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-                        <!--begin:::Tabs-->
-{{--                        <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-bold mb-n2">--}}
-{{--                            <!--begin:::Tab item-->--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link text-active-warning pb-4 active" data-bs-toggle="tab"--}}
-{{--                                   href="#kt_ecommerce_add_product_general">بيانات البيانات المدرس</a>--}}
-{{--                            </li>--}}
-{{--                            <!--end:::Tab item-->--}}
-{{--                            <!--begin:::Tab item-->--}}
-{{--                        --}}{{--                            <li class="nav-item">--}}
-{{--                        --}}{{--                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_add_product_advanced">Advanced</a>--}}
-{{--                        --}}{{--                            </li>--}}
-{{--                        <!--end:::Tab item-->--}}
-{{--                        </ul>--}}
-                        <!--end:::Tabs-->
                         <!--begin::Tab content-->
                         <div class="tab-content">
                             <!--begin::Tab pane-->
@@ -220,7 +205,7 @@
                                     <div class="card card-flush py-4">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>بيانات المدرس</h2>
+                                                <h2>بيانات الطالب</h2>
                                             </div>
                                         </div>
                                         <br>
@@ -231,13 +216,13 @@
                                             <div class="mb-10 fv-row">
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <span style="font-size: medium">
-                                                            إسم المدرس:
+                                                        <span style="font-size: large">
+                                                            إسم الطالب:
                                                         </span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                    <span style="font-size: medium"
-                                                          class="badge badge-secondary">
+                                                    <span style="font-size: large"
+                                                          class="bg-secondary p-2">
                                                         {{$row->name}}
                                                     </span>
                                                     </div>
@@ -245,13 +230,13 @@
                                                     <div class="col-md-2"></div>
 
                                                     <div class="col-md-2">
-                                                        <span style="font-size: medium">
+                                                        <span style="font-size: large">
                                                             الجوال :
                                                         </span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                    <span style="font-size: medium"
-                                                          class="badge badge-secondary">
+                                                    <span style="font-size: large"
+                                                          class="bg-secondary p-2">
                                                         {{$row->phone}}
                                                     </span>
                                                     </div>
@@ -263,13 +248,13 @@
                                             <div class="mb-10 fv-row">
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <span style="font-size: medium">
+                                                        <span style="font-size: large">
                                                             البريد الإلكتروني :
                                                         </span>
                                                     </div>
                                                     <div class="col-md-8">
-                                                    <span style="font-size: medium;"
-                                                          class="badge badge-secondary col-md-12">
+                                                    <span style="font-size: large;"
+                                                          class="bg-secondary p-2 col-md-12">
                                                         {{$row->email}}
                                                     </span>
                                                     </div>
@@ -292,13 +277,13 @@
                                             <div class="mb-10 fv-row">
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <span style="font-size: medium">
+                                                        <span style="font-size: large">
                                                             النقاط :
                                                         </span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                    <span style="font-size: medium"
-                                                          class="badge badge-secondary">
+                                                    <span style="font-size: large"
+                                                          class="bg-secondary p-2">
                                                         @if($row->points)
                                                             {{$row->points}}
                                                         @else
@@ -310,13 +295,13 @@
                                                     <div class="col-md-2"></div>
 
                                                     <div class="col-md-2">
-                                                        <span style="font-size: medium">
+                                                        <span style="font-size: large">
                                                             النوع :
                                                         </span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                    <span style="font-size: medium"
-                                                          class="badge badge-secondary">
+                                                    <span style="font-size: large"
+                                                          class="bg-secondary p-2">
                                                         @if($row->gender == 'male')
                                                             ذكر
                                                         @else
@@ -325,8 +310,6 @@
                                                     </span>
                                                     </div>
                                                 </div>
-
-
                                             </div>
                                             <!--end::Input group-->
 
@@ -334,13 +317,13 @@
                                             <div class="mb-10 fv-row">
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <span style="font-size: medium">
+                                                        <span style="font-size: large">
                                                             الجنسية :
                                                         </span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                    <span style="font-size: medium"
-                                                          class="badge badge-secondary">
+                                                    <span style="font-size: large"
+                                                          class="bg-secondary p-2">
                                                         @if($row->nationality)
                                                             {{$row->nationality}}
                                                         @else
@@ -352,13 +335,13 @@
                                                     <div class="col-md-2"></div>
 
                                                     <div class="col-md-2">
-                                                        <span style="font-size: medium">
+                                                        <span style="font-size: large">
                                                             التقييم :
                                                         </span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                    <span style="font-size: medium"
-                                                          class="badge badge-secondary">
+                                                    <span style="font-size: large"
+                                                          class="bg-secondary p-2">
                                                         @if($row->rate)
                                                             {{$row->rate}}
                                                         @else
@@ -367,261 +350,8 @@
                                                     </span>
                                                     </div>
                                                 </div>
-
-
                                             </div>
                                             <!--end::Input group-->
-
-                                            <hr>
-                                            @if($row->teacherInfo)
-
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                        <span style="font-size: medium">
-                                                            التخصص :
-                                                        </span>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                    <span style="font-size: medium"
-                                                          class="badge badge-primary">
-                                                        @if($row->teacherInfo->category)
-                                                            {{$row->teacherInfo->category->title_ar}}
-                                                        @else
-                                                            -
-                                                        @endif
-                                                    </span>
-                                                            </div>
-
-                                                            <div class="col-md-2"></div>
-
-                                                            <div class="col-md-2">
-                                                        <span style="font-size: medium">
-                                                            الاسم بالكامل :
-                                                        </span>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                    <span style="font-size: medium"
-                                                          class="badge badge-secondary">
-                                                        @if($row->teacherInfo)
-                                                            {{$row->teacherInfo->full_name}}
-                                                        @else
-                                                            -
-                                                        @endif
-                                                    </span>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <!--end::Input group-->
-
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                    <span style="font-size: medium">
-                                                        الهوية :
-                                                    </span>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                <span style="font-size: medium"
-                                                      class="badge badge-secondary">
-                                                    @if($row->teacherInfo->national_id)
-                                                        {{$row->teacherInfo->national_id}}
-                                                    @else
-                                                        -
-                                                    @endif
-                                                </span>
-                                                            </div>
-
-                                                            <div class="col-md-2"></div>
-
-                                                            <div class="col-md-2">
-                                                    <span style="font-size: medium">
-                                                        الاقامة :
-                                                    </span>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                <span style="font-size: medium"
-                                                      class="badge badge-secondary">
-                                                    @if($row->teacherInfo->residence_id)
-                                                        {{$row->teacherInfo->residence_id}}
-                                                    @else
-                                                        -
-                                                    @endif
-                                                </span>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <!--end::Input group-->
-
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                <span style="font-size: medium">
-                                                    المؤهلات :
-                                                </span>
-                                                            </div>
-                                                            <div class="col-md-10">
-                                            <span style="font-size: medium"
-                                                  class="badge badge-secondary">
-                                                @if($row->teacherInfo->qualifications)
-                                                    {{$row->teacherInfo->qualifications}}
-                                                @else
-                                                    -
-                                                @endif
-                                            </span>
-                                                            </div>
-
-                                                        </div>
-
-
-
-                                                    </div>
-                                                    <!--end::Input group-->
-
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                <span style="font-size: medium">
-                                                    الجامعة :
-                                                </span>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                            <span style="font-size: medium"
-                                                  class="badge badge-secondary">
-                                                @if($row->teacherInfo->university)
-                                                    {{$row->teacherInfo->university}}
-                                                @else
-                                                    -
-                                                @endif
-                                            </span>
-                                                            </div>
-
-                                                            <div class="col-md-2"></div>
-
-                                                            <div class="col-md-2">
-                                                <span style="font-size: medium">
-                                                    طريقة التعلم :
-                                                </span>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                            <span style="font-size: medium"
-                                                  class="badge badge-secondary">
-                                                @if($row->teacherInfo->learn_type)
-                                                    {{$row->teacherInfo->learn_type}}
-                                                @else
-                                                    -
-                                                @endif
-                                            </span>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <!--end::Input group-->
-
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                            <span style="font-size: medium">
-                                                سنوات الخبرة :
-                                            </span>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                        <span style="font-size: medium"
-                                              class="badge badge-secondary">
-                                            @if($row->teacherInfo->years_of_exper)
-                                                {{$row->teacherInfo->years_of_exper}}
-                                            @else
-                                                -
-                                            @endif
-                                        </span>
-                                                            </div>
-
-
-                                                        </div>
-
-
-                                                    </div>
-                                                    <!--end::Input group-->
-
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                            <span style="font-size: medium">
-                                                وصف مختصر :
-                                            </span>
-                                                            </div>
-                                                            <div class="col-md-10">
-                                        <span style="font-size: medium"
-                                              class="badge badge-secondary">
-                                            @if($row->teacherInfo->desctiption)
-                                                {{$row->teacherInfo->desctiption}}
-                                            @else
-                                                -
-                                            @endif
-                                        </span>
-                                                            </div>
-
-
-                                                        </div>
-
-
-                                                    </div>
-                                                    <!--end::Input group-->
-
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10 fv-row">
-                                                        <div class="row">
-                                                            <div class="col-md-3">
-                                            <span style="font-size: medium">
-                                                تكلفة طلب استعلام عادي :
-                                            </span>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                        <span style="font-size: medium"
-                                              class="badge badge-primary">
-                                            @if($row->teacherInfo->inquiry_cost_normal)
-                                                {{$row->teacherInfo->inquiry_cost_normal}} $
-                                            @else
-                                                -
-                                            @endif
-                                        </span>
-                                                            </div>
-
-                                                            <div class="col-md-2"></div>
-
-                                                            <div class="col-md-3">
-                                            <span style="font-size: medium">
-                                                تكلفة طلب استعلام مستعجل :
-                                            </span>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                        <span style="font-size: medium"
-                                              class="badge badge-primary">
-                                            @if($row->teacherInfo->inquiry_cost_urgent)
-                                                {{$row->teacherInfo->inquiry_cost_urgent}} $
-                                            @else
-                                                -
-                                            @endif
-                                        </span>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <!--end::Input group-->
-
-                                            @endif
 
 
                                         </div>
@@ -636,7 +366,7 @@
                         <!--end::Tab content-->
                         <div class="d-flex justify-content-end">
                             <!--begin::Button-->
-                            <a href="{{route('admin.teachers')}}" id="kt_ecommerce_add_product_cancel"
+                            <a href="{{route('admin.students')}}" id="kt_ecommerce_add_product_cancel"
                                class="btn btn-light me-5">عودة</a>
                             <!--end::Button-->
                             <!--begin::Button-->

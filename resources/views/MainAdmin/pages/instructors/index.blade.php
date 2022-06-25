@@ -34,7 +34,7 @@
                 <div class="d-flex align-items-center py-1">
                     <!--begin::Wrapper-->
                     <!--begin::Button-->
-{{--                    <a href="{{route('admin.teachers.create')}}" class="btn btn-sm btn-success"--}}
+{{--                    <a href="{{route('admin.instructors.create')}}" class="btn btn-sm btn-success"--}}
 {{--                       data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id=""--}}
 {{--                    ><i class="fa fa-plus"></i>--}}
 {{--                        أضف--}}
@@ -114,7 +114,7 @@
                 </div>
                 <div class="modal-body">
                     <h5> هل أنت متأكد أنك تريد الحذف؟ </h5>
-                    <form id="delete_multi_form" method="post" action="{{route('admin.teachers.deleteMulti')}}">
+                    <form id="delete_multi_form" method="post" action="{{route('admin.instructors.deleteMulti')}}">
                         @csrf
                         <input type="hidden" name="ids" id="ids">
                     </form>
@@ -208,7 +208,7 @@
 
 
                 ],
-                ajax: '{{ route('admin.teachers.datatable') }}',
+                ajax: '{{ route('admin.instructors.datatable') }}',
                 "columns": [
                     {"data": 'select', "searchable": false, "orderable": false},
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', "searchable": false, "orderable": false},
@@ -309,7 +309,7 @@
                 if (result.value) {
                     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                     $.ajax({
-                        url: '{{route('admin.teachers.delete')}}',
+                        url: '{{route('admin.instructors.delete')}}',
                         type: "post",
                         data: {'row_id':  id, _token: CSRF_TOKEN},
                         dataType: "JSON",

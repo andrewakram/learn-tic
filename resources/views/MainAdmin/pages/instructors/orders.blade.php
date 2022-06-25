@@ -26,7 +26,7 @@
                         <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
                         <!--end::Separator-->
                         <a href="{{route('admin.users')}}" class="text-muted text-hover-primary">
-                            العملاء
+                            الطلاب
                         </a>
                         <!--begin::Separator-->
                         <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>

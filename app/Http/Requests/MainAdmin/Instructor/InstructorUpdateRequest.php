@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\MainAdmin\Category;
+namespace App\Http\Requests\MainAdmin\Instructor;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CategoryCreateRequest extends FormRequest
+class InstructorUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +25,12 @@ class CategoryCreateRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
-            'image' => 'required|image|mimes:png,jpg,jpeg',
-            'title_ar' => 'required',
-            'title_en' => 'required',
+            'row_id' => 'required|exists:users,id',
+            'active' => 'required|in:0,1',
+            'suspend' => 'required|in:0,1',
         ];
     }
 }

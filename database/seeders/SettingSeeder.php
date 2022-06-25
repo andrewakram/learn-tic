@@ -33,7 +33,7 @@ class SettingSeeder extends Seeder
             [
                 'key' => 'working_hours_ar',
                 'value' => 'من 9 صباحاً الي 11 صباحاً',
-            ], 
+            ],
             [
                 'key' => 'working_hours_en',
                 'value' => 'From 9 am to 11 amً',
@@ -48,15 +48,15 @@ class SettingSeeder extends Seeder
 
             ], [
                 'key' => 'email_1',
-                'value' => 'LearnTic@gmail.com',
+                'value' => 'LearnTic1@gmail.com',
 
             ], [
                 'key' => 'email_2',
-                'value' => 'proten2_chef@gmail.com',
+                'value' => 'LearnTic2@gmail.com',
 
             ], [
                 'key' => 'whatsapp',
-                'value' => '01094641332',
+                'value' => '010123132465',
 
             ], [
                 'key' => 'facebook',

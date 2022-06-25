@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Requests\MainAdmin\Teacher;
+namespace App\Http\Requests\MainAdmin\Student;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TeacherUpdateRequest extends FormRequest
+class StudentIndexRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +24,10 @@ class TeacherUpdateRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(Request $request)
+    public function rules()
     {
         return [
-            'row_id' => 'required|exists:users,id',
-            'active' => 'required|in:0,1',
-            'suspend' => 'required|in:0,1',
+            //
         ];
     }
 }

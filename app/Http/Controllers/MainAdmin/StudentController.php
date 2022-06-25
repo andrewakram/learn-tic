@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\MainAdmin;
 
-use App\Http\Requests\MainAdmin\Client\ClientIndexRequest;
-use App\Http\Requests\MainAdmin\Client\ClientUpdateRequest;
+use App\Http\Requests\MainAdmin\Student\StudentIndexRequest;
+use App\Http\Requests\MainAdmin\Student\StudentUpdateRequest;
 use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
@@ -14,18 +14,18 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
-class ClientController extends Controller
+class StudentController extends Controller
 {
-    public function index(ClientIndexRequest $request)
+    public function index(StudentIndexRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
-        return view('MainAdmin.pages.clients.index');
+        return view('MainAdmin.pages.students.index');
     }
 
-    public function edit(ClientIndexRequest $request,$id)
+    public function edit(StudentIndexRequest $request,$id)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
@@ -36,10 +36,10 @@ class ClientController extends Controller
             session()->flash('error', 'الحقل غير موجود');
             return redirect()->back();
         }
-        return view('admin.pages.clients.edit',compact('row'));
+        return view('MainAdmin.pages.students.edit',compact('row'));
     }
 
-    public function update(ClientUpdateRequest $request)
+    public function update(StudentUpdateRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
@@ -51,7 +51,7 @@ class ClientController extends Controller
         $row->save();
 
         session()->flash('success', 'تم التعديل بنجاح');
-        return redirect()->route('admin.clients');
+        return redirect()->route('admin.students');
     }
 
     public function getData()
@@ -101,16 +101,16 @@ class ClientController extends Controller
             ->addColumn('actions', function ($row) use ($auth){
                 $buttons = '';
 //                if ($auth->can('sliders.update')) {
-                    $buttons .= '<a href="'.route('admin.clients.edit',[$row->id]).'" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                    $buttons .= '<a href="'.route('admin.students.edit',[$row->id]).'" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
                             <i class="fa fa-edit"></i>
                         </a>';
 //                }
 //                if ($auth->can('sliders.delete')) {
-//                    $buttons .= '<a href="'.route('admin.clients.orders',[$row->id]).'" class="btn btn-warning btn-sm btn-circle m-1" title="الطلبات">
+//                    $buttons .= '<a href="'.route('admin.students.orders',[$row->id]).'" class="btn btn-warning btn-sm btn-circle m-1" title="الطلبات">
 //                            <i class="fa fa-cart-plus"></i>
 //                        </a>';
 //                }
-//                $buttons .= '<a href="'.route('admin.clients.cancelRequests',[$row->id]).'" class="btn btn-danger btn-sm btn-circle m-1" title="طلبات الإلغاء">
+//                $buttons .= '<a href="'.route('admin.students.cancelRequests',[$row->id]).'" class="btn btn-danger btn-sm btn-circle m-1" title="طلبات الإلغاء">
 //                            <i class="fa fa-recycle"></i>
 //                        </a>';
                 return $buttons;
@@ -124,7 +124,7 @@ class ClientController extends Controller
     public function userOrders($user_id)
     {
         $user_name = User::whereId($user_id)->select('name')->first()->name;
-        return view('admin.pages.clients.orders',compact('user_id','user_name'));
+        return view('admin.pages.students.orders',compact('user_id','user_name'));
     }
 
     public function getUserOrdersData($user_id)
@@ -136,7 +136,7 @@ class ClientController extends Controller
             ->addIndexColumn()
             ->addColumn('user_name',function ($row){
                 $user_name = $row->User->name;
-                return '<a href="'.route('admin.clients.edit',[$row->user_id]).'" class="" title="العميل">
+                return '<a href="'.route('admin.students.edit',[$row->user_id]).'" class="" title="العميل">
                             '.$user_name.'
                         </a>';
             })
@@ -180,7 +180,7 @@ class ClientController extends Controller
     public function userCancelRequests($user_id)
     {
         $user_name = User::whereId($user_id)->select('name')->first()->name;
-        return view('admin.pages.clients.cancel_requests',compact('user_id','user_name'));
+        return view('admin.pages.students.cancel_requests',compact('user_id','user_name'));
     }
 
     public function getCancelRequestsData($user_id)
@@ -193,7 +193,7 @@ class ClientController extends Controller
             ->addIndexColumn()
             ->addColumn('user_name',function ($row){
                 $user_name = $row->User->name;
-                return '<a href="'.route('admin.clients.edit',[$row->user_id]).'" class="" title="العميل">
+                return '<a href="'.route('admin.students.edit',[$row->user_id]).'" class="" title="العميل">
                             '.$user_name.'
                         </a>';
             })

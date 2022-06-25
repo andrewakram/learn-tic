@@ -47,71 +47,27 @@
                 <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'home') active @endif" href="{{route('admin.home')}}">
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Home.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z"
-                                        fill="#000000"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-home"></i>
                         </span>
                         <span class="menu-title">الرئيسية</span>
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'clients' ) active @endif"
-                       href="{{route('admin.clients')}}"
+                    <a class="menu-link @if(request()->segment(2) == 'students' ) active @endif"
+                       href="{{route('admin.students')}}"
                     >
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Clothes\Tie.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M14.1124454,7.00625159 C14.0755336,7.00212117 14.0380145,7 14,7 L10,7 C9.96198549,7 9.92446641,7.00212117 9.88755465,7.00625159 L7.34761705,4.55799196 C6.95060373,4.17530866 6.9382927,3.54346816 7.32009765,3.14561006 L8.41948359,2 L15.5805164,2 L16.6799023,3.14561006 C17.0617073,3.54346816 17.0493963,4.17530866 16.6523829,4.55799196 L14.1124454,7.00625159 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M13.7640285,9 L15.4853424,18.1494183 C15.5450675,18.4668794 15.4477627,18.7936387 15.2240963,19.0267093 L12.7215131,21.6345146 C12.7120098,21.6444174 12.7023037,21.6541236 12.6924008,21.6636269 C12.2939201,22.0460293 11.6608893,22.0329953 11.2784869,21.6345146 L8.77590372,19.0267093 C8.55223728,18.7936387 8.45493249,18.4668794 8.5146576,18.1494183 L10.2359715,9 L13.7640285,9 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-users"></i>
                         </span>
-                        <span class="menu-title">العملاء</span>
+                        <span class="menu-title">الطلاب</span>
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'teachers' ) active @endif"
-                       href="{{route('admin.teachers')}}"
+                    <a class="menu-link @if(request()->segment(2) == 'instructors' ) active @endif"
+                       href="{{route('admin.instructors')}}"
                     >
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Clothes\Tie.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M14.1124454,7.00625159 C14.0755336,7.00212117 14.0380145,7 14,7 L10,7 C9.96198549,7 9.92446641,7.00212117 9.88755465,7.00625159 L7.34761705,4.55799196 C6.95060373,4.17530866 6.9382927,3.54346816 7.32009765,3.14561006 L8.41948359,2 L15.5805164,2 L16.6799023,3.14561006 C17.0617073,3.54346816 17.0493963,4.17530866 16.6523829,4.55799196 L14.1124454,7.00625159 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M13.7640285,9 L15.4853424,18.1494183 C15.5450675,18.4668794 15.4477627,18.7936387 15.2240963,19.0267093 L12.7215131,21.6345146 C12.7120098,21.6444174 12.7023037,21.6541236 12.6924008,21.6636269 C12.2939201,22.0460293 11.6608893,22.0329953 11.2784869,21.6345146 L8.77590372,19.0267093 C8.55223728,18.7936387 8.45493249,18.4668794 8.5146576,18.1494183 L10.2359715,9 L13.7640285,9 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-user"></i>
                         </span>
                         <span class="menu-title">المدرسين</span>
                     </a>
@@ -121,23 +77,7 @@
                        href="{{route('admin.supervisors')}}"
                     >
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Clothes\Tie.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M14.1124454,7.00625159 C14.0755336,7.00212117 14.0380145,7 14,7 L10,7 C9.96198549,7 9.92446641,7.00212117 9.88755465,7.00625159 L7.34761705,4.55799196 C6.95060373,4.17530866 6.9382927,3.54346816 7.32009765,3.14561006 L8.41948359,2 L15.5805164,2 L16.6799023,3.14561006 C17.0617073,3.54346816 17.0493963,4.17530866 16.6523829,4.55799196 L14.1124454,7.00625159 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M13.7640285,9 L15.4853424,18.1494183 C15.5450675,18.4668794 15.4477627,18.7936387 15.2240963,19.0267093 L12.7215131,21.6345146 C12.7120098,21.6444174 12.7023037,21.6541236 12.6924008,21.6636269 C12.2939201,22.0460293 11.6608893,22.0329953 11.2784869,21.6345146 L8.77590372,19.0267093 C8.55223728,18.7936387 8.45493249,18.4668794 8.5146576,18.1494183 L10.2359715,9 L13.7640285,9 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-user-check"></i>
                         </span>
                         <span class="menu-title">المشرفين</span>
                     </a>
@@ -147,23 +87,7 @@
                        href="{{route('admin.cities')}}"
                     >
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Clothes\Tie.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M14.1124454,7.00625159 C14.0755336,7.00212117 14.0380145,7 14,7 L10,7 C9.96198549,7 9.92446641,7.00212117 9.88755465,7.00625159 L7.34761705,4.55799196 C6.95060373,4.17530866 6.9382927,3.54346816 7.32009765,3.14561006 L8.41948359,2 L15.5805164,2 L16.6799023,3.14561006 C17.0617073,3.54346816 17.0493963,4.17530866 16.6523829,4.55799196 L14.1124454,7.00625159 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M13.7640285,9 L15.4853424,18.1494183 C15.5450675,18.4668794 15.4477627,18.7936387 15.2240963,19.0267093 L12.7215131,21.6345146 C12.7120098,21.6444174 12.7023037,21.6541236 12.6924008,21.6636269 C12.2939201,22.0460293 11.6608893,22.0329953 11.2784869,21.6345146 L8.77590372,19.0267093 C8.55223728,18.7936387 8.45493249,18.4668794 8.5146576,18.1494183 L10.2359715,9 L13.7640285,9 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-map-pin"></i>
                         </span>
                         <span class="menu-title">المدن</span>
                     </a>
@@ -173,23 +97,7 @@
                        href="{{route('admin.categories')}}"
                     >
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Clothes\Tie.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M14.1124454,7.00625159 C14.0755336,7.00212117 14.0380145,7 14,7 L10,7 C9.96198549,7 9.92446641,7.00212117 9.88755465,7.00625159 L7.34761705,4.55799196 C6.95060373,4.17530866 6.9382927,3.54346816 7.32009765,3.14561006 L8.41948359,2 L15.5805164,2 L16.6799023,3.14561006 C17.0617073,3.54346816 17.0493963,4.17530866 16.6523829,4.55799196 L14.1124454,7.00625159 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M13.7640285,9 L15.4853424,18.1494183 C15.5450675,18.4668794 15.4477627,18.7936387 15.2240963,19.0267093 L12.7215131,21.6345146 C12.7120098,21.6444174 12.7023037,21.6541236 12.6924008,21.6636269 C12.2939201,22.0460293 11.6608893,22.0329953 11.2784869,21.6345146 L8.77590372,19.0267093 C8.55223728,18.7936387 8.45493249,18.4668794 8.5146576,18.1494183 L10.2359715,9 L13.7640285,9 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-server"></i>
                         </span>
                         <span class="menu-title">التخصصات</span>
                     </a>
@@ -199,23 +107,7 @@
                        href="{{route('admin.blogs')}}"
                     >
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Clothes\Tie.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M14.1124454,7.00625159 C14.0755336,7.00212117 14.0380145,7 14,7 L10,7 C9.96198549,7 9.92446641,7.00212117 9.88755465,7.00625159 L7.34761705,4.55799196 C6.95060373,4.17530866 6.9382927,3.54346816 7.32009765,3.14561006 L8.41948359,2 L15.5805164,2 L16.6799023,3.14561006 C17.0617073,3.54346816 17.0493963,4.17530866 16.6523829,4.55799196 L14.1124454,7.00625159 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M13.7640285,9 L15.4853424,18.1494183 C15.5450675,18.4668794 15.4477627,18.7936387 15.2240963,19.0267093 L12.7215131,21.6345146 C12.7120098,21.6444174 12.7023037,21.6541236 12.6924008,21.6636269 C12.2939201,22.0460293 11.6608893,22.0329953 11.2784869,21.6345146 L8.77590372,19.0267093 C8.55223728,18.7936387 8.45493249,18.4668794 8.5146576,18.1494183 L10.2359715,9 L13.7640285,9 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-file"></i>
                         </span>
                         <span class="menu-title">المقالات</span>
                     </a>
@@ -225,25 +117,19 @@
                        href="{{route('admin.courses')}}"
                     >
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Clothes\Tie.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M14.1124454,7.00625159 C14.0755336,7.00212117 14.0380145,7 14,7 L10,7 C9.96198549,7 9.92446641,7.00212117 9.88755465,7.00625159 L7.34761705,4.55799196 C6.95060373,4.17530866 6.9382927,3.54346816 7.32009765,3.14561006 L8.41948359,2 L15.5805164,2 L16.6799023,3.14561006 C17.0617073,3.54346816 17.0493963,4.17530866 16.6523829,4.55799196 L14.1124454,7.00625159 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M13.7640285,9 L15.4853424,18.1494183 C15.5450675,18.4668794 15.4477627,18.7936387 15.2240963,19.0267093 L12.7215131,21.6345146 C12.7120098,21.6444174 12.7023037,21.6541236 12.6924008,21.6636269 C12.2939201,22.0460293 11.6608893,22.0329953 11.2784869,21.6345146 L8.77590372,19.0267093 C8.55223728,18.7936387 8.45493249,18.4668794 8.5146576,18.1494183 L10.2359715,9 L13.7640285,9 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-circle"></i>
                         </span>
                         <span class="menu-title">الكورسات</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'tags' ) active @endif"
+                       href="{{route('admin.tags')}}"
+                    >
+                        <span class="menu-icon">
+                            <i class="fa fa-tags"></i>
+                        </span>
+                        <span class="menu-title">Tags</span>
                     </a>
                 </div>
                 <div class="menu-item">
@@ -251,23 +137,7 @@
                        href="{{route('admin.settings')}}"
                     >
                         <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Clothes\Tie.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M14.1124454,7.00625159 C14.0755336,7.00212117 14.0380145,7 14,7 L10,7 C9.96198549,7 9.92446641,7.00212117 9.88755465,7.00625159 L7.34761705,4.55799196 C6.95060373,4.17530866 6.9382927,3.54346816 7.32009765,3.14561006 L8.41948359,2 L15.5805164,2 L16.6799023,3.14561006 C17.0617073,3.54346816 17.0493963,4.17530866 16.6523829,4.55799196 L14.1124454,7.00625159 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M13.7640285,9 L15.4853424,18.1494183 C15.5450675,18.4668794 15.4477627,18.7936387 15.2240963,19.0267093 L12.7215131,21.6345146 C12.7120098,21.6444174 12.7023037,21.6541236 12.6924008,21.6636269 C12.2939201,22.0460293 11.6608893,22.0329953 11.2784869,21.6345146 L8.77590372,19.0267093 C8.55223728,18.7936387 8.45493249,18.4668794 8.5146576,18.1494183 L10.2359715,9 L13.7640285,9 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
+                            <i class="fa fa-arrow-circle-up"></i>
                         </span>
                         <span class="menu-title">الإعدادات</span>
                     </a>

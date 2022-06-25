@@ -115,7 +115,7 @@
                                                     <div class="col-md-3">
                                                     <span style="font-size: medium;"
                                                           class="badge badge-secondary col-md-12">
-                                                        <a href="{{route('admin.teachers.edit',[$course->teacher->id])}}" target="_blank">
+                                                        <a href="{{route('admin.instructors.edit',[$course->teacher->id])}}" target="_blank">
                                                             {{$course->teacher->name}}
                                                         </a>
 
