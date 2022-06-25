@@ -62,7 +62,7 @@ return [
     'noOrderMeals' => 'لا يوجد ايام لهذا الطلب',
     'PhoneExists' => 'رقم الجوال موجود من قبل برجاء',
 
-    //
+    // contact us page
     'contact_us' => 'تواصل معنا' ,
     'email' => ' البريد الالكتروني',
     'phone' => ' الهاتف',
@@ -74,4 +74,96 @@ return [
     'message_form'=> '  الرسالة',
     'button_form' => ' ارسل الان ',
     'home' => 'الرئيسية' ,
+    //blogs
+    'blogs' => 'المقالات' ,
+    'recent_posts' => ' دورات تدريبية مشابهة  ' ,
+    'Category  ' => 'التخصص' ,
+    //ABOUT US
+    'about_us' => 'من نحن' ,
+    'foreign_follwers' => 'المتابعين' ,//CERTIFIED TEACHERS
+    'certified_teachers' => 'المعلمين المعتمدين' ,//CERTIFIED TEACHERS
+    'students_enrolled' => 'المعلمين المعتمدين' ,//STUDENTS ENROLLED
+    'complete_courses' => 'دورات كاملة' ,//COMPLETE COURSES
+    'our_story' => 'قصتنا' ,
+    'strating_online' => 'بدء التعلم عبر الإنترنت ' ,//STARTING ONLINE LEARNING
+    'strating_online_p' => 'عزز مهاراتك مع أفضل الدورات التدريبية عبر الإنترنت' ,//ENHANCE YOUR SKILLS WITH BEST ONLINE COURSES
+    'view_courses_btn' => 'مشاهده جميع الكورسات' ,
+    'popular_instructors' => 'افضل المعلمين' ,//Popular Instructors
+    'people_say' => 'اراء الطلاب' ,//What People Say
+    'people_say_p' => 'اراء الطلاب عن المدرسين و الكورسات' ,
+    // INSTRUCTORS
+    'instructors' => ' المدرسين' ,
+    'city' => ' المدينة' ,
+    'Search_instructors' => ' البحث بالمعلم' ,
+    'teacher_qualification' => ' مؤهل المعلم ' ,
+    'gender' => ' النوع ' ,
+    'teaching_methods' => 'طريقة التدريس',
+     //instructors details
+    'appointment' => ' حجز المواعيد',
+    'course_list  ' => ' الكورسات',
+    'about_me' => 'من انا ',
+    'chat' => ' الدردشه',
+
+    //courses
+    'courses' => ' الكورسات',
+    'search_courses' => ' ابحث باسم الكورس', //Search Our Courses
+    'results ' => ' النتيجة',
+    'price' => 'سعر',
+    'paid' => 'مدفوع',
+    'free' => 'مجانى',
+    'search' => 'ابحث',
+    'instructor' => 'المدرس',
+    //course details
+    'add_card' => 'اشترى الان ',
+    'consultation' => 'استشارة فورية ',
+    'skill_level' => 'مستوي الكورس',
+    'review' => 'التقيم ',
+    'student_feedback' => 'اراء الطلاب ',
+    'see_all_reviews' => ' مشاهدة كل الاراء',
+    'add_reviews' => ' اضافة تقيم ',//Add Reviews & Rate
+    'submit_review ' => ' ارسل  التقيم ',//Submit Review 
+    'review_content ' => ' محتوي  التقيم ',//Review Content
+    'about_instructor ' => '   عن المدرس ',//About the instructor
+    'course_content ' => ' محتوي  الكورس ', //Course Content
+    'overview ' => ' تفاصيل الكورس   ',
+
+    //home
+    'slider_title' => ' ابحث عن أفضل الدورات ',
+    'slider_p' => ' تجلب التكنولوجيا موجة هائلة من التطور في تعلم الأشياء بطرق مختلفة. ',
+    'about_btn' => ' من نحن ',
+    'categories_title' => ' التخصصات  الخاصه بنا  ',
+    'categories_p' => '  يوجد لدينا جميع التخصصات لمساعده الطالب ',
+    'view_categories ' => ' مشاهدة جميع التخصصات ',//View All Categories
+    'top_courses' => ' أفضل الدورات لدينا ',//Browse Our Top Courses
+    'top_courses_p' => '  يوجد لدينا جميع الدورات لمساعده الطالب ',
+    'latest_news  ' => ' المقالات  ',
+    'latest_news_p ' => '  المقالات لافادة الطالب ما هو جديد ',
+    'like_see ' => ' مشاهدة جميع الدورات ',//Like what you see
+    'see_posts ' => ' مشاهده المزيد من المقالات',//See more posts
+
+
+
+
+
+    
+
+
+    
+
+
+    
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
  ];

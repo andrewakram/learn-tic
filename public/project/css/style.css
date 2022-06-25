@@ -947,7 +947,7 @@ header.header-nav.menu_style_home_one.home9.stricky-fixed #search-button i{
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
-  ms-transform: scale(1);
+  -ms-transform: scale(1);
 }
 .mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper,
 .mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper2 {
@@ -961,7 +961,7 @@ header.header-nav.menu_style_home_one.home9.stricky-fixed #search-button i{
   -ms-transform: scale(0.9);
   -o-transform: scale(0.9);
   transform: scale(0.9);
-  ms-transform: scale(0.9);
+  -ms-transform: scale(0.9);
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all ease-in-out .3s;

@@ -77,14 +77,14 @@ class PageSeeder extends Seeder
                 'image' => 'other.png',
                 'type' => 'other',
             ],
-            // [
-            //     'title_ar' => 'سهولة الاستخدام  ',
-            //     'title_en' => 'Create Account',
-            //     'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء   </p>',
-            //     'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
-            //     'image' => 'values9.png',
-            //     'type' => 'first_section',
-            // ],
+             [
+                'title_ar' => 'سهولة الاستخدام  ',
+                'title_en' => 'Create Account',
+                'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء   </p>',
+                'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
+                'image' => 'values9.png',
+                'type' => 'section1',
+            ],
 
         ];
         foreach ($data as $get) {

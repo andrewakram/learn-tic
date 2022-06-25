@@ -123,6 +123,92 @@ Tag:    academy, college, coursera, courses, education, elearning, kindergarten,
 
 
 /*///////*/
+.sign_up_instructor
+{
+  padding: 0px !important;
+}
+.instructor_display
+{
+  display: inline-block;
+    width: 49%;
+
+}
+.verify_code
+{
+  display: inline-block;
+  width: 75%;
+}
+.verify_btn
+{
+  margin-bottom: 3px !important;
+  font-size: 17px !important;
+  height: 47px !important;
+  padding: 0px 20px;
+  margin-left: 6px;
+}
+.my_sch_title ul{
+  margin-top: 40px;
+}
+.my_sch_title li{
+  border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    font-family: "Nunito";
+  
+}
+.my_sch_title span
+{
+  float: right;
+  text-transform: inherit;
+  font-family: "Nunito";
+}
+.my_sch_title li:last-child
+{
+  border-bottom: none;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.login_form .sign_up  , .sign_up_form .login
+{
+ background-color: rgba(0, 145, 130, .2);
+    padding: 13px 39px;
+    border-radius: 22px;
+    margin-left: 35px;
+}
+.login_form .heading p , .sign_up_form p
+{
+  margin-top: 25px;
+
+}
+.sign_up_form .dropdown-toggle 
+{
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  color: #495057;
+  height: 50px;
+  line-height: 35px;
+  
+}
+.verify_text
+{
+  font-family: 'Nunito', sans-serif;
+}
+.login_drop
+{
+  width: 240px !important;
+
+}
+.login_drop li a
+{
+    display: block;
+    margin-bottom: 15px;
+
+}
+.teacher_about p
+{
+  text-align: justify;
+}
 
 
 .mytestmonial
