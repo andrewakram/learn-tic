@@ -41,7 +41,6 @@ class UserSeeder extends Seeder
                 'full_name' =>"teacher".$i ."teacher".$i ."teacher".$i,
                 'national_id' => rand(10000000,99999999),
                 'residence_id' => rand(10000000,99999999),
-                'qualifications' => "test test test".$i,
                 'university' => "test".$i . "University",
                 'learn_type' => "remote",
                 'categoey_id' => 1,

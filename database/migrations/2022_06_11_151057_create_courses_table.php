@@ -17,6 +17,7 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreignId('teacher_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('image')->nullable();
             $table->text('title_ar')->nullable();
             $table->text('title_en')->nullable();
             $table->text('body_ar')->nullable();
