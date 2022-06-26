@@ -133,6 +133,16 @@
                     </a>
                 </div>
                 <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'pages' ) active @endif"
+                       href="{{route('admin.pages')}}"
+                    >
+                        <span class="menu-icon">
+                            <i class="fa fa-eye"></i>
+                        </span>
+                        <span class="menu-title">النصوص الثابتة</span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'settings' ) active @endif"
                        href="{{route('admin.settings')}}"
                     >

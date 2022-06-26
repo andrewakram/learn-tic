@@ -15,6 +15,9 @@ Route::group([
 
         Route::group(['middleware' => 'auth:admin'], function () {
             Route::get('home', 'HomeController@index')->name('.home');
+            Route::get('courses-last-7-days', 'HomeController@getDataCoursesLast7Days')
+                ->name('.coursesLast7Days.datatable');
+
         });
         Route::group(['middleware' => 'auth:admin'], function () {
 
@@ -120,6 +123,16 @@ Route::group([
                 Route::get('/show/{id}', 'TagController@show')->name('.show');
                 Route::post('/delete', 'TagController@delete')->name('.delete');
                 Route::post('/delete-multi', 'TagController@deleteMulti')->name('.deleteMulti');
+            });
+
+            Route::group(['prefix' => 'pages', 'as' => '.pages'], function () {
+                Route::get('/', 'PageController@index');
+                Route::get('getData', 'PageController@getData')->name('.datatable');
+                Route::get('/edit/{id}', 'PageController@edit')->name('.edit');
+                Route::post('/update', 'PageController@update')->name('.update');
+                Route::get('/show/{id}', 'PageController@show')->name('.show');
+                Route::post('/delete', 'PageController@delete')->name('.delete');
+                Route::post('/delete-multi', 'PageController@deleteMulti')->name('.deleteMulti');
             });
 
             Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {

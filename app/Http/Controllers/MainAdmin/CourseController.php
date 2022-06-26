@@ -97,7 +97,7 @@ class CourseController extends Controller
             })
             ->addColumn('actions', function ($row) {
                 $buttons = '';
-                $buttons .= '<a href="' . route('admin.courses.courseSections', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                $buttons .= '<a href="' . route('admin.courses.courseSections', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" target="_blank" title="عرض التفاصيل">
                             <i class="fa fa-eye"></i>
                         </a>';
 
