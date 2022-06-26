@@ -98,6 +98,7 @@ return [
     'free' => 'Free',
     'search' => 'Search',
     'instructor' => 'Instructor',
+    'preview_course' => 'Preview Course ',
     //course details
     'add_card' => ' Add Card ',
     'consultation' => 'Consultation  ',
@@ -110,21 +111,22 @@ return [
     'review_content ' => ' Review Content',
     'about_instructor ' => ' About the instructor ',
     'course_content ' => ' Course Content', 
-    'overview ' => '  Overview   ',
+    'overview' => '  Overview   ',
 
     //home
-    'slider_title' => ' Find the Best Courses    ',
+    'slider_title' => ' Find the Best Instructors    ',
     'slider_p' => ' Technology is brining a massive wave of evolution on learning things on different ways.    ',
+    'slider_btn' => '  Veiw All Instructors',
     'about_btn' => ' About Us ',
     'categories_title' => ' Our Categories Courses     ',
     'categories_p' => '  We Have All Categories To Help The Student    ',
     'view_categories ' => ' View All Categories',
     'top_courses' => ' Browse Our Top Courses ',
     'top_courses_p' => ' We Have All Courses To Help The Student    ',
-    'latest_news  ' => ' Blogs  ',
-    'latest_news_p ' => ' Articles to Benefit The Student What is New    ',
-    'like_see ' => 'Like what you see',
-    'see_posts ' => '   See More Posts ',
+    'latest_news' => ' Blogs  ',
+    'latest_news_p' => ' Articles to Benefit The Student What is New    ',
+    'like_see' => 'Like what you see',
+    'see_posts' => '   See More Posts ',
 
 
 ];

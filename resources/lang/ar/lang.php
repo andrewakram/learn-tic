@@ -118,6 +118,8 @@ return [
     'free' => 'مجانى',
     'search' => 'ابحث',
     'instructor' => 'المدرس',
+    'preview_course' => 'مشاهدة الكورس',
+    
     //course details
     'add_card' => 'اشترى الان ',
     'consultation' => 'استشارة فورية ',
@@ -133,18 +135,19 @@ return [
     'overview ' => ' تفاصيل الكورس   ',
 
     //home
-    'slider_title' => ' ابحث عن أفضل الدورات ',
+    'slider_title' => ' ابحث عن أفضل المدرسين ',
     'slider_p' => ' تجلب التكنولوجيا موجة هائلة من التطور في تعلم الأشياء بطرق مختلفة. ',
+    'slider_btn' => 'مشاهدة جميع المدرسين',
     'about_btn' => ' من نحن ',
     'categories_title' => ' التخصصات  الخاصه بنا  ',
     'categories_p' => '  يوجد لدينا جميع التخصصات لمساعده الطالب ',
     'view_categories ' => ' مشاهدة جميع التخصصات ',//View All Categories
     'top_courses' => ' أفضل الدورات لدينا ',//Browse Our Top Courses
     'top_courses_p' => '  يوجد لدينا جميع الدورات لمساعده الطالب ',
-    'latest_news  ' => ' المقالات  ',
-    'latest_news_p ' => '  المقالات لافادة الطالب ما هو جديد ',
-    'like_see ' => ' مشاهدة جميع الدورات ',//Like what you see
-    'see_posts ' => ' مشاهده المزيد من المقالات',//See more posts
+    'latest_news' => ' المقالات  ',
+    'latest_news_p' => '  المقالات لافادة الطالب ما هو جديد ',
+    'like_see' => ' مشاهدة جميع الدورات ',//Like what you see
+    'see_posts' => ' مشاهده المزيد من المقالات',//See more posts
 
 
 
