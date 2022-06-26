@@ -17,13 +17,7 @@
                      class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
                     <!--begin::Title-->
                     <h1 class="d-flex align-items-center fw-bolder fs-3 my-1" style="color: #5482d5">
-                        @if($type == 'about')
-                             من نحن
-                        @elseif($type == 'terms')
-                             الشروط والاحكام
-                        @elseif($type == 'frozen')
-                             سياسة التجميد
-                        @endif
+                        النصوص الثابتة
                     </h1>
                     <!--end::Title-->
                     <!--begin::Separator-->
@@ -118,30 +112,6 @@
                     <!--end::Aside column-->
                     <!--begin::Main column-->
                     <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-                        <!--begin:::Tabs-->
-{{--                        <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-bold mb-n2">--}}
-{{--                            <!--begin:::Tab item-->--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link text-active-warning pb-4 active" data-bs-toggle="tab"--}}
-{{--                                   href="#kt_ecommerce_add_product_general">--}}
-{{--                                    بيانات--}}
-{{--                                    @if($type == 'about')--}}
-{{--                                        صفحة عن التطبيق--}}
-{{--                                    @elseif($type == 'terms')--}}
-{{--                                        صفحة الشروط والاحكام--}}
-{{--                                    @elseif($type == 'frozen')--}}
-{{--                                        صفحة سياسة التجميد--}}
-{{--                                    @endif--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                            <!--end:::Tab item-->--}}
-{{--                            <!--begin:::Tab item-->--}}
-{{--                        --}}{{--                            <li class="nav-item">--}}
-{{--                        --}}{{--                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_add_product_advanced">Advanced</a>--}}
-{{--                        --}}{{--                            </li>--}}
-{{--                        <!--end:::Tab item-->--}}
-{{--                        </ul>--}}
-                        <!--end:::Tabs-->
                         <!--begin::Tab content-->
                         <div class="tab-content">
                             <!--begin::Tab pane-->

@@ -67,7 +67,7 @@ class PageController extends Controller
             ->editColumn('image',function ($row){
                 return '<a class="symbol symbol-50px"><span class="symbol-label" style="background-image:url('.$row->image.');"></span></a>';
             })
-            ->addColumn('actions', function ($row) use ($auth){
+            ->addColumn('actions', function ($row){
                 $buttons = '';
                     $buttons .= '<a href="'.route('admin.pages.edit',[$row->id]).'" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
                             <i class="fa fa-edit"></i>
