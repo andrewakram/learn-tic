@@ -77,7 +77,7 @@ return [
     //blogs
     'blogs' => 'المقالات' ,
     'recent_posts' => ' دورات تدريبية مشابهة  ' ,
-    'Category  ' => 'التخصص' ,
+    'category' => 'التخصص' ,
     //ABOUT US
     'about_us' => 'من نحن' ,
     'foreign_follwers' => 'المتابعين' ,//CERTIFIED TEACHERS
@@ -98,11 +98,16 @@ return [
     'teacher_qualification' => ' مؤهل المعلم ' ,
     'gender' => ' النوع ' ,
     'teaching_methods' => 'طريقة التدريس',
+    'search_map' => 'ابحث علي الخريطه' ,
+    'add_address' => ' ادخل عنوانك',
      //instructors details
     'appointment' => ' حجز المواعيد',
-    'course_list  ' => ' الكورسات',
+    'course_list' => ' الكورسات',
     'about_me' => 'من انا ',
     'chat' => ' الدردشه',
+    'course' => ' كورس',
+    'rating' => 'تقيم',
+    'students' => 'طالب',
 
     //courses
     'courses' => ' الكورسات',

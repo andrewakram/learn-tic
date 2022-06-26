@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-xl-6 offset-xl-3 text-center">
 					<div class="breadcrumb_content">
-						<h4 class="breadcrumb_title">Blog</h4>
+						<h4 class="breadcrumb_title">{{ __('lang.blogs') }}</h4>
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#">Home</a></li>
-						    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+						    <li class="breadcrumb-item"><a href="#">{{ __('lang.home') }}</a></li>
+						    <li class="breadcrumb-item active" aria-current="page">{{ __('lang.blogs') }}</li>
 						</ol>
 					</div>
 				</div>
@@ -160,7 +160,7 @@
 						</div>
 						<div class="blog_category_widget">
 							<ul class="list-group">
-								<h4 class="title">Category</h4>
+								<h4 class="title">{{ __('lang.category') }}</h4>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
 							    	Admissions <span class="float-right">6</span>
 								</li>
@@ -176,7 +176,7 @@
 							</ul>
 						</div>
 						<div class="blog_recent_post_widget media_widget">
-							<h4 class="title">Recent Posts</h4>
+							<h4 class="title"> {{ __('lang.recent_posts') }}</h4>
 							<div class="media">
 								<img class="align-self-start mr-3" src="{{asset('project')}}/images/blog/s1.jpg" alt="s1.jpg">
 								<div class="media-body">

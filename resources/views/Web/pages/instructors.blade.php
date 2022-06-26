@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-xl-6 offset-xl-3 text-center">
 					<div class="breadcrumb_content">
-						<h4 class="breadcrumb_title">Instructors</h4>
+						<h4 class="breadcrumb_title"> {{ __('lang.instructors') }}</h4>
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#">Home</a></li>
-						    <li class="breadcrumb-item active" aria-current="page">Instructors</li>
+						    <li class="breadcrumb-item"><a href="#"> {{ __('lang.home') }}</a></li>
+						    <li class="breadcrumb-item active" aria-current="page"> {{ __('lang.instructors') }}</li>
 						</ol>
 					</div>
 				</div>
@@ -185,7 +185,7 @@
 					<div class="row">
 						<div class="col-sm-5 col-lg-5 col-xl-3">
 							<div class="instructor_search_result">
-								<p class="mt10 fz15"><span class="color-dark">85</span> Instructors</p>
+								<p class="mt10 fz15"><span class="color-dark">85</span> {{ __('lang.instructors') }}</p>
 							</div>
 							
 						</div>
@@ -211,7 +211,7 @@
 								<ul >
 									<li class="list-inline-item">
 										<select class="selectpicker show-tick">
-											<option>City</option>
+											<option>{{ __('lang.city') }}</option>
 											<option>Riyad</option>
 											<option>Makkah</option>
 											<option>Dammam</option>
@@ -226,7 +226,7 @@
 									<li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
-												<input class="form-control mr-sm-2" type="search" placeholder="Search our instructors" aria-label="Search">
+												<input class="form-control mr-sm-2" type="search" placeholder="{{ __('lang.Search_instructors') }}" aria-label="Search">
 												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
 											</form>
 										</div>
@@ -301,13 +301,13 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodyfilter" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">Search By Map
+							        	<a href="#panelBodyfilter" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.search_map') }}
 										</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodyfilter" class="panel-collapse collapse show">
 							        <div class="panel-body">
-										<input class="form-control mr-sm-2" type="search" placeholder=" Add Your Address" aria-label="Search">
+										<input class="form-control mr-sm-2" type="search" placeholder="{{ __('lang.add_address') }}" aria-label="Search">
 
 									<!--	<div class="tags-bar style2">
 									 		<span>Photoshop<i class="close-tag">x</i></span>
@@ -328,7 +328,7 @@
 						  <div class="panel">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-									  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">teacher qualification
+									  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.teacher_qualification') }} 
 									</a>
 								  </h4>
 								</div>
@@ -365,7 +365,7 @@
 					  <div class="panel">
 							<div class="panel-heading">
 								<h4 class="panel-title">
-								  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> Gender
+								  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ __('lang.gender') }}
 								</a>
 							  </h4>
 							</div>
@@ -396,7 +396,7 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">Subject										</a>
+							        	<a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.category') }}										</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodySoftware" class="panel-collapse collapse show">
@@ -434,7 +434,7 @@
 						  <div class="panel">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-									  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> Teaching Methods
+									  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">  {{ __('lang.teaching_methods') }}
 									</a>
 								  </h4>
 								</div>

@@ -57,7 +57,7 @@ return [
     //blogs
     'blogs' => 'Blogs' ,
     'recent_posts' => ' Recent Posts  ' ,
-    'Category  ' => 'category' ,
+    'category' => 'category' ,
     //ABOUT US
     'about_us' => ' About Us' ,
     'foreign_follwers' => 'CERTIFIED TEACHERS' ,
@@ -78,16 +78,21 @@ return [
     'teacher_qualification' => ' Teacher Qualification  ' ,
     'gender' => ' Gender ' ,
     'teaching_methods' => 'Teaching Methods ',
+    'search_map' => 'Search By Map  ' ,
+    'add_address' => 'Add Your Address ',
      //instructors details
     'appointment' => ' Appointment ',
     'course_list  ' => ' Course List',
     'about_me' => 'About Me ',
     'chat' => ' Chat',
+    'course' => ' Course',
+    'rating' => 'Rating',
+    'students' => 'Student',
 
     //courses
     'courses' => ' Courses',
     'search_courses' => ' Search Our Courses', 
-    'results ' => ' Results',
+    'results' => ' Results',
     'price' => 'Price',
     'paid' => 'Paid',
     'free' => 'Free',
