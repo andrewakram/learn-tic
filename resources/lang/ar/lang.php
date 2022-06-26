@@ -77,12 +77,12 @@ return [
     //blogs
     'blogs' => 'المقالات' ,
     'recent_posts' => ' دورات تدريبية مشابهة  ' ,
-    'Category  ' => 'التخصص' ,
+    'category' => 'التخصص' ,
     //ABOUT US
     'about_us' => 'من نحن' ,
     'foreign_follwers' => 'المتابعين' ,//CERTIFIED TEACHERS
     'certified_teachers' => 'المعلمين المعتمدين' ,//CERTIFIED TEACHERS
-    'students_enrolled' => 'المعلمين المعتمدين' ,//STUDENTS ENROLLED
+    'students_enrolled' => ' الطلاب المشتركين' ,//STUDENTS ENROLLED
     'complete_courses' => 'دورات كاملة' ,//COMPLETE COURSES
     'our_story' => 'قصتنا' ,
     'strating_online' => 'بدء التعلم عبر الإنترنت ' ,//STARTING ONLINE LEARNING
@@ -98,11 +98,16 @@ return [
     'teacher_qualification' => ' مؤهل المعلم ' ,
     'gender' => ' النوع ' ,
     'teaching_methods' => 'طريقة التدريس',
+    'search_map' => 'ابحث علي الخريطه' ,
+    'add_address' => ' ادخل عنوانك',
      //instructors details
     'appointment' => ' حجز المواعيد',
-    'course_list  ' => ' الكورسات',
+    'course_list' => ' الكورسات',
     'about_me' => 'من انا ',
     'chat' => ' الدردشه',
+    'course' => ' كورس',
+    'rating' => 'تقيم',
+    'students' => 'طالب',
 
     //courses
     'courses' => ' الكورسات',
@@ -113,6 +118,8 @@ return [
     'free' => 'مجانى',
     'search' => 'ابحث',
     'instructor' => 'المدرس',
+    'preview_course' => 'مشاهدة الكورس',
+    
     //course details
     'add_card' => 'اشترى الان ',
     'consultation' => 'استشارة فورية ',
@@ -128,18 +135,19 @@ return [
     'overview ' => ' تفاصيل الكورس   ',
 
     //home
-    'slider_title' => ' ابحث عن أفضل الدورات ',
+    'slider_title' => ' ابحث عن أفضل المدرسين ',
     'slider_p' => ' تجلب التكنولوجيا موجة هائلة من التطور في تعلم الأشياء بطرق مختلفة. ',
+    'slider_btn' => 'مشاهدة جميع المدرسين',
     'about_btn' => ' من نحن ',
     'categories_title' => ' التخصصات  الخاصه بنا  ',
     'categories_p' => '  يوجد لدينا جميع التخصصات لمساعده الطالب ',
     'view_categories ' => ' مشاهدة جميع التخصصات ',//View All Categories
     'top_courses' => ' أفضل الدورات لدينا ',//Browse Our Top Courses
     'top_courses_p' => '  يوجد لدينا جميع الدورات لمساعده الطالب ',
-    'latest_news  ' => ' المقالات  ',
-    'latest_news_p ' => '  المقالات لافادة الطالب ما هو جديد ',
-    'like_see ' => ' مشاهدة جميع الدورات ',//Like what you see
-    'see_posts ' => ' مشاهده المزيد من المقالات',//See more posts
+    'latest_news' => ' المقالات  ',
+    'latest_news_p' => '  المقالات لافادة الطالب ما هو جديد ',
+    'like_see' => ' مشاهدة جميع الدورات ',//Like what you see
+    'see_posts' => ' مشاهده المزيد من المقالات',//See more posts
 
 
 

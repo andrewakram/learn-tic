@@ -11,8 +11,8 @@
 					<div class="breadcrumb_content">
 						<h4 class="breadcrumb_title"> {{$teacher_details -> teacherInfo -> full_name}}   </h4>
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#">Home</a></li>
-						    <li class="breadcrumb-item active" aria-current="page">Instructor</li>
+						    <li class="breadcrumb-item"><a href="#">{{ __('lang.home') }}</a></li>
+						    <li class="breadcrumb-item active" aria-current="page">{{ __('lang.instructors') }}</li>
 						</ol>
 					</div>
 				</div>
@@ -30,10 +30,10 @@
                             <div class="cs_rwo_tabs csv2">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="true">Course List </a>
+                                        <a class="nav-link active" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="true"> {{ __('lang.course_list') }}  </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="course-tab" data-toggle="tab" href="#course" role="tab" aria-controls="course" aria-selected="false">Appointment</a>
+                                        <a class="nav-link" id="course-tab" data-toggle="tab" href="#course" role="tab" aria-controls="course" aria-selected="false">{{ __('lang.appointment') }}</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
@@ -483,28 +483,28 @@
                             
                             <i class="fa fa-user"></i>
                             <h3> 56,890 </h3>
-                            <span> Students </span>
+                            <span> {{ __('lang.students') }}  </span>
                         </div>
                         <div class="teacher_achieve_list">
                             <i class="fa fa-star"></i>
                             <h3> 5.0 </h3>
-                            <span> Rating </span>
+                            <span> {{ __('lang.rating') }}  </span>
                         </div>
                         <div class="teacher_achieve_list">
                             <i class="fa fa-book"></i>
                             <h3> 80 </h3>
-                            <span> Courses </span>
+                            <span> {{ __('lang.course') }} </span>
                         </div>
                     </div>
 
                     <div class="teacher_about">
-                        <h3> About Me</h3>
+                        <h3> {{ __('lang.about_me') }}</h3>
                         <p>
                             {{$teacher_details -> teacherInfo -> desctiption}}
                         </p>
                      </div>
                      <div class=" ui_kit_button search_btn mb0">
-                        <a href="page-student-message.html" type="button" class="btn dbxshad btn-lg btn-thm circle white">Chat With Me</a>
+                        <a href="page-student-message.html" type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ __('lang.chat') }}</a>
                       </div>
 			
 				</div>

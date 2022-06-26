@@ -9,9 +9,9 @@
             <div class="row posr">
                 <div class="col-lg-12">
                     <div class="home-text text-center">
-                        <h2 class="fz50">Find the Best Instructors</h2>
-                        <p class="color-white">Technology is brining a massive wave of evolution on learning things on different ways.</p>
-                        <a class="btn home_btn" href="{{route('instructors')}}">Ready to get instructor?</a>
+                        <h2 class="fz50">{{ __('lang.slider_title') }}</h2>
+                        <p class="color-white">{{ __('lang.slider_p') }}</p>
+                        <a class="btn home_btn" href="{{route('instructors')}}">{{ __('lang.slider_btn') }}</a>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <div class="about_home3">
                         <h3> {{$data['home_about']->title }}</h3>
                         {!! $data['home_about']->body !!}
-                        <a href="#" class="btn about_btn_home3">View More</a>
+                        <a href="#" class="btn about_btn_home3">{{ __('lang.about_btn') }}</a>
                         <!--	<ul class="partners_thumb_list">
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/1.png" alt="1.png"></a></li>
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/2.png" alt="2.png"></a></li>
@@ -110,8 +110,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="main-title text-center">
-                        <h3 class="mt0">Via School Categories Courses</h3>
-                        <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+                        <h3 class="mt0">{{ __('lang.categories_title') }}</h3>
+                        <p>{{ __('lang.categories_p') }}</p>
                     </div>
                 </div>
             </div>
@@ -211,7 +211,7 @@
 -->
                 <div class="col-lg-6 offset-lg-3">
                     <div class="courses_all_btn text-center">
-                        <a class="btn btn-transparent" href="#">View All Courses</a>
+                        <a class="btn btn-transparent" href="#">{{ __('lang.view_categories') }}</a>
                     </div>
                 </div>
             </div>
@@ -224,9 +224,9 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="divider-one">
-                        <p class="color-white">STARTING ONLINE LEARNING</p>
-                        <h1 class="color-white text-uppercase">Enhance your skIlls wIth best OnlIne courses</h1>
-                        <a class="btn btn-transparent divider-btn" href="{{route('courses')}}">Get Started Now</a>
+                        <p class="color-white">{{ __('lang.strating_online') }}</p>
+                        <h1 class="color-white text-uppercase">{{ __('lang.strating_online_p') }}</h1>
+                        <a class="btn btn-transparent divider-btn" href="{{route('courses')}}">{{ __('lang.view_courses_btn') }}</a>
                     </div>
                 </div>
             </div>
@@ -239,8 +239,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="main-title text-center">
-                        <h3 class="mt0">Browse Our Top Courses</h3>
-                        <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+                        <h3 class="mt0">{{ __('lang.top_courses') }}</h3>
+                        <p>{{ __('lang.top_courses_p') }}</p>
                     </div>
                 </div>
             </div>
@@ -554,8 +554,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="main-title text-center">
-                        <h3 class="mt0">What People Say</h3>
-                        <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+                        <h3 class="mt0">{{ __('lang.people_say') }}</h3>
+                        <p>{{ __('lang.people_say_p') }}</p>
                     </div>
                 </div>
             </div>
@@ -603,8 +603,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="main-title text-center">
-                        <h3 class="mt0">Latest News And Events</h3>
-                        <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+                        <h3 class="mt0">{{ __('lang.latest_news') }}</h3>
+                        <p>{{ __('lang.latest_news_p') }}</p>
                     </div>
                 </div>
             </div>
@@ -653,7 +653,7 @@
             <div class="row mt50">
                 <div class="col-lg-12">
                     <div class="read_more_home text-center">
-                        <h4>Like what you see? <a href="{{route('blogs')}}">See more posts<span class="flaticon-right-arrow pl10"></span></a></h4>
+                        <h4>{{ __('lang.like_see') }} <a href="{{route('blogs')}}">{{ __('lang.see_posts') }}<span class="flaticon-right-arrow pl10"></span></a></h4>
                     </div>
                 </div>
             </div>

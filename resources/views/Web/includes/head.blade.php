@@ -10,7 +10,8 @@
 <!-- css file -->
 @if(session()->get('lang') == 'ar')
     <link rel="stylesheet" href="{{asset('project')}}/css/ar-bootstrap.min.css">
-    <link rel="stylesheet" href="{{asset('project')}}/css/ar-style.css">
+    <!-- <link rel="stylesheet" href="{{asset('project')}}/css/bootstrap.min.css"> -->
+     <link rel="stylesheet" href="{{asset('project')}}/css/ar-style.css">
     <link rel="stylesheet" href="{{asset('project')}}/css/ar-responsive">
 @else
     <link rel="stylesheet" href="{{asset('project')}}/css/bootstrap.min.css">
