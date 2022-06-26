@@ -82,7 +82,7 @@ return [
     'about_us' => 'من نحن' ,
     'foreign_follwers' => 'المتابعين' ,//CERTIFIED TEACHERS
     'certified_teachers' => 'المعلمين المعتمدين' ,//CERTIFIED TEACHERS
-    'students_enrolled' => 'المعلمين المعتمدين' ,//STUDENTS ENROLLED
+    'students_enrolled' => ' الطلاب المشتركين' ,//STUDENTS ENROLLED
     'complete_courses' => 'دورات كاملة' ,//COMPLETE COURSES
     'our_story' => 'قصتنا' ,
     'strating_online' => 'بدء التعلم عبر الإنترنت ' ,//STARTING ONLINE LEARNING
