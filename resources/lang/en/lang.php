@@ -125,8 +125,16 @@ return [
     'top_courses_p' => ' We Have All Courses To Help The Student    ',
     'latest_news' => ' Blogs  ',
     'latest_news_p' => ' Articles to Benefit The Student What is New    ',
-    'like_see' => 'Like what you see',
+    'like_see' => 'Like what you see?',
     'see_posts' => '   See More Posts ',
+    'copy_right' => 'Copyright LearnTic © 2022. All Rights Reserved.',
+    'login_register' => 'Login/Register',
+    'login_student' => 'Login Student',
+    'login_teacher'=> 'Login Teacher',
+    'app' => 'Our App',
+    'goals' => 'Our Goals',
+    'pages' => 'Pages ',
+    
 
 
 ];
