@@ -56,7 +56,7 @@ Route::get('student-login', [StudentLoginController::class,'index'])->name('stud
 Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
 
 
-Route::get('/change-languagee/{lang}', function ($lang) {
+Route::get('/change-language/{lang}', function ($lang) {
     // if(in_array($lang , ['ar' , 'en']))
     // {
         session()->put('lang', $lang);
