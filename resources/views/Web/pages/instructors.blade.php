@@ -212,10 +212,9 @@
 									<li class="list-inline-item">
 										<select class="selectpicker show-tick">
 											<option>{{ __('lang.city') }}</option>
-											<option>Riyad</option>
-											<option>Makkah</option>
-											<option>Dammam</option>
-											<option>Al-Qassim</option>
+											@foreach ($data['cities'] as $city)
+												<option>{{$city -> title}}</option>
+											@endforeach
 											<!--
 											<option>Newly published</option>
 											<option>Recent</option>
@@ -402,24 +401,12 @@
 							    <div id="panelBodySoftware" class="panel-collapse collapse show">
 							        <div class="panel-body">
 										<div class="ui_kit_checkbox">
-											
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck16">
-												<label class="custom-control-label" for="customCheck16">Graphic Design <span class="float-right">(126)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck17">
-												<label class="custom-control-label" for="customCheck17">Sketch <span class="float-right">(1,584)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck18">
-												<label class="custom-control-label" for="customCheck18">InDesign <span class="float-right">(34)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck19">
-												<label class="custom-control-label" for="customCheck19">CorelDRAW <span class="float-right">(34)</span></label>
-											</div>
-											
+											@foreach ($data['categories'] as $category)
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input" id="customCheck{{$category -> id}}">
+													<label class="custom-control-label" for="customCheck{{$category -> id}}"> {{$category -> title}} <span class="float-right">({{$category -> courses_count}})</span></label>
+												</div>
+											@endforeach
 											<a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> See More</a>
 										</div>
 							        </div>

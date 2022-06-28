@@ -101,8 +101,8 @@ return [
     'preview_course' => 'Preview Course ',
     //course details
     'add_card' => ' Add Card ',
-    'consultation' => 'Consultation  ',
-    'skill_level' => 'Skill Level ',
+    'consultation' => 'Consultation ',
+    'course_type' => 'Course Type ',
     'review' => 'Review ',
     'student_feedback' => ' Student Feedback ',
     'see_all_reviews' => ' See All Reviews',

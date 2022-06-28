@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\web\BlogsController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\web\CategoriesController;
 use App\Http\Controllers\web\AboutUsController;
 use App\Http\Controllers\web\CoursesController;
 use App\Http\Controllers\web\ContactUsController;
