@@ -5026,7 +5026,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
 }
 .courses_list_content .top_courses.list .details .tc_content p{
   font-size: 14px;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   color: rgb(126, 126, 126);
   line-height: 1.714;
 }
@@ -9218,7 +9218,7 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
   padding-left: 0;
   width: 258px;
   font-size: 14px;
-  font-family: 'Nunito', sans-serif;
+  /* font-family: 'Nunito', sans-serif; */
 }
 .candidate_revew_search_box button{
   background-color: #ffffff;
@@ -13647,7 +13647,7 @@ ul.nav.nav-tabs.style4{
 
 
 .filter-option-inner-inner {
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-size: 14px;
 }
 

@@ -36,11 +36,12 @@
 								<ul class="mb0">
 									<li class="list-inline-item">
 										<select class="selectpicker show-tick">
-											<option>{{ trans('lang.city') }}</option>
-											<option>Riyad</option>
-											<option>Makkah</option>
-											<option>Dammam</option>
-											<option>Al-Qassim</option>
+
+												<option>{{ __('lang.city') }}</option>
+											@foreach ($data['cities'] as $city)
+												<option>{{$city -> title}}</option>
+											@endforeach
+
 											<!--
 											<option>Newly published</option>
 											<option>Recent</option>
@@ -150,34 +151,13 @@
 							    <div id="panelBodySoftware" class="panel-collapse collapse show">
 							        <div class="panel-body">
 										<div class="ui_kit_checkbox">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck14">
-												<label class="custom-control-label" for="customCheck14">Photoshop <span class="float-right">(03)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck15">
-												<label class="custom-control-label" for="customCheck15">Adobe Illustrator <span class="float-right">(15)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck16">
-												<label class="custom-control-label" for="customCheck16">Graphic Design <span class="float-right">(126)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck17">
-												<label class="custom-control-label" for="customCheck17">Sketch <span class="float-right">(1,584)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck18">
-												<label class="custom-control-label" for="customCheck18">InDesign <span class="float-right">(34)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck19">
-												<label class="custom-control-label" for="customCheck19">CorelDRAW <span class="float-right">(34)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck20">
-												<label class="custom-control-label" for="customCheck20">After Effects <span class="float-right">(06)</span></label>
-											</div>
+											@foreach ($data['categories'] as $category)
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input" id="customCheck{{$category -> id}}">
+													<label class="custom-control-label" for="customCheck{{$category -> id}}">{{$category -> title}} <span class="float-right">({{$category -> courses_count}})</span></label>
+												</div>
+											@endforeach
+
 											<a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> See More</a>
 										</div>
 							        </div>
@@ -185,6 +165,34 @@
 						    </div>
 						</div>
 					</div>
+					<div class="selected_filter_widget style3">
+						<div id="accordion" class="panel-group">
+						  <div class="panel">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+									  <a href="#panelBodyPlace" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.city') }}</a>
+								  </h4>
+								</div>
+							  <div id="panelBodyPlace" class="panel-collapse collapse show">
+								  <div class="panel-body">
+									  <div class="cl_skill_checkbox">
+										  <div class="content ui_kit_checkbox style2 text-left">
+										 	 @foreach ($data['cities'] as $city)
+
+											 	 <div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input" id="customCheck{{$city -> id}}">
+													<label class="custom-control-label" for="customCheck{{$city -> id}}">{{$city -> title}} <span class="float-right">(03)</span></label>
+											 	 </div>
+											@endforeach
+
+
+										  </div>
+									  </div>
+								  </div>
+							  </div>
+						  </div>
+					  </div>
+				  </div>
 					<div class="selected_filter_widget style3">
 					  	<div id="accordion" class="panel-group">
 						    <div class="panel">
@@ -197,50 +205,13 @@
 							        <div class="panel-body">
 										<div class="cl_skill_checkbox">
 											<div class="content ui_kit_checkbox style2 text-left">
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck80">
-													<label class="custom-control-label" for="customCheck80">Chris Convrse <span class="float-right">(03)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck1">
-													<label class="custom-control-label" for="customCheck1">Morten Rand <span class="float-right">(15)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck2">
-													<label class="custom-control-label" for="customCheck2">Rayi Villalobos  <span class="float-right">(125)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck3">
-													<label class="custom-control-label" for="customCheck3">James William <span class="float-right">(1.584)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck4">
-													<label class="custom-control-label" for="customCheck4">Jen Kramery <span class="float-right">(34)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck5">
-													<label class="custom-control-label" for="customCheck5">Chris Notder  <span class="float-right">(58)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck6">
-													<label class="custom-control-label" for="customCheck6">Kramery Chris <span class="float-right">(06)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck7">
-													<label class="custom-control-label" for="customCheck7">James William <span class="float-right">(62)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck8">
-													<label class="custom-control-label" for="customCheck8">Chris Notder <span class="float-right">(43)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck9">
-													<label class="custom-control-label" for="customCheck9">Rayi Villalobos <span class="float-right">(23)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck10">
-													<label class="custom-control-label" for="customCheck10">Kramery Chris <span class="float-right">(57)</span></label>
-												</div>
+												@foreach ($data['instructors'] as $instructor)
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="{{$instructor -> id}} ">
+														<label class="custom-control-label" for="{{$instructor -> id}} ">{{$instructor -> full_name}}  <span class="float-right">(03)</span></label>
+													</div>
+												@endforeach
+
 											</div>
 										</div>
 							        </div>
@@ -261,11 +232,11 @@
 										<div class="ui_kit_whitchbox">
 											<div class="custom-control custom-switch">
 												<input type="checkbox" class="custom-control-input" id="customSwitch1">
-												<label class="custom-control-label" for="customSwitch1">Paid </label>
+												<label class="custom-control-label" for="customSwitch1"> مدفوع  </label>
 											</div>
 											<div class="custom-control custom-switch">
 												<input type="checkbox" class="custom-control-input" id="customSwitch2">
-												<label class="custom-control-label" for="customSwitch2">Free</label>
+												<label class="custom-control-label" for="customSwitch2">مجانى</label>
 											</div>
 										</div>
 							        </div>
@@ -278,7 +249,11 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
+<<<<<<< HEAD
 							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ trans('lang.skill_level') }}</a>
+=======
+							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ __('lang.course_type') }}</a>
+>>>>>>> f9951b6a4654e8d5da1b602b63e821c4e7fb8ae5
 							        </h4>
 						      	</div>
 							    <div id="panelBodySkills" class="panel-collapse collapse show">
@@ -286,20 +261,17 @@
 										<div class="ui_kit_checkbox">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="customCheck14">
-												<label class="custom-control-label" for="customCheck14">Beginner <span class="float-right">(03)</span></label>
+												<label class="custom-control-label" for="customCheck14">الكل <span class="float-right">(03)</span></label>
 											</div>
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="customCheck15">
-												<label class="custom-control-label" for="customCheck15">Intermediate <span class="float-right">(15)</span></label>
+												<label class="custom-control-label" for="customCheck15">دورة على الانترنت <span class="float-right">(15)</span></label>
 											</div>
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="customCheck16">
-												<label class="custom-control-label" for="customCheck16">Advanced <span class="float-right">(126)</span></label>
+												<label class="custom-control-label" for="customCheck16">دورة خاصة <span class="float-right">(126)</span></label>
 											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck17">
-												<label class="custom-control-label" for="customCheck17">Appropriate for all <span class="float-right">(1,584)</span></label>
-											</div>
+
 										</div>
 							        </div>
 							    </div>
@@ -307,6 +279,7 @@
 						</div>
 					</div>
 
+<<<<<<< HEAD
 					<div class="selected_filter_widget style3">
 						<div id="accordion" class="panel-group">
 						  <div class="panel">
@@ -355,6 +328,9 @@
 						  </div>
 					  </div>
 				  </div>
+=======
+
+>>>>>>> f9951b6a4654e8d5da1b602b63e821c4e7fb8ae5
 
 				  <div class=" ui_kit_button search_btn mb0">
 					<button type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ trans('lang.search') }}</button>

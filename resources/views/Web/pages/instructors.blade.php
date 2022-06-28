@@ -211,11 +211,11 @@
 								<ul >
 									<li class="list-inline-item">
 										<select class="selectpicker show-tick">
-											<option>{{ trans('lang.city') }}</option>
-											<option>Riyad</option>
-											<option>Makkah</option>
-											<option>Dammam</option>
-											<option>Al-Qassim</option>
+
+											<option>{{ __('lang.city') }}</option>
+											@foreach ($data['cities'] as $city)
+												<option>{{$city -> title}}</option>
+											@endforeach
 											<!--
 											<option>Newly published</option>
 											<option>Recent</option>
@@ -402,6 +402,7 @@
 							    <div id="panelBodySoftware" class="panel-collapse collapse show">
 							        <div class="panel-body">
 										<div class="ui_kit_checkbox">
+<<<<<<< HEAD
 
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="customCheck16">
@@ -420,6 +421,14 @@
 												<label class="custom-control-label" for="customCheck19">CorelDRAW <span class="float-right">(34)</span></label>
 											</div>
 
+=======
+											@foreach ($data['categories'] as $category)
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input" id="customCheck{{$category -> id}}">
+													<label class="custom-control-label" for="customCheck{{$category -> id}}"> {{$category -> title}} <span class="float-right">({{$category -> courses_count}})</span></label>
+												</div>
+											@endforeach
+>>>>>>> f9951b6a4654e8d5da1b602b63e821c4e7fb8ae5
 											<a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> See More</a>
 										</div>
 							        </div>

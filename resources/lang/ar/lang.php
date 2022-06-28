@@ -115,7 +115,7 @@ return [
     'courses' => ' الكورسات',
     'search_courses' => ' ابحث باسم الكورس', //Search Our Courses
     'results ' => ' النتيجة',
-    'price' => 'سعر',
+    'price' => 'السعر',
     'paid' => 'مدفوع',
     'free' => 'مجانى',
     'search' => 'ابحث',
@@ -125,7 +125,7 @@ return [
     //course details
     'add_card' => 'اشترى الان ',
     'consultation' => 'استشارة فورية ',
-    'skill_level' => 'مستوي الكورس',
+    'course_type' => ' نوع الدورة ',
     'review' => 'التقيم ',
     'student_feedback' => 'اراء الطلاب ',
     'see_all_reviews' => ' مشاهدة كل الاراء',
@@ -158,30 +158,6 @@ return [
     'goals' => 'اهدافنا ',
     'pages' => 'الصفحات ',
     'more'=> 'المزيد',
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
  ];
