@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-xl-6 offset-xl-3 text-center">
 					<div class="breadcrumb_content">
-						<h4 class="breadcrumb_title">{{ __('lang.about_us') }} </h4>
+						<h4 class="breadcrumb_title">{{ trans('lang.about_us') }} </h4>
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#">{{ __('lang.home') }} </a></li>
-						    <li class="breadcrumb-item active" aria-current="page">{{ __('lang.about_us') }} </li>
+						    <li class="breadcrumb-item"><a href="#">{{ trans('lang.home') }} </a></li>
+						    <li class="breadcrumb-item active" aria-current="page">{{ trans('lang.about_us') }} </li>
 						</ol>
 					</div>
 				</div>
@@ -30,21 +30,21 @@
 							@if(session()->get('lang') == 'ar')
 								{{$data['about_title_arabic'] }}
 							@else
-								{{$data['about_title_english'] }} 
+								{{$data['about_title_english'] }}
 							@endif
-							
+
 						</h3>
-						
+
 						<p>
 						@if(session()->get('lang') == 'ar')
 								{!! $data['about_body_arabic']  !!}
 							@else
-								{!! $data['about_body_english'] !!} 
+								{!! $data['about_body_english'] !!}
 						 @endif
-						
-							
+
+
 						</p>
-							
+
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -55,14 +55,14 @@
 			</div>
 			<div class="row mb60">
 				<div class="col-lg-12 text-center mt60">
-					<h3 class="fz26">{{ __('lang.our_story') }}</h3>
+					<h3 class="fz26">{{ trans('lang.our_story') }}</h3>
 				</div>
 				<div class="col-lg-12 text-center mt40">
 					<ul class="funfact_two_details">
 						<li class="list-inline-item">
 							<div class="funfact_two text-left">
 								<div class="details">
-									<h5>{{ __('lang.foreign_follwers') }}</h5>
+									<h5>{{ trans('lang.foreign_follwers') }}</h5>
 									<div class="timer">88,000</div>
 								</div>
 							</div>
@@ -70,7 +70,7 @@
 						<li class="list-inline-item">
 							<div class="funfact_two text-left">
 								<div class="details">
-									<h5> {{ __('lang.certified_teachers') }}</h5>
+									<h5> {{ trans('lang.certified_teachers') }}</h5>
 									<div class="timer">96</div>
 								</div>
 							</div>
@@ -78,7 +78,7 @@
 						<li class="list-inline-item">
 							<div class="funfact_two text-left">
 								<div class="details">
-									<h5>{{ __('lang.students_enrolled') }} </h5>
+									<h5>{{ trans('lang.students_enrolled') }} </h5>
 									<div class="timer">4,789</div>
 								</div>
 							</div>
@@ -86,7 +86,7 @@
 						<li class="list-inline-item">
 							<div class="funfact_two text-left">
 								<div class="details">
-									<h5>{{ __('lang.complete_courses') }} </h5>
+									<h5>{{ trans('lang.complete_courses') }} </h5>
 									<div class="timer">489</div>
 								</div>
 							</div>
@@ -101,14 +101,14 @@
 							@if(session()->get('lang') == 'ar')
 								{{$data['vision_title_arabic'] }}
 							@else
-								{{$data['vision_title_english'] }} 
+								{{$data['vision_title_english'] }}
 							@endif
 						</h4>
 						<p>
 							@if(session()->get('lang') == 'ar')
 								{!! $data['vision_body_arabic'] !!}
 							@else
-								{!! $data['vision_body_english'] !!} 
+								{!! $data['vision_body_english'] !!}
 							@endif
 						</p>
 
@@ -120,14 +120,14 @@
 							@if(session()->get('lang') == 'ar')
 								{{$data['Message_title_arabic'] }}
 							@else
-								{{$data['Message_title_english'] }} 
+								{{$data['Message_title_english'] }}
 							@endif
 						</h4>
 						<p>
 							@if(session()->get('lang') == 'ar')
 								{!! $data['Message_body_arabic'] !!}
 							@else
-								{!! $data['Message_body_english'] !!} 
+								{!! $data['Message_body_english'] !!}
 							@endif
 						</p>
 					</div>
@@ -142,9 +142,9 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="divider-one">
-						<p class="color-white">{{ __('lang.strating_online') }}</p>
-						<h1 class="color-white text-uppercase">{{ __('lang.strating_online_p') }}</h1>
-						<a class="btn btn-transparent divider-btn" href="{{route('courses')}}">{{ __('lang.view_courses_btn') }}</a>
+						<p class="color-white">{{ trans('lang.strating_online') }}</p>
+						<h1 class="color-white text-uppercase">{{ trans('lang.strating_online_p') }}</h1>
+						<a class="btn btn-transparent divider-btn" href="{{route('courses')}}">{{ trans('lang.view_courses_btn') }}</a>
 					</div>
 				</div>
 			</div>
@@ -157,7 +157,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main-title text-center">
-						<h3 class="mb0 mt0">{{ __('lang.popular_instructors') }}</h3>
+						<h3 class="mb0 mt0">{{ trans('lang.popular_instructors') }}</h3>
 					</div>
 				</div>
 			</div>
@@ -167,7 +167,7 @@
 
 
 					@foreach($data['popular_teachers'] as $popular_teacher)
-	
+
 						<div class="item">
 							<div class="team_member text-center">
 								<div class="instructor_col">
@@ -179,11 +179,11 @@
 
 										<p>
 											@if(session()->get('lang') == 'ar')
-											{{$popular_teacher -> category->title_ar}} 
+											{{$popular_teacher -> category->title_ar}}
 											@else
-											{{$popular_teacher -> category->title_en}} 
+											{{$popular_teacher -> category->title_en}}
 											@endif
-											
+
 										</p>
 										<ul>
 											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -324,8 +324,8 @@
 			<div class="row">
 				<div class="col-lg-6 offset-lg-3">
 					<div class="main-title text-center">
-						<h3 class="mt0">{{ __('lang.people_say') }}</h3>
-						<p>{{ __('lang.people_say_p') }}</p>
+						<h3 class="mt0">{{ trans('lang.people_say') }}</h3>
+						<p>{{ trans('lang.people_say_p') }}</p>
 					</div>
 				</div>
 			</div>

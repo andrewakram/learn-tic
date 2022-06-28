@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-xl-6 offset-xl-3 text-center">
 					<div class="breadcrumb_content">
-						<h4 class="breadcrumb_title"> {{ __('lang.instructors') }}</h4>
+						<h4 class="breadcrumb_title"> {{ trans('lang.instructors') }}</h4>
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#"> {{ __('lang.home') }}</a></li>
-						    <li class="breadcrumb-item active" aria-current="page"> {{ __('lang.instructors') }}</li>
+						    <li class="breadcrumb-item"><a href="#"> {{ trans('lang.home') }}</a></li>
+						    <li class="breadcrumb-item active" aria-current="page"> {{ trans('lang.instructors') }}</li>
 						</ol>
 					</div>
 				</div>
@@ -185,9 +185,9 @@
 					<div class="row">
 						<div class="col-sm-5 col-lg-5 col-xl-3">
 							<div class="instructor_search_result">
-								<p class="mt10 fz15"><span class="color-dark">85</span> {{ __('lang.instructors') }}</p>
+								<p class="mt10 fz15"><span class="color-dark">85</span> {{ trans('lang.instructors') }}</p>
 							</div>
-							
+
 						</div>
 						<div class="col-sm-7 col-lg-7 col-xl-9">
 							<!--<div class="candidate_revew_search_box mb30 float-right fn-520">
@@ -202,7 +202,7 @@
 									--
 							    	<input class="form-control mr-sm-2" type="search" placeholder="Search our instructors" aria-label="Search">
 							    	<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
-									
+
 							    </form>
 							</div>
 					    	-->
@@ -211,7 +211,7 @@
 								<ul >
 									<li class="list-inline-item">
 										<select class="selectpicker show-tick">
-											<option>{{ __('lang.city') }}</option>
+											<option>{{ trans('lang.city') }}</option>
 											<option>Riyad</option>
 											<option>Makkah</option>
 											<option>Dammam</option>
@@ -226,7 +226,7 @@
 									<li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
-												<input class="form-control mr-sm-2" type="search" placeholder="{{ __('lang.Search_instructors') }}" aria-label="Search">
+												<input class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.Search_instructors') }}" aria-label="Search">
 												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
 											</form>
 										</div>
@@ -248,9 +248,9 @@
 
 										<p>
 										@if(session()->get('lang') == 'ar')
-											{{$instructor -> category -> title_ar}} 
+											{{$instructor -> category -> title_ar}}
 										@else
-											{{$instructor -> category -> title_en}} 
+											{{$instructor -> category -> title_en}}
 										@endif
 										</p>
 
@@ -273,7 +273,7 @@
 							</div>
 						</div>
 						@endforeach
-						
+
 						<div class="col-lg-12">
 							<div class="mbp_pagination">
 								<ul class="page_navigation">
@@ -301,13 +301,13 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodyfilter" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.search_map') }}
+							        	<a href="#panelBodyfilter" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.search_map') }}
 										</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodyfilter" class="panel-collapse collapse show">
 							        <div class="panel-body">
-										<input class="form-control mr-sm-2" type="search" placeholder="{{ __('lang.add_address') }}" aria-label="Search">
+										<input class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.add_address') }}" aria-label="Search">
 
 									<!--	<div class="tags-bar style2">
 									 		<span>Photoshop<i class="close-tag">x</i></span>
@@ -328,7 +328,7 @@
 						  <div class="panel">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-									  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.teacher_qualification') }} 
+									  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.teacher_qualification') }}
 									</a>
 								  </h4>
 								</div>
@@ -352,7 +352,7 @@
 											  <label class="custom-control-label" for="customCheck17">PhD
 												<span class="float-right">(1,584)</span></label>
 										  </div>
-										
+
 									  </div>
 								  </div>
 							  </div>
@@ -365,7 +365,7 @@
 					  <div class="panel">
 							<div class="panel-heading">
 								<h4 class="panel-title">
-								  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ __('lang.gender') }}
+								  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ trans('lang.gender') }}
 								</a>
 							  </h4>
 							</div>
@@ -380,8 +380,8 @@
 										  <input type="checkbox" class="custom-control-input" id="customCheck15">
 										  <label class="custom-control-label" for="customCheck15">Female  <span class="float-right">(15)</span></label>
 									  </div>
-									  
-									
+
+
 								  </div>
 							  </div>
 						  </div>
@@ -396,13 +396,13 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.category') }}										</a>
+							        	<a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.category') }}										</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodySoftware" class="panel-collapse collapse show">
 							        <div class="panel-body">
 										<div class="ui_kit_checkbox">
-											
+
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="customCheck16">
 												<label class="custom-control-label" for="customCheck16">Graphic Design <span class="float-right">(126)</span></label>
@@ -419,7 +419,7 @@
 												<input type="checkbox" class="custom-control-input" id="customCheck19">
 												<label class="custom-control-label" for="customCheck19">CorelDRAW <span class="float-right">(34)</span></label>
 											</div>
-											
+
 											<a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> See More</a>
 										</div>
 							        </div>
@@ -434,7 +434,7 @@
 						  <div class="panel">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-									  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">  {{ __('lang.teaching_methods') }}
+									  <a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">  {{ trans('lang.teaching_methods') }}
 									</a>
 								  </h4>
 								</div>
@@ -456,21 +456,21 @@
 											  <label class="custom-control-label" for="customCheck16"> online education
 												<span class="float-right">(126)</span></label>
 										  </div>
-										  
-										
+
+
 									  </div>
 								  </div>
 							  </div>
 						  </div>
 					  </div>
 				  </div>
-					
+
 				</div>
 			</div>
 		</div>
 	</section>
 
-	
+
 
 @endsection
 

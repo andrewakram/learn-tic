@@ -3,21 +3,21 @@
         <div class="row">
             <div class="col-sm-6 col-md-4 col-md-3 col-lg-3">
                 <div class="footer_contact_widget">
-                    <h4>{{ __('lang.goals') }}</h4>
-                    
+                    <h4>{{ trans('lang.goals') }}</h4>
+
                      <p>
                      @if(session()->get('lang') == 'ar')
 								{!! $home_about ->body_ar  !!}
 							@else
-								{!! $home_about ->body_en !!} 
+								{!! $home_about ->body_en !!}
 						 @endif
                     </p>
-                    
+
                 </div>
             </div>
             <div class="col-sm-6 col-md-4 col-md-3 col-lg-2">
                 <div class="footer_company_widget">
-                    <h4>{{ __('lang.contact_us') }}</h4>
+                    <h4>{{ trans('lang.contact_us') }}</h4>
                     <p>
                         @if(session()->get('lang') == 'ar')
                              {{$footer_address_arabic}}
@@ -28,33 +28,33 @@
                      <p>{{$footer_phone}}</p>
                     <p>{{$footer_email}}</p>
 
-                  
+
                 </div>
             </div>
             <div class="col-sm-6 col-md-4 col-md-3 col-lg-2">
                 <div class="footer_program_widget">
-                    <h4>{{ __('lang.pages') }}</h4>
+                    <h4>{{ trans('lang.pages') }}</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#"> {{ __('lang.home') }}</a></li>
-                        <li><a href="#">{{ __('lang.courses') }} </a></li>
-                        <li><a href="#">{{ __('lang.instructors') }}</a></li>
+                        <li><a href="#"> {{ trans('lang.home') }}</a></li>
+                        <li><a href="#">{{ trans('lang.courses') }} </a></li>
+                        <li><a href="#">{{ trans('lang.instructors') }}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4 col-md-3 col-lg-2">
                 <div class="footer_program_widget">
-                    <h4>{{ __('lang.more') }}</h4>
+                    <h4>{{ trans('lang.more') }}</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#">{{ __('lang.about_us') }}</a></li>
-                        <li><a href="#">{{ __('lang.contact_us') }}</a></li>
-                        <li><a href="#"> {{ __('lang.blogs') }}</a></li>
-                        
+                        <li><a href="#">{{ trans('lang.about_us') }}</a></li>
+                        <li><a href="#">{{ trans('lang.contact_us') }}</a></li>
+                        <li><a href="#"> {{ trans('lang.blogs') }}</a></li>
+
                     </ul>
                 </div>
             </div>
             <div class="col-sm-6 col-md-6 col-md-3 col-lg-3">
                 <div class="footer_apps_widget">
-                    <h4>{{ __('lang.app') }}</h4>
+                    <h4>{{ trans('lang.app') }}</h4>
                     <div class="app_grid">
                         <button class="apple_btn btn-dark">
 								<span class="icon">
@@ -94,7 +94,7 @@
                         <li class="list-inline-item"><a href="#"><img src="{{asset('project')}}/images/payment/Mada.png" alt="visa.png"></a></li>
                         <li class="list-inline-item"><a href="#"><img src="{{asset('project')}}/images/payment/maestro.png" alt="maestro.png"></a></li>
                         <li class="list-inline-item"><a href="#"><img src="{{asset('project')}}/images/payment/paypal.png" alt="paypal.png"></a></li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                         <li class="list-inline-item"><a href="{{$footer_twitter}}"><i class="fa fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a href="{{$footer_instagram}}"><i class="fa fa-instagram"></i></a></li>
                         <li class="list-inline-item"><a href="{{$footer_youtube}}"><i class="fa fa-youtube"></i></a></li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -119,7 +119,7 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="copyright-widget text-center">
-                    <p>{{ __('lang.copy_right') }}</p>
+                    <p>{{ trans('lang.copy_right') }}</p>
                 </div>
             </div>
         </div>

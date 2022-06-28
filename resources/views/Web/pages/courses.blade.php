@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-xl-6 offset-xl-3 text-center">
 					<div class="breadcrumb_content">
-						<h4 class="breadcrumb_title">{{ __('lang.courses') }}</h4>
+						<h4 class="breadcrumb_title">{{ trans('lang.courses') }}</h4>
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#">{{ __('lang.home') }}</a></li>
-						    <li class="breadcrumb-item active" aria-current="page">{{ __('lang.courses') }}</li>
+						    <li class="breadcrumb-item"><a href="#">{{ trans('lang.home') }}</a></li>
+						    <li class="breadcrumb-item active" aria-current="page">{{ trans('lang.courses') }}</li>
 						</ol>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 								<ul class="mb0">
 									<li class="list-inline-item">
 										<select class="selectpicker show-tick">
-											<option>{{ __('lang.city') }}</option>
+											<option>{{ trans('lang.city') }}</option>
 											<option>Riyad</option>
 											<option>Makkah</option>
 											<option>Dammam</option>
@@ -51,7 +51,7 @@
 									<li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
-										    	<input class="form-control mr-sm-2" type="search" placeholder="{{ __('lang.search_courses') }}" aria-label="Search">
+										    	<input class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.search_courses') }}" aria-label="Search">
 										    	<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
 										    </form>
 										</div>
@@ -62,20 +62,20 @@
 					</div>
 					<div class="row courses_container style2">
 					@foreach ($data['Courses'] as $Course)
-					
+
 						<div class="col-lg-12 p0">
-						
+
 							<div class="courses_list_content my_course"  data-id="{{$Course -> id }}" >
-							
+
 								<div class="top_courses list">
 									<div class="thumb">
 										<img class="img-whp" src="{{asset('project')}}/images/courses/t1.jpg" alt="t1.jpg">
 										<div class="overlay">
 											<div class="icon"><span class="flaticon-like"></span></div>
-											<a class="tc_preview_course" href="#">{{ __('lang.preview_course') }}</a>
+											<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>
 										</div>
 									</div>
-									
+
 										<div class="details">
 											<div class="tc_content">
 												<p>{{ $Course->teacher->teacherInfo->full_name}} </p>
@@ -91,9 +91,9 @@
 												</ul>
 												<div class="tc_price float-right fn-414">
 												@if(!empty($Course->price_after))
-												<del class="original_price">${{ $Course->price_after}}</del> 
+												<del class="original_price">${{ $Course->price_after}}</del>
 												@endif
-												${{$Course->price_before}} 
+												${{$Course->price_before}}
 												</div>
 												<ul class="tc_review float-right fn-414">
 													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -105,17 +105,17 @@
 												</ul>
 											</div>
 										</div>
-									
+
 								</div>
 							</div>
 						</div>
 						@endforeach
 
 						{{$data['Courses'] -> links()}}
-						
-						
+
+
 					</div>
-				
+
 					<div class="row">
 						<div class="col-lg-12 mt50">
 							<div class="mbp_pagination">
@@ -144,7 +144,7 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.category') }}</a>
+							        	<a href="#panelBodySoftware" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.category') }}</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodySoftware" class="panel-collapse collapse show">
@@ -190,7 +190,7 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodyAuthors" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.instructor') }}</a>
+							        	<a href="#panelBodyAuthors" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.instructor') }}</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodyAuthors" class="panel-collapse collapse show">
@@ -253,7 +253,7 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodyPrice" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.price') }}</a>
+							        	<a href="#panelBodyPrice" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.price') }}</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodyPrice" class="panel-collapse collapse show">
@@ -278,7 +278,7 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ __('lang.skill_level') }}</a>
+							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ trans('lang.skill_level') }}</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodySkills" class="panel-collapse collapse show">
@@ -312,7 +312,7 @@
 						  <div class="panel">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-									  <a href="#panelBodyPlace" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.city') }}</a>
+									  <a href="#panelBodyPlace" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.city') }}</a>
 								  </h4>
 								</div>
 							  <div id="panelBodyPlace" class="panel-collapse collapse show">
@@ -347,7 +347,7 @@
 													<input type="checkbox" class="custom-control-input" id="customCheck3">
 													<label class="custom-control-label" for="customCheck3">Al-Qassim <span class="float-right">(1.584)</span></label>
 												</div>
-											 
+
 										  </div>
 									  </div>
 								  </div>
@@ -357,7 +357,7 @@
 				  </div>
 
 				  <div class=" ui_kit_button search_btn mb0">
-					<button type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ __('lang.search') }}</button>
+					<button type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ trans('lang.search') }}</button>
 				  </div>
 
 					<!--

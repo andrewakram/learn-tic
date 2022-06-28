@@ -11,8 +11,8 @@
 					<div class="breadcrumb_content">
 						<h4 class="breadcrumb_title"> {{$teacher_details -> teacherInfo -> full_name}}   </h4>
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#">{{ __('lang.home') }}</a></li>
-						    <li class="breadcrumb-item active" aria-current="page">{{ __('lang.instructors') }}</li>
+						    <li class="breadcrumb-item"><a href="#">{{ trans('lang.home') }}</a></li>
+						    <li class="breadcrumb-item active" aria-current="page">{{ trans('lang.instructors') }}</li>
 						</ol>
 					</div>
 				</div>
@@ -30,17 +30,17 @@
                             <div class="cs_rwo_tabs csv2">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="true"> {{ __('lang.course_list') }}  </a>
+                                        <a class="nav-link active" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="true"> {{ trans('lang.course_list') }}  </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="course-tab" data-toggle="tab" href="#course" role="tab" aria-controls="course" aria-selected="false">{{ __('lang.appointment') }}</a>
+                                        <a class="nav-link" id="course-tab" data-toggle="tab" href="#course" role="tab" aria-controls="course" aria-selected="false">{{ trans('lang.appointment') }}</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
                                         <div class="row">
 
-                                       @foreach($teacher_details -> teacherInfo -> category -> courses  as $course ) 
+                                       @foreach($teacher_details -> teacherInfo -> category -> courses  as $course )
                                             <div class="col-lg-6 col-xl-4">
                                                 <div class="top_courses">
                                                     <div class="thumb">
@@ -77,11 +77,11 @@
                                                                 <li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>
                                                                 <li class="list-inline-item"><a href="#">25</a></li>
                                                             </ul>
-                                                            
+
                                                             <div class="tc_price float-right">
                                                                 @if(!empty($course->price_after))
-                                                                    <del class="original_price">${{ $course->price_after}}</del> 
-                                                                @endif 
+                                                                    <del class="original_price">${{ $course->price_after}}</del>
+                                                                @endif
                                                                 ${{$course->price_before}}
                                                              </div>
                                                         </div>
@@ -264,8 +264,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                           
-                                            
+
+
                                             <div class="col-lg-12">
                                                 <div class="mbp_pagination">
                                                     <ul class="page_navigation">
@@ -292,7 +292,7 @@
                                       <!-- Slider -->
                                         <div class="appointment">
                                             <div uk-slider="center: true">
-                                         
+
                                                 <ul class="uk-slider-items uk-child-width-1-2@s ">
                                                     <!-- Thursday -->
                                                     <li class="appointment_time">
@@ -332,7 +332,7 @@
                                                             <h4 style="font-size: 14px;">from 9:00am-6:00pm</h4>
                                                             <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;">Afternoon</h3>
                                                             <ul class="uk-list-time">
-                                                                <li class="time">2:30pm - 3:00pm 
+                                                                <li class="time">2:30pm - 3:00pm
                                                                     <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
                                                                 </li>
                                                                 <li class="time">3:30pm - 4:00pm
@@ -414,7 +414,7 @@
                                                     <li class="appointment_time">
                                                         <div class="none">
                                                         <div class="uk-card-calendar uk-card-hover">
-                                                            <h1>01</h1>               
+                                                            <h1>01</h1>
                                                             <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">Wednesday</h3>
                                                             <h4 style="font-size: 14px;">from 9:00am-6:00pm</h4>
                                                             <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;">Afternoon</h3>
@@ -440,26 +440,26 @@
                                                         </div>
                                                     </li>
                                                 </ul>
-                                                
-                                                
+
+
                                                 <!-- Indicator -->
                                                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
                                                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
                                             </div>
                                             </div>
-    
+
                                       <!-- //////////-->
-                                      
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
-							
+
 						</div>
-					
+
 					</div>
 
-					
+
 				</div>
 				<div class="col-lg-4 col-xl-3 teacher_info"  >
                     <div class="teacher_avatar">
@@ -476,43 +476,43 @@
                         <a href="" class="fa fa-youtube"></a>
                     </div>
 
-                    
-                    
+
+
                     <div class="teacher_achieve">
                         <div class="teacher_achieve_list">
-                            
+
                             <i class="fa fa-user"></i>
                             <h3> 56,890 </h3>
-                            <span> {{ __('lang.students') }}  </span>
+                            <span> {{ trans('lang.students') }}  </span>
                         </div>
                         <div class="teacher_achieve_list">
                             <i class="fa fa-star"></i>
                             <h3> 5.0 </h3>
-                            <span> {{ __('lang.rating') }}  </span>
+                            <span> {{ trans('lang.rating') }}  </span>
                         </div>
                         <div class="teacher_achieve_list">
                             <i class="fa fa-book"></i>
                             <h3> 80 </h3>
-                            <span> {{ __('lang.course') }} </span>
+                            <span> {{ trans('lang.course') }} </span>
                         </div>
                     </div>
 
                     <div class="teacher_about">
-                        <h3> {{ __('lang.about_me') }}</h3>
+                        <h3> {{ trans('lang.about_me') }}</h3>
                         <p>
                             {{$teacher_details -> teacherInfo -> desctiption}}
                         </p>
                      </div>
                      <div class=" ui_kit_button search_btn mb0">
-                        <a href="page-student-message.html" type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ __('lang.chat') }}</a>
+                        <a href="page-student-message.html" type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ trans('lang.chat') }}</a>
                       </div>
-			
+
 				</div>
 			</div>
 		</div>
 	</section>
 
-	
+
 
 @endsection
 

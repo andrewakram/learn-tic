@@ -9,9 +9,9 @@
             <div class="row posr">
                 <div class="col-lg-12">
                     <div class="home-text text-center">
-                        <h2 class="fz50">{{ __('lang.slider_title') }}</h2>
-                        <p class="color-white">{{ __('lang.slider_p') }}</p>
-                        <a class="btn home_btn" href="{{route('instructors')}}">{{ __('lang.slider_btn') }}</a>
+                        <h2 class="fz50">{{ trans('lang.slider_title') }}</h2>
+                        <p class="color-white">{{ trans('lang.slider_p') }}</p>
+                        <a class="btn home_btn" href="{{route('instructors')}}">{{ trans('lang.slider_btn') }}</a>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <div class="about_home3">
                         <h3> {{$data['home_about']->title }}</h3>
                         {!! $data['home_about']->body !!}
-                        <a href="#" class="btn about_btn_home3">{{ __('lang.about_btn') }}</a>
+                        <a href="#" class="btn about_btn_home3">{{ trans('lang.about_btn') }}</a>
                         <!--	<ul class="partners_thumb_list">
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/1.png" alt="1.png"></a></li>
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/2.png" alt="2.png"></a></li>
@@ -110,23 +110,23 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="main-title text-center">
-                        <h3 class="mt0">{{ __('lang.categories_title') }}</h3>
-                        <p>{{ __('lang.categories_p') }}</p>
+                        <h3 class="mt0">{{ trans('lang.categories_title') }}</h3>
+                        <p>{{ trans('lang.categories_p') }}</p>
                     </div>
                 </div>
             </div>
             <div class="row">
             <?php $num=1 ;$course_count = 0  ?>
-            
+
             @foreach ($data['categories'] as $Category)
-    
+
             @if($num <= 8 and  $Category -> courses_count  > 0)
                 <div class="col-sm-6 col-lg-3">
                     <div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/1.jpg);">
                         <div class="overlay">
                             <div class="details">
-                         
-                               
+
+
                             <!--  <h5>{{ $Category->{'title_'.App::getLocale()} }}</h5>-->
                               <h5> {{ $Category->title }}</h5>
                                 <p>  Over {{$Category -> courses_count}} Courses</p>
@@ -137,7 +137,7 @@
                 <?php  $num++ ; $course_count = 0  ?>
                 @endif
                 @endforeach
-                
+
                <!-- <div class="col-sm-6 col-lg-3">
                     <div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/2.jpg);">
                         <div class="overlay">
@@ -212,7 +212,7 @@
 -->
                 <div class="col-lg-6 offset-lg-3">
                     <div class="courses_all_btn text-center">
-                        <a class="btn btn-transparent" href="{{route('catigories')}}">{{ __('lang.view_categories') }}</a>
+                        <a class="btn btn-transparent" href="{{route('catigories')}}">{{ trans('lang.view_categories') }}</a>
                     </div>
                 </div>
             </div>
@@ -225,9 +225,9 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="divider-one">
-                        <p class="color-white">{{ __('lang.strating_online') }}</p>
-                        <h1 class="color-white text-uppercase">{{ __('lang.strating_online_p') }}</h1>
-                        <a class="btn btn-transparent divider-btn" href="{{route('courses')}}">{{ __('lang.view_courses_btn') }}</a>
+                        <p class="color-white">{{ trans('lang.strating_online') }}</p>
+                        <h1 class="color-white text-uppercase">{{ trans('lang.strating_online_p') }}</h1>
+                        <a class="btn btn-transparent divider-btn" href="{{route('courses')}}">{{ trans('lang.view_courses_btn') }}</a>
                     </div>
                 </div>
             </div>
@@ -240,8 +240,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="main-title text-center">
-                        <h3 class="mt0">{{ __('lang.top_courses') }}</h3>
-                        <p>{{ __('lang.top_courses_p') }}</p>
+                        <h3 class="mt0">{{ trans('lang.top_courses') }}</h3>
+                        <p>{{ trans('lang.top_courses_p') }}</p>
                     </div>
                 </div>
             </div>
@@ -251,9 +251,9 @@
                         <div class="option-isotop">
                             <ul id="filter" class="option-set" data-option-key="filter">
                                 <li class="list-inline-item"><a href="#all" data-option-value="*" class="selected">Developer</a></li>
-                                
+
                                 <li class="list-inline-item"><a href="#business" data-option-value=".business">business </a></li>
-                              
+
                                 <li class="list-inline-item"><a href="#test" data-option-value=".test">test</a></li>
                                 <li class="list-inline-item"><a href="#web" data-option-value=".web">Web</a></li>
                                 <li class="list-inline-item"><a href="#marketing" data-option-value=".marketing">Marketing</a></li>
@@ -555,8 +555,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="main-title text-center">
-                        <h3 class="mt0">{{ __('lang.people_say') }}</h3>
-                        <p>{{ __('lang.people_say_p') }}</p>
+                        <h3 class="mt0">{{ trans('lang.people_say') }}</h3>
+                        <p>{{ trans('lang.people_say_p') }}</p>
                     </div>
                 </div>
             </div>
@@ -591,7 +591,7 @@
                             </li>
                          @endforeach
                         </ul>
-                
+
                     </div>
                 </div>
             </div>
@@ -604,8 +604,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="main-title text-center">
-                        <h3 class="mt0">{{ __('lang.latest_news') }}</h3>
-                        <p>{{ __('lang.latest_news_p') }}</p>
+                        <h3 class="mt0">{{ trans('lang.latest_news') }}</h3>
+                        <p>{{ trans('lang.latest_news_p') }}</p>
                     </div>
                 </div>
             </div>
@@ -632,7 +632,7 @@
                             </div>
                         </div>
                         @endforeach
-                       
+
                     </div>
                 </div>
                 @foreach ($data['blogs'] as $blog)
@@ -649,12 +649,12 @@
                     </div>
                 </div>
                 @endforeach
-               
+
             </div>
             <div class="row mt50">
                 <div class="col-lg-12">
                     <div class="read_more_home text-center">
-                        <h4>{{ __('lang.like_see') }} <a href="{{route('blogs')}}">{{ __('lang.see_posts') }}<span class="flaticon-right-arrow pl10"></span></a></h4>
+                        <h4>{{ trans('lang.like_see') }} <a href="{{route('blogs')}}">{{ trans('lang.see_posts') }}<span class="flaticon-right-arrow pl10"></span></a></h4>
                     </div>
                 </div>
             </div>
