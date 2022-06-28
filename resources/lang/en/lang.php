@@ -133,7 +133,8 @@ return [
     'login_teacher'=> 'Login Teacher',
     'app' => 'Our App',
     'goals' => 'Our Goals',
-    'pages' => 'Pages ',
+    'pages' => 'Pages',
+    'more'=> 'More',
     
 
 

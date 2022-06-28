@@ -43,7 +43,7 @@
             </div>
             <div class="col-sm-6 col-md-4 col-md-3 col-lg-2">
                 <div class="footer_program_widget">
-                    <h4>{{ __('lang.pages') }}</h4>
+                    <h4>{{ __('lang.more') }}</h4>
                     <ul class="list-unstyled">
                         <li><a href="#">{{ __('lang.about_us') }}</a></li>
                         <li><a href="#">{{ __('lang.contact_us') }}</a></li>
