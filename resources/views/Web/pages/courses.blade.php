@@ -249,11 +249,8 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-<<<<<<< HEAD
 							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ trans('lang.skill_level') }}</a>
-=======
 							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ __('lang.course_type') }}</a>
->>>>>>> f9951b6a4654e8d5da1b602b63e821c4e7fb8ae5
 							        </h4>
 						      	</div>
 							    <div id="panelBodySkills" class="panel-collapse collapse show">
@@ -279,7 +276,6 @@
 						</div>
 					</div>
 
-<<<<<<< HEAD
 					<div class="selected_filter_widget style3">
 						<div id="accordion" class="panel-group">
 						  <div class="panel">
@@ -328,9 +324,7 @@
 						  </div>
 					  </div>
 				  </div>
-=======
 
->>>>>>> f9951b6a4654e8d5da1b602b63e821c4e7fb8ae5
 
 				  <div class=" ui_kit_button search_btn mb0">
 					<button type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ trans('lang.search') }}</button>

@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Course;
 use App\Models\Category;
 use App\Models\TeacherInfo;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +20,7 @@ class CoursesController extends Controller
          )->paginate(2);
 
          $data['categories'] =  Category::select('id','title_' . getLang() . '  as title')->withCount(['courses'])->get();
-         $data['instructors'] =  TeacherInfo::select('id','full_name')->get();
+         $data['instructors'] =  User::where('type','teacher')->select('id')->get();
          $data['cities'] =  City::select('id','title_' . getLang() . '  as title')->get();
 
         // $data['Courses'] = Course::with('teacher')->get();
@@ -31,5 +32,5 @@ class CoursesController extends Controller
         $title = 'title_' . getLang();
         return view('Web.pages.course_details' ,compact('course_details' , 'title') );
     }
-   
+
 }

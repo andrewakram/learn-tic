@@ -24,6 +24,16 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $appends = ['full_name'];
+
+    public function getFullNameAttribute(){
+        if($this->type == 'teacher'){
+            return $this->teacherInfo->first()->full_name;
+        }else{
+            return "";
+        }
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -33,7 +43,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-   
+
 
 
     /**
