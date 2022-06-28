@@ -116,10 +116,11 @@
                 </div>
             </div>
             <div class="row">
-            <?php $num=1 ?>
+            <?php $num=1 ;$course_count = 0  ?>
             
             @foreach ($data['categories'] as $Category)
-            @if($num <= 8)
+    
+            @if($num <= 8 and  $Category -> courses_count  > 0)
                 <div class="col-sm-6 col-lg-3">
                     <div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/1.jpg);">
                         <div class="overlay">
@@ -128,12 +129,12 @@
                                
                             <!--  <h5>{{ $Category->{'title_'.App::getLocale()} }}</h5>-->
                               <h5> {{ $Category->title }}</h5>
-                                <p>  Over {{$Category->courses->count()}} Courses</p>
+                                <p>  Over {{$Category -> courses_count}} Courses</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php  $num++ ?>
+                <?php  $num++ ; $course_count = 0  ?>
                 @endif
                 @endforeach
                 
@@ -211,7 +212,7 @@
 -->
                 <div class="col-lg-6 offset-lg-3">
                     <div class="courses_all_btn text-center">
-                        <a class="btn btn-transparent" href="#">{{ __('lang.view_categories') }}</a>
+                        <a class="btn btn-transparent" href="{{route('catigories')}}">{{ __('lang.view_categories') }}</a>
                     </div>
                 </div>
             </div>

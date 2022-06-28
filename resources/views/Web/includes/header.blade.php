@@ -22,35 +22,33 @@
             <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
             <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
                 <li>
-                    <a href="{{route('home')}}"><span class="title">Home</span></a>
+                    <a href="{{route('home')}}"><span class="title">{{ __('lang.home') }}</span></a>
                 </li>
 
                 <li>
-                    <a href="{{route('courses')}}"><span class="title">Courses</span></a>
+                    <a href="{{route('courses')}}"><span class="title">{{ __('lang.courses') }}</span></a>
                     <!-- Level Two-->
 
                 </li>
 
                 <li>
-                    <a href="{{route('instructors')}}"><span class="title">Instructors</span></a>
+                    <a href="{{route('instructors')}}"><span class="title">{{ __('lang.instructors') }}</span></a>
                     <!-- Level Two-->
 
                 </li>
 
                 <li>
-                    <a href="{{route('about_us')}}"><span class="title">About Us</span></a>
+                    <a href="{{route('about_us')}}"><span class="title"> {{ __('lang.about_us') }}</span></a>
                 </li>
 
                 <li>
-                    <a href="{{route('blogs')}}"><span class="title">Blog</span></a>
+
+                    <a href="{{route('blogs')}}"><span class="title">{{ __('lang.blogs') }}</span></a>
 
                 </li>
-
-
-
 
                 <li class="last">
-                    <a href="{{route('contact_us')}}"><span class="title">Contact</span></a>
+                    <a href="{{route('contact_us')}}"><span class="title">{{ __('lang.contact_us') }}</span></a>
                 </li>
             </ul>
 
@@ -61,14 +59,14 @@
                     <div class="">
                         <ul class="cart">
                             <li>
-                                <a href="#" class="btn flaticon-user"><span class="dn-lg">Login/Register</span></a>
+                                <a href="#" class="btn flaticon-user"><span class="dn-lg">{{ __('lang.login_register') }}</span></a>
                                 <ul class="dropdown_content login_drop">
 
 
                                     <li class="list_content">
 
-                                        <a href="{{route('student_login')}}" class="btn btn-thm cart_btns"> Login Student</a>
-                                        <a href="{{route('instructor_login')}}" class="btn btn-thm3 checkout_btns">Login Teacher</a>
+                                        <a href="{{route('student_login')}}" class="btn btn-thm cart_btns"> {{ __('lang.login_student') }} </a>
+                                        <a href="{{route('instructor_login')}}" class="btn btn-thm3 checkout_btns">{{ __('lang.login_teacher') }} </a>
                                     </li>
 
                                 </ul>

@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\web\BlogsController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\web\AboutUsController;
 use App\Http\Controllers\web\CoursesController;
 use App\Http\Controllers\web\ContactUsController;
@@ -54,6 +55,7 @@ Route::get('instructor-login', [InstructorLoginController::class,'index'])->name
 Route::get('instructor-signup', [InstructorRegisterController::class,'index'])->name('instructor_register');
 Route::get('student-login', [StudentLoginController::class,'index'])->name('student_login');
 Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
+Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
 
 
 Route::get('/change-language/{lang}', function ($lang) {

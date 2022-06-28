@@ -143,13 +143,21 @@ return [
     'about_btn' => ' من نحن ',
     'categories_title' => ' التخصصات  الخاصه بنا  ',
     'categories_p' => '  يوجد لدينا جميع التخصصات لمساعده الطالب ',
-    'view_categories ' => ' مشاهدة جميع التخصصات ',//View All Categories
+    'view_categories' => ' مشاهدة جميع التخصصات ',//View All Categories
     'top_courses' => ' أفضل الدورات لدينا ',//Browse Our Top Courses
     'top_courses_p' => '  يوجد لدينا جميع الدورات لمساعده الطالب ',
     'latest_news' => ' المقالات  ',
     'latest_news_p' => '  المقالات لافادة الطالب ما هو جديد ',
-    'like_see' => ' مشاهدة جميع الدورات ',//Like what you see
+    'like_see' => ' مشاهدة جميع الدورات ? ',//Like what you see
     'see_posts' => ' مشاهده المزيد من المقالات',//See more posts
+    'copy_right' => 'جميع الحقوق محفوظه LearnTic © 2022.',
+    'login_register' => 'تسجيل دخول / تسجيل جديد',
+    'login_student' => 'تسجيل الطالب',
+    'login_teacher'=> ' تسجيل المعلم ',
+    'app' => 'التطبيق ',
+    'goals' => 'اهدافنا ',
+    'pages' => 'الصفحات ',
+    'more'=> 'المزيد',
 
 
 
