@@ -12,6 +12,8 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'arabic' => 'Arabic',
+    'english' => 'English',
 
     'coupon_send_s' => 'تم استخدام كوبون الخصم',
     'name_ar' => 'اسم التطبيق ( بالعربي )',
@@ -119,7 +121,7 @@ return [
     'search' => 'ابحث',
     'instructor' => 'المدرس',
     'preview_course' => 'مشاهدة الكورس',
-    
+
     //course details
     'add_card' => 'اشترى الان ',
     'consultation' => 'استشارة فورية ',
@@ -128,7 +130,7 @@ return [
     'student_feedback' => 'اراء الطلاب ',
     'see_all_reviews' => ' مشاهدة كل الاراء',
     'add_reviews' => ' اضافة تقيم ',//Add Reviews & Rate
-    'submit_review ' => ' ارسل  التقيم ',//Submit Review 
+    'submit_review ' => ' ارسل  التقيم ',//Submit Review
     'review_content ' => ' محتوي  التقيم ',//Review Content
     'about_instructor ' => '   عن المدرس ',//About the instructor
     'course_content ' => ' محتوي  الكورس ', //Course Content

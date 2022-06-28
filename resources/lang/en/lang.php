@@ -12,6 +12,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'arabic' => 'عربي',
+    'english' => 'انجليزي',
+
     'coupon_send_s' => 'coupon used successfully',
     'phoneOrPasswordIncorrect' => 'phone Or Password Incorrect',
     'success' => 'done successfully',
@@ -91,7 +94,7 @@ return [
 
     //courses
     'courses' => ' Courses',
-    'search_courses' => ' Search Our Courses', 
+    'search_courses' => ' Search Our Courses',
     'results' => ' Results',
     'price' => 'Price',
     'paid' => 'Paid',
@@ -110,7 +113,7 @@ return [
     'submit_review ' => 'Submit Review  ',
     'review_content ' => ' Review Content',
     'about_instructor ' => ' About the instructor ',
-    'course_content ' => ' Course Content', 
+    'course_content ' => ' Course Content',
     'overview' => '  Overview   ',
 
     //home

@@ -28,13 +28,13 @@
                 <li>
                     <a href="{{route('courses')}}"><span class="title">{{ __('lang.courses') }}</span></a>
                     <!-- Level Two-->
-                    
+
                 </li>
 
                 <li>
                     <a href="{{route('instructors')}}"><span class="title">{{ __('lang.instructors') }}</span></a>
                     <!-- Level Two-->
-                  
+
                 </li>
 
                 <li>
@@ -42,8 +42,9 @@
                 </li>
 
                 <li>
+
                     <a href="{{route('blogs')}}"><span class="title">{{ __('lang.blogs') }}</span></a>
-                    
+
                 </li>
 
                 <li class="last">
@@ -67,7 +68,25 @@
                                         <a href="{{route('student_login')}}" class="btn btn-thm cart_btns"> {{ __('lang.login_student') }} </a>
                                         <a href="{{route('instructor_login')}}" class="btn btn-thm3 checkout_btns">{{ __('lang.login_teacher') }} </a>
                                     </li>
+
                                 </ul>
+                            </li>
+                            <li>
+                                @if(session()->get('lang') == 'ar')
+                                    <a class="bold" href="{{asset('change-language/en')}}">
+                                        <span class="btn">
+                                            <i class="fa fa-language"></i>
+                                            {{trans('lang.english')}}
+                                        </span>
+                                    </a>
+                                @else
+                                    <a class="bold" href="{{asset('change-language/ar')}}">
+                                        <span class="btn">
+                                            <i class="fa fa-language"></i>
+                                            {{trans('lang.arabic')}}
+                                        </span>
+                                    </a>
+                                @endif
                             </li>
                         </ul>
                     </div>
@@ -232,12 +251,12 @@
             <li><a href="{{route('home')}}">Home </a></li>
 
             <li><a href="{{route('courses')}}"><span>Courses</span></a>
-                
+
             </li>
             <li>
                 <a href="{{route('instructors')}}"><span class="title">Instructors</span></a>
                 <!-- Level Two-->
-               
+
             </li>
 
             <li>
@@ -246,7 +265,7 @@
 
             <li>
                 <a href="blogs"><span class="title">Blog</span></a>
-                
+
             </li>
 
             <li class="last">
