@@ -120,7 +120,7 @@ return [
     'slider_title' => ' Find the Best Instructors    ',
     'slider_p' => ' Technology is brining a massive wave of evolution on learning things on different ways.    ',
     'slider_btn' => '  Veiw All Instructors',
-    'about_btn' => ' About Us ',
+    'about_btn' => 'About Us',
     'categories_title' => ' Our Categories Courses     ',
     'categories_p' => '  We Have All Categories To Help The Student    ',
     'view_categories ' => ' View All Categories',

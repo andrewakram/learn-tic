@@ -83,7 +83,7 @@ class PageSeeder extends Seeder
                 'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء   </p>',
                 'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
                 'image' => 'values9.png',
-                'type' => 'section1',
+                'type' => 'section',
             ],
             [
                 'title_ar' => ' إنشاء دورة عبر الإنترنت   ',
@@ -91,7 +91,7 @@ class PageSeeder extends Seeder
                 'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء   </p>',
                 'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
                 'image' => 'values9.png',
-                'type' => 'section2',
+                'type' => 'section',
             ],
             [
                 'title_ar' => 'تفاعل مع الطلاب ',
@@ -99,7 +99,7 @@ class PageSeeder extends Seeder
                 'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء.   </p>',
                 'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
                 'image' => 'values9.png',
-                'type' => 'section3',
+                'type' => 'section',
             ],
             [
                 'title_ar' => 'لوحة تحكم للمستخدميين  ',
@@ -107,7 +107,7 @@ class PageSeeder extends Seeder
                 'body_ar' => '<p class="color-black22 mt20">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء.   </p>',
                 'body_en' => '<p class="color-black22 mt20">Sed cursus turpis vitae tortor donec eaque ipsa quaeab illo.  </p>',
                 'image' => 'values9.png',
-                'type' => 'section4',
+                'type' => 'section',
             ],
             [
                 'title_ar' => 'لماذا تتعلم على منصتنا ',

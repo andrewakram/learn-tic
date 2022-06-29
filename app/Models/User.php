@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Course;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -27,11 +28,7 @@ class User extends Authenticatable
     protected $appends = ['full_name'];
 
     public function getFullNameAttribute(){
-        if($this->type == 'teacher'){
-            return $this->teacherInfo->first()->full_name;
-        }else{
-            return "";
-        }
+        return $this->teacherInfo()->first()->full_name;
     }
 
     /**
@@ -57,6 +54,9 @@ class User extends Authenticatable
 
     public function teacherInfo(){
         return $this->hasOne(TeacherInfo::class,'teacher_id');
+    }
+    public function courses(){
+        return $this->hasMany(Course::class,'teacher_id');
     }
 
     public function getImageAttribute($image)

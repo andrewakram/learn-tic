@@ -27,8 +27,8 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-6">
                     <div class="about_home3">
-                        <h3> {{$data['home_about']->title }}</h3>
-                        {!! $data['home_about']->body !!}
+                        <h3> {{$data['static_sections']->where('type' , 'home_about')->first()->title }}</h3>
+                        {!! $data['static_sections']->where('type' , 'home_about')->first()->body !!}
                         <a href="#" class="btn about_btn_home3">{{ trans('lang.about_btn') }}</a>
                         <!--	<ul class="partners_thumb_list">
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/1.png" alt="1.png"></a></li>
@@ -41,42 +41,29 @@
                 </div>
                 <div class="col-lg-6 col-xl-6">
                     <div class="row">
+                        @foreach($data['static_sections']->where('type' , 'section') as $key => $section)
                         <div class="col-sm-6 col-lg-6">
-                            <div class="home3_about_icon_box one">
+                            <div class="home3_about_icon_box
+                            @if($key == 0)
+                             one
+                             @elseif($key == 1)
+                             two
+                             @elseif($key == 2)
+                             three
+                             @elseif($key == 3)
+                             four
+                             @endif
+
+                             ">
                                 <span class="icon"><span class="flaticon-account"></span></span>
                                 <div class="details">
-                                    <h4>{{$data['section1']->title }}</h4>
-                                    <p>{!! $data['section1']->body !!}</p>
+                                    <h4>{{$section->title }}</h4>
+                                    <p>{!! $section->body !!}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-6">
-                            <div class="home3_about_icon_box two">
-                                <span class="icon"><span class="flaticon-online"></span></span>
-                                <div class="details">
-                                    <h4>{{$data['section2']->title }}</h4>
-                                    <p>{!! $data['section2']->body !!}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-6">
-                            <div class="home3_about_icon_box three">
-                                <span class="icon"><span class="flaticon-student-1"></span></span>
-                                <div class="details">
-                                    <h4>{{$data['section3']->title }}</h4>
-                                    <p>{!! $data['section3']->body !!}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-6">
-                            <div class="home3_about_icon_box four">
-                                <span class="icon"><span class="flaticon-employee"></span></span>
-                                <div class="details">
-                                    <h4>{{$data['section4']->title }}</h4>
-                                    <p>{!! $data['section4']->body !!}</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                     </div>
                 </div>
             </div>
@@ -118,11 +105,11 @@
             <div class="row">
             <?php $num=1 ;$course_count = 0  ?>
 
-            @foreach ($data['categories'] as $Category)
-
-            @if($num <= 8 and  $Category -> courses_count  > 0)
+            @foreach ($data['categories'] as $key => $Category)
+ 
+             @if($key < 8 and  $Category -> courses_count  > 0)
                 <div class="col-sm-6 col-lg-3">
-                    <div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/1.jpg);">
+                    <div class="img_hvr_box" style="background-image: url({{$Category -> image}});">
                         <div class="overlay">
                             <div class="details">
 
@@ -134,9 +121,9 @@
                         </div>
                     </div>
                 </div>
-                <?php  $num++ ; $course_count = 0  ?>
-                @endif
-                @endforeach
+              
+            @endif
+             @endforeach
 
                <!-- <div class="col-sm-6 col-lg-3">
                     <div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/2.jpg);">

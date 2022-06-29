@@ -20,7 +20,7 @@ class CoursesController extends Controller
          )->paginate(2);
 
          $data['categories'] =  Category::select('id','title_' . getLang() . '  as title')->withCount(['courses'])->get();
-         $data['instructors'] =  User::where('type','teacher')->select('id')->get();
+         $data['instructors'] =  User::where('type','teacher')->select('id')->withCount(['courses'])->get();
          $data['cities'] =  City::select('id','title_' . getLang() . '  as title')->get();
 
         // $data['Courses'] = Course::with('teacher')->get();

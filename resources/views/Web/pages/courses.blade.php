@@ -208,7 +208,7 @@
 												@foreach ($data['instructors'] as $instructor)
 													<div class="custom-control custom-checkbox">
 														<input type="checkbox" class="custom-control-input" id="{{$instructor -> id}} ">
-														<label class="custom-control-label" for="{{$instructor -> id}} ">{{$instructor -> full_name}}  <span class="float-right">(03)</span></label>
+														<label class="custom-control-label" for="{{$instructor -> id}} ">{{$instructor -> full_name}}  <span class="float-right">({{$instructor -> courses_count}})</span></label>
 													</div>
 												@endforeach
 
@@ -249,7 +249,6 @@
 						    <div class="panel">
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
-							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ trans('lang.skill_level') }}</a>
 							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ __('lang.course_type') }}</a>
 							        </h4>
 						      	</div>

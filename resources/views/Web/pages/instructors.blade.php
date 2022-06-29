@@ -421,14 +421,13 @@
 												<label class="custom-control-label" for="customCheck19">CorelDRAW <span class="float-right">(34)</span></label>
 											</div>
 
-=======
 											@foreach ($data['categories'] as $category)
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input" id="customCheck{{$category -> id}}">
 													<label class="custom-control-label" for="customCheck{{$category -> id}}"> {{$category -> title}} <span class="float-right">({{$category -> courses_count}})</span></label>
 												</div>
 											@endforeach
->>>>>>> f9951b6a4654e8d5da1b602b63e821c4e7fb8ae5
+
 											<a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> See More</a>
 										</div>
 							        </div>
