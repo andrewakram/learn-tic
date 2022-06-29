@@ -212,7 +212,7 @@
 									<li class="list-inline-item">
 										<select class="selectpicker show-tick">
 
-											<option>{{ __('lang.city') }}</option>
+											<option>{{ trans('lang.city') }}</option>
 											@foreach ($data['cities'] as $city)
 												<option>{{$city -> title}}</option>
 											@endforeach

@@ -27,11 +27,7 @@ class User extends Authenticatable
     protected $appends = ['full_name'];
 
     public function getFullNameAttribute(){
-        if($this->type == 'teacher'){
-            return $this->teacherInfo->first()->full_name;
-        }else{
-            return "";
-        }
+        return $this->teacherInfo()->first()->full_name;
     }
 
     /**

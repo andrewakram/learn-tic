@@ -29,7 +29,7 @@
                     <div class="about_home3">
                         <h3> {{$data['home_about']->title }}</h3>
                         {!! $data['home_about']->body !!}
-                        <a href="#" class="btn about_btn_home3">{{ trans('lang.about_btn') }}</a>
+                        <a href="#" class="btn about_btn_home3">{{trans('lang.about_btn')}}</a>
                         <!--	<ul class="partners_thumb_list">
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/1.png" alt="1.png"></a></li>
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/2.png" alt="2.png"></a></li>

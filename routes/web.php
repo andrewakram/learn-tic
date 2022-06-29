@@ -42,32 +42,27 @@ Route::get('cache', function () {
     return 'success';
 });
 
-Route::get('/', [HomeController::class,'index'])->name('home');
-Route::get('about-us', [AboutUsController::class,'index'])->name('about_us');
-Route::get('courses', [CoursesController::class,'index'])->name('courses');
-Route::get('course-details/{course_id}', [CoursesController::class,'courseDetails'])->name('course_details');
-Route::get('instructors', [InstructorsController::class,'index'])->name('instructors');
-Route::get('instructor-details/{instructor_id}', [InstructorsController::class,'instructorDetails'])->name('instructor_details');
-Route::get('blogs', [BlogsController::class,'index'])->name('blogs');
-Route::get('blog-details/{blog_id}', [BlogsController::class,'blogDetails'])->name('blog_details');
-Route::get('contact-us', [ContactUsController::class,'index'])->name('contact_us');
-Route::get('instructor-login', [InstructorLoginController::class,'index'])->name('instructor_login');
-Route::get('instructor-signup', [InstructorRegisterController::class,'index'])->name('instructor_register');
-Route::get('student-login', [StudentLoginController::class,'index'])->name('student_login');
-Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
-Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
-
+Route::group([
+    'middleware' => ['SetLanguage']
+], function () {
+    Route::get('/', [HomeController::class,'index'])->name('home');
+    Route::get('about-us', [AboutUsController::class,'index'])->name('about_us');
+    Route::get('courses', [CoursesController::class,'index'])->name('courses');
+    Route::get('course-details/{course_id}', [CoursesController::class,'courseDetails'])->name('course_details');
+    Route::get('instructors', [InstructorsController::class,'index'])->name('instructors');
+    Route::get('instructor-details/{instructor_id}', [InstructorsController::class,'instructorDetails'])->name('instructor_details');
+    Route::get('blogs', [BlogsController::class,'index'])->name('blogs');
+    Route::get('blog-details/{blog_id}', [BlogsController::class,'blogDetails'])->name('blog_details');
+    Route::get('contact-us', [ContactUsController::class,'index'])->name('contact_us');
+    Route::get('instructor-login', [InstructorLoginController::class,'index'])->name('instructor_login');
+    Route::get('instructor-signup', [InstructorRegisterController::class,'index'])->name('instructor_register');
+    Route::get('student-login', [StudentLoginController::class,'index'])->name('student_login');
+    Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
+    Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
+});
 
 Route::get('/change-language/{lang}', function ($lang) {
-    // if(in_array($lang , ['ar' , 'en']))
-    // {
-        session()->put('lang', $lang);
-    // }
-    // else
-    // {
-    //     session()->put('lang', 'ar');
-    // }
-
+    session()->put('lang', $lang);
     return back();
 });
 

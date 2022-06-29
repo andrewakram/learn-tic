@@ -37,7 +37,7 @@
 									<li class="list-inline-item">
 										<select class="selectpicker show-tick">
 
-												<option>{{ __('lang.city') }}</option>
+												<option>{{ trans('lang.city') }}</option>
 											@foreach ($data['cities'] as $city)
 												<option>{{$city -> title}}</option>
 											@endforeach
@@ -170,7 +170,7 @@
 						  <div class="panel">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-									  <a href="#panelBodyPlace" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ __('lang.city') }}</a>
+									  <a href="#panelBodyPlace" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.city') }}</a>
 								  </h4>
 								</div>
 							  <div id="panelBodyPlace" class="panel-collapse collapse show">
@@ -250,7 +250,7 @@
 						      	<div class="panel-heading">
 							      	<h4 class="panel-title">
 							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ trans('lang.skill_level') }}</a>
-							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ __('lang.course_type') }}</a>
+							        	<a href="#panelBodySkills" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion"> {{ trans('lang.course_type') }}</a>
 							        </h4>
 						      	</div>
 							    <div id="panelBodySkills" class="panel-collapse collapse show">
