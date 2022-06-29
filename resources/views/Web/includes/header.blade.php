@@ -58,10 +58,24 @@
 
                     <div class="">
                         <ul class="cart">
+                            @if(\Illuminate\Support\Facades\Auth::user())
+                                <li>
+                                    <a href="#" class="btn flaticon-user"><span class="dn-lg">{{ \Illuminate\Support\Facades\Auth::user()->name }}</span></a>
+                                    <ul class="dropdown_content login_drop">
+
+                                        <li class="list_content">
+
+                                            <a href="" class="btn btn-thm cart_btns"> حسابي </a>
+                                            <a href="{{ route('logout') }}" class="btn btn-thm3 checkout_btns">تسجيل خروج </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            @else
+
                             <li>
                                 <a href="#" class="btn flaticon-user"><span class="dn-lg">{{ trans('lang.login_register') }}</span></a>
                                 <ul class="dropdown_content login_drop">
-
 
                                     <li class="list_content">
 
@@ -71,6 +85,8 @@
 
                                 </ul>
                             </li>
+                            @endif
+
                             <li>
                                 @if(session()->get('lang') == 'ar')
                                     <a class="bold" href="{{asset('change-language/en')}}">

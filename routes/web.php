@@ -16,6 +16,8 @@ use App\Http\Controllers\Web\InstructorLoginController;
 use App\Http\Controllers\Web\StudentRegisterController;
 use App\Http\Controllers\Web\InstructorRegisterController;
 use App\Http\Controllers\web\InstructorsDetailsController;
+use App\Http\Controllers\web\StudentAuthController;
+use App\Http\Controllers\web\InstructorAuthController;
 
 
 
@@ -55,9 +57,12 @@ Route::group([
     Route::get('blog-details/{blog_id}', [BlogsController::class,'blogDetails'])->name('blog_details');
     Route::get('contact-us', [ContactUsController::class,'index'])->name('contact_us');
     Route::get('instructor-login', [InstructorLoginController::class,'index'])->name('instructor_login');
+    Route::post('instructor-login', [InstructorAuthController::class,'instructorDoLogin'])->name('instructorDoLogin');
     Route::get('instructor-signup', [InstructorRegisterController::class,'index'])->name('instructor_register');
     Route::get('student-login', [StudentLoginController::class,'index'])->name('student_login');
+    Route::post('student-login', [StudentAuthController::class,'studentDoLogin'])->name('studentDoLogin');
     Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
+    Route::get('logout', [StudentAuthController::class,'logout'])->name('logout');
     Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
 });
 
