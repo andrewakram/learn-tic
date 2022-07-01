@@ -232,11 +232,11 @@
 										<div class="ui_kit_whitchbox">
 											<div class="custom-control custom-switch">
 												<input type="checkbox" class="custom-control-input" id="customSwitch1">
-												<label class="custom-control-label" for="customSwitch1"> مدفوع  </label>
+												<label class="custom-control-label" for="customSwitch1"> {{ trans('lang.paid') }}  </label>
 											</div>
 											<div class="custom-control custom-switch">
 												<input type="checkbox" class="custom-control-input" id="customSwitch2">
-												<label class="custom-control-label" for="customSwitch2">مجانى</label>
+												<label class="custom-control-label" for="customSwitch2">{{ trans('lang.free') }}</label>
 											</div>
 										</div>
 							        </div>
@@ -257,15 +257,15 @@
 										<div class="ui_kit_checkbox">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="customCheck14">
-												<label class="custom-control-label" for="customCheck14">الكل <span class="float-right">(03)</span></label>
+												<label class="custom-control-label" for="customCheck14">{{ trans('lang.all') }} <span class="float-right">(03)</span></label>
 											</div>
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="customCheck15">
-												<label class="custom-control-label" for="customCheck15">دورة على الانترنت <span class="float-right">(15)</span></label>
+												<label class="custom-control-label" for="customCheck15"> {{ trans('lang.online_course') }} <span class="float-right">(15)</span></label>
 											</div>
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="customCheck16">
-												<label class="custom-control-label" for="customCheck16">دورة خاصة <span class="float-right">(126)</span></label>
+												<label class="custom-control-label" for="customCheck16"> {{ trans('lang.spacial_course') }}  <span class="float-right">(126)</span></label>
 											</div>
 
 										</div>
@@ -275,7 +275,7 @@
 						</div>
 					</div>
 
-					<div class="selected_filter_widget style3">
+					<!-- <div class="selected_filter_widget style3">
 						<div id="accordion" class="panel-group">
 						  <div class="panel">
 								<div class="panel-heading">
@@ -322,7 +322,7 @@
 							  </div>
 						  </div>
 					  </div>
-				  </div>
+				  </div> -->
 
 
 				  <div class=" ui_kit_button search_btn mb0">

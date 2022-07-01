@@ -970,7 +970,7 @@ header.header-nav.menu_style_home_one.home9.stricky-fixed #search-button i{
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
-  ms-transform: scale(1);
+  -ms-transform: scale(1);
 }
 .mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper,
 .mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper2 {
@@ -984,7 +984,7 @@ header.header-nav.menu_style_home_one.home9.stricky-fixed #search-button i{
   -ms-transform: scale(0.9);
   -o-transform: scale(0.9);
   transform: scale(0.9);
-  ms-transform: scale(0.9);
+  -ms-transform: scale(0.9);
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all ease-in-out .3s;
@@ -1006,10 +1006,10 @@ header.header-nav.menu_style_home_one.home9.stricky-fixed #search-button i{
   opacity: 1;
   position: relative;
   vertical-align: middle;
-  -webkit-transition: all 400ms;
-  -moz-transition: all 400ms;
-  -ms-transition: all 400ms;
-  -o-transition: all 400ms;
+  --webkit-transition: all 400ms;
+  --moz-backface-visibility: all 400ms;
+  --ms-transition: all 400ms;
+  --o-transition: all 400ms;
 }
 #search-button i,
 #search-button2 i{
@@ -1408,9 +1408,9 @@ header.header-nav.menu_style_home_one.home13 a.navbar_brand:before{
 header.header-nav.menu_style_home_one.home13 .sign_up_btn li.list_s{  
   border: none;
 }
-header.header-nav.menu_style_home_one.home13 .sign_up_btn li.list_s .mk-search-trigger{
+/* header.header-nav.menu_style_home_one.home13 .sign_up_btn li.list_s .mk-search-trigger{
 
-}
+} */
 header.header-nav.menu_style_home_one.home13 .sign_up_btn a.btn.cart_btn span{
   line-height: 17px;
 }
@@ -2346,7 +2346,7 @@ header.header-nav.menu_style_home_four.home8 .container-fluid{
 }
 header.header-nav.menu_style_home_four.home8.stricky-fixed a.navbar_brand span{
   background: linear-gradient(to left, #835bb4 0%, #d7cf96 100%);
-  -webkit-background-clip: text;
+  --webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 /*== Menu Style For Home V6 ==*/
@@ -2905,10 +2905,10 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   background-position: center center;
   background-size: cover;
 }
-.home2-slider .banner-style-one .slide,
+/* .home2-slider .banner-style-one .slide,
 .home2-slider .banner-style-two .slide{
   
-}
+} */
 .banner-style-two .slide{
   padding: 430px 0 290px;
 }
@@ -3788,7 +3788,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   line-height: normal;
   margin-left: 30px;
   position: relative;
-  -ms-text-align-last: auto;
+  --ms-text-align-last: auto;
   text-align: right;
   width: 210px;
 }
@@ -3834,7 +3834,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   line-height: normal;
   margin-left: 30px;
   position: relative;
-  -ms-text-align-last: auto;
+  --ms-text-align-last: auto;
   text-align: right;
   width: 100%;
 }
@@ -5550,7 +5550,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
 }
 .logo-widget.home8 span{
   background: linear-gradient(to left, #835bb4 0%, #d7cf96 100%);
-  -webkit-background-clip: text;
+  --webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .footer_menu_widget ul{
@@ -7599,9 +7599,9 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
   margin-left: 5px;
   width: 100px;
 }
-.ui_kit_tooltip .btn:hover {
+/* .ui_kit_tooltip .btn:hover {
   color: 
-}
+} */
 .ui_kit_tooltip .btn:focus {
   box-shadow: none;
   border-color: #dddddd;
@@ -7644,7 +7644,7 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
 .ui_kit_select_search .dropdown-item {
   color: #7f7f7f;
   font-size: 14px;
-  font-family: 'Nunito', sans-serif;
+  /* font-family: 'Nunito', sans-serif; */
 }
 .ui_kit_select_search .dropdown-item:hover {
   background-color: transparent;
@@ -8317,7 +8317,7 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
 .blog_recent_post_widget .title,
 .blog_category_widget .title{
   font-size: 20px;
-  font-family: "Nunito";
+  /* font-family: "Nunito"; */
   font-weight: 600;
   color: #0a0a0a;
   line-height: 1.2;
@@ -8335,7 +8335,7 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
   background-color: transparent;
   border: none;
   font-size: 15px;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   color: #0a0a0a;
   padding: 10px 0;
 }
@@ -8566,10 +8566,10 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
   max-width: 90px;
 }
 .blog_recent_post_widget .media-body .post_title{
-  font-size: 16px;
-  font-family: "Nunito";
+  font-size: 14px;
+  /* font-family: "Nunito"; */
   color: #212121;
-  line-height: 1.5;
+  line-height: 1.7;
   margin-bottom: 0;
 }
 .blog_recent_post_widget .media-body a{
@@ -8604,13 +8604,13 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
 }
 .blog_tag_widget .tag_list li a{
   font-size: 13px;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   color: rgb(79, 79, 79);
 }
-.blog_tag_widget .tag_list li:nth-child(3),
+/* .blog_tag_widget .tag_list li:nth-child(3),
 .blog_tag_widget .tag_list li:nth-child(4) {
   margin-bottom: 0;
-}
+} */
 /*== BlokQuote Blog Sinlge Page ==*/
 .mbp_blockquote{
   padding: 13px 0px 20px 0px;
@@ -12608,9 +12608,9 @@ div#countdown .col-xs-6.col-sm-3{
 }
 /*== Chart Js Css ==*/
 canvas {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+  --moz-user-select: none;
+  --webkit-user-select: none;
+  --ms-user-select: none;
 }
 .chart-container {
   width: 100%;
@@ -12961,7 +12961,7 @@ body.translated{
 }
 .shop_order_box .order_details .title2 {
   font-size: 20px;
-  ont-family: "Nunito";
+  font-family: "Nunito";
   font-weight: 600;
   color: #0a0a0a;
   line-height: 1.2;
@@ -13667,9 +13667,9 @@ ul.nav.nav-tabs.style4{
 
 
 
-.btn{
+/* .btn{
  
-}
+} */
 
 
 .blog_post_home6_media_objects .mr-3{
@@ -13687,7 +13687,7 @@ ul.nav.nav-tabs.style4{
 
 .bootstrap-select.show-tick .dropdown-menu li a span.text {
     font-size: 14px;
-    font-family: "Nunito";
+    /* font-family: "Nunito"; */
 }
 
 .filter-option-inner-inner {
@@ -13768,7 +13768,7 @@ ul.nav.nav-tabs.style4{
 }
 .dropdown-item{
   font-size: 14px;
-  font-family: 'Nunito', sans-serif;
+  /* font-family: 'Nunito', sans-serif; */
 }
 textarea.form-control{
   padding: 20px;
