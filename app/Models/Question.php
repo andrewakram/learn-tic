@@ -12,4 +12,8 @@ class Question extends Model
     protected $fillable = [
         'exam_id','course_id','mark','title_ar','title_en'
     ];
+
+    public function answers(){
+        return $this->hasMany(Answer::class,'question_id');
+    }
 }

@@ -30,7 +30,7 @@
                         <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
                         <!--end::Separator-->
                         <!--begin::Description-->
-                        <small class=" fs-3 fw-bold my-1 ms-1" style="color: #5482d5">تفاصيل أقسام الكورس</small>
+                        <small class=" fs-3 fw-bold my-1 ms-1" style="color: #5482d5">تفاصيل إمتحانات الكورس</small>
                         <!--end::Description-->
                     </h1>
                     <!--end::Title-->
@@ -306,7 +306,7 @@
                     <!--begin::Card body-->
                     <div class="card-body pt-0">
                         <!--begin::Table-->
-                        <h3>أقسام الكورس</h3>
+                        <h3>إمتحانات الكورس</h3>
                         <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_products_table">
                             <!--begin::Table head-->
                             <thead>
@@ -319,7 +319,9 @@
                                 </th>
                                 <th class=" min-w-10px">#</th>
                                 <th class=" min-w-10px">العنوان (عربي)</th>
-                                <th class=" min-w-10px">السعر (قبل)</th>
+                                <th class=" min-w-10px">العنوان (إنجليزي)</th>
+                                <th class=" min-w-10px">درجة الإمتحان</th>
+                                <th class=" min-w-10px">عدد الأسئلة</th>
                                 <th class=" min-w-100px">العمليات</th>
 
                             </tr>
@@ -416,7 +418,7 @@
                                 '                                <tr>' +
                                 '                                    <td style="text-align: center">  <p style="padding-right:150px">Learn-Tic</p></td>' +
                                 '                                    <td style="text-align: right"> <img src="{{asset('default.png')}}" width="150px" height="150px" /> </td>' +
-                                '                                    <td style="text-align: right"><p>عنوان التقرير : أقسام الكورس</p>' +
+                                '                                    <td style="text-align: right"><p>عنوان التقرير : إمتحانات الكورس</p>' +
                                 '                                                                  <p>تاريخ التقرير : {{ Carbon\Carbon::now()->translatedFormat('l Y/m/d') }}</p>' +
                                 '                                                                  <p>وقت التقرير : {{ Carbon\Carbon::now()->translatedFormat('h:i a') }}</p></td>' +
                                 '                                </tr> ' +
@@ -447,12 +449,14 @@
 
 
                 ],
-                ajax: '{{ route('admin.courses.courseSections.datatable',[$course->id]) }}',
+                ajax: '{{ route('admin.courses.courseExams.datatable',[$course->id]) }}',
                 "columns": [
                     {"data": 'select', "searchable": false, "orderable": false},
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', "searchable": false, "orderable": false},
                     {"data": "title_ar", "searchable": true, "orderable": false},
                     {"data": "title_en", "searchable": true, "orderable": false},
+                    {"data": "total", "searchable": true, "orderable": false},
+                    {"data": "no_of_questions", "searchable": true, "orderable": false},
                     {"data": 'actions', name: 'actions', orderable: false, searchable: false}
                 ]
             });

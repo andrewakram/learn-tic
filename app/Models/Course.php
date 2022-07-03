@@ -34,6 +34,10 @@ class Course extends Model
         return $this->hasMany(CourseCity::class,'course_id');
     }
 
+    public function courseExams(){
+        return $this->hasMany(Exam::class,'course_id');
+    }
+
     public function getImageAttribute($image)
     {
         if (!empty($image)) {

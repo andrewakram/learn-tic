@@ -17,6 +17,8 @@ Route::group([
             Route::get('home', 'HomeController@index')->name('.home');
             Route::get('courses-last-7-days', 'HomeController@getDataCoursesLast7Days')
                 ->name('.coursesLast7Days.datatable');
+            Route::get('courses-exams-last-7-days', 'HomeController@getDataCoursesExamsLast7Days')
+                ->name('.coursesExamsLast7Days.datatable');
 
         });
         Route::group(['middleware' => 'auth:admin'], function () {
@@ -103,6 +105,8 @@ Route::group([
                 Route::get('/show/{id}', 'CourseController@show')->name('.show');
                 Route::post('/delete', 'CourseController@delete')->name('.delete');
                 Route::post('/delete-multi', 'CourseController@deleteMulti')->name('.deleteMulti');
+                /////////////////////////////////////////////
+                //courses > sections with lessons
                 Route::get('/course-sections/{course_id}', 'CourseController@courseSections')
                     ->name('.courseSections');
                 Route::get('/course-sections/getData/{course_id}', 'CourseController@getCourseSectionsData')
@@ -111,6 +115,15 @@ Route::group([
                     ->name('.courseLessons');
                 Route::get('/course-lessons/getData/{section_id}', 'CourseController@getCourseLessonsData')
                     ->name('.courseLessons.datatable');
+                /////////////////////////////////////////////
+                //courses > exams with questions
+                Route::get('/course-exams/{course_id}', 'CourseController@courseExams')
+                    ->name('.courseExams');
+                Route::get('/course-exams/getData/{course_id}', 'CourseController@getCourseExamsData')
+                    ->name('.courseExams.datatable');
+                Route::get('/course-exam-questions/{exam_id}', 'CourseController@courseExamQuestions')
+                    ->name('.courseExamQuestions');
+                /////////////////////////////////////////////
             });
 
             Route::group(['prefix' => 'tags', 'as' => '.tags'], function () {

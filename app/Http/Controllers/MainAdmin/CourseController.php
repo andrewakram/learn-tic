@@ -6,6 +6,8 @@ use App\Http\Requests\MainAdmin\Course\CourseIndexRequest;
 use App\Models\Course;
 use App\Models\CourseLesson;
 use App\Models\CourseSection;
+use App\Models\Exam;
+use App\Models\Question;
 use Carbon\Carbon;
 use Illuminate\Routing\Controller;
 use Yajra\DataTables\Facades\DataTables;
@@ -100,6 +102,11 @@ class CourseController extends Controller
                 $buttons .= '<a href="' . route('admin.courses.courseSections', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" target="_blank" title="عرض التفاصيل">
                             <i class="fa fa-eye"></i>
                         </a>';
+                if($row->courseExams){
+                    $buttons .= '<a href="' . route('admin.courses.courseExams', [$row->id]) . '" class="btn btn-info btn-circle btn-sm m-1" target="_blank" title="عرض الامتحانات">
+                            <i class="fa fa-book"></i>
+                        </a>';
+                }
 
                 return $buttons;
             })
@@ -134,7 +141,7 @@ class CourseController extends Controller
             })
             ->addColumn('actions', function ($row) {
                 $buttons = '';
-                $buttons .= '<a href="' . route('admin.courses.courseLessons', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                $buttons .= '<a href="' . route('admin.courses.courseLessons', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" target="_blank" title="تعديل">
                             <i class="fa fa-eye"></i>
                         </a>';
 
@@ -176,7 +183,7 @@ class CourseController extends Controller
             })
             ->addColumn('actions', function ($row) {
                 $buttons = '';
-                $buttons .= '<a href="' . route('admin.courses.courseLessons', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                $buttons .= '<a href="' . route('admin.courses.courseLessons', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="دروس القسم">
                             <i class="fa fa-eye"></i>
                         </a>';
 
@@ -184,6 +191,66 @@ class CourseController extends Controller
             })
             ->rawColumns(['actions','section','select'])
             ->make();
+    }
+
+    public function courseExams(CourseIndexRequest $request,$course_id)
+    {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $course = Course::findOrFail($course_id);
+        return view('MainAdmin.pages.courses.course-exams',compact('course'));
+    }
+
+    public function getCourseExamsData($course_id)
+    {
+        $model = Exam::query()->where('course_id',$course_id);
+
+        return DataTables::eloquent($model)
+            ->addIndexColumn()
+            ->addColumn('select',function ($row){
+                return '<div class="form-check form-check-sm form-check-custom form-check-solid me-3 ">
+                    <input class="form-check-input checkboxes" type="checkbox"  value="'.$row->id.'" />
+                </div>';
+            })
+            ->editColumn('total', function ($row) {
+                if($row->total){
+                    return '<b class="badge badge-success">'.$row->total.'</b>';
+                }else{
+                    return '<b class="badge badge-success"> 0 </b>';
+                }
+            })
+            ->editColumn('no_of_questions', function ($row) {
+                if($row->no_of_questions){
+                    return '<b class="badge badge-info">'.$row->no_of_questions.'</b>';
+                }else{
+                    return '<b class="badge badge-info"> 0 </b>';
+                }
+            })
+            ->addColumn('actions', function ($row) {
+                $buttons = '';
+                $buttons .= '<a href="' . route('admin.courses.courseExamQuestions', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" target="_blank" title="أسئلة الإمتحان">
+                            <i class="fa fa-eye"></i>
+                        </a>';
+
+                return $buttons;
+            })
+            ->rawColumns(['actions','total','no_of_questions','select'])
+            ->make();
+    }
+
+    public function courseExamQuestions(CourseIndexRequest $request,$exam_id)
+    {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+        Exam::findOrFail($exam_id);
+        $exam = Exam::whereId($exam_id)->first();
+        $course = Course::findOrFail($exam->course_id);
+        return view('MainAdmin.pages.courses.course-exam-questions',compact('course','exam'));
     }
 
 
