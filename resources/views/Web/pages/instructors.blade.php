@@ -266,8 +266,8 @@
 								</div>
 								<div class="tm_footer">
 									<ul>
-										<li class="list-inline-item"><a href="#">56,178 students</a></li>
-										<li class="list-inline-item"><a href="#">22 courses</a></li>
+										<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>
+										<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>
 									</ul>
 								</div>
 							</div>
@@ -336,20 +336,20 @@
 								  <div class="panel-body">
 									  <div class="ui_kit_checkbox">
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck14">
-											  <label class="custom-control-label" for="customCheck14">diploma <span class="float-right">(03)</span></label>
+											  <input type="checkbox" class="custom-control-input" id="customCheck30">
+											  <label class="custom-control-label" for="customCheck30"> {{ trans('lang.diploma') }}  <span class="float-right">(03)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck15">
-											  <label class="custom-control-label" for="customCheck15">Bachelor  <span class="float-right">(15)</span></label>
+											  <input type="checkbox" class="custom-control-input" id="customCheck31">
+											  <label class="custom-control-label" for="customCheck31"> {{ trans('lang.bachelor') }}   <span class="float-right">(15)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck16">
-											  <label class="custom-control-label" for="customCheck16"> Master's <span class="float-right">(126)</span></label>
+											  <input type="checkbox" class="custom-control-input" id="customCheck32">
+											  <label class="custom-control-label" for="customCheck32"> {{ trans('lang.master') }}  <span class="float-right">(126)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck17">
-											  <label class="custom-control-label" for="customCheck17">PhD
+											  <input type="checkbox" class="custom-control-input" id="customCheck33">
+											  <label class="custom-control-label" for="customCheck33"> {{ trans('lang.phd') }} 
 												<span class="float-right">(1,584)</span></label>
 										  </div>
 
@@ -373,12 +373,12 @@
 							  <div class="panel-body">
 								  <div class="ui_kit_checkbox">
 									  <div class="custom-control custom-checkbox">
-										  <input type="checkbox" class="custom-control-input" id="customCheck14">
-										  <label class="custom-control-label" for="customCheck14">Male <span class="float-right">(03)</span></label>
+										  <input type="checkbox" class="custom-control-input" id="customCheck34">
+										  <label class="custom-control-label" for="customCheck34">{{ trans('lang.male') }}   <span class="float-right">(03)</span></label>
 									  </div>
 									  <div class="custom-control custom-checkbox">
-										  <input type="checkbox" class="custom-control-input" id="customCheck15">
-										  <label class="custom-control-label" for="customCheck15">Female  <span class="float-right">(15)</span></label>
+										  <input type="checkbox" class="custom-control-input" id="customCheck35">
+										  <label class="custom-control-label" for="customCheck35"> {{ trans('lang.female') }}   <span class="float-right">(15)</span></label>
 									  </div>
 
 
@@ -402,24 +402,6 @@
 							    <div id="panelBodySoftware" class="panel-collapse collapse show">
 							        <div class="panel-body">
 										<div class="ui_kit_checkbox">
-<<<<<<< HEAD
-
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck16">
-												<label class="custom-control-label" for="customCheck16">Graphic Design <span class="float-right">(126)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck17">
-												<label class="custom-control-label" for="customCheck17">Sketch <span class="float-right">(1,584)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck18">
-												<label class="custom-control-label" for="customCheck18">InDesign <span class="float-right">(34)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck19">
-												<label class="custom-control-label" for="customCheck19">CorelDRAW <span class="float-right">(34)</span></label>
-											</div>
 
 											@foreach ($data['categories'] as $category)
 												<div class="custom-control custom-checkbox">
@@ -451,17 +433,17 @@
 									  <div class="ui_kit_checkbox">
 										  <div class="custom-control custom-checkbox">
 											  <input type="checkbox" class="custom-control-input" id="customCheck14">
-											  <label class="custom-control-label" for="customCheck14">Student House
+											  <label class="custom-control-label" for="customCheck14"> {{ trans('lang.student_house') }}  
 												<span class="float-right">(03)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
 											  <input type="checkbox" class="custom-control-input" id="customCheck15">
-											  <label class="custom-control-label" for="customCheck15">Teacher's House
+											  <label class="custom-control-label" for="customCheck15"> {{ trans('lang.teacher_house') }} 
 												<span class="float-right">(15)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
 											  <input type="checkbox" class="custom-control-input" id="customCheck16">
-											  <label class="custom-control-label" for="customCheck16"> online education
+											  <label class="custom-control-label" for="customCheck16"> {{ trans('lang.online_education') }}  
 												<span class="float-right">(126)</span></label>
 										  </div>
 

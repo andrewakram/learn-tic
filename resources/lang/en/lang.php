@@ -60,7 +60,8 @@ return [
     //blogs
     'blogs' => 'Blogs' ,
     'recent_posts' => ' Recent Posts  ' ,
-    'category' => 'category' ,
+    'category' => 'Category' ,
+    'tags' => 'Tags' ,
     //ABOUT US
     'about_us' => ' About Us' ,
     'foreign_follwers' => 'CERTIFIED TEACHERS' ,
@@ -83,6 +84,17 @@ return [
     'teaching_methods' => 'Teaching Methods ',
     'search_map' => 'Search By Map  ' ,
     'add_address' => 'Add Your Address ',
+    'diploma' => 'Diploma',
+    'bachelor' => 'Bachelor',
+    'master' => 'Master', 
+    'phd' => 'PHD',
+    'male' => 'Male' ,
+    'female' => 'Female',
+    'student_house' => 'Student House',
+    'teacher_house' => 'Teacher House',
+    'online_education' => 'online education',
+
+    
      //instructors details
     'appointment' => ' Appointment ',
     'course_list  ' => ' Course List',
@@ -99,6 +111,9 @@ return [
     'price' => 'Price',
     'paid' => 'Paid',
     'free' => 'Free',
+    'online_course' => 'Online Course',
+    'spacial_course' => 'Spacial Course ',
+    'all' => 'All',
     'search' => 'Search',
     'instructor' => 'Instructor',
     'preview_course' => 'Preview Course ',

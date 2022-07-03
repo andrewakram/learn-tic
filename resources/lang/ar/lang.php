@@ -78,8 +78,9 @@ return [
     'home' => 'الرئيسية' ,
     //blogs
     'blogs' => 'المقالات' ,
-    'recent_posts' => ' دورات تدريبية مشابهة  ' ,
+    'recent_posts' => '  مقالات  مشابهة  ' ,
     'category' => 'التخصص' ,
+    'tags' => 'الكلمات الدالة' ,
     //ABOUT US
     'about_us' => 'من نحن' ,
     'foreign_follwers' => 'المتابعين' ,//CERTIFIED TEACHERS
@@ -102,6 +103,15 @@ return [
     'teaching_methods' => 'طريقة التدريس',
     'search_map' => 'ابحث علي الخريطه' ,
     'add_address' => ' ادخل عنوانك',
+    'diploma' => 'دبلوم',
+    'bachelor' => 'بكالوريوس',
+    'master' => 'ماجستير', 
+    'phd' => 'دكتوراه',
+    'male' => 'ذكر' ,
+    'female' => 'انثى',
+    'student_house' => 'منزل الطالب ',
+    'teacher_house' => 'منزل المعلم ',
+    'online_education' => 'التعليم عن بعد',
      //instructors details
     'appointment' => ' حجز المواعيد',
     'course_list' => ' الكورسات',
@@ -118,6 +128,9 @@ return [
     'price' => 'السعر',
     'paid' => 'مدفوع',
     'free' => 'مجانى',
+    'online_course' => 'دورة على الانترنت',
+    'spacial_course' => 'دورة خاصة',
+    'all' => 'الكل',
     'search' => 'ابحث',
     'instructor' => 'المدرس',
     'preview_course' => 'مشاهدة الكورس',

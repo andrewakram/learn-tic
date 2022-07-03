@@ -197,121 +197,14 @@
 								</div>
 								<div class="tm_footer">
 									<ul>
-										<li class="list-inline-item"><a href="#">56,178 students</a></li>
-										<li class="list-inline-item"><a href="#">22 courses</a></li>
+										<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }}   </a></li>
+										<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }}</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					@endforeach
-						<div class="item">
-							<div class="team_member text-center">
-								<div class="instructor_col">
-									<div class="thumb">
-										<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/7.png" alt="7.png">
-									</div>
-									<div class="details">
-										<h4>Anna Richard</h4>
-										<p>CSS, HTML</p>
-										<ul>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#">(6)</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="tm_footer">
-									<ul>
-										<li class="list-inline-item"><a href="#">56,178 students</a></li>
-										<li class="list-inline-item"><a href="#">22 courses</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="team_member text-center">
-								<div class="instructor_col">
-									<div class="thumb">
-										<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/8.png" alt="8.png">
-									</div>
-									<div class="details">
-										<h4>Krisztina Szer</h4>
-										<p>User Experience Design</p>
-										<ul>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#">(6)</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="tm_footer">
-									<ul>
-										<li class="list-inline-item"><a href="#">56,178 students</a></li>
-										<li class="list-inline-item"><a href="#">22 courses</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="team_member text-center">
-								<div class="instructor_col">
-									<div class="thumb">
-										<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/9.png" alt="9.png">
-									</div>
-									<div class="details">
-										<h4>Kristen Pala</h4>
-										<p>Web Design, PSD to HTML</p>
-										<ul>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#">(6)</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="tm_footer">
-									<ul>
-										<li class="list-inline-item"><a href="#">56,178 students</a></li>
-										<li class="list-inline-item"><a href="#">22 courses</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="team_member text-center">
-								<div class="instructor_col">
-									<div class="thumb">
-										<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/10.png" alt="10.png">
-									</div>
-									<div class="details">
-										<h4>Jill Poye</h4>
-										<p>Watercolor Painting</p>
-										<ul>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-											<li class="list-inline-item"><a href="#">(6)</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="tm_footer">
-									<ul>
-										<li class="list-inline-item"><a href="#">56,178 students</a></li>
-										<li class="list-inline-item"><a href="#">22 courses</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
