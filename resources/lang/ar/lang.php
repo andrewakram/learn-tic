@@ -172,5 +172,48 @@ return [
     'pages' => 'الصفحات ',
     'more'=> 'المزيد',
 
+    //login student
+    'login_student' => 'تسجيل الطالب',
+    'login_account' => 'تسجيل الدخول إلى حسابك ' ,
+    'have_account' => 'ليس لديك حساب؟' , 
+    'sign_up' => 'تسجيل جديد!' , 
+    'password' => 'كلمة السر',
+    'forget_password' => 'هل نسيت كلمة السر؟',
+    'remember' => ' تذكرنى',
+    'login' => 'تسجيل الدخول ',
+    'email_address' => 'البريد الالكترونى ' ,
+
+    //sign_up student
+    'register_student' => ' تسجيل حساب جديد للطالب ' ,
+    'login' => 'تسجيل الدخول',
+    'user_name' => 'الاسم ',
+    'confirm_password' => 'تاكيد كلمة السر ',
+    'register' => 'تسجيل جديد',
+    'have_account_sign' => ' لديك حساب؟',
+
+    //login instructor
+    'login_instructor' => ' تسجيل المعلم',
+
+    //register instructor
+    'phone' => 'رقم الهاتف' ,
+    'category' => 'التخصص',
+    'nationality' => 'الجنسية',
+    'register_instructor' => ' تسجيل حساب جديد للمعلم ' ,
+    'enter_data' => 'ادخل بياناتك  ' ,
+    'complete_data' => 'تكمله بياناتك',
+    'upload_data' => 'رفع الاوراق' ,
+    'prev' => 'السابق' ,
+    'next' => 'التالي',
+    'submit' => 'تسجيل' ,
+    'national_id' => 'رقم الهوية الوطنية إذا كان المتقدم سعودي الجنسية ' ,
+    'residence_id' => 'رقم الاقامة إذا كان المتقدم يحمل أي جنسية أخرى   ' ,
+    'category_register' => 'التخصص المراد تدريسة',
+    'years_experince' => 'سنوات الخبرة في التدريس ',
+    'university_name' => 'الجامعة التي تخرج منها ',
+
+
+
+
+
 
  ];

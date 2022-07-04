@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-xl-6 offset-xl-3 text-center">
 					<div class="breadcrumb_content">
-						<h4 class="breadcrumb_title">Register Student</h4>
+						<h4 class="breadcrumb_title">{{ trans('lang.register_student') }}</h4>
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#">Home</a></li>
-						    <li class="breadcrumb-item active" aria-current="page">Register Student</li>
+						    <li class="breadcrumb-item"><a href="#">{{ trans('lang.home') }}</a></li>
+						    <li class="breadcrumb-item active" aria-current="page">{{ trans('lang.register_student') }}</li>
 						</ol>
 					</div>
 				</div>
@@ -27,22 +27,22 @@
 				<div class="col-sm-12 col-lg-6 offset-lg-3">
 					<div class="sign_up_form inner_page">
 						<div class="heading">
-							<h3 class="text-center">Register to start learning</h3>
-							<p class="text-center">Have an account? <a class="text-thm login" href="{{route('student_login')}}">Login</a></p>
+							<h3 class="text-center">{{ trans('lang.register_student') }}</h3>
+							<p class="text-center"> {{ trans('lang.have_account_sign') }} <a class="text-thm login" href="{{route('student_login')}}">{{ trans('lang.login') }}</a></p>
 						</div>
 						<div class="details">
 							<form action="#">
 								<div class="form-group">
-							    	<input type="text" class="form-control" id="exampleInputName2" placeholder="Username">
+							    	<input type="text" class="form-control" id="exampleInputName2" placeholder="{{ trans('lang.user_name') }} ">
 								</div>
 								 <div class="form-group">
-							    	<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email Address">
+							    	<input type="email" class="form-control" id="exampleInputEmail3" placeholder="{{ trans('lang.email_address') }}  ">
 								</div>
 								<div class="form-group">
-							    	<input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+							    	<input type="password" class="form-control" id="exampleInputPassword4" placeholder="{{ trans('lang.password') }}">
 								</div>
 								<div class="form-group">
-							    	<input type="password" class="form-control" id="exampleInputPassword5" placeholder="Confirm Password">
+							    	<input type="password" class="form-control" id="exampleInputPassword5" placeholder="{{ trans('lang.confirm_password') }} ">
 								</div>
 								<!--
 								<div class="form-group custom-control custom-checkbox">
@@ -50,7 +50,7 @@
 									<label class="custom-control-label" for="exampleCheck3">Want to become an instructor?</label>
 								</div>
 							-->
-								<button type="submit" class="btn btn-log btn-block btn-thm2">Register</button>
+								<button type="submit" class="btn btn-log btn-block btn-thm2">{{ trans('lang.register') }}</button>
 								<!--
 								<div class="divide">
 									<span class="lf_divider">Or</span>
