@@ -153,6 +153,48 @@ return [
     'goals' => 'Our Goals',
     'pages' => 'Pages',
     'more'=> 'More',
+
+
+      //login student
+      'login_student' => ' Login Student',
+      'login_account' => 'Login to your account' ,
+      'have_account' => 'Donot have an account?  ' , 
+      'sign_up' => 'Sign Up !' , 
+      'password' => 'Password ',
+      'forget_password' => 'Forgot Password?',
+      'remember' => ' Remember me',
+      'login' => ' Login ',
+      'email_address' => 'Your Email' ,
+
+      //sign_up student
+      'register_student' => 'Register For Student' ,
+      'user_name' => 'User Name',
+      'confirm_password' => 'Confirm Password',
+      'register' => 'Register',
+      'have_account_sign' => 'Have an account?', 
+
+      //login instructor
+      'login_instructor' => ' Login for Instructor',
+      
+      //register instructor
+      'phone' => 'Phone' ,
+      'category' => 'Category',
+      'nationality' => 'Nationality',
+      'register_instructor' => 'Register For Instructor' ,
+      'enter_data' => ' Enter Your Data  ' ,
+      'complete_data' => 'Complete Your Data ',
+      'upload_data' => 'Upload Paper ' ,
+      'prev' => 'Prev' ,
+      'next' => 'Next',
+      'submit' => 'Submit' ,
+      'national_id' => 'National ID number if the applicant is a Saudi national  ' ,
+      'residence_id' => 'Residence number if the applicant holds any other nationality  ' ,
+      'category_register' => 'Specialization to be taught',
+      'years_experince' => 'Years of teaching experience',
+      'university_name' => 'University you graduated from',
+ 
+
+
     
 
 

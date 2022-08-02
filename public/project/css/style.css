@@ -123,6 +123,58 @@ Tag:    academy, college, coursera, courses, education, elearning, kindergarten,
 /*== Typography ==*/
 
 
+/*multi register instructor*/
+.stepwizard-step p {
+  margin-top: 10px;
+}
+.stepwizard-step a
+{
+  border: 1px solid #ccc;
+}
+.stepwizard-row {
+  display: table-row;
+}
+
+.stepwizard {
+  display: table;
+  width: 100%;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.stepwizard-step button[disabled] {
+  opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+  top: 14px;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  --order: 0;
+
+}
+
+.stepwizard-step {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+}
+
+.btn-circle {
+width: 30px;
+height: 30px;
+text-align: center;
+padding: 6px 0;
+font-size: 12px;
+line-height: 1.428571429;
+border-radius: 15px;
+}
+/*end multi*/
 /*///////*/
 .footer_company_widget p
 {
@@ -142,6 +194,8 @@ Tag:    academy, college, coursera, courses, education, elearning, kindergarten,
 {
   display: inline-block;
     width: 49%;
+    margin-bottom: 0px;
+    margin-left: 2px;
 
 }
 .verify_code
@@ -999,10 +1053,10 @@ header.header-nav.menu_style_home_one.home9.stricky-fixed #search-button i{
   opacity: 1;
   position: relative;
   vertical-align: middle;
-  -webkit-transition: all 400ms;
-  -moz-transition: all 400ms;
-  -ms-transition: all 400ms;
-  -o-transition: all 400ms;
+  --webkit-transition: all 400ms;
+  --moz-transition: all 400ms;
+  --ms-transition: all 400ms;
+  --o-transition: all 400ms;
 }
 #search-button i,
 #search-button2 i{
@@ -1401,9 +1455,9 @@ header.header-nav.menu_style_home_one.home13 a.navbar_brand:before{
 header.header-nav.menu_style_home_one.home13 .sign_up_btn li.list_s{  
   border: none;
 }
-header.header-nav.menu_style_home_one.home13 .sign_up_btn li.list_s .mk-search-trigger{
+/* header.header-nav.menu_style_home_one.home13 .sign_up_btn li.list_s .mk-search-trigger{
 
-}
+} */
 header.header-nav.menu_style_home_one.home13 .sign_up_btn a.btn.cart_btn span{
   line-height: 17px;
 }
@@ -2043,7 +2097,6 @@ header.header-nav.menu_style_home_four.stricky-fixed{
     -o-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
     box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
 }
-}
 header.header-nav.menu_style_home_four.stricky-fixed a.navbar_brand span{
   color: #0a0a0a;
 }
@@ -2333,7 +2386,7 @@ header.header-nav.menu_style_home_four.home8 .container-fluid{
 }
 header.header-nav.menu_style_home_four.home8.stricky-fixed a.navbar_brand span{
   background: linear-gradient(to right, #835bb4 0%, #d7cf96 100%);
-  -webkit-background-clip: text;
+  --webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 /*== Menu Style For Home V6 ==*/
@@ -2892,10 +2945,10 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   background-position: center center;
   background-size: cover;
 }
-.home2-slider .banner-style-one .slide,
+/* .home2-slider .banner-style-one .slide,
 .home2-slider .banner-style-two .slide{
   
-}
+} */
 .banner-style-two .slide{
   padding: 430px 0 290px;
 }
@@ -3776,7 +3829,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   line-height: normal;
   margin-right: 30px;
   position: relative;
-  -ms-text-align-last: auto;
+  --ms-text-align-last: auto;
   text-align: left;
   width: 210px;
 }
@@ -3822,7 +3875,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   line-height: normal;
   margin-right: 30px;
   position: relative;
-  -ms-text-align-last: auto;
+  --ms-text-align-last: auto;
   text-align: left;
   width: 100%;
 }
@@ -5538,7 +5591,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
 }
 .logo-widget.home8 span{
   background: linear-gradient(to right, #835bb4 0%, #d7cf96 100%);
-  -webkit-background-clip: text;
+  --webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .footer_menu_widget ul{
@@ -7580,9 +7633,9 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
   margin-right: 5px;
   width: 100px;
 }
-.ui_kit_tooltip .btn:hover {
+/* .ui_kit_tooltip .btn:hover {
   color: 
-}
+} */
 .ui_kit_tooltip .btn:focus {
   box-shadow: none;
   border-color: #dddddd;
@@ -9091,7 +9144,8 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
   display: none;
 }
 .header_user_notif .user_notif .simplebar-offset::-webkit-scrollbar-thumb {
-  background-color: #dfdfdf !important; // manage scrollbar thumb background color here
+  background-color: #dfdfdf !important; 
+   /* manage scrollbar thumb background color here */
   border-radius: 6px;
 }
 .simplebar-placeholder {
@@ -11050,7 +11104,7 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
 }
 .btn-default {
   font-size: 14px;
-  padding: 8px 15px;
+    padding: 3px 9px;
 }
 /*== Fonts Size, Font Weights, Height, Display & Position ==*/
 .fz11 {
@@ -12597,9 +12651,9 @@ div#countdown .col-xs-6.col-sm-3{
 }
 /*== Chart Js Css ==*/
 canvas {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+  --moz-user-select: none;
+  --webkit-user-select: none;
+  --ms-user-select: none;
 }
 .chart-container {
   width: 100%;
@@ -12950,7 +13004,7 @@ body.translated{
 }
 .shop_order_box .order_details .title2 {
   font-size: 20px;
-  ont-family: "Nunito";
+  font-family: "Nunito";
   font-weight: 600;
   color: #0a0a0a;
   line-height: 1.2;
