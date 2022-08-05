@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\web;
 
 use App\Models\City;
+use App\Models\User;
 use App\Models\Course;
 use App\Models\Category;
 use App\Models\TeacherInfo;
-use App\Models\User;
+use App\Models\CourseLesson;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -29,7 +30,12 @@ class CoursesController extends Controller
     {
         $course_details = Course::findOrFail($request->course_id);
         $title = 'title_' . getLang();
-        return view('Web.pages.course_details' ,compact('course_details' , 'title') );
+        $body = 'body_' . getLang();
+       $CourseLessons = CourseLesson::where('course_id' , $request->course_id)->get();
+
+       $teacher_course_id = $course_details -> teacher_id ;
+        $instractor = TeacherInfo::select('id','full_name','teacher_id' ,'categoey_id' ,'desctiption' , 'inquiry_cost_normal' , 'inquiry_cost_urgent')->where('teacher_id' , $teacher_course_id )->with('category')->first();  
+        return view('Web.pages.course_details' ,compact('course_details' , 'title' ,'body' , 'instractor','CourseLessons') );
     }
 
 }

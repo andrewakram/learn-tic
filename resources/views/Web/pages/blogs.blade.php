@@ -107,7 +107,7 @@
 									<h3>{{ $blog->title}}</h3>
 									<ul class="post_meta">
 										<li><a href="#"><span class="flaticon-profile"></span></a></li>
-										<li><a href="#"><span> ahmed ali </span></a></li>
+										<li><a href="#"><span> {{$blog -> admin -> name}} </span></a></li>
 										<li><a href="#"><span class="flaticon-comment"></span></a></li>
 										<li><a href="#"><span>7 comments</span></a></li>
 									</ul>
