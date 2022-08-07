@@ -45,8 +45,7 @@ Route::get('cache', function () {
 });
 
 Route::group([
-    'middleware' => ['SetLanguage'],
-    'namespce' => 'App\Http\Controllers\web',
+    'middleware' => ['SetLanguage']
 ], function () {
     Route::get('/', [HomeController::class,'index'])->name('home');
     Route::get('about-us', [AboutUsController::class,'index'])->name('about_us');
@@ -54,7 +53,7 @@ Route::group([
     Route::get('course-details/{course_id}', [CoursesController::class,'courseDetails'])->name('course_details');
     Route::get('instructors', [InstructorsController::class,'index'])->name('instructors');
     Route::get('instructorFilter', [InstructorsController::class,'instructorFilter'])->name('instructorFilter');
-    
+
     Route::get('instructor-details/{instructor_id}', [InstructorsController::class,'instructorDetails'])->name('instructor_details');
     Route::get('blogs', [BlogsController::class,'index'])->name('blogs');
     Route::get('blog-details/{blog_id}', [BlogsController::class,'blogDetails'])->name('blog_details');
