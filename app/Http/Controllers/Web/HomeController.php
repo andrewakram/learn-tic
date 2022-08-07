@@ -12,20 +12,25 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
 
-    
     public function index()
     {
-      
-        $data['categories'] =  Category::select('id','title_' . getLang() . '  as title' ,'image')->withCount(['courses'])->get();
-        $data['user_comments']= UserComment::select('id','title_' . getLang() . '  as title' , 'body_' . getLang() . '  as body'  , 'user_type' )->get();
-        $data['blogs'] = Blog::orderBy('id', 'DESC')->limit(2)->get();
-        $data['blogs_slider'] =  Blog::inRandomOrder()->limit(3)->get();
-       
+        $data['categories'] =  Category::select('id','title_' . getLang() . '  as title' ,'image')
+            ->withCount(['courses'])
+            ->get();
+        $data['user_comments']= UserComment::select('id','title_' . getLang() . '  as title' , 'body_' . getLang() . '  as body'  , 'user_type' )
+            ->get();
+        $data['blogs'] = Blog::orderBy('id', 'DESC')
+            ->limit(2)
+            ->get();
+        $data['blogs_slider'] =  Blog::inRandomOrder()
+            ->limit(3)
+            ->get();
+
          $data['static_sections']= Page::select('id','title_' . getLang() . '  as title' , 'body_' . getLang() . '  as body'  , 'type' )
          ->where('type' ,'section' )
          ->orWhere('type' ,'home_about' )
        ->get() ;
-      
+
       // $data['sections'] = Page::get();
     //    $data['static_sections'] = $data['sections']->where('type' ,'section' )
     //    ->orWhere('type' ,'home_about' )
@@ -37,11 +42,11 @@ class HomeController extends Controller
        // $data['title_english'] = $data['sections']->where('type' ,'section2')->first()->value ;
        // $data['phone'] = $data['sections']->where('type' ,'section3')->first()->value ;
        // $data['email'] = $data['sections']->where('type' ,'section4')->first()->value ;
-        
-    
-        
+
+
+
 
         return view('Web.pages.home',compact('data'));
-       
+
     }
 }
