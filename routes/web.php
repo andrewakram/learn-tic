@@ -44,6 +44,11 @@ Route::get('cache', function () {
     return 'success';
 });
 
+Route::get('/change-language/{lang}', function ($lang) {
+    session()->put('lang', $lang);
+    return back();
+});
+
 Route::group([
     'middleware' => ['SetLanguage'],
 ], function () {
@@ -64,11 +69,6 @@ Route::group([
     Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
     Route::get('logout', [StudentAuthController::class,'logout'])->name('logout');
     Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
-});
-
-Route::get('/change-language/{lang}', function ($lang) {
-    session()->put('lang', $lang);
-    return back();
 });
 
 
