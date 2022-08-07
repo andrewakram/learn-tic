@@ -134,6 +134,7 @@ return [
     'search' => 'ابحث',
     'instructor' => 'المدرس',
     'preview_course' => 'مشاهدة الكورس',
+    
 
     //course details
     'add_card' => 'اشترى الان ',
@@ -143,11 +144,18 @@ return [
     'student_feedback' => 'اراء الطلاب ',
     'see_all_reviews' => ' مشاهدة كل الاراء',
     'add_reviews' => ' اضافة تقيم ',//Add Reviews & Rate
-    'submit_review ' => ' ارسل  التقيم ',//Submit Review
-    'review_content ' => ' محتوي  التقيم ',//Review Content
-    'about_instructor ' => '   عن المدرس ',//About the instructor
-    'course_content ' => ' محتوي  الكورس ', //Course Content
-    'overview ' => ' تفاصيل الكورس   ',
+    'submit_review' => ' ارسل  التقيم ',//Submit Review
+    'review_content' => ' محتوي  التقيم ',//Review Content
+    'about_instructor' => 'تفاصيل عن المعلم ' ,
+    'course_content' => ' محتوي  الكورس ', //Course Content
+    'overview' => ' تفاصيل الكورس   ',
+    'course_features' => ' خصائص الكورس',
+    'quizzes'=> 'الامتحانات' ,
+    'lectures'=> 'المحاضرات' ,
+    'assessments'=> 'الواجبات' ,
+    
+    
+
 
     //home
     'slider_title' => ' ابحث عن أفضل المدرسين ',

@@ -209,24 +209,43 @@
 
 							<div class="candidate_revew_select mb30 style2 text-right">
 								<ul >
-									<li class="list-inline-item">
-										<select class="selectpicker show-tick">
+									<!-- <li class="list-inline-item">
+										<select class="selectpicker show-tick select_city">
 
 											<option>{{ trans('lang.city') }}</option>
 											@foreach ($data['cities'] as $city)
-												<option>{{$city -> title}}</option>
+											<option data-id="{{$city -> id}}">{{$city -> title}}</option>
 											@endforeach
-											<!--
-											<option>Newly published</option>
-											<option>Recent</option>
-											<option>Old Review</option>
-										-->
+											
+										
 										</select>
+									</li> -->
+									<li class="list-inline-item">
+										<div class="candidate_revew_search_box course fn-520">
+											<form class="form-inline my-2 my-lg-0">
+												<input list="searchCity"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.city') }}" aria-label="Search">
+												
+												<datalist id="searchCity">
+												@foreach ($data['cities'] as $city)
+													<option data-id="{{$city -> id}}" value="{{$city -> title}}">
+												@endforeach
+													
+												</datalist>
+												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+											</form>
+										</div>
 									</li>
 									<li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
-												<input class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.Search_instructors') }}" aria-label="Search">
+												<input list="browsers"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.Search_instructors') }}" aria-label="Search">
+												
+												<datalist id="browsers">
+												@foreach ($instractors as $instructor)
+													<option data-id="{{$instructor->teacher_id}}" value="{{$instructor->full_name}}">
+												@endforeach
+													
+												</datalist>
 												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
 											</form>
 										</div>
@@ -235,7 +254,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row instructors">
 					@foreach ($instractors as $instructor)
 						<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="{{$instructor->teacher_id}}">
 							<div class="team_member style3 text-center mb30">
@@ -336,19 +355,19 @@
 								  <div class="panel-body">
 									  <div class="ui_kit_checkbox">
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck30">
+											  <input type="checkbox"  class="custom-control-input qualification" id="customCheck30" value="Diploma">
 											  <label class="custom-control-label" for="customCheck30"> {{ trans('lang.diploma') }}  <span class="float-right">(03)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck31">
+											  <input type="checkbox" class="custom-control-input qualification" id="customCheck31" value="Bachlore">
 											  <label class="custom-control-label" for="customCheck31"> {{ trans('lang.bachelor') }}   <span class="float-right">(15)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck32">
+											  <input type="checkbox" class="custom-control-input qualification" id="customCheck32" value="Master">
 											  <label class="custom-control-label" for="customCheck32"> {{ trans('lang.master') }}  <span class="float-right">(126)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck33">
+											  <input type="checkbox" class="custom-control-input qualification" id="customCheck33" value="PHD">
 											  <label class="custom-control-label" for="customCheck33"> {{ trans('lang.phd') }} 
 												<span class="float-right">(1,584)</span></label>
 										  </div>
@@ -402,14 +421,14 @@
 							    <div id="panelBodySoftware" class="panel-collapse collapse show">
 							        <div class="panel-body">
 										<div class="ui_kit_checkbox">
-
+										<!-- <form action="" method="get">  -->
 											@foreach ($data['categories'] as $category)
 												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck{{$category -> id}}">
+													<input type="checkbox" class="custom-control-input category" value="{{$category -> id}}" id="customCheck{{$category -> id}}">
 													<label class="custom-control-label" for="customCheck{{$category -> id}}"> {{$category -> title}} <span class="float-right">({{$category -> courses_count}})</span></label>
 												</div>
-											@endforeach
-
+											 @endforeach 
+										<!-- </form> -->
 											<a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> See More</a>
 										</div>
 							        </div>
@@ -472,5 +491,176 @@
             var instructor_id = $(this).data("id") ;
             window.location.href = '/instructor-details/' + instructor_id ,true;
         });
+
+		$('.select_city').change(function() {
+			mycity_value = $(this).val();
+			mycity_id = $(this).data('id');
+			// alert(mycity_value);
+			// alert(mycity_id);
+		
+    
+		});
+		$('.qualification').on('click', function () {
+			var qualification = [] ;
+			$('.qualification').each(function() {
+				if($(this).is(":checked"))
+				{
+					
+					qualification.push($(this).val());
+					// alert(qualification);
+				}
+			});
+			qualification = qualification.toString();
+			// alert(qualification);
+			$.ajax({
+				type: 'GET',  // http method
+				url: 'instructorFilter?qualification='+qualification ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					//alert("success"); 
+					//console.log(response);
+					$(".instructors").empty();
+					
+					$.each(response, function (key, value) {
+						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+							'<div class="team_member style3 text-center mb30">\n'+
+								'<div class="instructor_col">\n'+
+									'<div class="thumb">\n'+
+										'<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n'+
+									'</div>\n'+
+									'<div class="details">\n'+
+										'<h4>'+ value.full_name +'</h4>\n'+
+
+										 '<p>\n'+
+										' @if(session()->get('lang') == 'ar')\n'+
+										'{{$instructor -> category -> title_ar}}\n'+
+										' @else\n'+
+										'{{$instructor -> category -> title_en}}\n'+
+										' @endif\n'+
+										'</p>\n'+
+
+										'<ul>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+										'</ul>\n'+
+									'</div>\n'+
+								'</div>\n'+
+								'<div class="tm_footer">\n'+
+									'<ul>\n'+
+										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+						'</div>';
+						
+						
+						$(".instructors").append(instructor);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					//alert('Error'+response);
+				}
+				
+				});
+		});
+		$('.category').on('click', function () {
+			
+			var category = [] ;
+			$('.category').each(function() {
+				if($(this).is(":checked"))
+				{
+					
+					category.push($(this).val());
+					
+				}
+			});
+			categories = category.toString();
+			//alert(categories);
+			$.ajax({
+				type: 'GET',  // http method
+				url: 'instructorFilter?categories='+categories ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					//alert("success"); 
+					//console.log(response);
+					$(".instructors").empty();
+					
+					$.each(response, function (key, value) {
+						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+							'<div class="team_member style3 text-center mb30">\n'+
+								'<div class="instructor_col">\n'+
+									'<div class="thumb">\n'+
+										'<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n'+
+									'</div>\n'+
+									'<div class="details">\n'+
+										'<h4>'+ value.full_name +'</h4>\n'+
+
+										 '<p>\n'+
+										' @if(session()->get('lang') == 'ar')\n'+
+										'{{$instructor -> category -> title_ar}}\n'+
+										' @else\n'+
+										'{{$instructor -> category -> title_en}}\n'+
+										' @endif\n'+
+										'</p>\n'+
+
+										'<ul>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+										'</ul>\n'+
+									'</div>\n'+
+								'</div>\n'+
+								'<div class="tm_footer">\n'+
+									'<ul>\n'+
+										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+						'</div>';
+						
+						
+						$(".instructors").append(instructor);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					//alert('Error'+response);
+				}
+				
+				});
+		
+  
+		});
+		
+		// function plus_item() {
+        //     var new_item = 
+        //         ' <label class="required form-label">\n' +
+        //         '  اختر الباقة الإضافية\n' +
+        //         '                                                            </label>\n' +
+		
+        //                  $(".instructors").append(new_item);
+		// 				}
     </script>
 @endsection

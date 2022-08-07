@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-xl-6 offset-xl-3 text-center">
 					<div class="breadcrumb_content">
-						<h4 class="breadcrumb_title">{{ trans('lang.about_us') }} </h4>
+						<h4 class="breadcrumb_title">{{ trans('lang.categories_title') }} </h4>
 						<ol class="breadcrumb">
 						    <li class="breadcrumb-item"><a href="#">{{ trans('lang.home') }} </a></li>
-						    <li class="breadcrumb-item active" aria-current="page">{{ trans('lang.about_us') }} </li>
+						    <li class="breadcrumb-item active" aria-current="page">{{ trans('lang.categories_title') }} </li>
 						</ol>
 					</div>
 				</div>
@@ -52,7 +52,7 @@
 				@foreach ($data['categories'] as $Category)
 				@if($num <= 8)
 					<div class="col-sm-6 col-lg-3">
-						<div class="img_hvr_box" style="background-image: url({{asset('project')}}/images/courses/1.jpg);">
+						<div class="img_hvr_box" style="background-image: url({{ $Category->image }});">
 							<div class="overlay">
 								<div class="details">
 

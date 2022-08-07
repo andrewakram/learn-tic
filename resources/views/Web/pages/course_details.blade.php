@@ -24,11 +24,8 @@
 									</ul>
 								</div>
 								<h3 class="cs_title color-white">
-									@if(session()->get('lang') == 'ar')
-										{{$course_details -> title_ar}}
-									@else
-										{{$course_details -> title_en}} 
-									@endif
+								 {{$course_details -> $title}}
+									
 									
 								</h3>
 								<ul class="cs_review_seller">
@@ -38,11 +35,11 @@
 									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
 									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
 									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-									<li class="list-inline-item"><a class="color-white" href="#">4.5 (11,382 Ratings)</a></li>
+									<li class="list-inline-item"><a class="color-white" href="#">4.5 </a></li>
 								</ul>
 								<ul class="cs_review_enroll">
-									<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-profile"></span> 57,869 students enrolled</a></li>
-									<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-comment"></span> 25 Review</a></li>
+									<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-profile"></span> 57,869 {{ trans('lang.students_enrolled') }}</a></li>
+									<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-comment"></span> 25 {{ trans('lang.review') }} </a></li>
 								</ul>
 							</div>
 						</div>
@@ -72,23 +69,24 @@
 								<div class="cs_rwo_tabs csv2">
 									<ul class="nav nav-tabs" id="myTab" role="tablist">
 										<li class="nav-item">
-										    <a class="nav-link active" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="true">Overview</a>
+										    <a class="nav-link active" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="true">{{ trans('lang.overview') }}</a>
 										</li>
 										<li class="nav-item">
-										    <a class="nav-link" id="course-tab" data-toggle="tab" href="#course" role="tab" aria-controls="course" aria-selected="false">Course Content</a>
+										    <a class="nav-link" id="course-tab" data-toggle="tab" href="#course" role="tab" aria-controls="course" aria-selected="false">{{ trans('lang.course_content') }} </a>
 										</li>
 										<li class="nav-item">
-										    <a class="nav-link" id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">instructor</a>
+										    <a class="nav-link" id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">{{ trans('lang.instructor') }}</a>
 										</li>
 										<li class="nav-item">
-										    <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Review</a>
+										    <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">{{ trans('lang.review') }}</a>
 										</li>
 									</ul>
 									<div class="tab-content" id="myTabContent">
 										<div class="tab-pane fade show active" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
 											<div class="cs_row_two csv2">
 												<div class="cs_overview">
-													<h4 class="title">Overview</h4>
+													 <h4 class="title">{{ trans('lang.overview') }}</h4> 
+													{{ $course_details -> $body }}
 													<h4 class="subtitle">Course Description</h4>
 													<p class="mb30">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
 													<p class="mb20">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
@@ -120,7 +118,7 @@
 											<div class="cs_row_three csv2">
 												<div class="course_content">
 													<div class="cc_headers">
-														<h4 class="title">Course Content</h4>
+														<h4 class="title">{{ trans('lang.course_content') }}</h4>
 														<ul class="course_schdule float-right">
 															<li class="list-inline-item"><a href="#">92 Lectures</a></li>
 															<li class="list-inline-item"><a href="#">10:56:11</a></li>
@@ -130,6 +128,7 @@
 													<div class="details">
 													  	<div id="accordion" class="panel-group cc_tab">
 														    <div class="panel">
+																
 														      	<div class="panel-heading">
 															      	<h4 class="panel-title">
 															        	<a href="#panelBodyCourseStart" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion">Getting Started</a>
@@ -221,7 +220,7 @@
 										<div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="review-tab">
 											<div class="cs_row_four csv2">
 												<div class="about_ins_container">
-													<h4 class="aii_title">About the instructor</h4>
+													<h4 class="aii_title">{{ trans('lang.about_instructor') }} </h4>
 													<div class="about_ins_info">
 														<div class="thumb"><img src="{{asset('project')}}/images/team/6.png" alt="6.png"></div>
 													</div>
@@ -232,16 +231,23 @@
 															<li class="list-inline-item"><i class="fa fa-star"></i></li>
 															<li class="list-inline-item"><i class="fa fa-star"></i></li>
 															<li class="list-inline-item"><i class="fa fa-star"></i></li>
-															<li class="list-inline-item">4.5 Instructor Rating</li>
+															<li class="list-inline-item">4.5 {{ trans('lang.review') }}</li>
 														</ul>
 														<ul class="about_info_list">
-															<li class="list-inline-item"><span class="flaticon-comment"></span> 12,197 Reviews </li>
-															<li class="list-inline-item"><span class="flaticon-profile"></span> 141,745 Students </li>
-															<li class="list-inline-item"><span class="flaticon-play-button-1"></span> 5Courses </li>
+															<!-- <li class="list-inline-item"><span class="flaticon-comment"></span> 12,197 Reviews </li> -->
+															<li class="list-inline-item"><span class="flaticon-profile"></span> 141,745 {{ trans('lang.students') }} </li>
+															<li class="list-inline-item"><span class="flaticon-play-button-1"></span> 5 {{ trans('lang.courses') }} </li>
 														</ul>
-														<h4>Ali Tufan</h4>
-														<p class="subtitle">UX/UI Designer</p>
-														<p class="mb25">UI/UX Designer, with 7+ Years Experience. Guarantee of High Quality Work. </p>
+														<h4>{{$instractor->full_name}}</h4>
+														<p class="subtitle">{{$instractor->category->$title}}</p>
+
+														<p class="mb25">{{$instractor->desctiption}} </p>
+														<p class="mb25">تكلفه الاستشاره العاديه :    {{$instractor->inquiry_cost_normal}}  $  </p>
+														<p class="mb25">تكلفه الاستشاره الفوريه :    {{$instractor->inquiry_cost_urgent}}   $  </p>
+
+														
+														
+
 														<p class="mb25">Skills: Web Design, UI Design, UX/UI Design, Mobile Design, User Interface Design, Sketch, Photoshop, GUI, Html, Css, Grid Systems, Typography, Minimal, Template, English, Bootstrap, Responsive Web Design, Pixel Perfect, Graphic Design, Corporate, Creative, Flat, Luxury and much more.</p>
 														<ul class="about_ins_list mb0">
 															<li><p>Available for:</p></li>
@@ -258,7 +264,7 @@
 										<div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
 											<div class="cs_row_five csv2">
 												<div class="student_feedback_container">
-													<h4 class="aii_title">Student feedback</h4>
+													<h4 class="aii_title">{{ trans('lang.student_feedback') }}  </h4>
 													<div class="s_feeback_content">
 												        <ul class="skills">
 												        	<li class="list-inline-item">Stars 5</li>
@@ -525,16 +531,16 @@
 				</div>
 				<div class="col-lg-4 col-xl-3">
 					<div class="instructor_pricing_widget csv2">
-						<div class="price"><span>Price</span>
+						<div class="price"><span>{{ trans('lang.price') }}</span>
 							${{$course_details->price_before}} 
 							@if(!empty($course_details->price_after))
 								<del class="original_price">${{ $course_details->price_after}}</del> 
 							@endif
 							
 						 </div>
-						<a href="#" class="cart_btnss">Add To Cart</a>
-						<a href="#" class="cart_btnss_white">Consultation</a>
-						<h5 class="subtitle text-left">Includes</h5>
+						<a href="#" class="cart_btnss">{{ trans('lang.add_card') }}</a>
+						<a href="#" class="cart_btnss_white">{{ trans('lang.consultation') }}</a>
+						<!-- <h5 class="subtitle text-left">Includes</h5>
 						<ul class="price_quere_list text-left">
 							<li><a href="#"><span class="flaticon-play-button-1"></span> 11 hours on-demand video</a></li>
 							<li><a href="#"><span class="flaticon-download"></span> 69 downloadable resources</a></li>
@@ -542,16 +548,16 @@
 							<li><a href="#"><span class="flaticon-responsive"></span> Access on mobile and TV</a></li>
 							<li><a href="#"><span class="flaticon-flash"></span> Assignments</a></li>
 							<li><a href="#"><span class="flaticon-award"></span> Certificate of Completion</a></li>
-						</ul>
+						</ul> -->
 					</div>
 					<div class="feature_course_widget csv1">
 						<ul class="list-group">
-							<h4 class="title">Course Features</h4>
+							<h4 class="title"> {{ trans('lang.course_features') }} </h4>
 							<li class="d-flex justify-content-between align-items-center">
-						    	Lectures <span class="float-right">6</span>
+							{{ trans('lang.lectures') }}  <span class="float-right">6</span>
 							</li>
 							<li class="d-flex justify-content-between align-items-center">
-						    	Quizzes <span class="float-right">1</span>
+							{{ trans('lang.quizzes') }}  <span class="float-right">1</span>
 							</li>
 							<li class="d-flex justify-content-between align-items-center">
 						    	Duration <span class="float-right">3 hours</span>
@@ -563,12 +569,13 @@
 						    	Language <span class="float-right">English</span>
 							</li>
 							<li class="d-flex justify-content-between align-items-center">
-						    	Assessments <span class="float-right">Yes</span>
+							{{ trans('lang.assessments') }}  <span class="float-right">6</span>
 							</li>
+							
 						</ul>
 					</div>
 					<div class="blog_tag_widget csv1">
-						<h4 class="title">Tags</h4>
+						<h4 class="title">{{ trans('lang.tags') }}</h4>
 						<ul class="tag_list">
 							<li class="list-inline-item"><a href="#">Photoshop</a></li>
 							<li class="list-inline-item"><a href="#">Sketch</a></li>

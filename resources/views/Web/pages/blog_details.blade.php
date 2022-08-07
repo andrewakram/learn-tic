@@ -28,19 +28,20 @@
 					<div class="main_blog_post_content">
 						<div class="mbp_thumb_post">
 							<div class="thumb">
-								<img class="img-fluid" src="{{asset('project')}}/images/blog/12.jpg" alt="12.jpg">
+								<img class="img-fluid" src="{{$blog_details->image}}" alt="12.jpg">
 								<div class="tag">Marketing</div>
 								<div class="post_date"><h2>28</h2> <span>DECEMBER</span></div>
 							</div>
 							<div class="details">
-								<h3>Learning, Friendship and Fun</h3>
+								<h3>{{$blog_details -> $title}}</h3>
 								<ul class="post_meta">
 									<li><a href="#"><span class="flaticon-profile"></span></a></li>
-									<li><a href="#"><span>Ali Tufan</span></a></li>
+									<li><a href="#"><span>{{$blog_details -> admin -> name}}</span></a></li>
 									<li><a href="#"><span class="flaticon-comment"></span></a></li>
 									<li><a href="#"><span>7 comments</span></a></li>
 								</ul>
 								<h4>Description</h4>
+								<p>{{$blog_details -> $description}}</p>
 								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 								<p class="mb25">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 								<h4 class="mb0">Content</h4>
@@ -196,62 +197,44 @@
 				</div>
 				<div class="col-lg-4 col-xl-3 pl10 pr10">
 					<div class="main_blog_post_widget_list">
-						<div class="blog_search_widget">
+						<!-- <div class="blog_search_widget">
 							<div class="input-group mb-3">
 								<input type="text" class="form-control" placeholder="Search Here" aria-label="Recipient's username" aria-describedby="button-addon2">
 								<div class="input-group-append">
 							    	<button class="btn btn-outline-secondary" type="button" id="button-addon2"><span class="flaticon-magnifying-glass"></span></button>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="blog_category_widget">
 							<ul class="list-group">
-								<h4 class="title">Category</h4>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-							    	Admissions <span class="float-right">6</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-							    	News <span class="float-right">1</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-							    	Event <span class="float-right">6</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-							    	Focus in the lab <span class="float-right">16</span>
-								</li>
+									<h4 class="title">{{ trans('lang.category') }}</h4>
+								@foreach ($data['categories'] as $category)
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+									{{$category -> title}} <span class="float-right"> ({{$category -> courses_count}}) </span>
+									</li>
+								@endforeach
+								
 							</ul>
 						</div>
 						<div class="blog_recent_post_widget media_widget">
-							<h4 class="title">Recent Posts</h4>
+							<h4 class="title"> {{ trans('lang.recent_posts') }}</h4>
+							@foreach ($recent_posts as $recent_post)
 							<div class="media">
-								<img class="align-self-start mr-3" src="{{asset('project')}}/images/blog/s1.jpg" alt="s1.jpg">
+								<img class="align-self-start mr-3" src="{{$blog_details->image}}" alt="s1.jpg">
 								<div class="media-body">
-							    	<h5 class="mt-0 post_title">Half of What We Know About Coffee</h5>
+							    	<h5 class="mt-0 post_title">{{$recent_post->title}}</h5>
 							    	<a href="#">October 25, 2019.</a>
 								</div>
 							</div>
-							<div class="media">
-								<img class="align-self-start mr-3" src="{{asset('project')}}/images/blog/s2.jpg" alt="s2.jpg">
-								<div class="media-body">
-							    	<h5 class="mt-0 post_title">The Best Places to Start Your Travel</h5>
-							    	<a href="#">October 25, 2019.</a>
-								</div>
-							</div>
-							<div class="media">
-								<img class="align-self-start mr-3" src="{{asset('project')}}/images/blog/s3.jpg" alt="s3.jpg">
-								<div class="media-body">
-							    	<h5 class="mt-0 post_title">The Top 25 London</h5>
-							    	<a href="#">October 25, 2019.</a>
-								</div>
-							</div>
+							@endforeach
+							
 						</div>
 						<div class="blog_tag_widget">
-							<h4 class="title">Tags</h4>
+							<h4 class="title"> {{ trans('lang.tags') }}</h4>
 							<ul class="tag_list">
-								<li class="list-inline-item"><a href="#">Photoshop</a></li>
-								<li class="list-inline-item"><a href="#">Sketch</a></li>
-								<li class="list-inline-item"><a href="#">Beginner</a></li>
-								<li class="list-inline-item"><a href="#">UX/UI</a></li>
+								@foreach ($tags as $tag)
+									<li class="list-inline-item"><a href="{{$tag -> link}}">{{$tag -> title}}</a></li>
+								@endforeach
 							</ul>
 						</div>
 					</div>

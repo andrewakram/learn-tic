@@ -118,7 +118,7 @@ return [
     'instructor' => 'Instructor',
     'preview_course' => 'Preview Course ',
     //course details
-    'add_card' => ' Add Card ',
+    'add_card' => ' Add To Card ',
     'consultation' => 'Consultation ',
     'course_type' => 'Course Type ',
     'review' => 'Review ',
@@ -126,10 +126,16 @@ return [
     'see_all_reviews' => ' See All Reviews',
     'add_reviews' => ' Add Reviews & Rate ',
     'submit_review ' => 'Submit Review  ',
-    'review_content ' => ' Review Content',
+    'review_content' => ' Review Content',
     'about_instructor ' => ' About the instructor ',
-    'course_content ' => ' Course Content',
-    'overview' => '  Overview   ',
+    'course_content' => ' Course Content',
+    'overview' => 'Overview',
+    'course_features' => 'Course Features',
+    'quizzes'=> 'Quizzes' ,
+    'lectures'=> 'Lectures' ,
+    'assessments'=> 'Assessments' ,
+    
+    
 
     //home
     'slider_title' => ' Find the Best Instructors    ',
