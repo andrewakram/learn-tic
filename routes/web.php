@@ -45,7 +45,8 @@ Route::get('cache', function () {
 });
 
 Route::group([
-    'middleware' => ['SetLanguage']
+    'middleware' => ['SetLanguage'],
+    'namespce' => 'App\Http\Controllers\web',
 ], function () {
     Route::get('/', [HomeController::class,'index'])->name('home');
     Route::get('about-us', [AboutUsController::class,'index'])->name('about_us');
