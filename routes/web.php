@@ -1,24 +1,24 @@
 <?php
 
-//use Illuminate\Support\Facades\Route;
-//use Illuminate\Support\Facades\Artisan;
-//use App\Http\Controllers\Web\HomeController;
-//use App\Http\Controllers\web\BlogsController;
-//use App\Http\Controllers\web\CategoriesController;
-//use App\Http\Controllers\web\AboutUsController;
-//use App\Http\Controllers\web\CoursesController;
-//use App\Http\Controllers\web\ContactUsController;
-//use App\Http\Controllers\web\InstructorsController;
-//use App\Http\Controllers\web\BlogsDetailsController;
-//use App\Http\Controllers\Web\StudentLoginController;
-//use App\Http\Controllers\MainAdmin\SettingController;
-//use App\Http\Controllers\Web\InstructorLoginController;
-//use App\Http\Controllers\Web\StudentRegisterController;
-//use App\Http\Controllers\Web\InstructorRegisterController;
-//use App\Http\Controllers\web\InstructorsDetailsController;
-//use App\Http\Controllers\web\StudentAuthController;
-//use App\Http\Controllers\web\InstructorAuthController;
-//
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\web\BlogsController;
+use App\Http\Controllers\web\CategoriesController;
+use App\Http\Controllers\web\AboutUsController;
+use App\Http\Controllers\web\CoursesController;
+use App\Http\Controllers\web\ContactUsController;
+use App\Http\Controllers\web\InstructorsController;
+use App\Http\Controllers\web\BlogsDetailsController;
+use App\Http\Controllers\Web\StudentLoginController;
+use App\Http\Controllers\MainAdmin\SettingController;
+use App\Http\Controllers\Web\InstructorLoginController;
+use App\Http\Controllers\Web\StudentRegisterController;
+use App\Http\Controllers\Web\InstructorRegisterController;
+use App\Http\Controllers\web\InstructorsDetailsController;
+use App\Http\Controllers\web\StudentAuthController;
+use App\Http\Controllers\web\InstructorAuthController;
+
 
 
 /*
