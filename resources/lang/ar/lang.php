@@ -97,7 +97,7 @@ return [
     // INSTRUCTORS
     'instructors' => ' المدرسين' ,
     'city' => ' المدينة' ,
-    'Search_instructors' => ' البحث بالمعلم' ,
+    'search_instructors' => ' البحث بالمعلم' ,
     'teacher_qualification' => ' مؤهل المعلم ' ,
     'gender' => ' النوع ' ,
     'teaching_methods' => 'طريقة التدريس',
@@ -120,6 +120,9 @@ return [
     'course' => ' كورس',
     'rating' => 'تقيم',
     'students' => 'طالب',
+    'duration' => 'الوقت',
+    'hours' => 'ساعات',
+    'related_courses' => 'كورسات مشابهه' ,
 
     //courses
     'courses' => ' الكورسات',
@@ -153,6 +156,15 @@ return [
     'quizzes'=> 'الامتحانات' ,
     'lectures'=> 'المحاضرات' ,
     'assessments'=> 'الواجبات' ,
+    'submit_review' =>'ارسل التقيم',
+    'add_reviews'=> 'اضافة تقيم ',
+    'What_Rate' => 'ما هو تقيمك لهذا الكورس',
+    'review_title'=>'عنوان التقيم',
+    'review_content'=>'محتوى التقيم',
+    'learn_type'=>'طريقة التدريس  ',
+    'inquiry_cost_normal'=>'تكلفه الاستشاره العاديه' ,
+    'inquiry_cost_urgent'=>'تكلفه الاستشاره الفورية' ,
+
     
     
 

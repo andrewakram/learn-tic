@@ -15,13 +15,13 @@
 									<ul class="cs_instrct_list float-left mb0">
 										<li class="list-inline-item"><img class="thumb" src="{{asset('project')}}/images/team/4.png" alt="4.png"></li>
 										<li class="list-inline-item"><a class="color-white" href="#">{{$course_details -> teacher -> teacherInfo ->full_name}}</a></li>
-										<li class="list-inline-item"><a class="color-white" href="#">Last updated 11/2019</a></li>
+										<!-- <li class="list-inline-item"><a class="color-white" href="#">Last updated 11/2019</a></li> -->
 									</ul>
-									<ul class="cs_watch_list float-right mb0">
+									<!-- <ul class="cs_watch_list float-right mb0">
 										<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-like"></span></a></li>
 										<li class="list-inline-item"><a class="color-white" href="#">Add to Wishlist</a></li>
 										<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-share"> Share</span></a></li>
-									</ul>
+									</ul> -->
 								</div>
 								<h3 class="cs_title color-white">
 								 {{$course_details -> $title}}
@@ -86,8 +86,8 @@
 											<div class="cs_row_two csv2">
 												<div class="cs_overview">
 													 <h4 class="title">{{ trans('lang.overview') }}</h4> 
-													{{ $course_details -> $body }}
-													<h4 class="subtitle">Course Description</h4>
+													{!! $course_details -> $body !!}
+													<!-- <h4 class="subtitle">Course Description</h4>
 													<p class="mb30">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
 													<p class="mb20">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 													<h4 class="subtitle">What you'll learn</h4>
@@ -110,7 +110,7 @@
 														<li><i class="fa fa-circle"></i><p>You will need a copy of Adobe XD 2019 or above. A free trial can be downloaded from Adobe.</p></li>
 														<li><i class="fa fa-circle"></i><p>No previous design experience is needed.</p></li>
 														<li><i class="fa fa-circle"></i><p>No previous Adobe XD skills are needed.</p></li>
-													</ul>
+													</ul> -->
 												</div>
 											</div>
 										</div>
@@ -242,12 +242,62 @@
 														<p class="subtitle">{{$instractor->category->$title}}</p>
 
 														<p class="mb25">{{$instractor->desctiption}} </p>
-														<p class="mb25">تكلفه الاستشاره العاديه :    {{$instractor->inquiry_cost_normal}}  $  </p>
-														<p class="mb25">تكلفه الاستشاره الفوريه :    {{$instractor->inquiry_cost_urgent}}   $  </p>
 
-														
-														
+														<table class="table table-striped">
+															<!-- <thead>
+																<tr>
+																<th scope="col">#</th>
+																<th scope="col">First</th>
+																<th scope="col">Last</th>
+																<th scope="col">Handle</th>
+																</tr>
+															</thead> -->
+															<tbody>
+																<tr>																
+																	<td>{{ trans('lang.phone') }}</td>
+																	<td>{{$instractor->teacher->phone}}</td>																
+																</tr>
+																<tr>
+																	<td> {{ trans('lang.email') }}</td>
+																	<td>{{$instractor->teacher->email}}</td>																
+																</tr>
 
+																<tr>	
+																	<td> {{ trans('lang.teacher_qualification') }}</td>
+																	<td>{{$instractor->qualifications}} </td>
+																</tr>
+
+																<tr>
+																	<td>{{ trans('lang.years_experince') }} </td>
+																	<td>{{$instractor->years_of_exper}} </td>
+																</tr>
+
+																<tr>									
+																	<td> {{ trans('lang.university_name') }} </td>
+																	<td>{{$instractor->university}}</td>
+																</tr>
+
+																<tr>									
+																	<td>  {{ trans('lang.learn_type') }} </td>
+																	<td> {{$instractor->learn_type}} </td>
+																</tr>
+
+																<tr>									
+																	<td>{{ trans('lang.inquiry_cost_normal') }}   </td>
+																	<td> {{$instractor->inquiry_cost_normal}}  $  </td>
+																</tr>
+
+																<tr>									
+																	<td>  {{ trans('lang.inquiry_cost_urgent') }}   </td>
+																	<td>{{$instractor->inquiry_cost_urgent}}   $</td>
+																</tr>
+
+
+
+															</tbody>
+														</table>
+							
+<!-- 
 														<p class="mb25">Skills: Web Design, UI Design, UX/UI Design, Mobile Design, User Interface Design, Sketch, Photoshop, GUI, Html, Css, Grid Systems, Typography, Minimal, Template, English, Bootstrap, Responsive Web Design, Pixel Perfect, Graphic Design, Corporate, Creative, Flat, Luxury and much more.</p>
 														<ul class="about_ins_list mb0">
 															<li><p>Available for:</p></li>
@@ -256,7 +306,7 @@
 															<li><a href="#">3. Freelance</a></li>
 															<li><a href="#">4. Contract</a></li>
 															<li><a href="#">5. Worldwide</a></li>
-														</ul>
+														</ul> -->
 													</div>
 												</div>
 											</div>
@@ -382,9 +432,9 @@
 											<div class="cs_row_seven csv2">
 												<div class="sfeedbacks">
 													<div class="mbp_comment_form style2 pb0">
-														<h4>Add Reviews & Rate</h4>
+														<h4>{{ trans('lang.add_reviews') }}</h4>
 														<ul>
-															<li class="list-inline-item pr15"><p>What is it like to Course?</p></li>
+															<li class="list-inline-item pr15"><p>{{ trans('lang.What_Rate') }}</p></li>
 															<li class="list-inline-item">
 																<span class="sspd_review">
 																	<ul>
@@ -400,14 +450,14 @@
 														</ul>
 														<form class="comments_form">
 															<div class="form-group">
-														    	<label for="exampleInputName1">Review Title</label>
+														    	<label for="exampleInputName1">{{ trans('lang.review_title') }}</label>
 														    	<input type="text" class="form-control" id="exampleInputName1" aria-describedby="textHelp">
 															</div>
 															<div class="form-group">
-															    <label for="exampleFormControlTextarea1">Review Content</label>
+															    <label for="exampleFormControlTextarea1">{{ trans('lang.review_content') }}</label>
 															    <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
 															</div>
-															<button type="submit" class="btn btn-thm">Submit Review <span class="flaticon-right-arrow-1"></span></button>
+															<button type="submit" class="btn btn-thm">{{ trans('lang.submit_review') }}<span class="flaticon-right-arrow-1"></span></button>
 														</form>
 													</div>
 												</div>
@@ -420,8 +470,9 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<h3 class="r_course_title">Related Courses</h3>
+							<h3 class="r_course_title">{{ trans('lang.related_courses') }}</h3>
 						</div>
+						@foreach ($related_courses as $related_course)
 						<div class="col-lg-6 col-xl-4">
 							<div class="top_courses">
 								<div class="thumb">
@@ -435,7 +486,7 @@
 								<div class="details">
 									<div class="tc_content">
 										<p>Ali TUFAN</p>
-										<h5>Introduction Web Design with HTML</h5>
+										<h5>{{$related_course->title}}</h5>
 										<ul class="tc_review">
 											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
 											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -457,7 +508,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-6 col-xl-4">
+						@endforeach
+						<!-- <div class="col-lg-6 col-xl-4">
 							<div class="top_courses">
 								<div class="thumb">
 									<img class="img-whp" src="{{asset('project')}}/images/courses/t2.jpg" alt="t2.jpg">
@@ -526,7 +578,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="col-lg-4 col-xl-3">
@@ -560,14 +612,14 @@
 							{{ trans('lang.quizzes') }}  <span class="float-right">1</span>
 							</li>
 							<li class="d-flex justify-content-between align-items-center">
-						    	Duration <span class="float-right">3 hours</span>
+							{{ trans('lang.duration') }}  <span class="float-right">3 {{ trans('lang.hours') }} </span>
 							</li>
-							<li class="d-flex justify-content-between align-items-center">
+							<!-- <li class="d-flex justify-content-between align-items-center">
 						    	Skill level <span class="float-right">All level</span>
 							</li>
 							<li class="d-flex justify-content-between align-items-center">
 						    	Language <span class="float-right">English</span>
-							</li>
+							</li> -->
 							<li class="d-flex justify-content-between align-items-center">
 							{{ trans('lang.assessments') }}  <span class="float-right">6</span>
 							</li>
@@ -577,10 +629,13 @@
 					<div class="blog_tag_widget csv1">
 						<h4 class="title">{{ trans('lang.tags') }}</h4>
 						<ul class="tag_list">
-							<li class="list-inline-item"><a href="#">Photoshop</a></li>
+						@foreach ($tags as $tag)
+							<li class="list-inline-item"><a href="{{$tag -> link}}">{{$tag -> title}}</a></li>
+						@endforeach
+							<!-- <li class="list-inline-item"><a href="#">Photoshop</a></li>
 							<li class="list-inline-item"><a href="#">Sketch</a></li>
 							<li class="list-inline-item"><a href="#">Beginner</a></li>
-							<li class="list-inline-item"><a href="#">UX/UI</a></li>
+							<li class="list-inline-item"><a href="#">UX/UI</a></li> -->
 						</ul>
 					</div>
 				</div>

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\UserComment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,7 @@ class HomeController extends Controller
     {
       
         $data['categories'] =  Category::select('id','title_' . getLang() . '  as title' ,'image')->withCount(['courses'])->get();
-        $data['user_comments']= UserComment::select('id','title_' . getLang() . '  as title' , 'body_' . getLang() . '  as body'  , 'user_type' )->get();
+        $data['user_comments']= UserComment::select('id', 'image' ,'title_' . getLang() . '  as title' , 'body_' . getLang() . '  as body'  , 'user_type' )->get();
         $data['blogs'] = Blog::orderBy('id', 'DESC')->limit(2)->get();
         $data['blogs_slider'] =  Blog::inRandomOrder()->limit(3)->get();
        
@@ -25,7 +26,9 @@ class HomeController extends Controller
          ->where('type' ,'section' )
          ->orWhere('type' ,'home_about' )
        ->get() ;
-      
+
+       $var_title='title_'.Session::get('lang');
+
       // $data['sections'] = Page::get();
     //    $data['static_sections'] = $data['sections']->where('type' ,'section' )
     //    ->orWhere('type' ,'home_about' )
@@ -41,7 +44,7 @@ class HomeController extends Controller
     
         
 
-        return view('Web.pages.home',compact('data'));
+        return view('Web.pages.home',compact('data', 'var_title'));
        
     }
 }

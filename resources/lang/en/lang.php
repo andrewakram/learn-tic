@@ -47,7 +47,7 @@ return [
     'PhoneExists' => 'Phone Exists please use other phone!',
     //
     'contact_us' => ' Contact Us' ,
-    'email' => ' Our Email',
+    'email' => '  Email',
     'phone' => ' Phone',
     'location' => ' Our Location',
     'contact_title'=> ' Send a Message  ',
@@ -97,7 +97,7 @@ return [
     
      //instructors details
     'appointment' => ' Appointment ',
-    'course_list  ' => ' Course List',
+    'course_list' => ' Course List',
     'about_me' => 'About Me ',
     'chat' => ' Chat',
     'course' => ' Course',
@@ -127,13 +127,25 @@ return [
     'add_reviews' => ' Add Reviews & Rate ',
     'submit_review ' => 'Submit Review  ',
     'review_content' => ' Review Content',
-    'about_instructor ' => ' About the instructor ',
+    'about_instructor' => ' About the instructor ',
     'course_content' => ' Course Content',
     'overview' => 'Overview',
     'course_features' => 'Course Features',
     'quizzes'=> 'Quizzes' ,
     'lectures'=> 'Lectures' ,
     'assessments'=> 'Assessments' ,
+    'duration' => 'Duration',
+    'hours' => 'Hours',
+    'related_courses' => 'Related Courses' ,
+    'submit_review' =>'Submit Review',
+    'add_reviews'=> 'Add Reviews',
+    'What_Rate' => 'What is it like to Course?',
+    'review_title'=>'Review Title',
+    'review_content'=>'Review Content',
+    'learn_type'=>'Learn Type',
+    'inquiry_cost_normal'=>'Inquiry Cost Normal' ,
+    'inquiry_cost_urgent'=>'Inquiry Cost Urgent' ,
+
     
     
 
@@ -144,7 +156,7 @@ return [
     'about_btn' => 'About Us',
     'categories_title' => ' Our Categories Courses     ',
     'categories_p' => '  We Have All Categories To Help The Student    ',
-    'view_categories ' => ' View All Categories',
+    'view_categories' => ' View All Categories',
     'top_courses' => ' Browse Our Top Courses ',
     'top_courses_p' => ' We Have All Courses To Help The Student    ',
     'latest_news' => ' Blogs  ',

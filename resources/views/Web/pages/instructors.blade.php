@@ -238,7 +238,7 @@
 									<li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
-												<input list="browsers"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.Search_instructors') }}" aria-label="Search">
+												<input list="browsers"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.search_instructors') }}" aria-label="Search">
 												
 												<datalist id="browsers">
 												@foreach ($instractors as $instructor)
@@ -260,7 +260,7 @@
 							<div class="team_member style3 text-center mb30">
 								<div class="instructor_col">
 									<div class="thumb">
-										<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">
+										<img class="img-fluid img-rounded-circle" src="{{$instructor->teacher->image}}" alt="6.png">
 									</div>
 									<div class="details">
 										<h4>{{$instructor->full_name}}</h4>

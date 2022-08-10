@@ -64,7 +64,8 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
-					<div class="h600" id="map-canvas"></div>
+					<!--<div class="h600" id="map-canvas"></div>-->
+					<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d28992.65436047249!2d46.655182!3d24.724072!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1660079688509!5m2!1sen!2sus" width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
 				<div class="col-lg-6 form_grid">
 					<h4 class="mb5">{{ trans('lang.contact_title') }} </h4>
