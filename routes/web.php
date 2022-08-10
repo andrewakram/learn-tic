@@ -3,21 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Web\HomeController;
-use App\Http\Controllers\web\BlogsController;
-use App\Http\Controllers\web\CategoriesController;
-use App\Http\Controllers\web\AboutUsController;
-use App\Http\Controllers\web\CoursesController;
-use App\Http\Controllers\web\ContactUsController;
-use App\Http\Controllers\web\InstructorsController;
-use App\Http\Controllers\web\BlogsDetailsController;
+use App\Http\Controllers\Web\BlogsController;
+use App\Http\Controllers\Web\CategoriesController;
+use App\Http\Controllers\Web\AboutUsController;
+use App\Http\Controllers\Web\CoursesController;
+use App\Http\Controllers\Web\ContactUsController;
+use App\Http\Controllers\Web\InstructorsController;
 use App\Http\Controllers\Web\StudentLoginController;
-use App\Http\Controllers\MainAdmin\SettingController;
 use App\Http\Controllers\Web\InstructorLoginController;
 use App\Http\Controllers\Web\StudentRegisterController;
 use App\Http\Controllers\Web\InstructorRegisterController;
-use App\Http\Controllers\web\InstructorsDetailsController;
-use App\Http\Controllers\web\StudentAuthController;
-use App\Http\Controllers\web\InstructorAuthController;
+use App\Http\Controllers\Web\StudentAuthController;
+use App\Http\Controllers\Web\InstructorAuthController;
 
 
 
@@ -44,16 +41,19 @@ Route::get('cache', function () {
     return 'success';
 });
 
+Route::get('/change-language/{lang}', function ($lang) {
+    session()->put('lang', $lang);
+    return back();
+});
+
 Route::group([
-    'middleware' => ['SetLanguage']
+    'middleware' => ['SetLanguage'],
 ], function () {
     Route::get('/', [HomeController::class,'index'])->name('home');
     Route::get('about-us', [AboutUsController::class,'index'])->name('about_us');
     Route::get('courses', [CoursesController::class,'index'])->name('courses');
     Route::get('course-details/{course_id}', [CoursesController::class,'courseDetails'])->name('course_details');
     Route::get('instructors', [InstructorsController::class,'index'])->name('instructors');
-    Route::get('instructorFilter', [InstructorsController::class,'instructorFilter'])->name('instructorFilter');
-    
     Route::get('instructor-details/{instructor_id}', [InstructorsController::class,'instructorDetails'])->name('instructor_details');
     Route::get('blogs', [BlogsController::class,'index'])->name('blogs');
     Route::get('blog-details/{blog_id}', [BlogsController::class,'blogDetails'])->name('blog_details');
@@ -66,11 +66,6 @@ Route::group([
     Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
     Route::get('logout', [StudentAuthController::class,'logout'])->name('logout');
     Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
-});
-
-Route::get('/change-language/{lang}', function ($lang) {
-    session()->put('lang', $lang);
-    return back();
 });
 
 
