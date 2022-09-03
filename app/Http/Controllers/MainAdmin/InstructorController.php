@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainAdmin;
 
 use App\Http\Requests\MainAdmin\Instructor\InstructorIndexRequest;
 use App\Http\Requests\MainAdmin\Instructor\InstructorUpdateRequest;
+use App\Imports\InstructorsImport;
 use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
@@ -13,6 +14,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InstructorController extends Controller
 {
@@ -23,6 +25,28 @@ class InstructorController extends Controller
             return redirect()->back()->withErrors($validator);
         }
         return view('MainAdmin.pages.instructors.index');
+    }
+
+    public function create(InstructorIndexRequest $request)
+    {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+        return view('MainAdmin.pages.instructors.create');
+    }
+
+    public function store(InstructorIndexRequest $request)
+    {
+        $validator = $request->validated();
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        Excel::import(new InstructorsImport(),request()->file('file'));
+
+        session()->flash('success', 'تم الإضافة بنجاح');
+        return redirect()->route('admin.instructors');
     }
 
     public function edit(InstructorIndexRequest $request,$id)
@@ -57,7 +81,7 @@ class InstructorController extends Controller
     public function getData()
     {
         $auth = Auth::guard('admin')->user();
-        $model = User::query()->where('type','teacher');
+        $model = User::query()->where('type','teacher')->orderBy('id','desc');
 
         return DataTables::eloquent($model)
             ->addIndexColumn()
