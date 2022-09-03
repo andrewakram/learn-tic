@@ -28,7 +28,11 @@
 					<div class="row courses_list_heading style2">
 						<div class="col-xl-4 p0">
 							<div class="instructor_search_result style2">
-								<p class="mt10 fz15"><span class="color-dark pr10">85 </span> results <span class="color-dark pr10">1,236</span> Video Tutorials</p>
+								<p class="mt10 fz15"><span class="color-dark pr10">85 </span> 
+								<!-- results <span class="color-dark pr10">1,236</span> -->
+								 <!-- Video Tutorials -->
+								 {{ trans('lang.course') }}
+								</p>
 							</div>
 						</div>
 						<div class="col-xl-8 p0">
@@ -70,7 +74,7 @@
 
 								<div class="top_courses list">
 									<div class="thumb">
-										<img class="img-whp" src="{{asset('project')}}/images/courses/t1.jpg" alt="t1.jpg">
+										<img class="img-whp" src="{{$Course->image}}" alt="t1.jpg">
 										<div class="overlay">
 											<div class="icon"><span class="flaticon-like"></span></div>
 											<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>
@@ -81,7 +85,17 @@
 											<div class="tc_content">
 												<p>{{ $Course->teacher->teacherInfo->full_name}} </p>
 												<h5>{{ $Course->title}} </h5>
-												<p>{{ $Course->body}}</p>
+												<p>
+												<?php $string = $Course->body ;
+										if (strlen($string) > 300) {
+										$description = substr($string, 0, 300). ' ...';
+										} else {
+										$description = $string;
+										}
+										 echo $description;
+									?>
+
+													</p>
 											</div>
 											<div class="tc_footer">
 												<ul class="tc_meta float-left fn-414">
@@ -112,7 +126,7 @@
 						</div>
 						@endforeach
 
-						{{$data['Courses'] -> links()}}
+						<!-- {{$data['Courses'] -> links()}} -->
 
 
 					</div>

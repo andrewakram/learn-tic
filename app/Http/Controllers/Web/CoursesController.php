@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\web;
 
+use App\Models\Tag;
 use App\Models\City;
 use App\Models\User;
 use App\Models\Course;
@@ -28,14 +29,24 @@ class CoursesController extends Controller
     }
     public function courseDetails(Request $request)
     {
+        $tags =  Tag::select('id','title_' . getLang() . '  as title'   , 'link' )
+        ->inRandomOrder()->limit(6)->get();
+
+       
+
+        $myCourse = Course::findOrFail($request->course_id);
+        $related_courses = Course::select('id','title_' . getLang() . '  as title' )->where('category_id' , $myCourse->category_id)->get();
+
+
         $course_details = Course::findOrFail($request->course_id);
         $title = 'title_' . getLang();
         $body = 'body_' . getLang();
+
        $CourseLessons = CourseLesson::where('course_id' , $request->course_id)->get();
 
        $teacher_course_id = $course_details -> teacher_id ;
-        $instractor = TeacherInfo::select('id','full_name','teacher_id' ,'categoey_id' ,'desctiption' , 'inquiry_cost_normal' , 'inquiry_cost_urgent')->where('teacher_id' , $teacher_course_id )->with('category')->first();  
-        return view('Web.pages.course_details' ,compact('course_details' , 'title' ,'body' , 'instractor','CourseLessons') );
+        $instractor = TeacherInfo::where('teacher_id' , $teacher_course_id )->with('category')->first();  
+        return view('Web.pages.course_details' ,compact('course_details' , 'title' ,'body' , 'instractor','CourseLessons' , 'tags' ,'related_courses') );
     }
 
 }

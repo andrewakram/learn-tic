@@ -44,11 +44,11 @@
                                             <div class="col-lg-6 col-xl-4">
                                                 <div class="top_courses">
                                                     <div class="thumb">
-                                                        <img class="img-whp" src="{{asset('project')}}/images/courses/t1.jpg" alt="t1.jpg">
+                                                        <img class="img-whp" src="{{$course->image}}" alt="t1.jpg">
                                                         <div class="overlay">
-                                                            <div class="tag">Best Seller</div>
+                                                            <!-- <div class="tag">Best Seller</div> -->
                                                             <div class="icon"><span class="flaticon-like"></span></div>
-                                                            <a class="tc_preview_course" href="#">Preview Course</a>
+                                                            <a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>
                                                         </div>
                                                     </div>
                                                     <div class="details">
@@ -89,7 +89,7 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                            <div class="col-lg-6 col-xl-4">
+                                            <!-- <div class="col-lg-6 col-xl-4">
                                                 <div class="top_courses">
                                                     <div class="thumb">
                                                         <img class="img-whp" src="{{asset('project')}}/images/courses/t2.jpg" alt="t2.jpg">
@@ -284,7 +284,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="course" role="tabpanel" aria-labelledby="review-tab">

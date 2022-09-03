@@ -30,7 +30,7 @@
 
                         <h3> {{$data['static_sections']->where('type' , 'home_about')->first()->title }}</h3>
                         {!! $data['static_sections']->where('type' , 'home_about')->first()->body !!}
-                        <a href="#" class="btn about_btn_home3">{{ trans('lang.about_btn') }}</a>
+                        <a href="{{route('about_us')}}" class="btn about_btn_home3">{{ trans('lang.about_btn') }}</a>
 
                         <!--	<ul class="partners_thumb_list">
                                 <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/partners/1.png" alt="1.png"></a></li>
@@ -239,22 +239,27 @@
                     <div id="options" class="alpha-pag full">
                         <div class="option-isotop">
                             <ul id="filter" class="option-set" data-option-key="filter">
-                                <li class="list-inline-item"><a href="#all" data-option-value="*" class="selected">Developer</a></li>
-
-                                <li class="list-inline-item"><a href="#business" data-option-value=".business">business </a></li>
-
-                                <li class="list-inline-item"><a href="#test" data-option-value=".test">test</a></li>
+                                <li class="list-inline-item"><a href="#all" data-option-value="*" class="selected">All</a></li>
+                                @foreach ($data['categories'] as $key => $Category)
+                                @if($key < 4 and  $Category -> courses_count  > 0)
+                                     <li class="list-inline-item"><a href="#caregory_{{ $Category->id }}" data-option-value=".caregory_{{ $Category->id }}">{{ $Category->title }} </a></li>
+                                @endif
+                                @endforeach
+                                <!-- <li class="list-inline-item"><a href="#test" data-option-value=".test">test</a></li>
                                 <li class="list-inline-item"><a href="#web" data-option-value=".web">Web</a></li>
-                                <li class="list-inline-item"><a href="#marketing" data-option-value=".marketing">Marketing</a></li>
+                                <li class="list-inline-item"><a href="#marketing" data-option-value=".marketing">Marketing</a></li> -->
                             </ul>
                         </div>
                     </div><!-- FILTER BUTTONS -->
                     <div class="emply-text-sec">
                         <div class="row" id="masonry_abc">
-                            <div class="col-md-6 col-lg-4 col-xl-3 business test">
+                        @foreach ($data['categories'] as $key => $Category)
+                        @foreach($Category->courses as $keyCourse => $course)
+                        @if($keyCourse < 8 and  $Category -> courses_count  > 0)
+                            <div class="col-md-6 col-lg-4 col-xl-3 caregory_{{ $Category->id }} ">
                                 <div class="top_courses">
                                     <div class="thumb">
-                                        <img class="img-whp" src="{{asset('project')}}/images/courses/t1.jpg" alt="t1.jpg">
+                                        <img class="img-whp" src="{{$Category -> image}}" alt="t1.jpg">
                                         <div class="overlay">
                                             <div class="tag">Best Seller</div>
                                             <div class="icon"><span class="flaticon-like"></span></div>
@@ -263,8 +268,8 @@
                                     </div>
                                     <div class="details">
                                         <div class="tc_content">
-                                            <p>Ali TUFAN</p>
-                                            <h5>Introduction Web Design with HTML</h5>
+                                            <p>{{$course->teacher->full_name}} </p>
+                                            <h5>{{$course->$var_title}}  </h5>
                                             <ul class="tc_review">
                                                 <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
                                                 <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -286,7 +291,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4 col-xl-3 business marketing">
+                            @endif
+                        @endforeach
+                        @endforeach
+                            <!-- <div class="col-md-6 col-lg-4 col-xl-3 business marketing">
                                 <div class="top_courses">
                                     <div class="thumb">
                                         <img class="img-whp" src="{{asset('project')}}/images/courses/t2.jpg" alt="t2.jpg">
@@ -530,7 +538,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -553,10 +561,13 @@
                 <div class="col-lg-6 offset-lg-3 mytestmonial">
                     <div class="testimonialsec">
                         <ul class="tes-nav">
+                        @foreach ($data['user_comments'] as $user_comment)
+                        
                             <li>
-                                <img class="img-fluid" src="{{asset('project')}}/images/testimonial/1.jpg" alt="1.jpg"/>
+                                <img class="img-fluid" src="{{$user_comment->image}}" alt="1.jpg"/>
                             </li>
-                            <li>
+                        @endforeach
+                            <!-- <li>
                                 <img class="img-fluid" src="{{asset('project')}}/images/testimonial/2.jpg" alt="2.jpg"/>
                             </li>
                             <li>
@@ -564,17 +575,18 @@
                             </li>
                             <li>
                                 <img class="img-fluid" src="{{asset('project')}}/images/testimonial/4.jpg" alt="4.jpg"/>
-                            </li>
+                            </li> -->
                         </ul>
                         <ul class="tes-for">
                         @foreach ($data['user_comments'] as $user_comment)
-
+                        
                             <li>
                                 <div class="testimonial_item">
                                     <div class="details">
                                         <h5>{{ $user_comment->title}}</h5>
                                         <span class="small text-thm">{{ $user_comment->user_type }}</span>
                                         <p>{{ $user_comment->body }}</p>
+                                        
                                     </div>
                                 </div>
                             </li>
@@ -599,14 +611,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-xl-6">
+                <div class="col-lg-6 col-xl-6 ">
                     <div class="blog_slider_home1">
                     @foreach ($data['blogs_slider'] as $blog_slider)
                         <div class="item">
                             <div class="blog_post one">
                                 <div class="thumb">
                                     <div class="post_title">Events</div>
-                                    <img class="img-fluid w100" src="{{asset('project')}}/images/blog/1.jpg" alt="1.jpg">
+                                    <img class="img-fluid w100" src="{{$blog_slider->image}}" alt="1.jpg">
                                     <a class="post_date" href="#"><span>28 <br> March</span></a>
                                 </div>
                                 <div class="details">
@@ -625,10 +637,10 @@
                     </div>
                 </div>
                 @foreach ($data['blogs'] as $blog)
-                <div class="col-md-6 col-lg-3 col-xl-3">
+                <div class="col-md-6 col-lg-3 col-xl-3 blog_img">
                     <div class="blog_post">
                         <div class="thumb">
-                            <img class="img-fluid w100" src="{{asset('project')}}/images/blog/2.jpg" alt="2.jpg">
+                            <img class="img-fluid w100" src="{{$blog_slider->image}}" alt="2.jpg">
                             <a class="post_date" href="#">July 21, 2019</a>
                         </div>
                         <div class="details">
