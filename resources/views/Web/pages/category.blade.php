@@ -50,7 +50,7 @@
 				<?php $num=1 ?>
 
 				@foreach ($data['categories'] as $Category)
-				@if($num <= 8)
+				
 					<div class="col-sm-6 col-lg-3">
 						<div class="img_hvr_box" style="background-image: url({{ $Category->image }});">
 							<div class="overlay">
@@ -65,7 +65,7 @@
 						</div>
 					</div>
 					<?php  $num++ ?>
-				@endif
+				
 				@endforeach
 			</div>
 		</div>

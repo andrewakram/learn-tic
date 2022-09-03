@@ -125,6 +125,50 @@ Tag:    academy, college, coursera, courses, education, elearning, kindergarten,
 
 
 /*multi register instructor*/
+
+.main_logo_home2
+{
+  float:right;
+}
+
+.footer_terms
+{
+  margin-top: 9px;
+}
+.footer_terms a{
+  color: #6f7074;
+  margin-right: 30px;
+}
+.footer_terms a:hover{
+  color: #f5f5f5;
+}
+ .terms_conditions h3{
+  margin-top: 75px;
+}
+.terms_conditions ul
+{
+  margin-top: 20px;
+}
+.terms_conditions ul i
+{
+  color:#009182;
+  margin-left: 5px;
+}
+.terms_conditions ul li
+{
+ margin-bottom: 12px;
+ line-height: 1.8;
+}
+.terms_conditions ul ol
+{
+  margin:20px  20px 20px ;
+
+
+}
+.terms_conditions ul ol strong
+{
+  color:#009182; 
+}
 .blog_img img
 {
   width: 300px;
@@ -508,9 +552,18 @@ display: none;
         
         margin: 3% 0%;
       }
-     
 
   }
+  @media only screen and (max-width: 992px)
+{
+    .inner_page_breadcrumb {
+        margin-top: -105px !important;
+    }
+    .inner_page_breadcrumb .row
+    {
+    display: inline;
+    }
+}
   /* <-- New Classes --> */
   
   .uk-icon:not(.uk-preserve) [stroke*='#']:not(.uk-preserve) {
