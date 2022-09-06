@@ -38,6 +38,11 @@ class Course extends Model
         return $this->hasMany(Exam::class,'course_id');
     }
 
+    public function courseOrders(){
+        return $this->hasMany(Order::class,'student_id');
+    }
+
+
     public function getImageAttribute($image)
     {
         if (!empty($image)) {
