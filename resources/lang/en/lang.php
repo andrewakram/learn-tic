@@ -171,6 +171,8 @@ return [
     'goals' => 'Our Goals',
     'pages' => 'Pages',
     'more'=> 'More',
+    'terms_conditions' => 'Terms & Conditions ',
+
 
 
       //login student

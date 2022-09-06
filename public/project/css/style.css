@@ -124,6 +124,37 @@ Tag:    academy, college, coursera, courses, education, elearning, kindergarten,
 
 
 /*multi register instructor*/
+.footer_terms
+{
+  margin-top: 9px;
+}
+.terms_conditions h3{
+  margin-top: 75px;
+}
+.terms_conditions ul
+{
+  margin-top: 20px;
+}
+.terms_conditions ul i
+{
+  color:#009182;
+  margin-left: 5px;
+}
+.terms_conditions ul li
+{
+ margin-bottom: 12px;
+ line-height: 1.8;
+}
+.terms_conditions ul ol
+{
+  margin:20px  20px 20px ;
+
+
+}
+.terms_conditions ul ol strong
+{
+  color:#009182; 
+}
 .blog_img img
 {
   width: 300px;

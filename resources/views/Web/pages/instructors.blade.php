@@ -223,11 +223,12 @@
 									<li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
-												<input list="searchCity"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.city') }}" aria-label="Search">
+												<input list="searchCity" id="city" class="form-control mr-sm-2"  type="search" placeholder="{{ trans('lang.city') }}" aria-label="Search">
 												
 												<datalist id="searchCity">
 												@foreach ($data['cities'] as $city)
-													<option data-id="{{$city -> id}}" value="{{$city -> title}}">
+													<option id="{{$city -> id}}" data-id="{{$city -> id}}" value="{{$city -> title}}">
+														
 												@endforeach
 													
 												</datalist>
@@ -238,11 +239,11 @@
 									<li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
-												<input list="browsers"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.search_instructors') }}" aria-label="Search">
+												<input list="searchInstructor"  class="form-control mr-sm-2" id="instructor_name" type="search" placeholder="{{ trans('lang.search_instructors') }}" aria-label="Search">
 												
-												<datalist id="browsers">
+												<datalist id="searchInstructor">
 												@foreach ($instractors as $instructor)
-													<option data-id="{{$instructor->teacher_id}}" value="{{$instructor->full_name}}">
+													<option data-id="{{$instructor->teacher_id}}" id="{{$instructor->teacher_id}}" value="{{$instructor->full_name}}">
 												@endforeach
 													
 												</datalist>
@@ -291,6 +292,8 @@
 								</div>
 							</div>
 						</div>
+						
+						
 						@endforeach
 
 						<div class="col-lg-12">
@@ -392,11 +395,11 @@
 							  <div class="panel-body">
 								  <div class="ui_kit_checkbox">
 									  <div class="custom-control custom-checkbox">
-										  <input type="checkbox" class="custom-control-input" id="customCheck34">
+										  <input type="checkbox" class="custom-control-input gender" id="customCheck34" value="male">
 										  <label class="custom-control-label" for="customCheck34">{{ trans('lang.male') }}   <span class="float-right">(03)</span></label>
 									  </div>
 									  <div class="custom-control custom-checkbox">
-										  <input type="checkbox" class="custom-control-input" id="customCheck35">
+										  <input type="checkbox" class="custom-control-input gender" id="customCheck35" value="female">
 										  <label class="custom-control-label" for="customCheck35"> {{ trans('lang.female') }}   <span class="float-right">(15)</span></label>
 									  </div>
 
@@ -451,17 +454,17 @@
 								  <div class="panel-body">
 									  <div class="ui_kit_checkbox">
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck14">
+											  <input type="checkbox" class="custom-control-input learn_type" value="Student House" id="customCheck14">
 											  <label class="custom-control-label" for="customCheck14"> {{ trans('lang.student_house') }}  
 												<span class="float-right">(03)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck15">
+											  <input type="checkbox" class="custom-control-input learn_type" value="Teacher House" id="customCheck15">
 											  <label class="custom-control-label" for="customCheck15"> {{ trans('lang.teacher_house') }} 
 												<span class="float-right">(15)</span></label>
 										  </div>
 										  <div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="customCheck16">
+											  <input type="checkbox" class="custom-control-input learn_type" value="Online Education"  id="customCheck16">
 											  <label class="custom-control-label" for="customCheck16"> {{ trans('lang.online_education') }}  
 												<span class="float-right">(126)</span></label>
 										  </div>
@@ -487,6 +490,78 @@
 
 <script type="text/javascript">
 
+$('#city').on('input', function() {
+    var cityName = $(this).val();
+	
+	var cityId = $('#searchCity option[value=' + cityName +']').attr('data-id');
+	
+   alert(cityName);
+   alert(cityId);
+
+   $.ajax({
+				type: 'GET',  // http method
+				url: 'instructorFilter?cities='+cityId ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
+					//alert(response);
+					console.log(response);
+					$(".instructors").empty();
+					$.each(response, function (key, value) {
+						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+							'<div class="team_member style3 text-center mb30">\n'+
+								'<div class="instructor_col">\n'+
+									'<div class="thumb">\n'+
+										'<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n'+
+									'</div>\n'+
+									'<div class="details">\n'+
+										'<h4>'+ value.full_name +'</h4>\n'+
+
+										 '<p>\n'+
+										' @if(session()->get('lang') == 'ar')\n'+
+										'{{$instructor -> category -> title_ar}}\n'+
+										' @else\n'+
+										'{{$instructor -> category -> title_en}}\n'+
+										' @endif\n'+
+										'</p>\n'+
+
+										'<ul>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+										'</ul>\n'+
+									'</div>\n'+
+								'</div>\n'+
+								'<div class="tm_footer">\n'+
+									'<ul>\n'+
+										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+						'</div>';
+						
+						
+						$(".instructors").append(instructor);
+                    });
+					
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+  });
+
+
         $('.my_teacher').on('click', function () {
             var instructor_id = $(this).data("id") ;
             window.location.href = '/instructor-details/' + instructor_id ,true;
@@ -494,6 +569,8 @@
 
 		$('.select_city').change(function() {
 			mycity_value = $(this).val();
+			mycity_idid = $(this).attr('id');
+			
 			mycity_id = $(this).data('id');
 			// alert(mycity_value);
 			// alert(mycity_id);
@@ -518,7 +595,7 @@
    				 data: {},
 				
 				success: function(response){ // What to do if we succeed
-				if(response)
+				if(response != null )
 				{
 					//alert("success"); 
 					//console.log(response);
@@ -567,6 +644,10 @@
 
 					
 				}
+				else{
+					var my_msg ="<p>No Search Results Found</p>"
+					$(".instructors").append(my_msg);
+             }
 					
 				},
 				error: function(response){
@@ -596,7 +677,174 @@
 				success: function(response){ // What to do if we succeed
 				if(response)
 				{
-					//alert("success"); 
+					$(".instructors").empty();
+					if(response.length > 0)
+					{
+						alert("success"); 
+						alert(response);
+						console.log(response);
+						
+						
+						$.each(response, function (key, value) {
+
+							var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+								'<div class="team_member style3 text-center mb30">\n'+
+									'<div class="instructor_col">\n'+
+										'<div class="thumb">\n'+
+											'<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n'+
+										'</div>\n'+
+										'<div class="details">\n'+
+											'<h4>'+ value.full_name +'</h4>\n'+
+
+											'<p>\n'+
+											' @if(session()->get('lang') == 'ar')\n'+
+											'{{$instructor -> category -> title_ar}}\n'+
+											' @else\n'+
+											'{{$instructor -> category -> title_en}}\n'+
+											' @endif\n'+
+											'</p>\n'+
+
+											'<ul>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+											'</ul>\n'+
+										'</div>\n'+
+									'</div>\n'+
+									'<div class="tm_footer">\n'+
+										'<ul>\n'+
+											'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+											'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+										'</ul>\n'+
+									'</div>\n'+
+								'</div>\n'+
+							'</div>';
+							$(".instructors").append(instructor);
+							
+							
+						});
+					}
+					else{
+					var instructor ='<p> No result found! </p>';
+						
+					}
+					$(".instructors").append(instructor);
+				}
+				
+				
+				
+				
+					
+			},
+				error: function(response){
+					//alert('Error'+response);
+				}
+				
+				});
+		
+  
+		});
+
+		$('.gender').on('click', function () {
+			
+		
+			if($(this).is(":checked"))
+			{
+				
+				var gender = $(this).val();
+				
+			}
+	
+		alert(gender);
+		$.ajax({
+			type: 'GET',  // http method
+			url: 'instructorFilter?gender='+gender ,
+				data: {},
+			
+			success: function(response){ // What to do if we succeed
+			if(response)
+			{
+				alert("success"); 
+				$(".instructors").empty();
+					
+					$.each(response, function (key, value) {
+						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+							'<div class="team_member style3 text-center mb30">\n'+
+								'<div class="instructor_col">\n'+
+									'<div class="thumb">\n'+
+										'<img class="img-fluid img-rounded-circle" src="'+value.image +'" alt="6.png">\n'+
+									'</div>\n'+
+									'<div class="details">\n'+
+										'<h4>'+ value.full_name +'</h4>\n'+
+
+										 '<p>\n'+
+										' @if(session()->get('lang') == 'ar')\n'+
+										'{{$instructor -> category -> title_ar}}\n'+
+										' @else\n'+
+										'{{$instructor -> category -> title_en}}\n'+
+										' @endif\n'+
+										'</p>\n'+
+
+										'<ul>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+										'</ul>\n'+
+									'</div>\n'+
+								'</div>\n'+
+								'<div class="tm_footer">\n'+
+									'<ul>\n'+
+										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+						'</div>';
+						
+						
+						$(".instructors").append(instructor);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					//alert('Error'+response);
+				}
+				
+				});
+				});
+
+
+				$('.learn_type').on('click', function () {
+			
+			var learn_type = [] ;
+			$('.learn_type').each(function() {
+				if($(this).is(":checked"))
+				{
+					
+					learn_type.push($(this).val());
+					
+				}
+			});
+			learn_types = learn_type.toString();
+			alert(learn_types);
+			$.ajax({
+				type: 'GET',  // http method
+				url: 'instructorFilter?learn_types='+learn_types ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
 					//console.log(response);
 					$(".instructors").empty();
 					
@@ -653,6 +901,81 @@
 		
   
 		});
+
+		$('#instructor_name').on('input', function() {
+   
+	///////////////////////////////////////////////
+  		
+				
+				var instructorName = $(this).id;
+				alert(instructorName);
+				var instructorId = $('#searchInstructor option[id=' + instructorName +']');
+				alert(instructorId);
+				
+		
+	
+		$.ajax({
+			type: 'GET',  // http method
+			url: 'instructorFilter?instructorId='+instructorId ,
+				data: {},
+			
+			success: function(response){ // What to do if we succeed
+			if(response)
+			{
+				alert("success"); 
+				$(".instructors").empty();
+					
+					$.each(response, function (key, value) {
+						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+							'<div class="team_member style3 text-center mb30">\n'+
+								'<div class="instructor_col">\n'+
+									'<div class="thumb">\n'+
+										'<img class="img-fluid img-rounded-circle" src="'+value.teacher.image +'" alt="6.png">\n'+
+									'</div>\n'+
+									'<div class="details">\n'+
+										'<h4>'+ value.full_name +'</h4>\n'+
+
+										 '<p>\n'+
+										' @if(session()->get('lang') == 'ar')\n'+
+										'{{$instructor -> category -> title_ar}}\n'+
+										' @else\n'+
+										'{{$instructor -> category -> title_en}}\n'+
+										' @endif\n'+
+										'</p>\n'+
+
+										'<ul>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+										'</ul>\n'+
+									'</div>\n'+
+								'</div>\n'+
+								'<div class="tm_footer">\n'+
+									'<ul>\n'+
+										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+						'</div>';
+						
+						
+						$(".instructors").append(instructor);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					//alert('Error'+response);
+				}
+				
+				});
+				});
 		
 		// function plus_item() {
         //     var new_item = 

@@ -253,7 +253,7 @@
     <div class="mobile-menu">
         <div class="header stylehome1">
             <div class="main_logo_home2">
-                <img class="nav_logo_img img-fluid float-left mt20" src="{{asset('project')}}/images/header-logo.png" alt="header-logo.png">
+                <img class="nav_logo_img img-fluid  mt10" src="{{asset('project')}}/images/header-logo.png" alt="header-logo.png">
 
             </div>
             <ul class="menu_bar_home2">
@@ -264,33 +264,33 @@
     </div><!-- /.mobile-menu -->
     <nav id="menu" class="stylehome1">
         <ul>
-            <li><a href="{{route('home')}}">Home </a></li>
+            <li><a href="{{route('home')}}">{{ trans('lang.home') }} </a></li>
 
-            <li><a href="{{route('courses')}}"><span>Courses</span></a>
+            <li><a href="{{route('courses')}}"><span>{{ trans('lang.courses') }}</span></a>
 
             </li>
             <li>
-                <a href="{{route('instructors')}}"><span class="title">Instructors</span></a>
+                <a href="{{route('instructors')}}"><span class="title">{{ trans('lang.instructors') }}</span></a>
                 <!-- Level Two-->
 
             </li>
 
             <li>
-                <a href="{{route('about_us')}}"><span class="title">About Us</span></a>
+                <a href="{{route('about_us')}}"><span class="title">{{ trans('lang.about_us') }}</span></a>
             </li>
 
             <li>
-                <a href="blogs"><span class="title">Blog</span></a>
+                <a href="blogs"><span class="title">{{ trans('lang.blogs') }}</span></a>
 
             </li>
 
             <li class="last">
-                <a href="{{route('contact_us')}}"><span class="title">Contact</span></a>
+                <a href="{{route('contact_us')}}"><span class="title">{{ trans('lang.contact_us') }}</span></a>
             </li>
 
 
-            <li><a href="page-login.html"><span class="flaticon-user"></span> Login</a></li>
-            <li><a href="page-register.html"><span class="flaticon-edit"></span> Register</a></li>
+            <li><a href="{{route('student_login')}}"><span class="flaticon-user"></span> {{ trans('lang.login_student') }}</a></li>
+            <li><a href="{{route('instructor_login')}}"><span class="flaticon-edit"></span> {{ trans('lang.login_teacher') }}</a></li>
         </ul>
     </nav>
 </div>

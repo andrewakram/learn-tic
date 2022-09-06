@@ -33,23 +33,12 @@ class HomeController extends Controller
          ->orWhere('type' ,'home_about' )
        ->get() ;
 
+
        $var_title='title_'.Session::get('lang');
-
-      // $data['sections'] = Page::get();
-    //    $data['static_sections'] = $data['sections']->where('type' ,'section' )
-    //    ->orWhere('type' ,'home_about' )
-    //  ->get() ;
-
-
-       //$data['home_about'] = $data['sections']->where('type' ,'home_about')->first() ;
-       //dd($data['home_about']);
-       // $data['title_english'] = $data['sections']->where('type' ,'section2')->first()->value ;
-       // $data['phone'] = $data['sections']->where('type' ,'section3')->first()->value ;
-       // $data['email'] = $data['sections']->where('type' ,'section4')->first()->value ;
-
 
 
 
         return view('Web.pages.home',compact('data', 'var_title'));
+     
     }
 }

@@ -38,7 +38,7 @@
 						<div class="col-xl-8 p0">
 							<div class="candidate_revew_select style2 text-right">
 								<ul class="mb0">
-									<li class="list-inline-item">
+									 <!-- <li class="list-inline-item">
 										<select class="selectpicker show-tick">
 
 												<option>{{ trans('lang.city') }}</option>
@@ -46,19 +46,45 @@
 												<option>{{$city -> title}}</option>
 											@endforeach
 
-											<!--
-											<option>Newly published</option>
-											<option>Recent</option>
-											<option>Old Review</option>
-										-->
 										</select>
-									</li>
+									</li>  -->
 									<li class="list-inline-item">
+										<div class="candidate_revew_search_box course fn-520">
+											<form class="form-inline my-2 my-lg-0">
+												<input list="searchCity" id="city" class="form-control mr-sm-2"  type="search" placeholder="{{ trans('lang.city') }}" aria-label="Search">
+												
+												<datalist id="searchCity">
+												@foreach ($data['cities'] as $city)
+													<option data-id="{{$city -> id}}" value="{{$city -> title}}">
+														
+												@endforeach
+													
+												</datalist>
+												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+											</form>
+										</div>
+									</li>
+									<!-- <li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
 										    	<input class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.search_courses') }}" aria-label="Search">
 										    	<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
 										    </form>
+										</div>
+									</li> -->
+									<li class="list-inline-item">
+										<div class="candidate_revew_search_box course fn-520">
+											<form class="form-inline my-2 my-lg-0">
+												<input list="searchCourse" id="course_name"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.search_courses') }}" aria-label="Search">
+												
+												<datalist id="searchCourse">
+												@foreach ($data['Courses_search'] as $Course_search)
+													<option data-id="{{$Course_search->id}}" value="{{$Course_search->title}}">
+												@endforeach
+													
+												</datalist>
+												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+											</form>
 										</div>
 									</li>
 								</ul>
@@ -167,7 +193,7 @@
 										<div class="ui_kit_checkbox">
 											@foreach ($data['categories'] as $category)
 												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck{{$category -> id}}">
+													<input type="checkbox" class="custom-control-input category" value="{{$category -> id}}" id="customCheck{{$category -> id}}">
 													<label class="custom-control-label" for="customCheck{{$category -> id}}">{{$category -> title}} <span class="float-right">({{$category -> courses_count}})</span></label>
 												</div>
 											@endforeach
@@ -194,8 +220,8 @@
 										 	 @foreach ($data['cities'] as $city)
 
 											 	 <div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck{{$city -> id}}">
-													<label class="custom-control-label" for="customCheck{{$city -> id}}">{{$city -> title}} <span class="float-right">(03)</span></label>
+													<input type="checkbox" class="custom-control-input city" value="{{$city -> id}}" id="city{{$city -> id}}">
+													<label class="custom-control-label" for="city{{$city -> id}}">{{$city -> title}} <span class="float-right">(03)</span></label>
 											 	 </div>
 											@endforeach
 
@@ -221,7 +247,7 @@
 											<div class="content ui_kit_checkbox style2 text-left">
 												@foreach ($data['instructors'] as $instructor)
 													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="{{$instructor -> id}} ">
+														<input type="checkbox" class="custom-control-input instructor" value="{{$instructor -> id}} " id="{{$instructor -> id}} ">
 														<label class="custom-control-label" for="{{$instructor -> id}} ">{{$instructor -> full_name}}  <span class="float-right">({{$instructor -> courses_count}})</span></label>
 													</div>
 												@endforeach
@@ -245,12 +271,16 @@
 							        <div class="panel-body">
 										<div class="ui_kit_whitchbox">
 											<div class="custom-control custom-switch">
-												<input type="checkbox" class="custom-control-input" id="customSwitch1">
-												<label class="custom-control-label" for="customSwitch1"> {{ trans('lang.paid') }}  </label>
+												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="2" id="aprice_all">
+												<label class="custom-control-label" for="aprice_all"> {{ trans('lang.all') }}  </label>
 											</div>
 											<div class="custom-control custom-switch">
-												<input type="checkbox" class="custom-control-input" id="customSwitch2">
-												<label class="custom-control-label" for="customSwitch2">{{ trans('lang.free') }}</label>
+												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="1" id="price_piad">
+												<label class="custom-control-label" for="price_piad"> {{ trans('lang.paid') }}  </label>
+											</div>
+											<div class="custom-control custom-switch">
+												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="0" id="price_free">
+												<label class="custom-control-label" for="price_free">{{ trans('lang.free') }}</label>
 											</div>
 										</div>
 							        </div>
@@ -258,7 +288,7 @@
 						    </div>
 						</div>
 					</div>
-					<div class="selected_filter_widget style3 mb30">
+					<!-- <div class="selected_filter_widget style3 mb30">
 					  	<div id="accordion" class="panel-group">
 						    <div class="panel">
 						      	<div class="panel-heading">
@@ -287,7 +317,7 @@
 							    </div>
 						    </div>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- <div class="selected_filter_widget style3">
 						<div id="accordion" class="panel-group">
@@ -339,9 +369,9 @@
 				  </div> -->
 
 
-				  <div class=" ui_kit_button search_btn mb0">
+				  <!-- <div class=" ui_kit_button search_btn mb0">
 					<button type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ trans('lang.search') }}</button>
-				  </div>
+				  </div> -->
 
 					<!--
 					<div class="selected_filter_widget style3">
@@ -406,9 +436,577 @@
 @section('script')
 <script type="text/javascript">
 
+$('#city').on('input', function() {
+    var cityName = $(this).val();
+	
+	var cityId = $('#searchCity option[value=' + cityName +']').attr('data-id');
+   $.ajax({
+				type: 'GET',  // http method
+				url: 'courseFilter?cities='+cityId ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
+					//alert(response);
+					console.log(response);
+					$(".courses_container").empty();
+					$.each(response, function (key, value) {
+						var course ='<div class="col-lg-12 p0">\n'+
+						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
+							'<div class="top_courses list">\n'+
+								'<div class="thumb">\n'+
+									'<img class="img-whp" src="'+ value.course.image +'" alt="t1.jpg">\n'+
+									'<div class="overlay">\n'+
+										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
+										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
+									'</div>\n'+
+								'</div>\n'+
+
+							'<div class="details">\n'+
+								'<div class="tc_content">\n'+
+									'<p>'+ value.course.teacher.teacher_info.full_name +' </p>\n'+
+									'<h5>'+ value.course.title +' </h5>\n'+
+									'<p>'+ value.course.body +' </p>\n'+
+									
+									
+								'</div>\n'+
+								'<div class="tc_footer">\n'+
+									'<ul class="tc_meta float-left fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
+									'</ul>\n'+
+										'<div class="tc_price float-right fn-414">\n'+
+									'@if(!empty($Course->price_after))\n'+
+									'<del class="original_price">$'+ value.course.price_after +'</del>\n'+
+									'@endif\n'+
+									'$'+ value.course.price_before +'\n'+
+									'</div>\n'+
+									'<ul class="tc_review float-right fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+
+					'</div>\n'+
+				'</div>\n'+
+			'</div>';
+
+
+
+
+					
+						
+						$(".courses_container").append(course);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+		
+  });
+
+
+  $('#city').on('input', function() {
+    var cityName = $(this).val();
+	
+	var cityId = $('#searchCity option[value=' + cityName +']').attr('data-id');
+   $.ajax({
+				type: 'GET',  // http method
+				url: 'courseFilter?cities='+cityId ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
+					//alert(response);
+					console.log(response);
+					$(".courses_container").empty();
+					$.each(response, function (key, value) {
+						var course ='<div class="col-lg-12 p0">\n'+
+						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
+							'<div class="top_courses list">\n'+
+								'<div class="thumb">\n'+
+									'<img class="img-whp" src="'+ value.course.image +'" alt="t1.jpg">\n'+
+									'<div class="overlay">\n'+
+										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
+										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
+									'</div>\n'+
+								'</div>\n'+
+
+							'<div class="details">\n'+
+								'<div class="tc_content">\n'+
+									'<p>'+ value.course.teacher.teacher_info.full_name +' </p>\n'+
+									'<h5>'+ value.course.title +' </h5>\n'+
+									'<p>'+ value.course.body +' </p>\n'+
+									
+									
+								'</div>\n'+
+								'<div class="tc_footer">\n'+
+									'<ul class="tc_meta float-left fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
+									'</ul>\n'+
+										'<div class="tc_price float-right fn-414">\n'+
+									'@if(!empty($Course->price_after))\n'+
+									'<del class="original_price">$'+ value.course.price_after +'</del>\n'+
+									'@endif\n'+
+									'$'+ value.course.price_before +'\n'+
+									'</div>\n'+
+									'<ul class="tc_review float-right fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+
+					'</div>\n'+
+				'</div>\n'+
+			'</div>';
+
+
+
+
+					
+						
+						$(".courses_container").append(course);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+		
+  });
+  
+
+  $('#course_name').on('input', function() {
+    var courseName = $(this).val();
+	alert(courseName);
+	var courseId = $('#searchCourse option[value=' + courseName +']').attr('data-id');
+//	var courseId = $('#searchCourse option[value=' + courseName +']').attr('data-id');
+   
+		
+  });
+function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('check')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+
         $('.my_course').on('click', function () {
             var course_id = $(this).data("id") ;
             window.location.href = '/course-details/' + course_id ,true;
         });
+
+
+		$('.category').on('click', function () {
+			
+			var category = [] ;
+			$('.category').each(function() {
+				if($(this).is(":checked"))
+				{
+					
+					category.push($(this).val());
+					
+				}
+			});
+			categories = category.toString();
+			//alert(categories);
+			$.ajax({
+				type: 'GET',  // http method
+				url: 'courseFilter?categories='+categories ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					//alert("success"); 
+					//alert(response);
+					console.log(response);
+					$(".courses_container").empty();
+					
+					$.each(response, function (key, value) {
+
+
+						
+						var course ='<div class="col-lg-12 p0">\n'+
+						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
+							'<div class="top_courses list">\n'+
+								'<div class="thumb">\n'+
+									'<img class="img-whp" src="'+ value.image +'" alt="t1.jpg">\n'+
+									'<div class="overlay">\n'+
+										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
+										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
+									'</div>\n'+
+								'</div>\n'+
+
+							'<div class="details">\n'+
+								'<div class="tc_content">\n'+
+									 '<p>'+ value.teacher.teacher_info.full_name +' </p>\n'+
+									'<h5>'+ value.title +' </h5>\n'+
+									'<p>'+ value.body +' </p>\n'+
+
+								
+									
+								'</div>\n'+
+								'<div class="tc_footer">\n'+
+									'<ul class="tc_meta float-left fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
+									'</ul>\n'+
+										'<div class="tc_price float-right fn-414">\n'+
+									'@if(!empty($Course->price_after))\n'+
+									'<del class="original_price">$'+ value.price_after +'</del>\n'+
+									'@endif\n'+
+									'$'+ value.price_before +'\n'+
+									'</div>\n'+
+									'<ul class="tc_review float-right fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+
+					'</div>\n'+
+				'</div>\n'+
+			'</div>';
+
+
+
+
+					
+						
+						$(".courses_container").append(course);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+		});
+		$('.city').on('click', function () {
+			
+			var city = [] ;
+			$('.city').each(function() {
+				if($(this).is(":checked"))
+				{
+					
+					city.push($(this).val());
+					
+				}
+			});
+			cities = city.toString();
+			alert(cities);
+			$.ajax({
+				type: 'GET',  // http method
+				url: 'courseFilter?cities='+cities ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
+					//alert(response);
+					console.log(response);
+					$(".courses_container").empty();
+					
+					$.each(response, function (key, value) {
+
+
+						
+						var course ='<div class="col-lg-12 p0">\n'+
+						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
+							'<div class="top_courses list">\n'+
+								'<div class="thumb">\n'+
+									'<img class="img-whp" src="'+ value.course.image +'" alt="t1.jpg">\n'+
+									'<div class="overlay">\n'+
+										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
+										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
+									'</div>\n'+
+								'</div>\n'+
+
+							'<div class="details">\n'+
+								'<div class="tc_content">\n'+
+									'<p>'+ value.course.teacher.teacher_info.full_name +' </p>\n'+
+									'<h5>'+ value.course.title +' </h5>\n'+
+									'<p>'+ value.course.body +' </p>\n'+
+									
+									
+								'</div>\n'+
+								'<div class="tc_footer">\n'+
+									'<ul class="tc_meta float-left fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
+									'</ul>\n'+
+										'<div class="tc_price float-right fn-414">\n'+
+									'@if(!empty($Course->price_after))\n'+
+									'<del class="original_price">$'+ value.course.price_after +'</del>\n'+
+									'@endif\n'+
+									'$'+ value.course.price_before +'\n'+
+									'</div>\n'+
+									'<ul class="tc_review float-right fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+
+					'</div>\n'+
+				'</div>\n'+
+			'</div>';
+
+
+
+
+					
+						
+						$(".courses_container").append(course);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+		
+  
+		});
+
+		$('.instructor').on('click', function () {
+			
+			var instructor = [] ;
+			$('.instructor').each(function() {
+				if($(this).is(":checked"))
+				{
+					
+					instructor.push($(this).val());
+					
+				}
+			});
+			instructors = instructor.toString();
+			alert(instructors);
+			$.ajax({
+				type: 'GET',  // http method
+				url: 'courseFilter?instructors='+instructors ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
+					//alert(response);
+					console.log(response);
+					$(".courses_container").empty();
+					
+					$.each(response, function (key, value) {
+
+
+						
+						var course ='<div class="col-lg-12 p0">\n'+
+						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
+							'<div class="top_courses list">\n'+
+								'<div class="thumb">\n'+
+									'<img class="img-whp" src="'+ value.image +'" alt="t1.jpg">\n'+
+									'<div class="overlay">\n'+
+										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
+										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
+									'</div>\n'+
+								'</div>\n'+
+
+							'<div class="details">\n'+
+								'<div class="tc_content">\n'+
+									 '<p>'+ value.teacher.teacher_info.full_name +' </p>\n'+
+									'<h5>'+ value.title +' </h5>\n'+
+									'<p>'+ value.body +' </p>\n'+
+
+								
+									
+								'</div>\n'+
+								'<div class="tc_footer">\n'+
+									'<ul class="tc_meta float-left fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
+									'</ul>\n'+
+										'<div class="tc_price float-right fn-414">\n'+
+									'@if(!empty($Course->price_after))\n'+
+									'<del class="original_price">$'+ value.price_after +'</del>\n'+
+									'@endif\n'+
+									'$'+ value.price_before +'\n'+
+									'</div>\n'+
+									'<ul class="tc_review float-right fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+
+					'</div>\n'+
+				'</div>\n'+
+			'</div>';
+
+
+
+
+					
+						
+						$(".courses_container").append(course);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+		});
+		$('.price_course').on('click', function () {
+			
+		
+				if($(this).is(":checked"))
+				{
+					
+					var price_course = $(this).val();
+					
+				}
+		
+		//	price_courses = price_course.toString();
+			alert(price_course);
+			$.ajax({
+				type: 'GET',  // http method
+				url: 'courseFilter?price_course='+price_course ,
+   				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
+					//alert(response);
+					console.log(response);
+					$(".courses_container").empty();
+					
+					$.each(response, function (key, value) {
+
+
+						
+						var course ='<div class="col-lg-12 p0">\n'+
+						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
+							'<div class="top_courses list">\n'+
+								'<div class="thumb">\n'+
+									'<img class="img-whp" src="'+ value.image +'" alt="t1.jpg">\n'+
+									'<div class="overlay">\n'+
+										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
+										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
+									'</div>\n'+
+								'</div>\n'+
+
+							'<div class="details">\n'+
+								'<div class="tc_content">\n'+
+									 '<p>'+ value.teacher.teacher_info.full_name +' </p>\n'+
+									'<h5>'+ value.title +' </h5>\n'+
+									'<p>'+ value.body +' </p>\n'+
+
+								
+									
+								'</div>\n'+
+								'<div class="tc_footer">\n'+
+									'<ul class="tc_meta float-left fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
+									'</ul>\n'+
+										'<div class="tc_price float-right fn-414">\n'+
+									'@if(!empty($Course->price_after))\n'+
+									'<del class="original_price">$'+ value.price_after +'</del>\n'+
+									'@endif\n'+
+									'$'+ value.price_before +'\n'+
+									'</div>\n'+
+									'<ul class="tc_review float-right fn-414">\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
+									'</ul>\n'+
+								'</div>\n'+
+							'</div>\n'+
+
+					'</div>\n'+
+				'</div>\n'+
+			'</div>';
+						
+						$(".courses_container").append(course);
+                    });
+
+					
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+		});
+		
     </script>
 @endsection

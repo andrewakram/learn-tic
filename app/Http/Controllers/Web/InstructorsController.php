@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web;
 use App\Models\City;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\CourseCity;
 use App\Models\TeacherInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -49,8 +50,59 @@ class InstructorsController extends Controller
             $instractors = TeacherInfo::whereIn('qualifications' , explode( ',', $qualification ))->get();
 
             return  response()->json($instractors);
-//      
+
+           }
+
+           if(isset($request->gender)){
+            $gender =  $request->gender ;
+            $teacher = User::where('gender' , $gender)
+            ->where('type' , 'teacher')
+            ->with(['teacherInfo'=>function($query){
+                $query->with('category');
+                $query->select('id','full_name','teacher_id' ,'categoey_id');
+               }])
+             ->get();
+//dd($teacher);
+            return  response()->json($teacher);
+
+           }
+
+           if(isset($request->learn_types)){
+            $learn_types =  $request->learn_types ;
+            $instractors = TeacherInfo::whereIn('learn_type' , explode( ',', $learn_types ))->get();
+
+            return  response()->json($instractors);
+
  
+           }
+
+           if(isset($request->instructorId)){
+            $instructorId =  $request->instructorId ;
+            $instractors = TeacherInfo::where('teacher_id' , $instructorId)->with('teacher')->get();
+
+            return  response()->json($instractors);
+           }
+
+           if(isset($request->cities)){
+
+            $cities =  $request->cities ;
+           $teacher_ids =  CourseCity::where('city_id' , $cities )->pluck('teacher_id');
+           $city_filter = TeacherInfo::whereIn('teacher_id' ,  $teacher_ids)->get();
+            // $city_filter = CourseCity::where('city_id' , $cities )
+            // ->with(['course'=>function($query){
+
+            //     $query->with(['teacher'=>function($query2){
+            //     $query2->with('teacherInfo');
+                
+
+            //     //need name teacher and category in this selected city
+            //    }]);
+            //    }])
+            
+            // ->get();
+            
+           
+          return  response()->json($city_filter);
            }
            
 
