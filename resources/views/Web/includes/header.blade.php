@@ -65,7 +65,7 @@
 
                                         <li class="list_content">
 
-                                            <a href="" class="btn btn-thm cart_btns"> حسابي </a>
+                                            <a href="{{ route('my_profile') }}" class="btn btn-thm cart_btns"> حسابي </a>
                                             <a href="{{ route('logout') }}" class="btn btn-thm3 checkout_btns">تسجيل خروج </a>
                                         </li>
 

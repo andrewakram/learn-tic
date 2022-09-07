@@ -16,7 +16,8 @@ use App\Http\Controllers\Web\InstructorAuthController;
 use App\Http\Controllers\Web\InstructorLoginController;
 use App\Http\Controllers\Web\StudentRegisterController;
 use App\Http\Controllers\Web\InstructorRegisterController;
-
+use App\Http\Controllers\InstructorAdmin\InstructorProfileController;
+use App\Http\Controllers\InstructorAdmin\InstructorCourseController;
 
 
 /*
@@ -68,10 +69,19 @@ Route::group([
     Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
     Route::get('logout', [StudentAuthController::class,'logout'])->name('logout');
     Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
+
     Route::get('instructorFilter', [InstructorsController::class,'instructorFilter'])->name('instructorFilter');
     Route::get('courseFilter', [CoursesController::class,'courseFilter'])->name('courseFilter');
-    
-    
+
+    //instructor Admin
+    Route::group([
+        'middleware' => 'auth:web',
+    ], function () {
+        Route::get('my-profile', [InstructorProfileController::class,'myProfile'])->name('my_profile');
+        Route::get('instructor-courses', [InstructorCourseController::class,'index'])->name('instructor_courses');
+    });
+
+
 });
 
 
