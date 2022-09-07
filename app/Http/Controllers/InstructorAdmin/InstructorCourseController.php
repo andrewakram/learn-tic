@@ -28,4 +28,9 @@ class InstructorCourseController extends Controller
         return view('InstructorAdmin.pages.instructor_courses',compact('data'));
     }
 
+    public function add()
+    {
+        return view('InstructorAdmin.pages.instructor_add_course');
+    }
+
 }

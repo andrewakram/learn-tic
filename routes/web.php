@@ -79,6 +79,7 @@ Route::group([
     ], function () {
         Route::get('my-profile', [InstructorProfileController::class,'myProfile'])->name('my_profile');
         Route::get('instructor-courses', [InstructorCourseController::class,'index'])->name('instructor_courses');
+        Route::get('instructor-add-course', [InstructorCourseController::class,'add'])->name('instructor_add_course');
     });
 
 

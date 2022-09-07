@@ -17,6 +17,11 @@
                 <li class="{{request()->segment(1) == 'instructor-courses' ? 'active' : ''}}">
                     <a href="{{route('instructor_courses')}}"><span class="flaticon-like" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> My Courses</a>
                 </li>
+                <li class="{{request()->segment(1) == 'instructor-add-course' ? 'active' : ''}}">
+                    <a href="{{route('instructor_add_course')}}">
+                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Course
+                    </a>
+                </li>
                 <li>
                     <a href="page-my-order.html">
                         <span class="flaticon-shopping-bag-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Order
@@ -30,11 +35,6 @@
                 <li>
                     <a href="page-my-review.html">
                         <span class="flaticon-rating" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Reviews
-                    </a>
-                </li>
-                <li>
-                    <a href="page-add-course.html">
-                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Course
                     </a>
                 </li>
             </ul>
