@@ -31,9 +31,7 @@ class InstructorsController extends Controller
         $gender =  $request->gender ;
         $qualification =  $request->qualification ;
         
-        $builder = TeacherInfo::where(function ($q) {
-            $q->with('teacher');
-        });
+        $builder = TeacherInfo::query();
         if(isset($request->categories)){
             $categories =  $request->categories ;
             $instractors = TeacherInfo::whereIn('categoey_id' , explode( ',', $categories ))->get();
@@ -42,24 +40,23 @@ class InstructorsController extends Controller
 
            if(isset($qualification)){
             
-                $instractors = $builder->whereIn('qualifications' , explode( ',', $qualification ));
-            // dd($instractors);
-                
-                //
+            $instractors = $builder->whereIn('qualifications' , explode( ',', $qualification ))->get();
+            
+            //
             
            }
 
-        if(isset($gender)){
+           if(isset($gender)){
           //  dd($gender);
             $teacher_ids = User::where('gender' , $gender)
             ->where('type' , 'teacher')
-            // ->with(['teacherInfo'=>function($query) use ($builder){
-            //     $query->with('category');
+            ->with(['teacherInfo'=>function($query) use ($builder){
+                $query->with('category');
                  
-            //   //  $builder->select('id','full_name','teacher_id' ,'categoey_id');
-            //    }])
-             ->pluck('id');
-             $instractors = $builder->whereIn('teacher_id' , $teacher_ids ); // out 6 7
+              //  $builder->select('id','full_name','teacher_id' ,'categoey_id');
+               }])
+             ->get()->pluck('id');
+             $instractors = $builder->whereIn('teacher_id' , $teacher_ids )->get(); // out 6 7
             //dd($teacher);
             
             
@@ -84,9 +81,7 @@ class InstructorsController extends Controller
                 return  response()->json($city_filter);
            }
           
-    $instractors
-    ->get();
-       //    dd($instractors);
+           
            return  response()->json($instractors);
 
     }
