@@ -666,7 +666,7 @@
                 data: {},
 
                 success: function (response) { // What to do if we succeed
-                    if (response && response.length > 0) {
+                    if (response) {
                         //alert("success");
                         console.log(response);
                         if (response.length > 0) {
@@ -833,7 +833,6 @@
                 success: function (response) { // What to do if we succeed
                     if (response) {
                         alert(response);
-                        if (response.length > 0) {
                             alert("success");
                             $(".instructors").empty();
 
@@ -880,7 +879,6 @@
                             });
 
 
-                        }
                     }
 
                 },
