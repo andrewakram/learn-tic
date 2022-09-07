@@ -14,82 +14,64 @@ class InstructorsController extends Controller
 {
     public function index()
     {
-         $instractors = TeacherInfo::select('id','full_name','teacher_id' ,'categoey_id')->get();
-         $data['categories'] =  Category::select('id','title_' . getLang() . '  as title')->withCount(['courses'])->get();
-         $data['cities'] =  City::select('id','title_' . getLang() . '  as title')->get();
-        return view('Web.pages.instructors',compact('instractors' , 'data'));
+        $instractors = TeacherInfo::select('id', 'full_name', 'teacher_id', 'categoey_id')->get();
+        $data['categories'] = Category::select('id', 'title_' . getLang() . '  as title')->withCount(['courses'])->get();
+        $data['cities'] = City::select('id', 'title_' . getLang() . '  as title')->get();
+        return view('Web.pages.instructors', compact('instractors', 'data'));
     }
 
     public function instructorDetails(Request $request)
     {
         $teacher_details = User::findOrFail($request->instructor_id);
-        return view('Web.pages.instructor_details',compact('teacher_details'));
+        return view('Web.pages.instructor_details', compact('teacher_details'));
     }
 
     public function instructorFilter(Request $request)
     {
-        $gender =  $request->gender ;
-        $qualification =  $request->qualification ;
-        
-        $builder = TeacherInfo::where(function ($q) {
-            $q->with('teacher');
-        });
-        if(isset($request->categories)){
-            $categories =  $request->categories ;
-            $instractors = TeacherInfo::whereIn('categoey_id' , explode( ',', $categories ))->get();
-            return  response()->json($instractors);
+        $gender = $request->gender;
+        $qualification = $request->qualification;
+
+        $builder = new TeacherInfo();
+        if (isset($request->categories)) {
+            $categories = $request->categories;
+            $instractors = TeacherInfo::whereIn('categoey_id', explode(',', $categories))->get();
+            return response()->json($instractors);
         }
 
-           if(isset($qualification)){
-            
-                $instractors = $builder->whereIn('qualifications' , explode( ',', $qualification ));
-            // dd($instractors);
-                
-                //
-            
-           }
+        if (isset($qualification)) {
+            $builder->whereIn('qualifications', explode(',', $qualification));
+        }
 
-        if(isset($gender)){
-          //  dd($gender);
-            $teacher_ids = User::where('gender' , $gender)
-            ->where('type' , 'teacher')
-            // ->with(['teacherInfo'=>function($query) use ($builder){
-            //     $query->with('category');
-                 
-            //   //  $builder->select('id','full_name','teacher_id' ,'categoey_id');
-            //    }])
-             ->pluck('id');
-             $instractors = $builder->whereIn('teacher_id' , $teacher_ids ); // out 6 7
-            //dd($teacher);
-            
-            
-           }
+        if (isset($gender)) {
+            $teacher_ids = User::where('gender', $gender)
+                ->where('type', 'teacher')
+                ->pluck('id');
+            $builder->whereIn('teacher_id', $teacher_ids);
+        }
 
-           if(isset($request->learn_types)){
-            $learn_types =  $request->learn_types ;
-            $instractors = TeacherInfo::whereIn('learn_type' , explode( ',', $learn_types ))->get();
-            return  response()->json($instractors);
-           }
+        if (isset($request->learn_types)) {
+            $learn_types = $request->learn_types;
+            $instractors = TeacherInfo::whereIn('learn_type', explode(',', $learn_types))->get();
+            return response()->json($instractors);
+        }
 
-           if(isset($request->instructor_name_id)){
-            $instructor_name_id =  $request->instructor_name_id ;
-            $instractors = TeacherInfo::where('teacher_id' , $instructor_name_id)->with('teacher')->get();
-            return  response()->json($instractors);
-           }
+        if (isset($request->instructor_name_id)) {
+            $instructor_name_id = $request->instructor_name_id;
+            $instractors = TeacherInfo::where('teacher_id', $instructor_name_id)->with('teacher')->get();
+            return response()->json($instractors);
+        }
 
-           if(isset($request->cities)){
-                    $cities =  $request->cities ;
-                $teacher_ids =  CourseCity::where('city_id' , $cities )->pluck('teacher_id');
-                $city_filter = TeacherInfo::whereIn('teacher_id' ,  $teacher_ids)->get();
-                return  response()->json($city_filter);
-           }
-          
-    $instractors
-    ->get();
-       //    dd($instractors);
-           return  response()->json($instractors);
+        if (isset($request->cities)) {
+            $cities = $request->cities;
+            $teacher_ids = CourseCity::where('city_id', $cities)->pluck('teacher_id');
+            $city_filter = TeacherInfo::whereIn('teacher_id', $teacher_ids)->get();
+            return response()->json($city_filter);
+        }
+
+        $instractors = $builder->get();
+        return response()->json($instractors);
 
     }
-    
+
 
 }
