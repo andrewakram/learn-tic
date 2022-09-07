@@ -489,85 +489,97 @@
 @section('script')
 
 <script type="text/javascript">
+	var qualification = [] ;
+	var gender ='';
+	var instructor_name_id  ='';
+
+document.querySelector('#instructor_name').addEventListener('input', (e) => {
+  Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+  //console.log('dataset of input changed: ', e.target.dataset.id)
+  instructor_name_id = e.target.dataset.id
+  alert(instructor_name_id);
+});
+
+
 
 $('#city').on('input', function() {
-    var cityName = $(this).val();
-	
-	var cityId = $('#searchCity option[value=' + cityName +']').attr('data-id');
-	
-   alert(cityName);
-   alert(cityId);
+			var cityName = $(this).val();
+			
+			var cityId = $('#searchCity option[value=' + cityName +']').attr('data-id');
+			
+		alert(cityName);
+		alert(cityId);
 
-   $.ajax({
-				type: 'GET',  // http method
-				url: 'instructorFilter?cities='+cityId ,
-   				 data: {},
-				
-				success: function(response){ // What to do if we succeed
-				if(response)
-				{
-					alert("success"); 
-					//alert(response);
-					console.log(response);
-					$(".instructors").empty();
-					$.each(response, function (key, value) {
-						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
-							'<div class="team_member style3 text-center mb30">\n'+
-								'<div class="instructor_col">\n'+
-									'<div class="thumb">\n'+
-										'<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n'+
-									'</div>\n'+
-									'<div class="details">\n'+
-										'<h4>'+ value.full_name +'</h4>\n'+
-
-										 '<p>\n'+
-										' @if(session()->get('lang') == 'ar')\n'+
-										'{{$instructor -> category -> title_ar}}\n'+
-										' @else\n'+
-										'{{$instructor -> category -> title_en}}\n'+
-										' @endif\n'+
-										'</p>\n'+
-
-										'<ul>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
-										'</ul>\n'+
-									'</div>\n'+
-								'</div>\n'+
-								'<div class="tm_footer">\n'+
-									'<ul>\n'+
-										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
-										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-						'</div>';
+		$.ajax({
+						type: 'GET',  // http method
+						url: 'instructorFilter?cities='+cityId ,
+						data: {},
 						
+						success: function(response){ // What to do if we succeed
+						if(response)
+						{
+							alert("success"); 
+							//alert(response);
+							console.log(response);
+							$(".instructors").empty();
+							$.each(response, function (key, value) {
+								var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+									'<div class="team_member style3 text-center mb30">\n'+
+										'<div class="instructor_col">\n'+
+											'<div class="thumb">\n'+
+												'<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n'+
+											'</div>\n'+
+											'<div class="details">\n'+
+												'<h4>'+ value.full_name +'</h4>\n'+
+
+												'<p>\n'+
+												' @if(session()->get('lang') == 'ar')\n'+
+												'{{$instructor -> category -> title_ar}}\n'+
+												' @else\n'+
+												'{{$instructor -> category -> title_en}}\n'+
+												' @endif\n'+
+												'</p>\n'+
+
+												'<ul>\n'+
+													'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+													'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+													'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+													'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+													'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+													'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+												'</ul>\n'+
+											'</div>\n'+
+										'</div>\n'+
+										'<div class="tm_footer">\n'+
+											'<ul>\n'+
+												'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+												'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+											'</ul>\n'+
+										'</div>\n'+
+									'</div>\n'+
+								'</div>';
+								
+								
+								$(".instructors").append(instructor);
+							});
+							
+						}
+							
+						},
+						error: function(response){
+							alert('Error'+response);
+						}
 						
-						$(".instructors").append(instructor);
-                    });
-					
-				}
-					
-				},
-				error: function(response){
-					alert('Error'+response);
-				}
-				
-				});
-  });
+						});
+ });
 
 
-        $('.my_teacher').on('click', function () {
+$('.my_teacher').on('click', function () {
             var instructor_id = $(this).data("id") ;
             window.location.href = '/instructor-details/' + instructor_id ,true;
-        });
+});
 
-		$('.select_city').change(function() {
+$('.select_city').change(function() {
 			mycity_value = $(this).val();
 			mycity_idid = $(this).attr('id');
 			
@@ -576,9 +588,9 @@ $('#city').on('input', function() {
 			// alert(mycity_id);
 		
     
-		});
+});
 		$('.qualification').on('click', function () {
-			var qualification = [] ;
+			
 			$('.qualification').each(function() {
 				if($(this).is(":checked"))
 				{
@@ -591,7 +603,10 @@ $('#city').on('input', function() {
 			// alert(qualification);
 			$.ajax({
 				type: 'GET',  // http method
-				url: 'instructorFilter?qualification='+qualification ,
+			/////	url: 'instructorFilter?qualification='+qualification ,
+				url: "{{url('instructorFilter')}}" + '?qualification=' + qualification + '&gender=' + gender ,
+				//// + '&region_id=' + region_id + '&category_id=' + category_id + '&main_service_id=' + main_service_id
+
    				 data: {},
 				
 				success: function(response){ // What to do if we succeed
@@ -602,44 +617,45 @@ $('#city').on('input', function() {
 					$(".instructors").empty();
 					
 					$.each(response, function (key, value) {
-						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
-							'<div class="team_member style3 text-center mb30">\n'+
-								'<div class="instructor_col">\n'+
-									'<div class="thumb">\n'+
-										'<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n'+
-									'</div>\n'+
-									'<div class="details">\n'+
-										'<h4>'+ value.full_name +'</h4>\n'+
+						plus_instructor(value.teacher_id , value.full_name , value.teacher.image );
+						// var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+						// 	'<div class="team_member style3 text-center mb30">\n'+
+						// 		'<div class="instructor_col">\n'+
+						// 			'<div class="thumb">\n'+
+						// 				'<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n'+
+						// 			'</div>\n'+
+						// 			'<div class="details">\n'+
+						// 				'<h4>'+ value.full_name +'</h4>\n'+
 
-										 '<p>\n'+
-										' @if(session()->get('lang') == 'ar')\n'+
-										'{{$instructor -> category -> title_ar}}\n'+
-										' @else\n'+
-										'{{$instructor -> category -> title_en}}\n'+
-										' @endif\n'+
-										'</p>\n'+
+						// 				 '<p>\n'+
+						// 				' @if(session()->get('lang') == 'ar')\n'+
+						// 				'{{$instructor -> category -> title_ar}}\n'+
+						// 				' @else\n'+
+						// 				'{{$instructor -> category -> title_en}}\n'+
+						// 				' @endif\n'+
+						// 				'</p>\n'+
 
-										'<ul>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
-										'</ul>\n'+
-									'</div>\n'+
-								'</div>\n'+
-								'<div class="tm_footer">\n'+
-									'<ul>\n'+
-										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
-										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-						'</div>';
+						// 				'<ul>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+						// 				'</ul>\n'+
+						// 			'</div>\n'+
+						// 		'</div>\n'+
+						// 		'<div class="tm_footer">\n'+
+						// 			'<ul>\n'+
+						// 				'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+						// 				'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+						// 			'</ul>\n'+
+						// 		'</div>\n'+
+						// 	'</div>\n'+
+						// '</div>';
 						
 						
-						$(".instructors").append(instructor);
+						// $(".instructors").append(instructor);
                     });
 
 					
@@ -754,14 +770,17 @@ $('#city').on('input', function() {
 			if($(this).is(":checked"))
 			{
 				
-				var gender = $(this).val();
+				 gender = $(this).val();
+
 				
 			}
 	
-		alert(gender);
-		$.ajax({
+			alert(gender);
+			$.ajax({
 			type: 'GET',  // http method
-			url: 'instructorFilter?gender='+gender ,
+			//url: 'instructorFilter?gender='+gender ,
+			url: "{{url('instructorFilter')}}" + '?qualification=' + qualification + '&gender=' + gender ,
+
 				data: {},
 			
 			success: function(response){ // What to do if we succeed
@@ -771,44 +790,45 @@ $('#city').on('input', function() {
 				$(".instructors").empty();
 					
 					$.each(response, function (key, value) {
-						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
-							'<div class="team_member style3 text-center mb30">\n'+
-								'<div class="instructor_col">\n'+
-									'<div class="thumb">\n'+
-										'<img class="img-fluid img-rounded-circle" src="'+value.image +'" alt="6.png">\n'+
-									'</div>\n'+
-									'<div class="details">\n'+
-										'<h4>'+ value.full_name +'</h4>\n'+
+						plus_instructor(value.teacher_id , value.full_name , value.image );
+						// var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+						// 	'<div class="team_member style3 text-center mb30">\n'+
+						// 		'<div class="instructor_col">\n'+
+						// 			'<div class="thumb">\n'+
+						// 				'<img class="img-fluid img-rounded-circle" src="'+value.image +'" alt="6.png">\n'+
+						// 			'</div>\n'+
+						// 			'<div class="details">\n'+
+						// 				'<h4>'+ value.full_name +'</h4>\n'+
 
-										 '<p>\n'+
-										' @if(session()->get('lang') == 'ar')\n'+
-										'{{$instructor -> category -> title_ar}}\n'+
-										' @else\n'+
-										'{{$instructor -> category -> title_en}}\n'+
-										' @endif\n'+
-										'</p>\n'+
+						// 				 '<p>\n'+
+						// 				' @if(session()->get('lang') == 'ar')\n'+
+						// 				'{{$instructor -> category -> title_ar}}\n'+
+						// 				' @else\n'+
+						// 				'{{$instructor -> category -> title_en}}\n'+
+						// 				' @endif\n'+
+						// 				'</p>\n'+
 
-										'<ul>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
-										'</ul>\n'+
-									'</div>\n'+
-								'</div>\n'+
-								'<div class="tm_footer">\n'+
-									'<ul>\n'+
-										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
-										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-						'</div>';
+						// 				'<ul>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+						// 					'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+						// 				'</ul>\n'+
+						// 			'</div>\n'+
+						// 		'</div>\n'+
+						// 		'<div class="tm_footer">\n'+
+						// 			'<ul>\n'+
+						// 				'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+						// 				'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+						// 			'</ul>\n'+
+						// 		'</div>\n'+
+						// 	'</div>\n'+
+						// '</div>';
 						
 						
-						$(".instructors").append(instructor);
+						// $(".instructors").append(instructor);
                     });
 
 					
@@ -823,7 +843,7 @@ $('#city').on('input', function() {
 				});
 
 
-				$('.learn_type').on('click', function () {
+		$('.learn_type').on('click', function () {
 			
 			var learn_type = [] ;
 			$('.learn_type').each(function() {
@@ -901,89 +921,120 @@ $('#city').on('input', function() {
 		
   
 		});
-
-		$('#instructor_name').on('input', function() {
-   
-	///////////////////////////////////////////////
-  		
-				
-				var instructorName = $(this).id;
-				alert(instructorName);
-				var instructorId = $('#searchInstructor option[id=' + instructorName +']');
-				alert(instructorId);
-				
 		
-	
-		$.ajax({
-			type: 'GET',  // http method
-			url: 'instructorFilter?instructorId='+instructorId ,
-				data: {},
-			
-			success: function(response){ // What to do if we succeed
-			if(response)
-			{
-				alert("success"); 
-				$(".instructors").empty();
-					
-					$.each(response, function (key, value) {
-						var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
-							'<div class="team_member style3 text-center mb30">\n'+
-								'<div class="instructor_col">\n'+
-									'<div class="thumb">\n'+
-										'<img class="img-fluid img-rounded-circle" src="'+value.teacher.image +'" alt="6.png">\n'+
+
+		 $('#instructor_name').on('input', function() {
+   
+  		
+		alert('instructor_name_id');
+		alert(instructor_name_id);
+
+		
+			$.ajax({
+				type: 'GET',  // http method
+				url: 'instructorFilter?instructor_name_id='+instructor_name_id ,
+					data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
+					$(".instructors").empty();
+						
+						$.each(response, function (key, value) {
+							var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+								'<div class="team_member style3 text-center mb30">\n'+
+									'<div class="instructor_col">\n'+
+										'<div class="thumb">\n'+
+											'<img class="img-fluid img-rounded-circle" src="'+value.teacher.image +'" alt="6.png">\n'+
+										'</div>\n'+
+										'<div class="details">\n'+
+											'<h4>'+ value.full_name +'</h4>\n'+
+
+											'<p>\n'+
+											' @if(session()->get('lang') == 'ar')\n'+
+											'{{$instructor -> category -> title_ar}}\n'+
+											' @else\n'+
+											'{{$instructor -> category -> title_en}}\n'+
+											' @endif\n'+
+											'</p>\n'+
+
+											'<ul>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+											'</ul>\n'+
+										'</div>\n'+
 									'</div>\n'+
-									'<div class="details">\n'+
-										'<h4>'+ value.full_name +'</h4>\n'+
-
-										 '<p>\n'+
-										' @if(session()->get('lang') == 'ar')\n'+
-										'{{$instructor -> category -> title_ar}}\n'+
-										' @else\n'+
-										'{{$instructor -> category -> title_en}}\n'+
-										' @endif\n'+
-										'</p>\n'+
-
+									'<div class="tm_footer">\n'+
 										'<ul>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-											'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+											'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+											'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
 										'</ul>\n'+
 									'</div>\n'+
 								'</div>\n'+
-								'<div class="tm_footer">\n'+
-									'<ul>\n'+
-										'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
-										'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-						'</div>';
-						
-						
-						$(".instructors").append(instructor);
-                    });
+							'</div>';
+							
+							
+							$(".instructors").append(instructor);
+						});
 
-					
+						
 				}
+						
+					},
+					error: function(response){
+						//alert('Error'+response);
+					}
 					
-				},
-				error: function(response){
-					//alert('Error'+response);
-				}
+					});
+		 });
+			
+
+				///////////
 				
-				});
-				});
 		
-		// function plus_item() {
-        //     var new_item = 
-        //         ' <label class="required form-label">\n' +
-        //         '  اختر الباقة الإضافية\n' +
-        //         '                                                            </label>\n' +
-		
-        //                  $(".instructors").append(new_item);
-		// 				}
+	function plus_instructor(instructor_id, instructor_name , instructor_image){
+					var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+ instructor_id +'">\n'+
+								'<div class="team_member style3 text-center mb30">\n'+
+									'<div class="instructor_col">\n'+
+										'<div class="thumb">\n'+
+											'<img class="img-fluid img-rounded-circle" src="'+ instructor_image +'" alt="6.png">\n'+
+										'</div>\n'+
+										'<div class="details">\n'+
+											'<h4>'+ instructor_name +'</h4>\n'+
+
+											'<p>\n'+
+											' @if(session()->get('lang') == 'ar')\n'+
+											'{{$instructor -> category -> title_ar}}\n'+
+											' @else\n'+
+											'{{$instructor -> category -> title_en}}\n'+
+											' @endif\n'+
+											'</p>\n'+
+
+											'<ul>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+												'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+											'</ul>\n'+
+										'</div>\n'+
+									'</div>\n'+
+									'<div class="tm_footer">\n'+
+										'<ul>\n'+
+											'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+											'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+										'</ul>\n'+
+									'</div>\n'+
+								'</div>\n'+
+							'</div>';
+							$(".instructors").append(instructor);
+				}
+
     </script>
 @endsection
