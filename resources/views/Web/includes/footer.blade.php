@@ -87,7 +87,7 @@
 
                 </div>
             </div>
-            <div class="col-sm-8 col-md-5 col-lg-6 col-xl-6 pb25 pt25 brdr_left_right">
+            <div class="col-sm-8 col-md-5 col-lg-3  pb25 pt25 brdr_left_right">
                 <div class="footer_menu_widget">
                     <ul>
                         <li class="list-inline-item"><a href="#"><img src="{{asset('project')}}/images/payment/visa.png" alt="visa.png"></a></li>
@@ -96,6 +96,11 @@
                         <li class="list-inline-item"><a href="#"><img src="{{asset('project')}}/images/payment/paypal.png" alt="paypal.png"></a></li>
 
                     </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-5 col-lg-3  pb25 pt25 brdr_left_right">
+                <div class="footer_terms">
+                    <a href="{{route('terms_conditions')}}">{{ trans('lang.terms_conditions') }}</a>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3 col-xl-4 pb15 pt15">

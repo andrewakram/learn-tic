@@ -2,20 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\TermsConditions;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\BlogsController;
-use App\Http\Controllers\Web\CategoriesController;
 use App\Http\Controllers\Web\AboutUsController;
 use App\Http\Controllers\Web\CoursesController;
 use App\Http\Controllers\Web\ContactUsController;
+use App\Http\Controllers\Web\CategoriesController;
 use App\Http\Controllers\Web\InstructorsController;
+use App\Http\Controllers\Web\StudentAuthController;
 use App\Http\Controllers\Web\StudentLoginController;
+use App\Http\Controllers\Web\InstructorAuthController;
 use App\Http\Controllers\Web\InstructorLoginController;
 use App\Http\Controllers\Web\StudentRegisterController;
 use App\Http\Controllers\Web\InstructorRegisterController;
-use App\Http\Controllers\Web\StudentAuthController;
-use App\Http\Controllers\Web\InstructorAuthController;
-
+use App\Http\Controllers\InstructorAdmin\InstructorProfileController;
+use App\Http\Controllers\InstructorAdmin\InstructorCourseController;
 
 
 /*
@@ -51,6 +53,7 @@ Route::group([
 ], function () {
     Route::get('/', [HomeController::class,'index'])->name('home');
     Route::get('about-us', [AboutUsController::class,'index'])->name('about_us');
+    Route::get('terms-conditions', [TermsConditions::class,'index'])->name('terms_conditions');
     Route::get('courses', [CoursesController::class,'index'])->name('courses');
     Route::get('course-details/{course_id}', [CoursesController::class,'courseDetails'])->name('course_details');
     Route::get('instructors', [InstructorsController::class,'index'])->name('instructors');
@@ -66,6 +69,21 @@ Route::group([
     Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
     Route::get('logout', [StudentAuthController::class,'logout'])->name('logout');
     Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
+
+    Route::get('instructorFilter', [InstructorsController::class,'instructorFilter'])->name('instructorFilter');
+    Route::get('courseFilter', [CoursesController::class,'courseFilter'])->name('courseFilter');
+
+    //instructor Admin
+    Route::group([
+        'middleware' => 'auth:web',
+    ], function () {
+        Route::get('my-profile', [InstructorProfileController::class,'myProfile'])->name('my_profile');
+        Route::get('instructor-courses', [InstructorCourseController::class,'index'])->name('instructor_courses');
+        Route::get('instructor-add-course', [InstructorCourseController::class,'add'])->name('instructor_add_course');
+        Route::post('instructor-store-course', [InstructorCourseController::class,'store'])->name('instructor_store_course');
+    });
+
+
 });
 
 

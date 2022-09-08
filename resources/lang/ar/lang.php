@@ -191,6 +191,7 @@ return [
     'goals' => 'اهدافنا ',
     'pages' => 'الصفحات ',
     'more'=> 'المزيد',
+    'terms_conditions' => 'الشروط & الأحكام ',
 
     //login student
     'login_student' => 'تسجيل الطالب',

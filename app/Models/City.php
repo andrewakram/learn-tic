@@ -10,5 +10,12 @@ class City extends Model
     use HasFactory;
 
     protected $fillable=['title_ar','title_en'];
+    public function getImageAttribute($image)
+    {
+        if (!empty($image)) {
+            return asset('uploads/Blog') . '/' . $image;
+        }
+        return asset('default.png');
+    }
 
 }

@@ -14,7 +14,7 @@ class Course extends Model
 
     protected $fillable = [
         'category_id','teacher_id','title_ar','title_en','body_ar','body_en',
-        'price_before','price_after','points','rate','course_time',
+        'price_before','price_after','points','rate','course_time','image'
     ];
 
 
@@ -37,6 +37,11 @@ class Course extends Model
     public function courseExams(){
         return $this->hasMany(Exam::class,'course_id');
     }
+
+    public function courseOrders(){
+        return $this->hasMany(Order::class,'student_id');
+    }
+
 
     public function getImageAttribute($image)
     {
