@@ -17,7 +17,7 @@ class InstructorCourseController extends Controller
 {
     public function index()
     {
-        $userId =auth()->user()->id;
+        $userId = auth()->user()->id;
 
         $data['courses'] = Course::where('teacher_id',$userId)
             ->select('id','teacher_id','title_' . getLang() . '  as title',
@@ -30,12 +30,26 @@ class InstructorCourseController extends Controller
 
     public function add()
     {
-        return view('InstructorAdmin.pages.instructor_add_course');
+        $data['categories'] = Category::select('id','title_' . getLang() . '  as title')->get();
+        return view('InstructorAdmin.pages.instructor_add_course',compact('data'));
     }
 
     public function store(Request $request)
     {
-        return view('InstructorAdmin.pages.instructor_add_course');
+        Course::create([
+            'category_id' => $request->category_id,
+            'teacher_id' => auth()->user()->id,
+            'title_ar' => $request->title_ar,
+            'title_en' => $request->title_en,
+            'body_ar' => $request->body_ar,
+            'body_en' => $request->body_en,
+            'price_before' => $request->price_before,
+            'price_after' => $request->price_after,
+            'points' => $request->points,
+            'course_time' => $request->course_time,
+            'image' => $request->image,
+        ]);
+        return redirect()->route('instructor_courses');
     }
 
 }

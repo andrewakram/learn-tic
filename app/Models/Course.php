@@ -14,7 +14,7 @@ class Course extends Model
 
     protected $fillable = [
         'category_id','teacher_id','title_ar','title_en','body_ar','body_en',
-        'price_before','price_after','points','rate','course_time',
+        'price_before','price_after','points','rate','course_time','image'
     ];
 
 
