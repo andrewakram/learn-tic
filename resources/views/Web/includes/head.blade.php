@@ -21,10 +21,12 @@
 @endif
 
 <!-- Title -->
-<title>Learn-Tic</title>
+<<<<<<< HEAD
+<title> Learn-Tic </title>
 <!-- Favicon -->
-<link href="{{asset('project')}}/images/icon_learn.jpg" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
-<link href="{{asset('project')}}/images/icon_learn.jpg" sizes="128x128" rel="shortcut icon" />
+<link href="{{asset('project')}}/images/icon_learn.jpg"  sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+<link href="{{asset('project')}}/images/icon_learn.jpg"  sizes="128x128" rel="shortcut icon" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <!--add font cairo-->
 
