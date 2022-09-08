@@ -33,4 +33,9 @@ class InstructorCourseController extends Controller
         return view('InstructorAdmin.pages.instructor_add_course');
     }
 
+    public function store(Request $request)
+    {
+        return view('InstructorAdmin.pages.instructor_add_course');
+    }
+
 }
