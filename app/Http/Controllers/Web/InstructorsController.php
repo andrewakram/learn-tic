@@ -32,7 +32,7 @@ class InstructorsController extends Controller
         $gender = $request->gender;
         $qualification = $request->qualification;
 
-        $builder = new TeacherInfo();
+        $builder =  TeacherInfo::query();
         if (isset($request->categories)) {
             $categories = $request->categories;
             $instractors = TeacherInfo::whereIn('categoey_id', explode(',', $categories))->get();

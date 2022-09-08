@@ -1,3 +1,4 @@
+
 @extends('Web.index')
 @section('style')
 
@@ -647,12 +648,13 @@
 
         });
         $('.qualification').on('click', function () {
+			var qualification = [];
 
             $('.qualification').each(function () {
                 if ($(this).is(":checked")) {
 
                     qualification.push($(this).val());
-                    // alert(qualification);
+                     alert(qualification);
                 }
             });
             qualification = qualification.toString();
@@ -673,7 +675,7 @@
                             $(".instructors").empty();
 
                             $.each(response, function (key, value) {
-                                plus_instructor(value.teacher_id, value.full_name, value.teacher.image);
+                                plus_instructor(value.teacher_id, value.full_name, value.image);
                                 // var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
                                 // 	'<div class="team_member style3 text-center mb30">\n'+
                                 // 		'<div class="instructor_col">\n'+
