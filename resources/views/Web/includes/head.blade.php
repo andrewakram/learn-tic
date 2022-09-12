@@ -21,7 +21,6 @@
 @endif
 
 <!-- Title -->
-<<<<<<< HEAD
 <title> Learn-Tic </title>
 <!-- Favicon -->
 <link href="{{asset('project')}}/images/icon_learn.jpg"  sizes="128x128" rel="shortcut icon" type="image/x-icon" />
