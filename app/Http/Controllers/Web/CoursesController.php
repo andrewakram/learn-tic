@@ -57,103 +57,171 @@ class CoursesController extends Controller
     public function courseFilter(Request $request)
     {
        
-      
-        if(isset($request->categories)){
-            $categories =  $request->categories ;
-            $course_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
-            'body_' . getLang() . '  as body',
-           'price_before' , 'price_after')
-           ->whereIn('category_id' , explode( ',', $categories ))->with(['teacher'=>function($query){
-            $query->with('teacherInfo');
-           }])
-           ->get();
-          //  dd($course_filter);
-          return response()->json($course_filter);
-           }
+        $categories = $request->categories;
+        $cities = $request->cities;
+        $instructors = $request->instructors;
+        $price_course = $request->price_course;
+        $course_name_id = $request->course_name_id;
+        $city_selected_id = $request->city_selected_id;
+        
+        
+        
 
+        $course_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
+          'body_' . getLang() . '  as body','price_before' , 'price_after' ,'image')
+          ->where(function ($q) use($categories,$cities,$instructors,$price_course,$city_selected_id,$course_name_id){
 
-           if(isset($request->coursename)){
-            $courseid =  $request->coursename ;
+            if (isset($categories) && !empty($categories)) {
+                $categoriesArr = explode(',', $categories);
+                $q->whereIn('category_id', $categoriesArr);
+            }
             
-            $course_name_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
-            'body_' . getLang() . '  as body',
-           'price_before' , 'price_after')
-           ->whereIn('id' , explode( ',', $courseid ))->with(['teacher'=>function($query){
+            
+            if (isset($cities) && !empty($cities)) {
+                $course_id = CourseCity::whereHas('city', function ($query)use($cities) {
+                $query->whereIn('city_id' , explode( ',', $cities )); 
+                })->pluck('course_id');
+                $q->whereIn('id', $course_id);
+            }
+
+            if (isset($instructors) && !empty($instructors)) {
+                $instructorsArr = explode(',', $instructors);
+                $q->whereIn('teacher_id', $instructorsArr);
+            }
+
+            if (isset($city_selected_id) && !empty($city_selected_id)) {
+                $course_id = CourseCity::whereHas('city', function ($query)use($city_selected_id) {
+                $query->where('city_id' , $city_selected_id); 
+                })->select('course_id');
+                $q->whereIn('id', $course_id);
+            }
+
+//problem
+            if (isset($price_course) && !empty($price_course)) {
+                dd($price_course);
+                if($price_course == 0)
+                    {
+                        $q->whereNull('price_before'); //free
+        
+                    }elseif($price_course == 1)
+                    {
+                        $q->whereNotNull('price_before');//paid
+                    }        
+            }
+
+            if (isset($course_name_id) && !empty($course_name_id)) {
+              $course_name =  $q->where('id', $course_name_id);
+            }
+
+           
+
+        })->with(['teacher'=>function($query){
             $query->with('teacherInfo');
            }])
-           ->get();
-          //  dd($course_filter);
-          return response()->json($course_name_filter);
-           }
+        ->orderBy('id','desc')->get();
+
+      //dd($course_filter);
+        return response()->json($course_filter);
+        /////
 
 
-           if(isset($request->cities)){
-            $cities =  $request->cities ;
-            $city_filter = CourseCity::whereIn('city_id' , explode( ',', $cities ))
-            ->with(['course'=>function($query){
+        // if(isset($request->categories)){
+        //     $categories =  $request->categories ;
+        //     $course_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
+        //     'body_' . getLang() . '  as body',
+        //    'price_before' , 'price_after')
+        //    ->whereIn('category_id' , explode( ',', $categories ))->with(['teacher'=>function($query){
+        //     $query->with('teacherInfo');
+        //    }])
+        //    ->get();
+        //   //  dd($course_filter);
+        //   return response()->json($course_filter);
+        //    }
 
-                $query->with(['teacher'=>function($query2){
-                $query2->with('teacherInfo');
-               }])->select('id','teacher_id','image','title_' . getLang() . '  as title',
-                'body_' . getLang() . '  as body',
-               'price_before' , 'price_after');
-               }])
+
+          
+
+
+        //    if(isset($request->cities)){
+        //     $cities =  $request->cities ;
+        //     $city_filter = CourseCity::whereIn('city_id' , explode( ',', $cities ))
+        //     ->with(['course'=>function($query){
+
+        //         $query->with(['teacher'=>function($query2){
+        //         $query2->with('teacherInfo');
+        //        }])->select('id','teacher_id','image','title_' . getLang() . '  as title',
+        //         'body_' . getLang() . '  as body',
+        //        'price_before' , 'price_after');
+        //        }])
                
             
             
-            ->get();
+        //     ->get();
             
-            // $city_filter = CourseCity::whereHas('city', function ($query) {
-            //     $query->whereIn('city_id' , explode( ',', $cities )); 
-            // })->get(); 
+        //     // $city_filter = CourseCity::whereHas('city', function ($query) {
+        //     //     $query->whereIn('city_id' , explode( ',', $cities )); 
+        //     // })->get(); 
 
-           // dd($city_filter);
+        //    // dd($city_filter);
 
-          return  response()->json($city_filter);
-           }
+        //   return  response()->json($city_filter);
+        //    }
 
-           if(isset($request->instructors)){
-            $instructors =  $request->instructors ;
-            $instructors_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
-            'body_' . getLang() . '  as body',
-           'price_before' , 'price_after')
-           ->whereIn('teacher_id' , explode( ',', $instructors ))->with(['teacher'=>function($query){
-            $query->with('teacherInfo');
-           }])
-           ->get();
-          //  dd($course_filter);
-          return response()->json($instructors_filter);
-           }
+        //        if(isset($request->coursename)){
+        //         $courseid =  $request->coursename ;
+                    
+        //         $course_name_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
+        //         'body_' . getLang() . '  as body',
+        //         'price_before' , 'price_after')
+        //         ->whereIn('id' , explode( ',', $courseid ))->with(['teacher'=>function($query){
+        //             $query->with('teacherInfo');
+        //         }])
+        //         ->get();
+        //         //  dd($course_filter);
+        //         return response()->json($course_name_filter);
+        //  }
+            //    if(isset($request->instructors)){
+            //     $instructors =  $request->instructors ;
+            //     $instructors_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
+            //     'body_' . getLang() . '  as body',
+            //    'price_before' , 'price_after')
+            //    ->whereIn('teacher_id' , explode( ',', $instructors ))->with(['teacher'=>function($query){
+            //     $query->with('teacherInfo');
+            //    }])
+            //    ->get();
+            //   //  dd($course_filter);
+            //   return response()->json($instructors_filter);
+            //    }
 
-           if(isset($request->price_course)){
-          // dd($request->all());
+            //    if(isset($request->price_course)){
+            //   // dd($request->all());
+                
+            //     $price_course =  $request->price_course ;
             
-            $price_course =  $request->price_course ;
-         
-                $price_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
-                'body_' . getLang() . '  as body',
-                'price_before' , 'price_after')->with(['teacher'=>function($query){
-                $query->with('teacherInfo');
-           }])
-           ->where(function($query3) use ($price_course){
+            //         $price_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
+            //         'body_' . getLang() . '  as body',
+            //         'price_before' , 'price_after')->with(['teacher'=>function($query){
+            //         $query->with('teacherInfo');
+            //    }])
+            //    ->where(function($query3) use ($price_course){
+                    //0 free //1 paid //2 all
+            //     if($price_course == 0)
+            //     {
 
-            if($price_course == 0)
-            {
+            //         $query3->whereNull('price_before'); //free
+            //        // dd($query3);
 
-                $query3->whereNull('price_before');
-               // dd($query3);
+            //     }elseif($price_course == 1)
+            //     {
+            //         $query3->whereNotNull('price_before');//paid
+            //     }
 
-            }elseif($price_course == 1)
-            {
-                $query3->whereNotNull('price_before');
-            }
+            //    })
+            //    ->get();
 
-           })
-           ->get();
-
-            
-          return response()->json($price_filter);
-           }
+                
+            //   return response()->json($price_filter);
+            //    }
 
            
            

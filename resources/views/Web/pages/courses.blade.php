@@ -436,13 +436,33 @@
 @section('script')
 <script type="text/javascript">
 
+
+	var city = [] ;
+	 var category = [] ;
+	 var instructor = [] ;
+	 var price_course ='';
+	 var course_name_id = '';
+	 var city_selected_id = '';
+ document.querySelector('#course_name').addEventListener('input', (e) => {
+	Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+	course_name_id = e.target.dataset.id
+	alert(course_name_id);
+});
+
+document.querySelector('#city').addEventListener('input', (e) => {
+	Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+	 city_selected_id = e.target.dataset.id
+	alert(city_selected_id);
+	
+});
+
+
 $('#city').on('input', function() {
-    var cityName = $(this).val();
-	
-	var cityId = $('#searchCity option[value=' + cityName +']').attr('data-id');
+    alert('city_selected_id');
+	alert(city_selected_id);
    $.ajax({
 				type: 'GET',  // http method
-				url: 'courseFilter?cities='+cityId ,
+				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
    				 data: {},
 				
 				success: function(response){ // What to do if we succeed
@@ -450,65 +470,12 @@ $('#city').on('input', function() {
 				{
 					alert("success"); 
 					//alert(response);
-					console.log(response);
+					//console.log(response);
 					$(".courses_container").empty();
 					$.each(response, function (key, value) {
-						var course ='<div class="col-lg-12 p0">\n'+
-						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
-							'<div class="top_courses list">\n'+
-								'<div class="thumb">\n'+
-									'<img class="img-whp" src="'+ value.course.image +'" alt="t1.jpg">\n'+
-									'<div class="overlay">\n'+
-										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
-										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
-									'</div>\n'+
-								'</div>\n'+
+						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
 
-							'<div class="details">\n'+
-								'<div class="tc_content">\n'+
-									'<p>'+ value.course.teacher.teacher_info.full_name +' </p>\n'+
-									'<h5>'+ value.course.title +' </h5>\n'+
-									'<p>'+ value.course.body +' </p>\n'+
-									
-									
-								'</div>\n'+
-								'<div class="tc_footer">\n'+
-									'<ul class="tc_meta float-left fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
-									'</ul>\n'+
-										'<div class="tc_price float-right fn-414">\n'+
-									'@if(!empty($Course->price_after))\n'+
-									'<del class="original_price">$'+ value.course.price_after +'</del>\n'+
-									'@endif\n'+
-									'$'+ value.course.price_before +'\n'+
-									'</div>\n'+
-									'<ul class="tc_review float-right fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-
-					'</div>\n'+
-				'</div>\n'+
-			'</div>';
-
-
-
-
-					
-						
-						$(".courses_container").append(course);
                     });
-
-					
 				}
 					
 				},
@@ -521,199 +488,86 @@ $('#city').on('input', function() {
   });
 
 
-  $('#city').on('input', function() {
-    var cityName = $(this).val();
-	
-	var cityId = $('#searchCity option[value=' + cityName +']').attr('data-id');
-   $.ajax({
-				type: 'GET',  // http method
-				url: 'courseFilter?cities='+cityId ,
-   				 data: {},
-				
-				success: function(response){ // What to do if we succeed
-				if(response)
-				{
-					alert("success"); 
-					//alert(response);
-					console.log(response);
-					$(".courses_container").empty();
-					$.each(response, function (key, value) {
-						var course ='<div class="col-lg-12 p0">\n'+
-						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
-							'<div class="top_courses list">\n'+
-								'<div class="thumb">\n'+
-									'<img class="img-whp" src="'+ value.course.image +'" alt="t1.jpg">\n'+
-									'<div class="overlay">\n'+
-										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
-										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
-									'</div>\n'+
-								'</div>\n'+
-
-							'<div class="details">\n'+
-								'<div class="tc_content">\n'+
-									'<p>'+ value.course.teacher.teacher_info.full_name +' </p>\n'+
-									'<h5>'+ value.course.title +' </h5>\n'+
-									'<p>'+ value.course.body +' </p>\n'+
-									
-									
-								'</div>\n'+
-								'<div class="tc_footer">\n'+
-									'<ul class="tc_meta float-left fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
-									'</ul>\n'+
-										'<div class="tc_price float-right fn-414">\n'+
-									'@if(!empty($Course->price_after))\n'+
-									'<del class="original_price">$'+ value.course.price_after +'</del>\n'+
-									'@endif\n'+
-									'$'+ value.course.price_before +'\n'+
-									'</div>\n'+
-									'<ul class="tc_review float-right fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-
-					'</div>\n'+
-				'</div>\n'+
-			'</div>';
-
-
-
-
-					
-						
-						$(".courses_container").append(course);
-                    });
-
-					
-				}
-					
-				},
-				error: function(response){
-					alert('Error'+response);
-				}
-				
-				});
-		
-  });
-  
 
   $('#course_name').on('input', function() {
-    var courseName = $(this).val();
-	alert(courseName);
-	var courseId = $('#searchCourse option[value=' + courseName +']').attr('data-id');
-//	var courseId = $('#searchCourse option[value=' + courseName +']').attr('data-id');
-   
-		
-  });
-function onlyOne(checkbox) {
+   alert('course_name_id');
+   alert(course_name_id);
+   $.ajax({
+				type: 'GET',  // http method
+				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
+				 data: {},
+				
+				success: function(response){ // What to do if we succeed
+				if(response)
+				{
+					alert("success"); 
+					//alert(response);
+					console.log(response);
+					$(".courses_container").empty();
+					
+					$.each(response, function (key, value) {
+						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+                    });
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+
+});
+	function onlyOne(checkbox) {
     var checkboxes = document.getElementsByName('check')
     checkboxes.forEach((item) => {
-        if (item !== checkbox) item.checked = false
-    })
+     if (item !== checkbox) item.checked = false
+	})
 }
 
         $('.my_course').on('click', function () {
             var course_id = $(this).data("id") ;
             window.location.href = '/course-details/' + course_id ,true;
-        });
+     });
 
-
+	 
 		$('.category').on('click', function () {
 			
-			var category = [] ;
+			 category = [] ;
 			$('.category').each(function() {
 				if($(this).is(":checked"))
 				{
-					
 					category.push($(this).val());
-					
 				}
+				else {
+						var index = category.indexOf($(this).val());
+						if (index > -1) {
+							category.splice(index, 1);
+						}
+					}
 			});
 			categories = category.toString();
-			//alert(categories);
+			alert('categories');
+			alert(categories);
+			alert('city');
+			alert(city);
 			$.ajax({
 				type: 'GET',  // http method
-				url: 'courseFilter?categories='+categories ,
+				//url: 'courseFilter?categories='+categories ,
+				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
    				 data: {},
 				
 				success: function(response){ // What to do if we succeed
 				if(response)
 				{
-					//alert("success"); 
+					alert("success"); 
 					//alert(response);
-					console.log(response);
+					//console.log(response);
 					$(".courses_container").empty();
 					
 					$.each(response, function (key, value) {
-
-
-						
-						var course ='<div class="col-lg-12 p0">\n'+
-						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
-							'<div class="top_courses list">\n'+
-								'<div class="thumb">\n'+
-									'<img class="img-whp" src="'+ value.image +'" alt="t1.jpg">\n'+
-									'<div class="overlay">\n'+
-										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
-										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
-									'</div>\n'+
-								'</div>\n'+
-
-							'<div class="details">\n'+
-								'<div class="tc_content">\n'+
-									 '<p>'+ value.teacher.teacher_info.full_name +' </p>\n'+
-									'<h5>'+ value.title +' </h5>\n'+
-									'<p>'+ value.body +' </p>\n'+
-
-								
-									
-								'</div>\n'+
-								'<div class="tc_footer">\n'+
-									'<ul class="tc_meta float-left fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
-									'</ul>\n'+
-										'<div class="tc_price float-right fn-414">\n'+
-									'@if(!empty($Course->price_after))\n'+
-									'<del class="original_price">$'+ value.price_after +'</del>\n'+
-									'@endif\n'+
-									'$'+ value.price_before +'\n'+
-									'</div>\n'+
-									'<ul class="tc_review float-right fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-
-					'</div>\n'+
-				'</div>\n'+
-			'</div>';
-
-
-
-
-					
-						
-						$(".courses_container").append(course);
-                    });
-
-					
+						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+                    });	
 				}
 					
 				},
@@ -722,23 +576,31 @@ function onlyOne(checkbox) {
 				}
 				
 				});
-		});
+	});
 		$('.city').on('click', function () {
 			
-			var city = [] ;
+			 city = [] ;
 			$('.city').each(function() {
 				if($(this).is(":checked"))
 				{
-					
 					city.push($(this).val());
 					
 				}
+				else {
+						var index = city.indexOf($(this).val());
+						if (index > -1) {
+							city.splice(index, 1);
+						}
+					}
 			});
 			cities = city.toString();
-			alert(cities);
+			alert('categories');
+			alert(categories);
+			alert('city');
+			alert(city);
 			$.ajax({
 				type: 'GET',  // http method
-				url: 'courseFilter?cities='+cities ,
+				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
    				 data: {},
 				
 				success: function(response){ // What to do if we succeed
@@ -750,65 +612,8 @@ function onlyOne(checkbox) {
 					$(".courses_container").empty();
 					
 					$.each(response, function (key, value) {
-
-
-						
-						var course ='<div class="col-lg-12 p0">\n'+
-						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
-							'<div class="top_courses list">\n'+
-								'<div class="thumb">\n'+
-									'<img class="img-whp" src="'+ value.course.image +'" alt="t1.jpg">\n'+
-									'<div class="overlay">\n'+
-										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
-										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
-									'</div>\n'+
-								'</div>\n'+
-
-							'<div class="details">\n'+
-								'<div class="tc_content">\n'+
-									'<p>'+ value.course.teacher.teacher_info.full_name +' </p>\n'+
-									'<h5>'+ value.course.title +' </h5>\n'+
-									'<p>'+ value.course.body +' </p>\n'+
-									
-									
-								'</div>\n'+
-								'<div class="tc_footer">\n'+
-									'<ul class="tc_meta float-left fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
-									'</ul>\n'+
-										'<div class="tc_price float-right fn-414">\n'+
-									'@if(!empty($Course->price_after))\n'+
-									'<del class="original_price">$'+ value.course.price_after +'</del>\n'+
-									'@endif\n'+
-									'$'+ value.course.price_before +'\n'+
-									'</div>\n'+
-									'<ul class="tc_review float-right fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-
-					'</div>\n'+
-				'</div>\n'+
-			'</div>';
-
-
-
-
-					
-						
-						$(".courses_container").append(course);
-                    });
-
-					
+						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+                    });	
 				}
 					
 				},
@@ -819,95 +624,41 @@ function onlyOne(checkbox) {
 				});
 		
   
-		});
+	});
 
 		$('.instructor').on('click', function () {
 			
-			var instructor = [] ;
+			 instructor = [] ;
 			$('.instructor').each(function() {
 				if($(this).is(":checked"))
 				{
-					
-					instructor.push($(this).val());
-					
+					instructor.push($(this).val());	
 				}
+				// else {
+				// 		var index = instructor.indexOf($(this).val());
+				// 		if (index > -1) {
+				// 			instructor.splice(index, 1);
+				// 		}
+				// 	}
 			});
+			
 			instructors = instructor.toString();
 			alert(instructors);
 			$.ajax({
 				type: 'GET',  // http method
-				url: 'courseFilter?instructors='+instructors ,
-   				 data: {},
+				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
 				
 				success: function(response){ // What to do if we succeed
 				if(response)
 				{
 					alert("success"); 
 					//alert(response);
-					console.log(response);
+					//console.log(response);
 					$(".courses_container").empty();
 					
 					$.each(response, function (key, value) {
-
-
-						
-						var course ='<div class="col-lg-12 p0">\n'+
-						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
-							'<div class="top_courses list">\n'+
-								'<div class="thumb">\n'+
-									'<img class="img-whp" src="'+ value.image +'" alt="t1.jpg">\n'+
-									'<div class="overlay">\n'+
-										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
-										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
-									'</div>\n'+
-								'</div>\n'+
-
-							'<div class="details">\n'+
-								'<div class="tc_content">\n'+
-									 '<p>'+ value.teacher.teacher_info.full_name +' </p>\n'+
-									'<h5>'+ value.title +' </h5>\n'+
-									'<p>'+ value.body +' </p>\n'+
-
-								
-									
-								'</div>\n'+
-								'<div class="tc_footer">\n'+
-									'<ul class="tc_meta float-left fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">1548</a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">25</a></li>\n'+
-									'</ul>\n'+
-										'<div class="tc_price float-right fn-414">\n'+
-									'@if(!empty($Course->price_after))\n'+
-									'<del class="original_price">$'+ value.price_after +'</del>\n'+
-									'@endif\n'+
-									'$'+ value.price_before +'\n'+
-									'</div>\n'+
-									'<ul class="tc_review float-right fn-414">\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-										'<li class="list-inline-item"><a href="#">(5)</a></li>\n'+
-									'</ul>\n'+
-								'</div>\n'+
-							'</div>\n'+
-
-					'</div>\n'+
-				'</div>\n'+
-			'</div>';
-
-
-
-
-					
-						
-						$(".courses_container").append(course);
-                    });
-
-					
+						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+                    });	
 				}
 					
 				},
@@ -918,22 +669,19 @@ function onlyOne(checkbox) {
 				});
 		});
 		$('.price_course').on('click', function () {
-			
 		
 				if($(this).is(":checked"))
 				{
-					
-					var price_course = $(this).val();
-					
+					//var price_course = $(this).val();
+					 price_course = $(this).val();	
 				}
 		
-		//	price_courses = price_course.toString();
+			//	price_courses = price_course.toString();
 			alert(price_course);
 			$.ajax({
 				type: 'GET',  // http method
-				url: 'courseFilter?price_course='+price_course ,
-   				 data: {},
-				
+				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
+				 data: {},
 				success: function(response){ // What to do if we succeed
 				if(response)
 				{
@@ -943,14 +691,24 @@ function onlyOne(checkbox) {
 					$(".courses_container").empty();
 					
 					$.each(response, function (key, value) {
+						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+                    });
+				}
+					
+				},
+				error: function(response){
+					alert('Error'+response);
+				}
+				
+				});
+		});
 
-
-						
-						var course ='<div class="col-lg-12 p0">\n'+
-						'<div class="courses_list_content my_course"  data-id="'+ value.id +'" >\n'+
+		function plus_course(course_id, course_image, course_fullname , course_title , course_body ,course_price_after ,course_price_before) {
+            var course ='<div class="col-lg-12 p0">\n'+
+						'<div class="courses_list_content my_course"  data-id="'+ course_id +'" >\n'+
 							'<div class="top_courses list">\n'+
 								'<div class="thumb">\n'+
-									'<img class="img-whp" src="'+ value.image +'" alt="t1.jpg">\n'+
+									'<img class="img-whp" src="'+ course_image +'" alt="t1.jpg">\n'+
 									'<div class="overlay">\n'+
 										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
 										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
@@ -959,12 +717,9 @@ function onlyOne(checkbox) {
 
 							'<div class="details">\n'+
 								'<div class="tc_content">\n'+
-									 '<p>'+ value.teacher.teacher_info.full_name +' </p>\n'+
-									'<h5>'+ value.title +' </h5>\n'+
-									'<p>'+ value.body +' </p>\n'+
-
-								
-									
+									 '<p>'+ course_fullname +' </p>\n'+
+									'<h5>'+ course_title +' </h5>\n'+
+									'<p>'+ course_body +' </p>\n'+
 								'</div>\n'+
 								'<div class="tc_footer">\n'+
 									'<ul class="tc_meta float-left fn-414">\n'+
@@ -975,9 +730,9 @@ function onlyOne(checkbox) {
 									'</ul>\n'+
 										'<div class="tc_price float-right fn-414">\n'+
 									'@if(!empty($Course->price_after))\n'+
-									'<del class="original_price">$'+ value.price_after +'</del>\n'+
+									'<del class="original_price">$'+ course_price_after +'</del>\n'+
 									'@endif\n'+
-									'$'+ value.price_before +'\n'+
+									'$'+ course_price_before +'\n'+
 									'</div>\n'+
 									'<ul class="tc_review float-right fn-414">\n'+
 										'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
@@ -994,19 +749,8 @@ function onlyOne(checkbox) {
 				'</div>\n'+
 			'</div>';
 						
-						$(".courses_container").append(course);
-                    });
-
-					
-				}
-					
-				},
-				error: function(response){
-					alert('Error'+response);
-				}
-				
-				});
-		});
+			$(".courses_container").append(course);
+        }
 		
     </script>
 @endsection

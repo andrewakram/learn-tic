@@ -1,3 +1,4 @@
+
 @extends('Web.index')
 @section('style')
 
@@ -440,7 +441,7 @@
                                             </div>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input gender"
-                                                       id="customCheck35" value="femail">
+                                                       id="customCheck35" value="female">
                                                 <label class="custom-control-label"
                                                        for="customCheck35"> {{ trans('lang.female') }} <span
                                                         class="float-right">(15)</span></label>
@@ -647,12 +648,13 @@
 
         });
         $('.qualification').on('click', function () {
+			var qualification = [];
 
             $('.qualification').each(function () {
                 if ($(this).is(":checked")) {
 
                     qualification.push($(this).val());
-                    // alert(qualification);
+                     alert(qualification);
                 }
             });
             qualification = qualification.toString();
@@ -673,7 +675,7 @@
                             $(".instructors").empty();
 
                             $.each(response, function (key, value) {
-                                plus_instructor(value.teacher_id, value.full_name, value.teacher.image);
+                                plus_instructor(value.teacher_id, value.full_name, value.image);
                                 // var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
                                 // 	'<div class="team_member style3 text-center mb30">\n'+
                                 // 		'<div class="instructor_col">\n'+
@@ -833,50 +835,50 @@
                 success: function (response) { // What to do if we succeed
                     if (response) {
                         alert(response);
-                        alert("success");
-                        $(".instructors").empty();
+                            alert("success");
+                            $(".instructors").empty();
 
-                        $.each(response, function (key, value) {
-                            plus_instructor(value.teacher_id, value.full_name, value.image);
-                            // var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
-                            // 	'<div class="team_member style3 text-center mb30">\n'+
-                            // 		'<div class="instructor_col">\n'+
-                            // 			'<div class="thumb">\n'+
-                            // 				'<img class="img-fluid img-rounded-circle" src="'+value.image +'" alt="6.png">\n'+
-                            // 			'</div>\n'+
-                            // 			'<div class="details">\n'+
-                            // 				'<h4>'+ value.full_name +'</h4>\n'+
+                            $.each(response, function (key, value) {
+                                plus_instructor(value.teacher_id, value.full_name, value.image);
+                                // var instructor ='<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="'+value.teacher_id +'">\n'+
+                                // 	'<div class="team_member style3 text-center mb30">\n'+
+                                // 		'<div class="instructor_col">\n'+
+                                // 			'<div class="thumb">\n'+
+                                // 				'<img class="img-fluid img-rounded-circle" src="'+value.image +'" alt="6.png">\n'+
+                                // 			'</div>\n'+
+                                // 			'<div class="details">\n'+
+                                // 				'<h4>'+ value.full_name +'</h4>\n'+
 
-                            // 				 '<p>\n'+
-                            // 				' @if(session()->get('lang') == 'ar')\n'+
-                            // 				'{{$instructor -> category -> title_ar}}\n'+
-                            // 				' @else\n'+
-                            // 				'{{$instructor -> category -> title_en}}\n'+
-                            // 				' @endif\n'+
-                            // 				'</p>\n'+
+                                // 				 '<p>\n'+
+                                // 				' @if(session()->get('lang') == 'ar')\n'+
+                                // 				'{{$instructor -> category -> title_ar}}\n'+
+                                // 				' @else\n'+
+                                // 				'{{$instructor -> category -> title_en}}\n'+
+                                // 				' @endif\n'+
+                                // 				'</p>\n'+
 
-                            // 				'<ul>\n'+
-                            // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-                            // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-                            // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-                            // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-                            // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
-                            // 					'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
-                            // 				'</ul>\n'+
-                            // 			'</div>\n'+
-                            // 		'</div>\n'+
-                            // 		'<div class="tm_footer">\n'+
-                            // 			'<ul>\n'+
-                            // 				'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
-                            // 				'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
-                            // 			'</ul>\n'+
-                            // 		'</div>\n'+
-                            // 	'</div>\n'+
-                            // '</div>';
+                                // 				'<ul>\n'+
+                                // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+                                // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+                                // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+                                // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+                                // 					'<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n'+
+                                // 					'<li class="list-inline-item"><a href="#">(6)</a></li>\n'+
+                                // 				'</ul>\n'+
+                                // 			'</div>\n'+
+                                // 		'</div>\n'+
+                                // 		'<div class="tm_footer">\n'+
+                                // 			'<ul>\n'+
+                                // 				'<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n'+
+                                // 				'<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n'+
+                                // 			'</ul>\n'+
+                                // 		'</div>\n'+
+                                // 	'</div>\n'+
+                                // '</div>';
 
 
-                            // $(".instructors").append(instructor);
-                        });
+                                // $(".instructors").append(instructor);
+                            });
 
 
                     }
