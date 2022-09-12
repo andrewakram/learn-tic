@@ -11,12 +11,14 @@ class TeacherInfo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['teacher_id','full_name', 'national_id', 'residence_id',
+    protected $fillable = [
+        'teacher_id','full_name', 'national_id', 'residence_id',
         'qualifications', 'university', 'learn_type', 'categoey_id',
-        'years_of_exper','desctiption','inquiry_cost_normal','inquiry_cost_urgent'];
+        'years_of_exper','desctiption','inquiry_cost_normal','inquiry_cost_urgent'
+    ];
 
-        
-     
+
+
     public function teacher(){
         return $this->belongsTo(User::class,'teacher_id');
     }
@@ -25,6 +27,6 @@ class TeacherInfo extends Model
         return $this->belongsTo(Category::class,'categoey_id');
     }
 
-    
+
 
 }

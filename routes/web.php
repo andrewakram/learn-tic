@@ -78,9 +78,13 @@ Route::group([
         'middleware' => 'auth:web',
     ], function () {
         Route::get('my-profile', [InstructorProfileController::class,'myProfile'])->name('my_profile');
+        Route::get('instructor-personal-profile', [InstructorProfileController::class,'personalProfile'])->name('personalProfile');
+        Route::get('instructor-personal-profile-edit', [InstructorProfileController::class,'personalProfileEdit'])->name('personalProfileEdit');
+        Route::post('instructor-personal-profile-update', [InstructorProfileController::class,'personalProfileUpdate'])->name('personalProfileUpdate');
         Route::get('instructor-courses', [InstructorCourseController::class,'index'])->name('instructor_courses');
         Route::get('instructor-add-course', [InstructorCourseController::class,'add'])->name('instructor_add_course');
         Route::post('instructor-store-course', [InstructorCourseController::class,'store'])->name('instructor_store_course');
+        Route::post('instructor-delete-course', [InstructorCourseController::class,'delete'])->name('instructor_delete_course');
     });
 
 

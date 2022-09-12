@@ -40,7 +40,11 @@
             </ul>
             <h4>Account</h4>
             <ul>
-                <li><a href="page-my-setting.html"><span class="flaticon-settings" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Settings</a></li>
+                <li class="{{request()->segment(1) == 'instructor-personal-profile' ? 'active' : ''}}">
+                    <a href="{{route('personalProfile')}}">
+                        <span class="flaticon-settings" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Settings
+                    </a>
+                </li>
                 <li><a href="{{ route('logout') }}"><span class="flaticon-logout" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Logout</a></li>
             </ul>
         </div>

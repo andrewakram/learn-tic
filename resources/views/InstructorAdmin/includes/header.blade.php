@@ -147,10 +147,10 @@
                 </li>
                 <li class="user_setting">
                     <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><img class="rounded-circle" src="images/team/e1.png" alt="e1.png"></a>
+                        <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><img class="rounded-circle" src="{{auth()->user()->image}}" alt="{{auth()->user()->name}}"></a>
                         <div class="dropdown-menu">
                             <div class="user_set_header">
-                                <img class="float-left" src="{{asset('project')}}/images/team/e1.png" alt="e1.png">
+                                <img class="float-left" src="{{auth()->user()->image}}" alt="{{auth()->user()->name}}">
                                 <p>Kim Hunter <br><span class="address">kimhunter@gmail.com</span></p>
                             </div>
                             <div class="user_setting_content">

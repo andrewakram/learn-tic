@@ -12,6 +12,7 @@ use App\Models\Category;
 use App\Models\TeacherInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Validator;
 
 class InstructorCourseController extends Controller
 {
@@ -19,11 +20,11 @@ class InstructorCourseController extends Controller
     {
         $userId = auth()->user()->id;
 
-        $data['courses'] = Course::where('teacher_id',$userId)
+        $data['courses'] = Course::orderBy('id','desc')
+            ->where('teacher_id',$userId)
             ->select('id','teacher_id','title_' . getLang() . '  as title',
-            'body_' . getLang() . '  as body',
-            'price_before' , 'price_after'
-        )->get();
+                'body_' . getLang() . '  as body','price_before' , 'price_after')
+            ->get();
 
         return view('InstructorAdmin.pages.instructor_courses',compact('data'));
     }
@@ -50,6 +51,21 @@ class InstructorCourseController extends Controller
             'image' => $request->image,
         ]);
         return redirect()->route('instructor_courses');
+    }
+
+    public function delete(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'region_id' => 'required|exists:regions,id',
+        ]);
+        if (!is_array($validator) && $validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        Course::where('id',$request->course)->delete();
+
+        session()->flash('success', 'تم الحذف بنجاح');
+        return redirect()->back();
     }
 
 }
