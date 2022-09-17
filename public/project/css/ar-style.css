@@ -5856,6 +5856,26 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   margin-top: -1px;
   position: relative;
 }
+.courses{
+  background-image: url(../images/background/Courses.jpg);
+}
+.about
+{
+  background-image: url(../images/background/About_Us.jpg);
+}
+.contact
+{
+  background-image: url(../images/background/Contact_US.jpg);
+}
+.blogs
+{
+  background-image: url(../images/background/Blog.jpg);
+}
+.teachers
+{
+  background-image: url(../images/background/About_Us.jpg);
+}
+
 .inner_page_breadcrumb:before{
   content: "";
   /*
@@ -12500,6 +12520,7 @@ section {
   overflow: hidden;
   padding: 130px 0;
   position: relative;
+  background-repeat: no-repeat;
 }
 .divider_home1:before{
  /* background-color: rgba(25, 38, 117, 0.8);*/
