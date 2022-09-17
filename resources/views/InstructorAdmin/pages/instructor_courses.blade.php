@@ -93,7 +93,11 @@
                                     <ul class="view_edit_delete_list float-right">
                                         <li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="View"><span class="flaticon-preview"></span></a></li>
                                         <li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><span class="flaticon-edit"></span></a></li>
-                                        <li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="Delete"><span class="flaticon-delete-button"></span></a></li>
+                                        <li class="list-inline-item">
+                                            <a class="delete" data-id="{{$course->id}}" data-toggle="modal" data-placement="top" title="Delete">
+                                                <span class="flaticon-delete-button"></span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -106,11 +110,42 @@
         </div>
     </div>
 
+    {{-- Delete Modal --}}
+
+    <div id="single" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">تأكيد</h4>
+                </div>
+                <div class="modal-body">
+                    <h5> هل أنت متأكد أنك تريد الحذف؟ </h5>
+                    <form id="delete_form" method="post" action="{{route('instructor_delete_course')}}">
+                        @csrf
+                        <input type="hidden" name="course" id="row_id">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" data-dismiss="modal" class="btn red delete_btn">حذف</button>
+                    <button type="button" data-dismiss="modal" class="btn dark btn-outline">رجوع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 @endsection
 
 @section('script')
-    <script type="text/javascript">
+    <script>
+        $(document).on("click", ".delete", function () {
+            var row_id = $(this).data('id');
+            $(".modal-body #row_id").val(row_id);
+        });
 
-
+        $('.delete_btn').on('click',function () {
+            $('#delete_form').submit();
+        })
     </script>
 @endsection
