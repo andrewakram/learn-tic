@@ -86,6 +86,7 @@ class InstructorProfileController extends Controller
             'desctiption' => $request->desctiption,
         ]);
 
+        session()->flash('success', 'تم التعديل بنجاح');
         return back();
     }
 
