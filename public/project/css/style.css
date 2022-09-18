@@ -12459,6 +12459,8 @@ section {
   overflow: hidden;
   padding: 130px 0;
   position: relative;
+  background-repeat: no-repeat;
+
 }
 .divider_home1:before{
  /* background-color: rgba(25, 38, 117, 0.8);*/
