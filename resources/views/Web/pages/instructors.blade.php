@@ -181,9 +181,9 @@
     <!-- Our Team Members -->
     <section class="our-team pb40">
         <div class="container">
-            <div class="row">
+            <div class="row ">
                 <div class="col-md-12 col-lg-8 col-xl-9">
-                    <div class="row">
+                    <div class="row search_instructor">
                         <div class="col-sm-5 col-lg-5 col-xl-3">
                             <div class="instructor_search_result">
                                 <p class="mt10 fz15"><span class="color-dark">85</span> {{ trans('lang.instructors') }}
@@ -191,7 +191,7 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-7 col-lg-7 col-xl-9">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
                             <!--<div class="candidate_revew_search_box mb30 float-right fn-520">
                                 <form class="form-inline my-2 my-lg-0">
                                     <select class="selectpicker show-tick">
@@ -222,7 +222,28 @@
 
                                     </select>
                                 </li> -->
+                                
                                     <li class="list-inline-item">
+                                        <div class="candidate_revew_search_box course fn-520">
+                                            <form class="form-inline my-2 my-lg-0">
+                                                <input list="searchStage" id="stage" class="form-control mr-sm-2"
+                                                       type="search" placeholder="{{ trans('lang.stage') }}"
+                                                       aria-label="Search">
+
+                                                <datalist id="searchStage">
+                                                    @foreach ($data['stages'] as $stage)
+                                                        <option id="{{$stage -> id}}" data-id="{{$stage -> id}}"
+                                                                value="{{$stage -> title}}">
+
+                                                    @endforeach
+
+                                                </datalist>
+                                                <button class="btn my-2 my-sm-0" type="submit"><span
+                                                        class="flaticon-magnifying-glass"></span></button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                    <!-- <li class="list-inline-item">
                                         <div class="candidate_revew_search_box course fn-520">
                                             <form class="form-inline my-2 my-lg-0">
                                                 <input list="searchCity" id="city" class="form-control mr-sm-2"
@@ -233,6 +254,27 @@
                                                     @foreach ($data['cities'] as $city)
                                                         <option id="{{$city -> id}}" data-id="{{$city -> id}}"
                                                                 value="{{$city -> title}}">
+
+                                                    @endforeach
+
+                                                </datalist>
+                                                <button class="btn my-2 my-sm-0" type="submit"><span
+                                                        class="flaticon-magnifying-glass"></span></button>
+                                            </form>
+                                        </div>
+                                    </li> -->
+
+                                    <li class="list-inline-item">
+                                        <div class="candidate_revew_search_box course fn-520">
+                                            <form class="form-inline my-2 my-lg-0">
+                                                <input list="searchSubject" id="subject" class="form-control mr-sm-2"
+                                                       type="search" placeholder="{{ trans('lang.subject') }}"
+                                                       aria-label="Search">
+
+                                                <datalist id="searchSubject">
+                                                    @foreach ($data['categories'] as $category)
+                                                        <option id="{{$category -> id}}" data-id="{{$category -> id}}"
+                                                                value="{{$category -> title}}">
 
                                                     @endforeach
 
@@ -281,11 +323,8 @@
                                             <h4>{{$instructor->full_name}}</h4>
 
                                             <p>
-                                                @if(session()->get('lang') == 'ar')
-                                                    {{$instructor -> category -> title_ar}}
-                                                @else
-                                                    {{$instructor -> category -> title_en}}
-                                                @endif
+                                            {{$instructor -> category -> title}}
+                                             
                                             </p>
 
                                             <ul>
@@ -435,14 +474,14 @@
                                         <div class="ui_kit_checkbox">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input gender"
-                                                       id="customCheck34" value="male">
+                                                       id="customCheck34" value="male" name="check" onclick="onlyOne(this)">
                                                 <label class="custom-control-label"
                                                        for="customCheck34">{{ trans('lang.male') }} <span
                                                         class="float-right">(03)</span></label>
                                             </div>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input gender"
-                                                       id="customCheck35" value="female">
+                                                       id="customCheck35" value="female" name="check" onclick="onlyOne(this)">
                                                 <label class="custom-control-label"
                                                        for="customCheck35"> {{ trans('lang.female') }} <span
                                                         class="float-right">(15)</span></label>
@@ -470,28 +509,59 @@
                                 </div>
                                 <div id="panelBodySoftware" class="panel-collapse collapse show">
                                     <div class="panel-body">
-                                        <div class="ui_kit_checkbox">
-                                            <!-- <form action="" method="get">  -->
-                                            @foreach ($data['categories'] as $category)
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input category"
-                                                           value="{{$category -> id}}"
-                                                           id="customCheck{{$category -> id}}">
-                                                    <label class="custom-control-label"
-                                                           for="customCheck{{$category -> id}}"> {{$category -> title}}
-                                                        <span
-                                                            class="float-right">({{$category -> courses_count}})</span></label>
-                                                </div>
-                                        @endforeach
-                                        <!-- </form> -->
-                                            <a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> See
-                                                More</a>
+                                        <div class="cl_skill_checkbox">
+                                            <div class="content ui_kit_checkbox style2 text-left">
+                                                <!-- <form action="" method="get">  -->
+                                                @foreach ($data['categories'] as $category)
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input category"
+                                                            value="{{$category -> id}}"
+                                                            id="customCheck{{$category -> id}}">
+                                                        <label class="custom-control-label"
+                                                            for="customCheck{{$category -> id}}"> {{$category -> title}}
+                                                            <span
+                                                                class="float-right">({{$category -> courses_count}})</span></label>
+                                                    </div>
+                                                 @endforeach
+                                            <!-- </form> -->
+                                                <!-- <a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> See
+                                                    More</a> -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="selected_filter_widget style2">
+						<div id="accordion" class="panel-group">
+						  <div class="panel">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+									  <a href="#panelBodyPlace" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.city') }}</a>
+								  </h4>
+								</div>
+							  <div id="panelBodyPlace" class="panel-collapse collapse show">
+								  <div class="panel-body">
+									  <div class="cl_skill_checkbox">
+										  <div class="content ui_kit_checkbox style2 text-left">
+										 	 @foreach ($data['cities'] as $city)
+
+											 	 <div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input city" value="{{$city -> id}}" id="city{{$city -> id}}">
+													<label class="custom-control-label" for="city{{$city -> id}}">{{$city -> title}} <span class="float-right">(03)</span></label>
+											 	 </div>
+											@endforeach
+
+
+										  </div>
+									  </div>
+								  </div>
+							  </div>
+						  </div>
+					  </div>
+				  </div>
 
                     <!-- teaching methods-->
                     <div class="selected_filter_widget style2 mb30">
@@ -550,90 +620,110 @@
 @section('script')
 
     <script type="text/javascript">
+        
+        function onlyOne(checkbox) {
+            var checkboxes = document.getElementsByName('check')
+            checkboxes.forEach((item) => {
+              if (item !== checkbox) item.checked = false
+            })
+        }
         var qualification = [];
         var category = [];
         var learn_type = [];
-
         var gender = '';
         var instructor_name_id = '';
+        var subject_name_id = '';
+        var stage_name_id = '';
+        var city = [];
 
         document.querySelector('#instructor_name').addEventListener('input', (e) => {
             Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
-            //console.log('dataset of input changed: ', e.target.dataset.id)
             instructor_name_id = e.target.dataset.id
-            alert(instructor_name_id);
+           // alert(instructor_name_id);
+        });
+
+        document.querySelector('#subject').addEventListener('input', (e) => {
+            Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+            subject_name_id = e.target.dataset.id
+           // alert(subject_name_id);
+        });
+
+        document.querySelector('#stage').addEventListener('input', (e) => {
+            Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+            stage_name_id = e.target.dataset.id
+           // alert(stage_name_id);
         });
 
 
-        $('#city').on('input', function () {
-            var cityName = $(this).val();
+        // $('#city').on('input', function () {
+        //     var cityName = $(this).val();
 
-            var cityId = $('#searchCity option[value=' + cityName + ']').attr('data-id');
+        //     var cityId = $('#searchCity option[value=' + cityName + ']').attr('data-id');
 
-            alert(cityName);
-            alert(cityId);
+        //     alert(cityName);
+        //     alert(cityId);
 
-            $.ajax({
-                type: 'GET',  // http method
-                url: 'instructorFilter?cities=' + cityId,
-                data: {},
+        //     $.ajax({
+        //         type: 'GET',  // http method
+        //         url: 'instructorFilter?cities=' + cityId,
+        //         data: {},
 
-                success: function (response) { // What to do if we succeed
-                    if (response) {
-                        alert("success");
-                        //alert(response);
-                        console.log(response);
-                        $(".instructors").empty();
-                        $.each(response, function (key, value) {
-                            var instructor = '<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="' + value.teacher_id + '">\n' +
-                                '<div class="team_member style3 text-center mb30">\n' +
-                                '<div class="instructor_col">\n' +
-                                '<div class="thumb">\n' +
-                                '<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n' +
-                                '</div>\n' +
-                                '<div class="details">\n' +
-                                '<h4>' + value.full_name + '</h4>\n' +
+        //         success: function (response) { // What to do if we succeed
+        //             if (response) {
+        //                 alert("success");
+        //                 //alert(response);
+        //                 console.log(response);
+        //                 $(".instructors").empty();
+        //                 $.each(response, function (key, value) {
+        //                     var instructor = '<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="' + value.teacher_id + '">\n' +
+        //                         '<div class="team_member style3 text-center mb30">\n' +
+        //                         '<div class="instructor_col">\n' +
+        //                         '<div class="thumb">\n' +
+        //                         '<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n' +
+        //                         '</div>\n' +
+        //                         '<div class="details">\n' +
+        //                         '<h4>' + value.full_name + '</h4>\n' +
 
-                                '<p>\n' +
-                                ' @if(session()->get('lang') == 'ar')\n' +
-                                '{{$instructor -> category -> title_ar}}\n' +
-                                ' @else\n' +
-                                '{{$instructor -> category -> title_en}}\n' +
-                                ' @endif\n' +
-                                '</p>\n' +
+        //                         '<p>\n' +
+        //                         ' @if(session()->get('lang') == 'ar')\n' +
+        //                         '{{$instructor -> category -> title_ar}}\n' +
+        //                         ' @else\n' +
+        //                         '{{$instructor -> category -> title_en}}\n' +
+        //                         ' @endif\n' +
+        //                         '</p>\n' +
 
-                                '<ul>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#">(6)</a></li>\n' +
-                                '</ul>\n' +
-                                '</div>\n' +
-                                '</div>\n' +
-                                '<div class="tm_footer">\n' +
-                                '<ul>\n' +
-                                '<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n' +
-                                '<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n' +
-                                '</ul>\n' +
-                                '</div>\n' +
-                                '</div>\n' +
-                                '</div>';
+        //                         '<ul>\n' +
+        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
+        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
+        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
+        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
+        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
+        //                         '<li class="list-inline-item"><a href="#">(6)</a></li>\n' +
+        //                         '</ul>\n' +
+        //                         '</div>\n' +
+        //                         '</div>\n' +
+        //                         '<div class="tm_footer">\n' +
+        //                         '<ul>\n' +
+        //                         '<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n' +
+        //                         '<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n' +
+        //                         '</ul>\n' +
+        //                         '</div>\n' +
+        //                         '</div>\n' +
+        //                         '</div>';
 
 
-                            $(".instructors").append(instructor);
-                        });
+        //                     $(".instructors").append(instructor);
+        //                 });
 
-                    }
+        //             }
 
-                },
-                error: function (response) {
-                    alert('Error' + response);
-                }
+        //         },
+        //         error: function (response) {
+        //             alert('Error' + response);
+        //         }
 
-            });
-        });
+        //     });
+        // });
 
 
         $('.my_teacher').on('click', function () {
@@ -641,52 +731,50 @@
             window.location.href = '/instructor-details/' + instructor_id , true;
         });
 
-        $('.select_city').change(function () {
-            mycity_value = $(this).val();
-            mycity_idid = $(this).attr('id');
+        // $('.select_city').change(function () {
+        //     mycity_value = $(this).val();
+        //     mycity_idid = $(this).attr('id');
 
-            mycity_id = $(this).data('id');
-            // alert(mycity_value);
-            // alert(mycity_id);
+        //     mycity_id = $(this).data('id');
+        //     // alert(mycity_value);
+        //     // alert(mycity_id);
 
 
-        });
+        // });
+
         $('.qualification').on('click', function () {
 			 qualification = [];
 
             $('.qualification').each(function () {
                 if ($(this).is(":checked")) {
-
                     qualification.push($(this).val());
                      alert(qualification);
                 }
             });
             qualification = qualification.toString();
-            // alert(qualification);
             $.ajax({
                 type: 'GET',  // http method
-                /////	url: 'instructorFilter?qualification='+qualification ,
-                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification + '&gender=' + gender + '&category=' + category + '&learn_type=' + learn_type,
-                //// + '&region_id=' + region_id + '&category_id=' + category_id + '&main_service_id=' + main_service_id
-
+                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
+                + '&gender=' + gender + '&category=' + category  + '&city=' + city  + '&learn_type=' + learn_type
+                + '&instructor_name_id=' + instructor_name_id  + '&subject_name_id=' + subject_name_id 
+                + '&stage_name_id=' + stage_name_id,
                 data: {},
 
                 success: function (response) { // What to do if we succeed
                     if (response) {
-                        //alert("success");
-                     //   console.log(response);
-                        if (response.length > 0) {
+                    
+                        
                             $(".instructors").empty();
-
+                            if (response.length > 0) {
                             $.each(response, function (key, value) {
-                                plus_instructor(value.teacher_id, value.full_name, value.teacher.image);
+                                plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
 
                             });
                         }
+                        else {
+                        no_result();
+                    }
 
-                    } else {
-                        var my_msg = "<p>No Search Results Found</p>"
-                        $(".instructors").append(my_msg);
                     }
 
                 },
@@ -707,34 +795,29 @@
                 }
             });
             categories = category.toString();
-            //alert(categories);
             $.ajax({
-                type: 'GET',  // http method
-               // url: 'instructorFilter?categories=' + categories,
-               url: "{{url('instructorFilter')}}" + '?qualification=' + qualification + '&gender=' + gender + '&category=' + category + '&learn_type=' + learn_type,
-
+               type: 'GET',  
+               url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
+                + '&gender=' + gender + '&category=' + category  + '&city=' + city  + '&learn_type=' + learn_type
+                + '&instructor_name_id=' + instructor_name_id  + '&subject_name_id=' + subject_name_id 
+                + '&stage_name_id=' + stage_name_id,
                 data: {},
 
-                success: function (response) { // What to do if we succeed
+                success: function (response) { 
                     if (response) {
                         $(".instructors").empty();
                         if (response.length > 0) {
-                            alert("success");
-                            alert(response);
-                            console.log(response);
-
-
+                            //alert("success");
+                           // alert(response);
+                            //console.log(response);
                             $.each(response, function (key, value) {
-
-                                plus_instructor(value.teacher_id, value.full_name, value.teacher.image);
-
-
+                                plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
                             });
                         } else {
-                            var instructor = '<p> No result found! </p>';
+                            no_result();
 
                         }
-                        $(".instructors").append(instructor);
+                        
                     }
 
 
@@ -748,34 +831,37 @@
 
         });
 
+        
+
         $('.gender').on('click', function () {
 
-
             if ($(this).is(":checked")) {
-
                 gender = $(this).val();
-
-
             }
 
-            alert(gender);
+           // alert(gender);
             $.ajax({
                 type: 'GET',  // http method
-                //url: 'instructorFilter?gender='+gender ,
-                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification + '&gender=' + gender + '&category=' + category + '&learn_type=' + learn_type,
-
+                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
+                + '&gender=' + gender + '&category=' + category  + '&city=' + city  + '&learn_type=' + learn_type
+                + '&instructor_name_id=' + instructor_name_id  + '&subject_name_id=' + subject_name_id 
+                + '&stage_name_id=' + stage_name_id,
                 data: {},
 
                 success: function (response) { // What to do if we succeed
                     if (response) {
-                        alert(response);
-                            alert("success");
+                       // alert(response);
+                          //  alert("success");
                             $(".instructors").empty();
+                            if (response.length > 0) {
 
                             $.each(response, function (key, value) {
-                                plus_instructor(value.teacher_id, value.full_name, value.teacher.image);
+                                plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
                                
                             });
+                        }else{
+                            no_result();
+                        }
 
 
                     }
@@ -800,25 +886,29 @@
                 }
             });
             learn_types = learn_type.toString();
-            alert(learn_types);
+            //alert(learn_types);
             $.ajax({
                 type: 'GET',  // http method
-                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification + '&gender=' + gender + '&category=' + category + '&learn_type=' + learn_type,
+                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
+                + '&gender=' + gender + '&category=' + category  + '&city=' + city  + '&learn_type=' + learn_type
+                + '&instructor_name_id=' + instructor_name_id  + '&subject_name_id=' + subject_name_id 
+                + '&stage_name_id=' + stage_name_id,
                 data: {},
 
                 success: function (response) { // What to do if we succeed
                     if (response) {
-                        alert("success");
+                       // alert("success");
                         //console.log(response);
                         $(".instructors").empty();
-
+                        if (response.length > 0) {
                         $.each(response, function (key, value) {
-                            plus_instructor(value.teacher_id, value.full_name, value.teacher.image);
+                            plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
 
                         });
-
-
-                    }
+                        }else{
+                            no_result();
+                        }
+                }
 
                 },
                 error: function (response) {
@@ -832,62 +922,64 @@
 
 
         $('#instructor_name').on('input', function () {
+           // alert('instructor_name_id');
+           // alert(instructor_name_id);
+
+            $.ajax({
+                type: 'GET',  
+                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
+                + '&gender=' + gender + '&category=' + category  + '&city=' + city  + '&learn_type=' + learn_type
+                + '&instructor_name_id=' + instructor_name_id  + '&subject_name_id=' + subject_name_id 
+                + '&stage_name_id=' + stage_name_id,
+
+                data: {},
+
+                success: function (response) { 
+                    if (response) {
+                    //    alert("success");
+                        $(".instructors").empty();
+                        if (response.length > 0) {
+                        $.each(response, function (key, value) {
+                            plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
+
+                        });
+                    }else{
+                        no_result();
+                    }
+                    }
+                },
+                error: function (response) {
+                    //alert('Error'+response);
+                }
+
+            });
+        });
 
 
-            alert('instructor_name_id');
-            alert(instructor_name_id);
-
+        $('#subject').on('input', function () {
+           // alert('subject_name_id');
+           // alert(subject_name_id);
 
             $.ajax({
                 type: 'GET',  // http method
-                url: 'instructorFilter?instructor_name_id=' + instructor_name_id,
+                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
+                + '&gender=' + gender + '&category=' + category  + '&city=' + city  + '&learn_type=' + learn_type
+                + '&instructor_name_id=' + instructor_name_id  + '&subject_name_id=' + subject_name_id 
+                + '&stage_name_id=' + stage_name_id,
                 data: {},
 
                 success: function (response) { // What to do if we succeed
                     if (response) {
-                        alert("success");
+                      //  alert("success");
                         $(".instructors").empty();
-
+                        if (response.length > 0) {
                         $.each(response, function (key, value) {
-                            var instructor = '<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="' + value.teacher_id + '">\n' +
-                                '<div class="team_member style3 text-center mb30">\n' +
-                                '<div class="instructor_col">\n' +
-                                '<div class="thumb">\n' +
-                                '<img class="img-fluid img-rounded-circle" src="' + value.teacher.image + '" alt="6.png">\n' +
-                                '</div>\n' +
-                                '<div class="details">\n' +
-                                '<h4>' + value.full_name + '</h4>\n' +
+                            plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
 
-                                '<p>\n' +
-                                ' @if(session()->get('lang') == 'ar')\n' +
-                                '{{$instructor -> category -> title_ar}}\n' +
-                                ' @else\n' +
-                                '{{$instructor -> category -> title_en}}\n' +
-                                ' @endif\n' +
-                                '</p>\n' +
-
-                                '<ul>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-                                '<li class="list-inline-item"><a href="#">(6)</a></li>\n' +
-                                '</ul>\n' +
-                                '</div>\n' +
-                                '</div>\n' +
-                                '<div class="tm_footer">\n' +
-                                '<ul>\n' +
-                                '<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n' +
-                                '<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n' +
-                                '</ul>\n' +
-                                '</div>\n' +
-                                '</div>\n' +
-                                '</div>';
-
-
-                            $(".instructors").append(instructor);
                         });
+                    }else{
+                        no_result();
+                    }
 
 
                     }
@@ -900,11 +992,97 @@
             });
         });
 
+        $('#stage').on('input', function () {
+           // alert('stage_name_id');
+           // alert(stage_name_id);
 
+            $.ajax({
+                type: 'GET',  // http method
+                url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
+                + '&gender=' + gender + '&category=' + category  + '&city=' + city  + '&learn_type=' + learn_type
+                + '&instructor_name_id=' + instructor_name_id  + '&subject_name_id=' + subject_name_id 
+                + '&stage_name_id=' + stage_name_id,
+
+                data: {},
+
+                success: function (response) { // What to do if we succeed
+                    if (response) {
+                      //  alert("success");
+                        $(".instructors").empty();
+                        if (response.length > 0) {
+                        $.each(response, function (key, value) {
+                            plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
+
+                        });
+                    }else{
+                        no_result();
+                    }
+
+
+                    }
+
+                },
+                error: function (response) {
+                    //alert('Error'+response);
+                }
+
+            });
+        });
+
+        $('.city').on('click', function () {
+
+            city = [];
+            $('.city').each(function () {
+            if ($(this).is(":checked")) {
+
+                city.push($(this).val());
+
+            }
+            });
+            cities = city.toString();
+            $.ajax({
+            type: 'GET',  
+            url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
+                + '&gender=' + gender + '&category=' + category  + '&city=' + city  + '&learn_type=' + learn_type
+                + '&instructor_name_id=' + instructor_name_id  + '&subject_name_id=' + subject_name_id 
+                + '&stage_name_id=' + stage_name_id,
+            data: {},
+
+            success: function (response) { 
+                if (response) {
+                    $(".instructors").empty();
+                    if (response.length > 0) {
+                     //   alert("success");
+                      //  alert(response);
+                       // console.log(response);
+                        $.each(response, function (key, value) {
+                            plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
+                        });
+                    } else {
+                        no_result();
+
+                    }
+                }
+
+
+            },
+            error: function (response) {
+                //alert('Error'+response);
+            }
+
+            });
+
+
+        });
         ///////////
 
+        function no_result()
+        {
+            var instructor = '<p class="my_result"> No result found! </p>';
+            $(".instructors").append(instructor);
+        }
 
-        function plus_instructor(instructor_id, instructor_name, instructor_image) {
+        function plus_instructor(instructor_id, instructor_name, instructor_category , instructor_image) {
             var instructor = '<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="' + instructor_id + '">\n' +
                 '<div class="team_member style3 text-center mb30">\n' +
                 '<div class="instructor_col">\n' +
@@ -913,14 +1091,7 @@
                 '</div>\n' +
                 '<div class="details">\n' +
                 '<h4>' + instructor_name + '</h4>\n' +
-
-                '<p>\n' +
-                ' @if(session()->get('lang') == 'ar')\n' +
-                '{{$instructor -> category -> title_ar}}\n' +
-                ' @else\n' +
-                '{{$instructor -> category -> title_en}}\n' +
-                ' @endif\n' +
-                '</p>\n' +
+                '<p>' + instructor_category + '</p>\n' +
 
                 '<ul>\n' +
                 '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
