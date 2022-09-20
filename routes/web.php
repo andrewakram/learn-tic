@@ -82,8 +82,11 @@ Route::group([
         Route::get('instructor-personal-profile-edit', [InstructorProfileController::class,'personalProfileEdit'])->name('personalProfileEdit');
         Route::post('instructor-personal-profile-update', [InstructorProfileController::class,'personalProfileUpdate'])->name('personalProfileUpdate');
         Route::get('instructor-courses', [InstructorCourseController::class,'index'])->name('instructor_courses');
+        Route::post('instructor-courses', [InstructorCourseController::class,'search'])->name('search_instructor_courses');
         Route::get('instructor-add-course', [InstructorCourseController::class,'add'])->name('instructor_add_course');
         Route::post('instructor-store-course', [InstructorCourseController::class,'store'])->name('instructor_store_course');
+        Route::get('instructor-edit-course/{course_id}', [InstructorCourseController::class,'edit'])->name('instructor_edit_course');
+        Route::post('instructor-update-course', [InstructorCourseController::class,'update'])->name('instructor_update_course');
         Route::post('instructor-delete-course', [InstructorCourseController::class,'delete'])->name('instructor_delete_course');
     });
 

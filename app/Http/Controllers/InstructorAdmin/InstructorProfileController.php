@@ -71,6 +71,9 @@ class InstructorProfileController extends Controller
         ){
             $user->password = $request->new_password;
         }
+        if(isset($request->image)){
+            $user->image = $request->image;
+        }
         $user->save();
         TeacherInfo::where('teacher_id',$userId)->update([
             'full_name' => $request->full_name,
@@ -86,6 +89,7 @@ class InstructorProfileController extends Controller
             'desctiption' => $request->desctiption,
         ]);
 
+        session()->flash('success', 'تم التعديل بنجاح');
         return back();
     }
 
