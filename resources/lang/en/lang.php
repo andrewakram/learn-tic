@@ -92,7 +92,9 @@ return [
     'female' => 'Female',
     'student_house' => 'Student House',
     'teacher_house' => 'Teacher House',
-    'online_education' => 'online education',
+    'online_education' => 'Online Education',
+    'stage' => 'Choose Stage',
+    'subject' => 'Choose Subject',
 
     
      //instructors details

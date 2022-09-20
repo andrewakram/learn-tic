@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Stage;
 use App\Models\Category;
 use App\Models\TeacherInfo;
 use Illuminate\Database\Eloquent\Model;
@@ -42,6 +43,9 @@ class Course extends Model
         return $this->hasMany(Order::class,'student_id');
     }
 
+    public function stage(){
+        return $this->belongsTo(Stage::class,'stage_id');
+    }
 
     public function getImageAttribute($image)
     {

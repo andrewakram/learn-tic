@@ -112,6 +112,8 @@ return [
     'student_house' => 'منزل الطالب ',
     'teacher_house' => 'منزل المعلم ',
     'online_education' => 'التعليم عن بعد',
+    'stage' => 'اختر المرحلة',
+    'subject' => 'اختر المادة',
      //instructors details
     'appointment' => ' حجز المواعيد',
     'course_list' => ' الكورسات',

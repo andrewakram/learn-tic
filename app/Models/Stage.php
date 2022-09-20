@@ -10,4 +10,8 @@ class Stage extends Model
     use HasFactory;
 
     protected $fillable=['title_ar','title_en'];
+    public function courses()
+    {
+        return $this->hasMany(Course::class ,'stage_id');
+    }
 }
