@@ -151,7 +151,7 @@
                         <div class="dropdown-menu">
                             <div class="user_set_header">
                                 <img class="float-left" src="{{auth()->user()->image}}" alt="{{auth()->user()->name}}">
-                                <p>Kim Hunter <br><span class="address">kimhunter@gmail.com</span></p>
+                                <p>{{auth()->user()->name}}<br><span class="address">{{auth()->user()->email}}</span></p>
                             </div>
                             <div class="user_setting_content">
                                 <a class="dropdown-item active" href="{{ route('my_profile') }}">My Profile</a>
@@ -263,8 +263,8 @@
                     <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><img class="rounded-circle" src="images/team/e1.png" alt="e1.png"></a>
                     <div class="dropdown-menu">
                         <div class="user_set_header">
-                            <img class="float-left" src="{{asset('project')}}/images/team/e1.png" alt="e1.png">
-                            <p>Kim Hunter <br><span class="address">kimhunter@gmail.com</span></p>
+                            <img class="float-left" src="{{auth()->user()->image}}" alt="e1.png">
+                            <p>{{auth()->user()->name}} <br><span class="address">{{auth()->user()->email}}</span></p>
                         </div>
                         <div class="user_setting_content">
                             <a class="dropdown-item active" href="#">My Profile</a>
