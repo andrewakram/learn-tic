@@ -103,6 +103,16 @@
                     </a>
                 </div>
                 <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'stages' ) active @endif"
+                       href="{{route('admin.stages')}}"
+                    >
+                        <span class="menu-icon">
+                            <i class="fa fa-server"></i>
+                        </span>
+                        <span class="menu-title">المراحل الدراسية</span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'blogs' ) active @endif"
                        href="{{route('admin.blogs')}}"
                     >

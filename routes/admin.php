@@ -83,6 +83,18 @@ Route::group([
                 Route::post('/delete-multi', 'CategoryController@deleteMulti')->name('.deleteMulti');
             });
 
+            Route::group(['prefix' => 'stages', 'as' => '.stages'], function () {
+                Route::get('/', 'StageController@index');
+                Route::get('getData', 'StageController@getData')->name('.datatable');
+                Route::get('/create', 'StageController@create')->name('.create');
+                Route::post('/store', 'StageController@store')->name('.store');
+                Route::get('/edit/{id}', 'StageController@edit')->name('.edit');
+                Route::post('/update', 'StageController@update')->name('.update');
+                Route::get('/show/{id}', 'StageController@show')->name('.show');
+                Route::post('/delete', 'StageController@delete')->name('.delete');
+                Route::post('/delete-multi', 'StageController@deleteMulti')->name('.deleteMulti');
+            });
+
             Route::group(['prefix' => 'blogs', 'as' => '.blogs'], function () {
                 Route::get('/', 'BlogController@index');
                 Route::get('getData', 'BlogController@getData')->name('.datatable');
