@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web;
 use App\Models\Tag;
 use App\Models\City;
 use App\Models\User;
+use App\Models\Stage;
 use App\Models\Course;
 use App\Models\Category;
 use App\Models\CourseCity;
@@ -21,10 +22,11 @@ class CoursesController extends Controller
          'body_' . getLang() . '  as body',
         'price_before' , 'price_after'
          )->paginate(2);
-
+         $data['instructors_search'] = TeacherInfo::select('id', 'full_name', 'teacher_id', 'categoey_id')->get();
          $data['categories'] =  Category::select('id','title_' . getLang() . '  as title')->withCount(['courses'])->get();
-         $data['instructors'] =  User::where('type','teacher')->select('id')->withCount(['courses'])->get();
+        $data['instructors'] =  User::where('type','teacher')->select('id')->withCount(['courses'])->get();
          $data['cities'] =  City::select('id','title_' . getLang() . '  as title')->get();
+         $data['stages'] = Stage::select('id', 'title_' . getLang() . '  as title')->get();
          $data['Courses_search'] = Course::select('id','teacher_id','title_' . getLang() . '  as title',
          'body_' . getLang() . '  as body',
         'price_before' , 'price_after'
@@ -63,13 +65,16 @@ class CoursesController extends Controller
         $price_course = $request->price_course;
         $course_name_id = $request->course_name_id;
         $city_selected_id = $request->city_selected_id;
+        $instructor_name_id = $request->instructor_name_id;
+        $subject_name_id = $request->subject_name_id;
+        $stage_name_id = $request->stage_name_id;
         
         
         
 
         $course_filter = Course::select('id','teacher_id','image','title_' . getLang() . '  as title',
           'body_' . getLang() . '  as body','price_before' , 'price_after' ,'image')
-          ->where(function ($q) use($categories,$cities,$instructors,$price_course,$city_selected_id,$course_name_id){
+          ->where(function ($q) use($categories,$cities,$instructors,$price_course,$city_selected_id,$course_name_id,$instructor_name_id,$subject_name_id,$stage_name_id){
 
             if (isset($categories) && !empty($categories)) {
                 $categoriesArr = explode(',', $categories);
@@ -96,14 +101,13 @@ class CoursesController extends Controller
                 $q->whereIn('id', $course_id);
             }
 
-//problem
+
             if (isset($price_course) && !empty($price_course)) {
-                dd($price_course);
-                if($price_course == 0)
-                    {
+                if($price_course == 1)
+                    {         
                         $q->whereNull('price_before'); //free
         
-                    }elseif($price_course == 1)
+                    }elseif($price_course == 2)
                     {
                         $q->whereNotNull('price_before');//paid
                     }        
@@ -113,7 +117,17 @@ class CoursesController extends Controller
               $course_name =  $q->where('id', $course_name_id);
             }
 
-           
+            if (isset($instructor_name_id) && !empty($instructor_name_id)) {
+                $q->where('teacher_id', $instructor_name_id);
+            }
+
+            if (isset($subject_name_id) && !empty($subject_name_id)) {
+                $q->where('category_id', $subject_name_id);
+            }
+            if (isset($stage_name_id) && !empty($stage_name_id)) {
+                $q->where('stage_id', $stage_name_id);
+            }
+            
 
         })->with(['teacher'=>function($query){
             $query->with('teacherInfo');

@@ -25,7 +25,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-8 col-xl-9">
-					<div class="row courses_list_heading style2">
+					<div class="row courses_list_heading search_instructor style2">
 						<div class="col-xl-4 p0">
 							<div class="instructor_search_result style2">
 								<p class="mt10 fz15"><span class="color-dark pr10">85 </span> 
@@ -35,8 +35,8 @@
 								</p>
 							</div>
 						</div>
-						<div class="col-xl-8 p0">
-							<div class="candidate_revew_select style2 text-right">
+						<div class="col-xl-12 p0">
+							<div class="candidate_revew_select mb20   style2 text-right">
 								<ul class="mb0">
 									 <!-- <li class="list-inline-item">
 										<select class="selectpicker show-tick">
@@ -51,6 +51,42 @@
 									<li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
+												<input list="searchStage" id="stage" class="form-control mr-sm-2"  type="search" placeholder="{{ trans('lang.stage') }}" aria-label="Search">
+												
+												<datalist id="searchStage">
+                                                    @foreach ($data['stages'] as $stage)
+                                                        <option id="{{$stage -> id}}" data-id="{{$stage -> id}}"
+                                                                value="{{$stage -> title}}">
+
+                                                    @endforeach
+													
+												</datalist>
+												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+											</form>
+										</div>
+									</li>
+
+									<li class="list-inline-item">
+										<div class="candidate_revew_search_box course fn-520">
+											<form class="form-inline my-2 my-lg-0">
+												<input list="searchSubject" id="subject" class="form-control mr-sm-2"  type="search" placeholder="{{ trans('lang.subject') }}" aria-label="Search">
+												
+												<datalist id="searchSubject">
+                                                    @foreach ($data['categories'] as $category)
+                                                        <option id="{{$category -> id}}" data-id="{{$category -> id}}"
+                                                                value="{{$category -> title}}">
+
+                                                    @endforeach
+													
+												</datalist>
+												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+											</form>
+										</div>
+									</li>
+									
+									<!-- <li class="list-inline-item">
+										<div class="candidate_revew_search_box course fn-520">
+											<form class="form-inline my-2 my-lg-0">
 												<input list="searchCity" id="city" class="form-control mr-sm-2"  type="search" placeholder="{{ trans('lang.city') }}" aria-label="Search">
 												
 												<datalist id="searchCity">
@@ -63,7 +99,7 @@
 												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
 											</form>
 										</div>
-									</li>
+									</li> -->
 									<!-- <li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
@@ -72,7 +108,7 @@
 										    </form>
 										</div>
 									</li> -->
-									<li class="list-inline-item">
+									<!-- <li class="list-inline-item">
 										<div class="candidate_revew_search_box course fn-520">
 											<form class="form-inline my-2 my-lg-0">
 												<input list="searchCourse" id="course_name"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.search_courses') }}" aria-label="Search">
@@ -81,6 +117,23 @@
 												@foreach ($data['Courses_search'] as $Course_search)
 													<option data-id="{{$Course_search->id}}" value="{{$Course_search->title}}">
 												@endforeach
+													
+												</datalist>
+												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+											</form>
+										</div>
+									</li> -->
+									<li class="list-inline-item">
+										<div class="candidate_revew_search_box course fn-520">
+											<form class="form-inline my-2 my-lg-0">
+												<input list="searchInstructor" id="instructor_name"  class="form-control mr-sm-2" type="search" placeholder="{{ trans('lang.search_instructors') }}" aria-label="Search">
+												
+												<datalist id="searchInstructor">
+                                                    @foreach ($data['instructors_search'] as $instructor)
+                                                        <option data-id="{{$instructor->teacher_id}}"
+                                                                id="{{$instructor->teacher_id}}"
+                                                                value="{{$instructor->full_name}}">
+                                                    @endforeach
 													
 												</datalist>
 												<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
@@ -271,15 +324,15 @@
 							        <div class="panel-body">
 										<div class="ui_kit_whitchbox">
 											<div class="custom-control custom-switch">
-												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="2" id="aprice_all">
+												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="3" id="aprice_all">
 												<label class="custom-control-label" for="aprice_all"> {{ trans('lang.all') }}  </label>
 											</div>
 											<div class="custom-control custom-switch">
-												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="1" id="price_piad">
+												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="2" id="price_piad">
 												<label class="custom-control-label" for="price_piad"> {{ trans('lang.paid') }}  </label>
 											</div>
 											<div class="custom-control custom-switch">
-												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="0" id="price_free">
+												<input type="checkbox" class="custom-control-input price_course" name="check" onclick="onlyOne(this)"  value="1" id="price_free">
 												<label class="custom-control-label" for="price_free">{{ trans('lang.free') }}</label>
 											</div>
 										</div>
@@ -436,6 +489,8 @@
 @section('script')
 <script type="text/javascript">
 
+	
+
 
 	var city = [] ;
 	 var category = [] ;
@@ -443,81 +498,219 @@
 	 var price_course ='';
 	 var course_name_id = '';
 	 var city_selected_id = '';
- document.querySelector('#course_name').addEventListener('input', (e) => {
-	Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
-	course_name_id = e.target.dataset.id
-	alert(course_name_id);
-});
+	 var instructor_name_id = '';
+    var subject_name_id = '';
+    var stage_name_id = '';
+//  document.querySelector('#course_name').addEventListener('input', (e) => {
+// 	Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+// 	course_name_id = e.target.dataset.id
+// 	alert(course_name_id);
+// });
 
-document.querySelector('#city').addEventListener('input', (e) => {
-	Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
-	 city_selected_id = e.target.dataset.id
-	alert(city_selected_id);
+// document.querySelector('#city').addEventListener('input', (e) => {
+// 	Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+// 	 city_selected_id = e.target.dataset.id
+// 	alert(city_selected_id);
 	
-});
+// });
 
 
-$('#city').on('input', function() {
-    alert('city_selected_id');
-	alert(city_selected_id);
-   $.ajax({
-				type: 'GET',  // http method
-				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
-   				 data: {},
-				
-				success: function(response){ // What to do if we succeed
-				if(response)
-				{
-					alert("success"); 
-					//alert(response);
-					//console.log(response);
-					$(".courses_container").empty();
-					$.each(response, function (key, value) {
-						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+      
 
-                    });
-				}
-					
-				},
-				error: function(response){
-					alert('Error'+response);
-				}
-				
-				});
+        document.querySelector('#instructor_name').addEventListener('input', (e) => {
+            Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+            instructor_name_id = e.target.dataset.id
+          //  alert(instructor_name_id);
+        });
+
+        document.querySelector('#subject').addEventListener('input', (e) => {
+            Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+            subject_name_id = e.target.dataset.id
+           // alert(subject_name_id);
+        });
+
+        document.querySelector('#stage').addEventListener('input', (e) => {
+            Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
+            stage_name_id = e.target.dataset.id
+           // alert(stage_name_id);
+        });
 		
-  });
+
+		$('#instructor_name').on('input', function () {
+         //  alert('instructor_name_id');
+         //  alert(instructor_name_id);
+
+            $.ajax({
+                type: 'GET',  
+                url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+				 + '&instructors=' + instructor + '&price_course=' + price_course 
+				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+				 + '&stage_name_id=' + stage_name_id   ,  
+
+                data: {},
+
+                success: function (response) { 
+                    if (response) {
+                		// alert("success");
+                        $(".courses_container").empty();
+                        if (response.length > 0) {
+							
+                        $.each(response, function (key, value) {
+							plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+
+                        });
+                    }else{
+                        no_result();
+                    }
+                    }
+                },
+                error: function (response) {
+                    //alert('Error'+response);
+                }
+
+            });
+        });
+		
+		$('#subject').on('input', function () {
+          //  alert('subject_name_id');
+          // alert(subject_name_id);
+
+            $.ajax({
+                type: 'GET',  
+                url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+				 + '&instructors=' + instructor + '&price_course=' + price_course 
+				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+				 + '&stage_name_id=' + stage_name_id   ,  
+                data: {},
+
+                success: function (response) { 
+                    if (response) {
+                		// alert("success");
+                        $(".courses_container").empty();
+                        if (response.length > 0) {
+                        $.each(response, function (key, value) {
+							plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+
+                        });
+                    }else{
+                        no_result();
+                    }
+                    }
+                },
+                error: function (response) {
+                    //alert('Error'+response);
+                }
+
+            });
+        });
+		$('#stage').on('input', function () {
+        //    alert('stage_name_id');
+        //    alert(stage_name_id);
+
+            $.ajax({
+                type: 'GET',  
+                url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+				 + '&instructors=' + instructor + '&price_course=' + price_course 
+				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+				 + '&stage_name_id=' + stage_name_id   ,  
+
+                data: {},
+
+                success: function (response) { 
+                    if (response) {
+                		// alert("success");
+                        $(".courses_container").empty();
+                        if (response.length > 0) {
+                        $.each(response, function (key, value) {
+							plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+
+                        });
+                    }else{
+                        no_result();
+                    }
+                    }
+                },
+                error: function (response) {
+                    //alert('Error'+response);
+                }
+
+            });
+        });
 
 
-
-  $('#course_name').on('input', function() {
-   alert('course_name_id');
-   alert(course_name_id);
-   $.ajax({
-				type: 'GET',  // http method
-				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
-				 data: {},
+// $('#city').on('input', function() {
+// 			// alert('city_selected_id');
+// 			// alert(city_selected_id);
+// 		$.ajax({
+// 				type: 'GET',  // http method
+// 				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+// 				 + '&instructors=' + instructor + '&price_course=' + price_course 
+// 				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+// 				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+// 				 + '&stage_name_id=' + stage_name_id   ,    	
+//    				 data: {},
 				
-				success: function(response){ // What to do if we succeed
-				if(response)
-				{
-					alert("success"); 
-					//alert(response);
-					console.log(response);
-					$(".courses_container").empty();
-					
-					$.each(response, function (key, value) {
-						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
-                    });
-				}
-					
-				},
-				error: function(response){
-					alert('Error'+response);
-				}
-				
-				});
+// 				success: function(response){ // What to do if we succeed
+// 				if(response)
+// 				{
+// 					//alert("success"); 
+// 					//alert(response);
+// 					//console.log(response);
+// 					$(".courses_container").empty();
+// 					$.each(response, function (key, value) {
+// 						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
 
-});
+//                     });
+// 				}
+					
+// 				},
+// 				error: function(response){
+// 					alert('Error'+response);
+// 				}
+				
+// 				});
+		
+// });
+
+
+
+//   $('#course_name').on('input', function() {
+// 		//    alert('course_name_id');
+// 		//    alert(course_name_id);
+// 		$.ajax({
+// 				type: 'GET',  // http method
+// 				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+// 				 + '&instructors=' + instructor + '&price_course=' + price_course 
+// 				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+// 				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+// 				 + '&stage_name_id=' + stage_name_id   ,  	
+// 				data: {},
+				
+// 				success: function(response){ // What to do if we succeed
+// 				if(response)
+// 				{
+// 				//	alert("success"); 
+// 					//alert(response);
+// 					//console.log(response);
+// 					$(".courses_container").empty();
+					
+// 					$.each(response, function (key, value) {
+// 						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+//                     });
+// 				}
+					
+// 				},
+// 				error: function(response){
+// 					alert('Error'+response);
+// 				}
+				
+// 				});
+
+// });
+
 	function onlyOne(checkbox) {
     var checkboxes = document.getElementsByName('check')
     checkboxes.forEach((item) => {
@@ -547,27 +740,35 @@ $('#city').on('input', function() {
 					}
 			});
 			categories = category.toString();
-			alert('categories');
-			alert(categories);
-			alert('city');
-			alert(city);
+			// alert('categories');
+			// alert(categories);
+			// alert('city');
+			// alert(city);
 			$.ajax({
 				type: 'GET',  // http method
-				//url: 'courseFilter?categories='+categories ,
-				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
+				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+				 + '&instructors=' + instructor + '&price_course=' + price_course 
+				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+				 + '&stage_name_id=' + stage_name_id   ,  
    				 data: {},
 				
 				success: function(response){ // What to do if we succeed
 				if(response)
 				{
-					alert("success"); 
+					//alert("success"); 
 					//alert(response);
 					//console.log(response);
 					$(".courses_container").empty();
 					
-					$.each(response, function (key, value) {
-						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
-                    });	
+					if (response.length > 0) {
+                        $.each(response, function (key, value) {
+							plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+
+                        });
+                    }else{
+                        no_result();
+                    }
 				}
 					
 				},
@@ -594,26 +795,34 @@ $('#city').on('input', function() {
 					}
 			});
 			cities = city.toString();
-			alert('categories');
-			alert(categories);
-			alert('city');
-			alert(city);
+			// alert('categories');
+			// alert(categories);
+			// alert('city');
+			// alert(city);
 			$.ajax({
 				type: 'GET',  // http method
-				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
+				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+				 + '&instructors=' + instructor + '&price_course=' + price_course 
+				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+				 + '&stage_name_id=' + stage_name_id   ,  
    				 data: {},
 				
 				success: function(response){ // What to do if we succeed
 				if(response)
 				{
-					alert("success"); 
+					//alert("success"); 
 					//alert(response);
-					console.log(response);
+					//console.log(response);
 					$(".courses_container").empty();
-					
-					$.each(response, function (key, value) {
-						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
-                    });	
+					if (response.length > 0) {
+                        $.each(response, function (key, value) {
+							plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+
+                        });
+                    }else{
+                        no_result();
+                    }
 				}
 					
 				},
@@ -643,22 +852,31 @@ $('#city').on('input', function() {
 			});
 			
 			instructors = instructor.toString();
-			alert(instructors);
+			//alert(instructors);
 			$.ajax({
 				type: 'GET',  // http method
-				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
-				
+				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+				 + '&instructors=' + instructor + '&price_course=' + price_course 
+				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+				 + '&stage_name_id=' + stage_name_id   , 
+				 data: {},
+
 				success: function(response){ // What to do if we succeed
 				if(response)
 				{
-					alert("success"); 
+					//alert("success"); 
 					//alert(response);
 					//console.log(response);
 					$(".courses_container").empty();
-					
-					$.each(response, function (key, value) {
-						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
-                    });	
+					if (response.length > 0) {
+                        $.each(response, function (key, value) {
+							plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+
+                        });
+                    }else{
+                        no_result();
+                    }
 				}
 					
 				},
@@ -677,22 +895,30 @@ $('#city').on('input', function() {
 				}
 		
 			//	price_courses = price_course.toString();
-			alert(price_course);
+			//alert(price_course);
 			$.ajax({
 				type: 'GET',  // http method
-				url: "{{url('courseFilter')}}" + '?categories=' + categories + '&cities=' + city + '&instructors=' + instructor + '&price_course=' + price_course + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id ,   	
+				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
+				 + '&instructors=' + instructor + '&price_course=' + price_course 
+				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
+				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
+				 + '&stage_name_id=' + stage_name_id   , 
 				 data: {},
 				success: function(response){ // What to do if we succeed
 				if(response)
 				{
-					alert("success"); 
+					//alert("success"); 
 					//alert(response);
 					console.log(response);
 					$(".courses_container").empty();
-					
-					$.each(response, function (key, value) {
-						plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
-                    });
+					if (response.length > 0) {
+                        $.each(response, function (key, value) {
+							plus_course(value.id, value.image, value.teacher.teacher_info.full_name , value.title, value.body,value.price_after , value.price_before);
+
+                        });
+                    }else{
+                        no_result();
+                    }
 				}
 					
 				},
@@ -703,6 +929,11 @@ $('#city').on('input', function() {
 				});
 		});
 
+		function no_result()
+        {
+            var course = '<p class="my_result"> {{ trans('lang.result') }} </p>';
+            $(".courses_container").append(course);
+        }
 		function plus_course(course_id, course_image, course_fullname , course_title , course_body ,course_price_after ,course_price_before) {
             var course ='<div class="col-lg-12 p0">\n'+
 						'<div class="courses_list_content my_course"  data-id="'+ course_id +'" >\n'+
@@ -711,7 +942,7 @@ $('#city').on('input', function() {
 									'<img class="img-whp" src="'+ course_image +'" alt="t1.jpg">\n'+
 									'<div class="overlay">\n'+
 										'<div class="icon"><span class="flaticon-like"></span></div>\n'+
-										'<a class="tc_preview_course" href="#">{{ trans('lang.preview_course') }}</a>\n'+
+										'<a class="tc_preview_course" href="#"> {{ trans('lang.preview_course') }}</a>\n'+
 									'</div>\n'+
 								'</div>\n'+
 

@@ -312,7 +312,7 @@
                     </div>
                     <div class="row instructors">
                         @foreach ($instractors as $instructor)
-                            <div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="{{$instructor->teacher_id}}">
+                            <div  class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="{{$instructor->teacher_id}}">
                                 <div class="team_member style3 text-center mb30">
                                     <div class="instructor_col">
                                         <div class="thumb">
@@ -725,10 +725,11 @@
         //     });
         // });
 
-
+///////////////////////////////////////////
         $('.my_teacher').on('click', function () {
             var instructor_id = $(this).data("id");
             window.location.href = '/instructor-details/' + instructor_id , true;
+            
         });
 
         // $('.select_city').change(function () {
@@ -748,7 +749,7 @@
             $('.qualification').each(function () {
                 if ($(this).is(":checked")) {
                     qualification.push($(this).val());
-                     alert(qualification);
+                    // alert(qualification);
                 }
             });
             qualification = qualification.toString();
@@ -1078,12 +1079,12 @@
 
         function no_result()
         {
-            var instructor = '<p class="my_result"> No result found! </p>';
+            var instructor = '<p class="my_result">{{ trans('lang.result') }} </p>';
             $(".instructors").append(instructor);
         }
 
         function plus_instructor(instructor_id, instructor_name, instructor_category , instructor_image) {
-            var instructor = '<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="' + instructor_id + '">\n' +
+            var instructor = '<div  class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="' + instructor_id + '">\n' +
                 '<div class="team_member style3 text-center mb30">\n' +
                 '<div class="instructor_col">\n' +
                 '<div class="thumb">\n' +
