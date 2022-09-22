@@ -4,6 +4,7 @@
 @endsection
 @section('content')
   <!-- Inner Page Breadcrumb -->
+  <div id="loader"  style="display:none;"></div>
 	<section class="inner_page_breadcrumb courses">
 		<div class="container">
 			<div class="row">
@@ -165,14 +166,15 @@
 												<p>{{ $Course->teacher->teacherInfo->full_name}} </p>
 												<h5>{{ $Course->title}} </h5>
 												<p>
-												<?php $string = $Course->body ;
-										if (strlen($string) > 300) {
-										$description = substr($string, 0, 300). ' ...';
-										} else {
-										$description = $string;
-										}
-										 echo $description;
-									?>
+													<?php
+														$string = $Course->body ;
+														if (strlen($string) > 360) {
+														$description = substr($string, 0, 360). ' ...';
+														} else {
+														$description = $string;
+														}
+														echo $description;
+													?>
 
 													</p>
 											</div>
@@ -370,113 +372,11 @@
 							    </div>
 						    </div>
 						</div>
-					</div> -->
-
-					<!-- <div class="selected_filter_widget style3">
-						<div id="accordion" class="panel-group">
-						  <div class="panel">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-									  <a href="#panelBodyPlace" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">{{ trans('lang.city') }}</a>
-								  </h4>
-								</div>
-							  <div id="panelBodyPlace" class="panel-collapse collapse show">
-								  <div class="panel-body">
-									  <div class="cl_skill_checkbox">
-										  <div class="content ui_kit_checkbox style2 text-left">
-											 	 <div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck80">
-													<label class="custom-control-label" for="customCheck80">Riyad <span class="float-right">(03)</span></label>
-											 	 </div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck1">
-													<label class="custom-control-label" for="customCheck1">Makkah  <span class="float-right">(15)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck2">
-													<label class="custom-control-label" for="customCheck2">Dammam  <span class="float-right">(125)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck80">
-													<label class="custom-control-label" for="customCheck80">Riyad <span class="float-right">(03)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck1">
-													<label class="custom-control-label" for="customCheck1">Makkah  <span class="float-right">(15)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck2">
-													<label class="custom-control-label" for="customCheck2">Dammam  <span class="float-right">(125)</span></label>
-												</div>
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input" id="customCheck3">
-													<label class="custom-control-label" for="customCheck3">Al-Qassim <span class="float-right">(1.584)</span></label>
-												</div>
-
-										  </div>
-									  </div>
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-				  </div> -->
-
-
-				  <!-- <div class=" ui_kit_button search_btn mb0">
+					</div> 
+				   <div class=" ui_kit_button search_btn mb0">
 					<button type="button" class="btn dbxshad btn-lg btn-thm circle white">{{ trans('lang.search') }}</button>
 				  </div> -->
 
-					<!--
-					<div class="selected_filter_widget style3">
-					  	<div id="accordion" class="panel-group">
-						    <div class="panel">
-						      	<div class="panel-heading">
-							      	<h4 class="panel-title">
-							        	<a href="#panelBodyRating" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">Rating</a>
-							        </h4>
-						      	</div>
-							    <div id="panelBodyRating" class="panel-collapse collapse">
-							        <div class="panel-body">
-										<div class="ui_kit_checkbox style2">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck80">
-												<label class="custom-control-label" for="customCheck80">Show All <span class="float-right">(03)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck82">
-												<label class="custom-control-label" for="customCheck82">1 star and higher <span class="float-right">(15)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck83">
-												<label class="custom-control-label" for="customCheck83">2 star and higher <span class="float-right">(126)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck84">
-												<label class="custom-control-label" for="customCheck84">3 star and higher <span class="float-right">(1,584)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck85">
-												<label class="custom-control-label" for="customCheck85">4 star and higher <span class="float-right">(34)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="customCheck86">
-												<label class="custom-control-label" for="customCheck86">5 star and higher <span class="float-right">(58)</span></label>
-											</div>
-										</div>
-							        </div>
-							    </div>
-						    </div>
-						</div>
-					</div>
-				-->
-					<!--
-					<div class="selected_filter_widget style4">
-						<span class="float-left"><img class="mr20" src="{{asset('project')}}/images/resource/2.png" alt="2.png"></span>
-						<h4 class="mt15 fz20 fw500">Not sure?</h4>
-						<br>
-						<p>Every course comes with a 30-day money-back guarantee</p>
-					</div>
-				-->
 				</div>
 			</div>
 		</div>
@@ -489,7 +389,16 @@
 @section('script')
 <script type="text/javascript">
 
-	
+var myVar;
+
+function showLoader() {
+ document.getElementById("loader").style.display = "block";
+  myVar = setTimeout(hideLoader, 500);
+}
+
+function hideLoader() {
+  document.getElementById("loader").style.display = "none";
+}
 
 
 	var city = [] ;
@@ -501,44 +410,27 @@
 	 var instructor_name_id = '';
     var subject_name_id = '';
     var stage_name_id = '';
-//  document.querySelector('#course_name').addEventListener('input', (e) => {
-// 	Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
-// 	course_name_id = e.target.dataset.id
-// 	alert(course_name_id);
-// });
 
-// document.querySelector('#city').addEventListener('input', (e) => {
-// 	Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
-// 	 city_selected_id = e.target.dataset.id
-// 	alert(city_selected_id);
-	
-// });
-
-
-      
 
         document.querySelector('#instructor_name').addEventListener('input', (e) => {
             Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
             instructor_name_id = e.target.dataset.id
-          //  alert(instructor_name_id);
         });
 
         document.querySelector('#subject').addEventListener('input', (e) => {
             Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
             subject_name_id = e.target.dataset.id
-           // alert(subject_name_id);
         });
 
         document.querySelector('#stage').addEventListener('input', (e) => {
             Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
             stage_name_id = e.target.dataset.id
-           // alert(stage_name_id);
         });
 		
 
 		$('#instructor_name').on('input', function () {
-         //  alert('instructor_name_id');
-         //  alert(instructor_name_id);
+			$('.courses_container').hide();
+				showLoader();
 
             $.ajax({
                 type: 'GET',  
@@ -552,7 +444,6 @@
 
                 success: function (response) { 
                     if (response) {
-                		// alert("success");
                         $(".courses_container").empty();
                         if (response.length > 0) {
 							
@@ -573,8 +464,8 @@
         });
 		
 		$('#subject').on('input', function () {
-          //  alert('subject_name_id');
-          // alert(subject_name_id);
+		  $('.courses_container').hide();
+			showLoader();
 
             $.ajax({
                 type: 'GET',  
@@ -587,7 +478,6 @@
 
                 success: function (response) { 
                     if (response) {
-                		// alert("success");
                         $(".courses_container").empty();
                         if (response.length > 0) {
                         $.each(response, function (key, value) {
@@ -606,8 +496,8 @@
             });
         });
 		$('#stage').on('input', function () {
-        //    alert('stage_name_id');
-        //    alert(stage_name_id);
+			$('.courses_container').hide();
+				showLoader();
 
             $.ajax({
                 type: 'GET',  
@@ -621,7 +511,6 @@
 
                 success: function (response) { 
                     if (response) {
-                		// alert("success");
                         $(".courses_container").empty();
                         if (response.length > 0) {
                         $.each(response, function (key, value) {
@@ -725,7 +614,8 @@
 
 	 
 		$('.category').on('click', function () {
-			
+			$('.courses_container').hide();
+			showLoader();
 			 category = [] ;
 			$('.category').each(function() {
 				if($(this).is(":checked"))
@@ -740,12 +630,9 @@
 					}
 			});
 			categories = category.toString();
-			// alert('categories');
-			// alert(categories);
-			// alert('city');
-			// alert(city);
+			
 			$.ajax({
-				type: 'GET',  // http method
+				type: 'GET',  
 				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
 				 + '&instructors=' + instructor + '&price_course=' + price_course 
 				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
@@ -753,12 +640,9 @@
 				 + '&stage_name_id=' + stage_name_id   ,  
    				 data: {},
 				
-				success: function(response){ // What to do if we succeed
+				success: function(response){ 
 				if(response)
 				{
-					//alert("success"); 
-					//alert(response);
-					//console.log(response);
 					$(".courses_container").empty();
 					
 					if (response.length > 0) {
@@ -779,7 +663,8 @@
 				});
 	});
 		$('.city').on('click', function () {
-			
+			$('.courses_container').hide();
+			showLoader();
 			 city = [] ;
 			$('.city').each(function() {
 				if($(this).is(":checked"))
@@ -795,12 +680,9 @@
 					}
 			});
 			cities = city.toString();
-			// alert('categories');
-			// alert(categories);
-			// alert('city');
-			// alert(city);
+	
 			$.ajax({
-				type: 'GET',  // http method
+				type: 'GET',  
 				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
 				 + '&instructors=' + instructor + '&price_course=' + price_course 
 				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
@@ -808,12 +690,9 @@
 				 + '&stage_name_id=' + stage_name_id   ,  
    				 data: {},
 				
-				success: function(response){ // What to do if we succeed
+				success: function(response){ 
 				if(response)
 				{
-					//alert("success"); 
-					//alert(response);
-					//console.log(response);
 					$(".courses_container").empty();
 					if (response.length > 0) {
                         $.each(response, function (key, value) {
@@ -836,7 +715,8 @@
 	});
 
 		$('.instructor').on('click', function () {
-			
+			$('.courses_container').hide();
+			showLoader();
 			 instructor = [] ;
 			$('.instructor').each(function() {
 				if($(this).is(":checked"))
@@ -852,9 +732,8 @@
 			});
 			
 			instructors = instructor.toString();
-			//alert(instructors);
 			$.ajax({
-				type: 'GET',  // http method
+				type: 'GET',  
 				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
 				 + '&instructors=' + instructor + '&price_course=' + price_course 
 				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
@@ -862,12 +741,9 @@
 				 + '&stage_name_id=' + stage_name_id   , 
 				 data: {},
 
-				success: function(response){ // What to do if we succeed
+				success: function(response){ 
 				if(response)
 				{
-					//alert("success"); 
-					//alert(response);
-					//console.log(response);
 					$(".courses_container").empty();
 					if (response.length > 0) {
                         $.each(response, function (key, value) {
@@ -887,28 +763,24 @@
 				});
 		});
 		$('.price_course').on('click', function () {
-		
+				$('.courses_container').hide();
+				showLoader();
 				if($(this).is(":checked"))
 				{
-					//var price_course = $(this).val();
 					 price_course = $(this).val();	
 				}
-		
-			//	price_courses = price_course.toString();
-			//alert(price_course);
+
 			$.ajax({
-				type: 'GET',  // http method
+				type: 'GET',  
 				url: "{{url('courseFilter')}}" + '?categories=' + category + '&cities=' + city
 				 + '&instructors=' + instructor + '&price_course=' + price_course 
 				 + '&course_name_id=' + course_name_id + '&city_selected_id=' + city_selected_id
 				 + '&instructor_name_id=' + instructor_name_id + '&subject_name_id=' + subject_name_id
 				 + '&stage_name_id=' + stage_name_id   , 
 				 data: {},
-				success: function(response){ // What to do if we succeed
+				success: function(response){ 
 				if(response)
 				{
-					//alert("success"); 
-					//alert(response);
 					console.log(response);
 					$(".courses_container").empty();
 					if (response.length > 0) {
@@ -931,10 +803,19 @@
 
 		function no_result()
         {
+			$('.courses_container').show();
             var course = '<p class="my_result"> {{ trans('lang.result') }} </p>';
             $(".courses_container").append(course);
         }
 		function plus_course(course_id, course_image, course_fullname , course_title , course_body ,course_price_after ,course_price_before) {
+			$('.courses_container').show();
+			var short_course_body='';
+			var length = course_body.length;
+			if (length > 200) {
+				short_course_body = course_body.substring(0, 200).concat('...') ;
+			} else {
+					short_course_body = course_body;
+				}
             var course ='<div class="col-lg-12 p0">\n'+
 						'<div class="courses_list_content my_course"  data-id="'+ course_id +'" >\n'+
 							'<div class="top_courses list">\n'+
@@ -950,7 +831,9 @@
 								'<div class="tc_content">\n'+
 									 '<p>'+ course_fullname +' </p>\n'+
 									'<h5>'+ course_title +' </h5>\n'+
-									'<p>'+ course_body +' </p>\n'+
+									
+
+									'<p>'+ short_course_body +' </p>\n'+
 								'</div>\n'+
 								'<div class="tc_footer">\n'+
 									'<ul class="tc_meta float-left fn-414">\n'+
