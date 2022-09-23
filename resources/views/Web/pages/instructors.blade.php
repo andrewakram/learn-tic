@@ -4,6 +4,7 @@
 
 @endsection
 @section('content')
+<div id="loader"  style="display:none;"></div>
     <!-- Inner Page Breadcrumb -->
     <section class="inner_page_breadcrumb teachers">
         <div class="container">
@@ -621,6 +622,15 @@
 
     <script type="text/javascript">
         
+        function showLoader() {
+        document.getElementById("loader").style.display = "block";
+        var myVar = setTimeout(hideLoader, 500);
+        }
+
+        function hideLoader() {
+        document.getElementById("loader").style.display = "none";
+        }
+
         function onlyOne(checkbox) {
             var checkboxes = document.getElementsByName('check')
             checkboxes.forEach((item) => {
@@ -639,117 +649,32 @@
         document.querySelector('#instructor_name').addEventListener('input', (e) => {
             Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
             instructor_name_id = e.target.dataset.id
-           // alert(instructor_name_id);
         });
 
         document.querySelector('#subject').addEventListener('input', (e) => {
             Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
             subject_name_id = e.target.dataset.id
-           // alert(subject_name_id);
         });
 
         document.querySelector('#stage').addEventListener('input', (e) => {
             Object.assign(e.target.dataset, document.querySelector('#' + e.target.getAttribute('list') + ' option[value="' + e.target.value + '"]').dataset);
             stage_name_id = e.target.dataset.id
-           // alert(stage_name_id);
         });
 
-
-        // $('#city').on('input', function () {
-        //     var cityName = $(this).val();
-
-        //     var cityId = $('#searchCity option[value=' + cityName + ']').attr('data-id');
-
-        //     alert(cityName);
-        //     alert(cityId);
-
-        //     $.ajax({
-        //         type: 'GET',  // http method
-        //         url: 'instructorFilter?cities=' + cityId,
-        //         data: {},
-
-        //         success: function (response) { // What to do if we succeed
-        //             if (response) {
-        //                 alert("success");
-        //                 //alert(response);
-        //                 console.log(response);
-        //                 $(".instructors").empty();
-        //                 $.each(response, function (key, value) {
-        //                     var instructor = '<div class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="' + value.teacher_id + '">\n' +
-        //                         '<div class="team_member style3 text-center mb30">\n' +
-        //                         '<div class="instructor_col">\n' +
-        //                         '<div class="thumb">\n' +
-        //                         '<img class="img-fluid img-rounded-circle" src="{{asset('project')}}/images/team/6.png" alt="6.png">\n' +
-        //                         '</div>\n' +
-        //                         '<div class="details">\n' +
-        //                         '<h4>' + value.full_name + '</h4>\n' +
-
-        //                         '<p>\n' +
-        //                         ' @if(session()->get('lang') == 'ar')\n' +
-        //                         '{{$instructor -> category -> title_ar}}\n' +
-        //                         ' @else\n' +
-        //                         '{{$instructor -> category -> title_en}}\n' +
-        //                         ' @endif\n' +
-        //                         '</p>\n' +
-
-        //                         '<ul>\n' +
-        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-        //                         '<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>\n' +
-        //                         '<li class="list-inline-item"><a href="#">(6)</a></li>\n' +
-        //                         '</ul>\n' +
-        //                         '</div>\n' +
-        //                         '</div>\n' +
-        //                         '<div class="tm_footer">\n' +
-        //                         '<ul>\n' +
-        //                         '<li class="list-inline-item"><a href="#">56,178 {{ trans('lang.students') }} </a></li>\n' +
-        //                         '<li class="list-inline-item"><a href="#">22 {{ trans('lang.course') }} </a></li>\n' +
-        //                         '</ul>\n' +
-        //                         '</div>\n' +
-        //                         '</div>\n' +
-        //                         '</div>';
-
-
-        //                     $(".instructors").append(instructor);
-        //                 });
-
-        //             }
-
-        //         },
-        //         error: function (response) {
-        //             alert('Error' + response);
-        //         }
-
-        //     });
-        // });
-
-///////////////////////////////////////////
+       
         $('.my_teacher').on('click', function () {
             var instructor_id = $(this).data("id");
             window.location.href = '/instructor-details/' + instructor_id , true;
             
         });
 
-        // $('.select_city').change(function () {
-        //     mycity_value = $(this).val();
-        //     mycity_idid = $(this).attr('id');
-
-        //     mycity_id = $(this).data('id');
-        //     // alert(mycity_value);
-        //     // alert(mycity_id);
-
-
-        // });
-
         $('.qualification').on('click', function () {
+            $('.instructors').hide();
+			showLoader();
 			 qualification = [];
-
             $('.qualification').each(function () {
                 if ($(this).is(":checked")) {
                     qualification.push($(this).val());
-                    // alert(qualification);
                 }
             });
             qualification = qualification.toString();
@@ -763,8 +688,6 @@
 
                 success: function (response) { // What to do if we succeed
                     if (response) {
-                    
-                        
                             $(".instructors").empty();
                             if (response.length > 0) {
                             $.each(response, function (key, value) {
@@ -786,7 +709,8 @@
             });
         });
         $('.category').on('click', function () {
-
+            $('.instructors').hide();
+			showLoader();
              category = [];
             $('.category').each(function () {
                 if ($(this).is(":checked")) {
@@ -808,20 +732,14 @@
                     if (response) {
                         $(".instructors").empty();
                         if (response.length > 0) {
-                            //alert("success");
-                           // alert(response);
-                            //console.log(response);
                             $.each(response, function (key, value) {
                                 plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
                             });
                         } else {
                             no_result();
 
-                        }
-                        
+                        }   
                     }
-
-
                 },
                 error: function (response) {
                     //alert('Error'+response);
@@ -835,12 +753,12 @@
         
 
         $('.gender').on('click', function () {
-
+            $('.instructors').hide();
+			showLoader();
             if ($(this).is(":checked")) {
                 gender = $(this).val();
             }
 
-           // alert(gender);
             $.ajax({
                 type: 'GET',  // http method
                 url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
@@ -851,8 +769,6 @@
 
                 success: function (response) { // What to do if we succeed
                     if (response) {
-                       // alert(response);
-                          //  alert("success");
                             $(".instructors").empty();
                             if (response.length > 0) {
 
@@ -863,8 +779,6 @@
                         }else{
                             no_result();
                         }
-
-
                     }
 
                 },
@@ -877,17 +791,15 @@
 
 
         $('.learn_type').on('click', function () {
-
+            $('.instructors').hide();
+			showLoader();
              learn_type = [];
             $('.learn_type').each(function () {
                 if ($(this).is(":checked")) {
-
                     learn_type.push($(this).val());
-
                 }
             });
             learn_types = learn_type.toString();
-            //alert(learn_types);
             $.ajax({
                 type: 'GET',  // http method
                 url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
@@ -898,8 +810,6 @@
 
                 success: function (response) { // What to do if we succeed
                     if (response) {
-                       // alert("success");
-                        //console.log(response);
                         $(".instructors").empty();
                         if (response.length > 0) {
                         $.each(response, function (key, value) {
@@ -923,9 +833,8 @@
 
 
         $('#instructor_name').on('input', function () {
-           // alert('instructor_name_id');
-           // alert(instructor_name_id);
-
+            $('.instructors').hide();
+			showLoader();
             $.ajax({
                 type: 'GET',  
                 url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
@@ -958,9 +867,8 @@
 
 
         $('#subject').on('input', function () {
-           // alert('subject_name_id');
-           // alert(subject_name_id);
-
+            $('.instructors').hide();
+			showLoader();
             $.ajax({
                 type: 'GET',  // http method
                 url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
@@ -981,8 +889,6 @@
                     }else{
                         no_result();
                     }
-
-
                     }
 
                 },
@@ -994,9 +900,8 @@
         });
 
         $('#stage').on('input', function () {
-           // alert('stage_name_id');
-           // alert(stage_name_id);
-
+            $('.instructors').hide();
+			showLoader();
             $.ajax({
                 type: 'GET',  // http method
                 url: "{{url('instructorFilter')}}" + '?qualification=' + qualification 
@@ -1008,7 +913,6 @@
 
                 success: function (response) { // What to do if we succeed
                     if (response) {
-                      //  alert("success");
                         $(".instructors").empty();
                         if (response.length > 0) {
                         $.each(response, function (key, value) {
@@ -1031,13 +935,12 @@
         });
 
         $('.city').on('click', function () {
-
+            $('.instructors').hide();
+			showLoader();
             city = [];
             $('.city').each(function () {
             if ($(this).is(":checked")) {
-
                 city.push($(this).val());
-
             }
             });
             cities = city.toString();
@@ -1053,9 +956,6 @@
                 if (response) {
                     $(".instructors").empty();
                     if (response.length > 0) {
-                     //   alert("success");
-                      //  alert(response);
-                       // console.log(response);
                         $.each(response, function (key, value) {
                             plus_instructor(value.teacher_id, value.full_name, value.category.title, value.teacher.image);
                         });
@@ -1079,11 +979,13 @@
 
         function no_result()
         {
+            $('.instructors').show();
             var instructor = '<p class="my_result">{{ trans('lang.result') }} </p>';
             $(".instructors").append(instructor);
         }
 
         function plus_instructor(instructor_id, instructor_name, instructor_category , instructor_image) {
+            $('.instructors').show();
             var instructor = '<div  class="col-sm-6 col-lg-6 col-xl-4 my_teacher" data-id="' + instructor_id + '">\n' +
                 '<div class="team_member style3 text-center mb30">\n' +
                 '<div class="instructor_col">\n' +
@@ -1114,6 +1016,6 @@
                 '</div>';
             $(".instructors").append(instructor);
         }
-
+        
     </script>
 @endsection

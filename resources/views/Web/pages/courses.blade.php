@@ -389,11 +389,11 @@
 @section('script')
 <script type="text/javascript">
 
-var myVar;
+
 
 function showLoader() {
  document.getElementById("loader").style.display = "block";
-  myVar = setTimeout(hideLoader, 500);
+ var myVar = setTimeout(hideLoader, 500);
 }
 
 function hideLoader() {
