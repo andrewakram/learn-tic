@@ -9,5 +9,9 @@ class TeacherApppintment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['teacher_id','from','to','day'];
+    protected $fillable = ['teacher_id','from','to','day','meeting_id','topic','start_at','duration','password','start_url','join_url'];
+   
+    public function teacher(){
+        return $this->belongsTo(User::class,'teacher_id');
+    }
 }

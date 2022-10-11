@@ -18,6 +18,7 @@
 <script type="text/javascript" src="{{asset('project')}}/js/progressbar.js"></script>
 <script type="text/javascript" src="{{asset('project')}}/js/slider.js"></script>
 <script type="text/javascript" src="{{asset('project')}}/js/timepicker.js"></script>
+
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="{{asset('project')}}/js/script.js"></script>
 

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('project')}}/css/style.css">
     <!-- Responsive stylesheet -->
     <link rel="stylesheet" href="{{asset('project')}}/css/responsive.css">
+    
 @endif
 
 <!-- Title -->
