@@ -4,6 +4,7 @@ namespace App\Http\Controllers\InstructorAdmin;
 
 use Illuminate\Http\Request;
 use App\Models\TeacherApppintment;
+use MacsiDigital\Zoom\Facades\Zoom;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\MeetingZoomTrait;
 
@@ -64,8 +65,18 @@ class AppointmentController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+       // dd($request->id);
+        try {
+            $meeting = Zoom::meeting()->find($request->id);
+            //dd($meeting);
+            $meeting->delete();
+            TeacherApppintment::where('meeting_id', $request->id)->delete();
+            session()->flash('success', 'تم الحذف بنجاح');
+            return redirect()->route('instructor_appointment');
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 }
