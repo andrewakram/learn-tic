@@ -82,11 +82,11 @@ class InstructorAuthController extends Controller
             ];
             $email = $request->email;
             session()->put('email',$email);
-//            Mail::send('activation', $data, function ($message) use ($data,$email) {
-//                $message->from('info@learn-tic.com','Activation@Learn-Tic')
-//                    ->to($email)
-//                    ->subject('تفعيل الحساب | Learn Tic');
-//            });
+            Mail::send('activation', $data, function ($message) use ($data,$email) {
+                $message->from('info@learn-tic.com','Activation@Learn-Tic')
+                    ->to($email)
+                    ->subject('تفعيل الحساب | Learn Tic');
+            });
             return view('Web.pages.activate_account');
         }else{
             return back()->with('error', 'Invalid Credentials');
