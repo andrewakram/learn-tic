@@ -76,7 +76,7 @@ class InstructorAuthController extends Controller
             );
 
             $data = [
-                'name' => $request->nam,
+                'name' => $request->name,
                 'subject' => 'هذا هو كود التفعيل في تطبيق Learn Tic ',
                 'code' => $activation_code
             ];
