@@ -87,6 +87,7 @@ class InstructorAuthController extends Controller
                     ->to($email)
                     ->subject('تفعيل الحساب | Learn Tic');
             });
+            session()->flash('success', 'تم ارسال كود التفعيل علي بريدك الالكتروني');
             return view('Web.pages.activate_account');
         }else{
             return back()->with('error', 'Invalid Credentials');
