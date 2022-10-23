@@ -64,6 +64,8 @@ Route::group([
     Route::get('instructor-login', [InstructorLoginController::class,'index'])->name('instructor_login');
     Route::post('instructor-login', [InstructorAuthController::class,'instructorDoLogin'])->name('instructorDoLogin');
     Route::get('instructor-signup', [InstructorRegisterController::class,'index'])->name('instructor_register');
+    Route::post('instructor-signup', [InstructorAuthController::class,'instructorDoRegister'])->name('instructorDoRegister');
+    Route::post('instructor-activate-account', [InstructorAuthController::class,'instructorActivateAccount'])->name('instructorActivateAccount');
     Route::get('student-login', [StudentLoginController::class,'index'])->name('student_login');
     Route::post('student-login', [StudentAuthController::class,'studentDoLogin'])->name('studentDoLogin');
     Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
@@ -72,6 +74,12 @@ Route::group([
 
     Route::get('instructorFilter', [InstructorsController::class,'instructorFilter'])->name('instructorFilter');
     Route::get('courseFilter', [CoursesController::class,'courseFilter'])->name('courseFilter');
+
+
+
+    Route::any('payment/pay', 'App\Http\Controllers\Web\PaymentController@pay')->name('payment.pay');
+    Route::any('payment/callback', 'App\Http\Controllers\Web\PaymentController@callback')->name('payment.callback');
+
 
     //instructor Admin
     Route::group([

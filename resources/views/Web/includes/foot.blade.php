@@ -20,6 +20,7 @@
 <script type="text/javascript" src="{{asset('project')}}/js/timepicker.js"></script>
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="{{asset('project')}}/js/script.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <?php
 $errors = session()->get("errors");
