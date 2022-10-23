@@ -124,6 +124,11 @@ Tag:    academy, college, coursera, courses, education, elearning, kindergarten,
 
 
 /*multi register instructor*/
+.list-inline-item:not(:last-child) {
+  margin-right: 0.2rem !important;
+}
+
+
 .my_result
 {
     text-align: center;

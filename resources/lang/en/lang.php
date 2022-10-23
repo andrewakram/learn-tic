@@ -95,6 +95,7 @@ return [
     'online_education' => 'Online Education',
     'stage' => 'Choose Stage',
     'subject' => 'Choose Subject',
+    'result' => 'No result found!',
 
     
      //instructors details

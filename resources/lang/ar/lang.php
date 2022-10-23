@@ -114,6 +114,7 @@ return [
     'online_education' => 'التعليم عن بعد',
     'stage' => 'اختر المرحلة',
     'subject' => 'اختر المادة',
+    'result' => ' لا يوجد نتيجة للبحث !',
      //instructors details
     'appointment' => ' حجز المواعيد',
     'course_list' => ' الكورسات',
