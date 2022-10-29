@@ -22,6 +22,7 @@ class CreateTeacherApppintmentsTable extends Migration
                 ['Saturday','Sunday','Monday','Tuesday','Wednsday','Thursday','Friday'])
                 ->default('Saturday');
 
+            $table->string('meeting_id')->nullable();
             $table->string('topic')->nullable();
             $table->dateTime('start_at')->nullable();
             $table->integer('duration')->comment('minutes')->nullable();
