@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\CourseCity;
 use App\Models\TeacherInfo;
 use Illuminate\Http\Request;
+use App\Models\TeacherApppintment;
 use App\Http\Controllers\Controller;
 
 class InstructorsController extends Controller
@@ -28,7 +29,10 @@ class InstructorsController extends Controller
     public function instructorDetails(Request $request)
     {
         $teacher_details = User::findOrFail($request->instructor_id);
-        return view('Web.pages.instructor_details', compact('teacher_details'));
+        $teacher_apppintments = TeacherApppintment::select('id','teacher_id', 'topic' , 'start_at' ,'duration' ,'join_url')
+        ->where('teacher_id' , $request->instructor_id)
+        ->get();
+        return view('Web.pages.instructor_details', compact('teacher_details','teacher_apppintments'));
     }
 
     public function instructorFilter(Request $request)

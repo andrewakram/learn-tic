@@ -12618,8 +12618,13 @@ section {
 }
 .divider-one h1,
 .divider-two h1{
-  font-size: 40px;
+  font-size: 39px;
   line-height: 50px;
+  margin-bottom: 50px;
+}
+.divider-three h1{
+  font-size: 20px;
+  line-height: 38px;
   margin-bottom: 50px;
 }
 .divider-two h1{

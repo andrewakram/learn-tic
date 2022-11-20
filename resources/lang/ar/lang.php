@@ -73,7 +73,7 @@ return [
     'contact_p'=> ' اذا كان لديك اي استفسار أو شكوي يمكنك التواصل معنا وسيتم الرد في أقرب وقت ',
     'name_form'=> ' الاسم',
     'subject_form'=> '  الموضوع',
-    'message_form'=> '  الرسالة',
+    'message_form'=> '  رسالتك  ',
     'button_form' => ' ارسل الان ',
     'home' => 'الرئيسية' ,
     //blogs
@@ -88,12 +88,15 @@ return [
     'students_enrolled' => ' الطلاب المشتركين' ,//STUDENTS ENROLLED
     'complete_courses' => 'دورات كاملة' ,//COMPLETE COURSES
     'our_story' => 'قصتنا' ,
-    'strating_online' => 'بدء التعلم عبر الإنترنت ' ,//STARTING ONLINE LEARNING
-    'strating_online_p' => 'عزز مهاراتك مع أفضل الدورات التدريبية عبر الإنترنت' ,//ENHANCE YOUR SKILLS WITH BEST ONLINE COURSES
-    'view_courses_btn' => 'مشاهده جميع الكورسات' ,
+    'strating_online' => ' ابدأ في  التعلم عبر الإنترنت ' ,//STARTING ONLINE LEARNING
+    'strating_online_p' => '  قم بتطوير مهاراتك مع أفضل الدورات التدريبية عبر الإنترنت  ' ,//ENHANCE YOUR SKILLS WITH BEST ONLINE COURSES
+    'view_courses_btn' => ' شاهد جميع الكورسات الان  ' ,
     'popular_instructors' => 'افضل المعلمين' ,//Popular Instructors
     'people_say' => 'اراء الطلاب' ,//What People Say
-    'people_say_p' => 'اراء الطلاب عن المدرسين و الكورسات' ,
+    'people_say_p' => ' أراء الطلاب والمعلمين عن موقع وتطبيق ليرن تك  '  ,
+    'strating_online_about' => ' انضم لمجموعة كبيرة من الطلاب الرائعين والمميزين !  ' ,//STARTING ONLINE LEARNING
+    'strating_online_p_about' => ' تمكن الطلاب الدراسة في مجموعات او بشكل خاص ويمكنهم التفاعل مع بعضهم البعض وإظهار مدى معرفتهم أثناء تعلمهم تقدير وجهة نظر الآخرين    ' ,//ENHANCE YOUR SKILLS WITH BEST ONLINE COURSES
+    'view_courses_btn_about' => ' انضم لنا الآن !  ' ,
     // INSTRUCTORS
     'instructors' => ' المدرسين' ,
     'city' => ' المدينة' ,

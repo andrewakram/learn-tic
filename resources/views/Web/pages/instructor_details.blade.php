@@ -294,35 +294,27 @@
                                             <div uk-slider="center: true">
 
                                                 <ul class="uk-slider-items uk-child-width-1-2@s ">
-                                                    <!-- Thursday -->
+                                                @foreach($teacher_apppintments as $teacher_apppintment )
+
                                                     <li class="appointment_time">
                                                         <div class="none">
                                                         <div class="uk-card-calendar uk-card-hover">
-                                                            <h1>28</h1>
+                                                            <h1>{{$teacher_apppintment -> start_at }}</h1>
                                                             <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">Thursday</h3>
                                                             <h4 style="font-size: 14px;">from 9:00am-6:00pm</h4>
-                                                            <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;">Afternoon</h3>
+                                                            <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;display: inline-block">Afternoon</h3>
+                                                            <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px; display: inline-block;padding-bottom: 15px;float: left;">Duration</h3>
                                                             <ul class="uk-list-time">
-                                                                <li class="time">2:30pm - 3:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <li class="time">3:30pm - 4:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <h3 style="color: #000; font-size: 16px; padding-top: 15px; padding-bottom: 15px;">Evening</h3>
-                                                                <li class="active-time"> ‣ 5:30pm - 6:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <li class="time">6:00pm - 6:30pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
+                                                               
                                                                 <li class="time">6:30pm - 7:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                   <span style="float: left;  margin-right: 19%;"> 60 m </span>
+                                                                    <a href="{{$teacher_apppintment -> join_url }}" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
                                                         </div>
                                                     </li>
+                                                    @endforeach
                                                     <!-- Friday -->
                                                     <li class="appointment_time">
                                                         <div class="none">

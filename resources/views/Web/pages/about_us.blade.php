@@ -141,10 +141,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="divider-one">
-						<p class="color-white">{{ trans('lang.strating_online') }}</p>
-						<h1 class="color-white text-uppercase">{{ trans('lang.strating_online_p') }}</h1>
-						<a class="btn btn-transparent divider-btn" href="{{route('courses')}}">{{ trans('lang.view_courses_btn') }}</a>
+					<div class="divider-three divider-one">
+						<p class="color-white">{{ trans('lang.strating_online_about') }}</p>
+						<h1 class="color-white text-uppercase">{{ trans('lang.strating_online_p_about') }}</h1>
+						<a class="btn btn-transparent divider-btn" href="{{route('courses')}}">{{ trans('lang.view_courses_btn_about') }}</a>
 					</div>
 				</div>
 			</div>
