@@ -1,23 +1,107 @@
 @extends('Web.index')
 @section('style')
+<style>
 
+.mySlides {display: none}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 20px;
+  border-radius: 3px 0 0 3px;
+}
+/* Position the "next button" to the right */
+.prev {
+  left: 20px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next {font-size: 11px}
+}
+</style>
 @endsection
 @section('content')
     <!-- Home Design -->
     <section class="home-three home3-overlay home3_bgi6">
         <div class="container">
-            <div class="row posr">
+            <div class="row posr mySlides fade">
                 <div class="col-lg-12">
                     <div class="home-text text-center">
                         <h2 class="fz50">{{ trans('lang.slider_title') }}</h2>
                         <p class="color-white">{{ trans('lang.slider_p') }}</p>
-                        <a class="btn home_btn" href="{{route('instructors')}}">{{ trans('lang.slider_btn') }}</a>
+                        <a class="btn home_btn" href="{{route('instructor_register')}}">{{ trans('lang.slider_btn') }}</a>
                     </div>
                 </div>
             </div>
+            <div class="row posr mySlides fade">
+                <div class="col-lg-12">
+                    <div class="home-text text-center">
+                        <h2 class="fz50">{{ trans('lang.slider_title2') }}</h2>
+                        <p class="color-white">{{ trans('lang.slider_p2') }}</p>
+                        <a class="btn home_btn" href="{{route('courses')}}">{{ trans('lang.slider_btn2') }}</a>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
             <div class="row_style">
                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" preserveAspectRatio="none"> <path d="M 1000 280 l 2 -253 c -155 -36 -310 135 -415 164 c -102.64 28.35 -149 -32 -235 -31 c -80 1 -142 53 -229 80 c -65.54 20.34 -101 15 -126 11.61 v 54.39 z"></path><path d="M 1000 261 l 2 -222 c -157 -43 -312 144 -405 178 c -101.11 33.38 -159 -47 -242 -46 c -80 1 -153.09 54.07 -229 87 c -65.21 25.59 -104.07 16.72 -126 16.61 v 22.39 z"></path><path d="M 1000 296 l 1 -230.29 c -217 -12.71 -300.47 129.15 -404 156.29 c -103 27 -174 -30 -257 -29 c -80 1 -130.09 37.07 -214 70 c -61.23 24 -108 15.61 -126 10.61 v 22.39 z"></path></svg>
             </div>
+        </div>
+        <div style="text-align:center ;display:none">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
         </div>
     </section>
 
@@ -768,5 +852,48 @@
 @endsection
 
 @section('script')
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
 
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+///
+let slideIndexAuto = 0;
+showSlidesAuto();
+
+function showSlidesAuto() {
+  let i;
+  let slidesAuto = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slidesAuto.length; i++) {
+    slidesAuto[i].style.display = "none";
+  }
+  slideIndexAuto++;
+  if (slideIndexAuto > slidesAuto.length) {slideIndexAuto = 1}
+  slidesAuto[slideIndexAuto-1].style.display = "block";
+  setTimeout(showSlidesAuto, 5000); // Change image every 2 seconds
+}
+</script>
 @endsection
