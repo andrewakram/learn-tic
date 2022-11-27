@@ -18,5 +18,17 @@ class Page extends Model
         return asset('default.png');
     }
 
+    public function setImageAttribute($image)
+    {
+        if (is_file($image)) {
+            $img_name = time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/uploads/Blog/'), $img_name);
+            $this->attributes['image'] = $img_name;
+        } else {
+            $this->attributes['image'] = $image;
+        }
+
+    }
+
 }
 
