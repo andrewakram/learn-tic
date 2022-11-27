@@ -46,7 +46,7 @@ class InstructorController extends Controller
         Excel::import(new InstructorsImport(),request()->file('file'));
 
         session()->flash('success', 'تم الإضافة بنجاح');
-        return redirect()->route('admin.instructors');
+        return back();
     }
 
     public function edit(InstructorIndexRequest $request,$id)
