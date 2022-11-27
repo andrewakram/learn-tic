@@ -29,7 +29,7 @@ class PageUpdateRequest extends FormRequest
     {
         return [
             'row_id' => 'required|exists:pages,id',
-            'type' => 'required|in:about,terms,frozen',
+            'type' => 'required',
             'title_ar' => 'required',
             'title_en' => 'required',
             'body_ar' => 'required',
