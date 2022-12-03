@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Requests\MainAdmin\Page;
+namespace App\Http\Requests\MainAdmin\Comment;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Http\FormRequest;
 
-class PageUpdateRequest extends FormRequest
+class CommentCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,16 +24,14 @@ class PageUpdateRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(Request $request)
+    public function rules()
     {
         return [
-            'row_id' => 'required|exists:pages,id',
-            'type' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg',
             'title_ar' => 'required',
             'title_en' => 'required',
             'body_ar' => 'required',
             'body_en' => 'required',
-            'image' => 'sometimes|image|mimes:png,jpg,jpeg',
         ];
     }
 }

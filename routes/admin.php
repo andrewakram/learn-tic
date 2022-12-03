@@ -160,6 +160,18 @@ Route::group([
                 Route::post('/delete-multi', 'PageController@deleteMulti')->name('.deleteMulti');
             });
 
+            Route::group(['prefix' => 'comments', 'as' => '.comments'], function () {
+                Route::get('/', 'CommentController@index');
+                Route::get('getData', 'CommentController@getData')->name('.datatable');
+                Route::get('/create', 'CommentController@create')->name('.create');
+                Route::post('/store', 'CommentController@store')->name('.store');
+                Route::get('/edit/{id}', 'CommentController@edit')->name('.edit');
+                Route::post('/update', 'CommentController@update')->name('.update');
+                Route::get('/show/{id}', 'CommentController@show')->name('.show');
+                Route::post('/delete', 'CommentController@delete')->name('.delete');
+                Route::post('/delete-multi', 'CommentController@deleteMulti')->name('.deleteMulti');
+            });
+
             Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {
                 Route::get('/edit', [SettingController::class, 'index']);
                 Route::post('/update', [SettingController::class, 'update'])->name('.update');

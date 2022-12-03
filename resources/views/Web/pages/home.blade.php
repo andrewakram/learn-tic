@@ -668,7 +668,8 @@
                                 <div class="testimonial_item">
                                     <div class="details">
                                         <h5>{{ $user_comment->title}}</h5>
-                                        <span class="small text-thm">{{ $user_comment->user_type }}</span>
+                                        <span class="small text-thm">{{ trans('lang.' . $user_comment->user_type) }} 
+                                          </span>
                                         <p>{{ $user_comment->body }}</p>
                                         
                                     </div>

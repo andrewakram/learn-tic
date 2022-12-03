@@ -153,6 +153,16 @@
                     </a>
                 </div>
                 <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'comments' ) active @endif"
+                       href="{{route('admin.comments')}}"
+                    >
+                        <span class="menu-icon">
+                            <i class="fa fa-eye"></i>
+                        </span>
+                        <span class="menu-title"> التعليقات</span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'settings' ) active @endif"
                        href="{{route('admin.settings')}}"
                     >
