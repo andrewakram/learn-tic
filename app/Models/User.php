@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password',
         'type',
         'active',
+        'suspend',
     ];
 
     protected $appends = ['full_name'];

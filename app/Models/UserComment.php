@@ -16,10 +16,22 @@ class UserComment extends Model
     public function getImageAttribute($image)
     {
         if (!empty($image)) {
-            return asset('uploads/Blog') . '/' . $image;
+            return asset('uploads/UserComment') . '/' . $image;
         }
         return asset('default.png');
     }
 
-    
+    public function setImageAttribute($image)
+    {
+        if (is_file($image)) {
+            $img_name = time() . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/uploads/UserComment/'), $img_name);
+            $this->attributes['image'] = $img_name;
+        } else {
+            $this->attributes['image'] = $image;
+        }
+
+    }
+
+
 }

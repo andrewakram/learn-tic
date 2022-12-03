@@ -75,6 +75,7 @@ class InstructorController extends Controller
         $row->save();
 
         session()->flash('success', 'تم التعديل بنجاح');
+        return redirect()->back();
         return redirect()->route('MainAdmin.instructors');
     }
 
