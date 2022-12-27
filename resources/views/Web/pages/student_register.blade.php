@@ -31,19 +31,24 @@
 							<p class="text-center"> {{ trans('lang.have_account_sign') }} <a class="text-thm login" href="{{route('student_login')}}">{{ trans('lang.login') }}</a></p>
 						</div>
 						<div class="details">
-							<form action="#">
+							<form action="{{route('studentDoRegister')}}" method="post">
+                                @csrf
 								<div class="form-group">
-							    	<input type="text" class="form-control" id="exampleInputName2" placeholder="{{ trans('lang.user_name') }} ">
+							    	<input type="text" name="name" class="form-control" id="exampleInputName2" placeholder="{{ trans('lang.user_name') }} ">
 								</div>
 								 <div class="form-group">
-							    	<input type="email" class="form-control" id="exampleInputEmail3" placeholder="{{ trans('lang.email_address') }}  ">
+							    	<input type="email" name="email" class="form-control" id="exampleInputEmail3" placeholder="{{ trans('lang.email_address') }}  ">
+								</div>
+                                <div class="form-group ">
+                                    <input name="phone" type="tel" class="form-control" id="exampleInputEmail3" placeholder="{{ trans('lang.phone') }} ">
+                                </div>
+								<div class="form-group">
+							    	<input type="password" name="password" class="form-control" id="exampleInputPassword4" placeholder="{{ trans('lang.password') }}">
 								</div>
 								<div class="form-group">
-							    	<input type="password" class="form-control" id="exampleInputPassword4" placeholder="{{ trans('lang.password') }}">
+							    	<input type="password" name="c_password" class="form-control" id="exampleInputPassword5" placeholder="{{ trans('lang.confirm_password') }} ">
 								</div>
-								<div class="form-group">
-							    	<input type="password" class="form-control" id="exampleInputPassword5" placeholder="{{ trans('lang.confirm_password') }} ">
-								</div>
+
 								<!--
 								<div class="form-group custom-control custom-checkbox">
 									<input type="checkbox" class="custom-control-input" id="exampleCheck3">

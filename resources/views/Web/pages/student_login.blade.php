@@ -28,7 +28,7 @@
                     <div class="login_form inner_page">
                         <div class="heading">
                             <h3 class="text-center">{{ trans('lang.login_account') }}</h3>
-                            <p class="text-center">{{ trans('lang.have_account') }} 
+                            <p class="text-center">{{ trans('lang.have_account') }}
                                  <a class="text-thm sign_up"  href="{{route('student_register')}}">{{ trans('lang.sign_up') }} </a>
                             </p>
                         </div>
@@ -51,22 +51,22 @@
                             <button type="submit" class="btn btn-log btn-block btn-thm2">{{ trans('lang.login') }}</button>
                         </form>
 
-                        <div class="divide">
-                            <span class="lf_divider">Or</span>
-                            <hr>
-                        </div>
-                        <div class="row mt40">
-                            <div class="col-lg">
-                                <button type="submit" class="btn btn-block color-white bgc-fb mb0"><i
-                                        class="fa fa-facebook float-left mt5"></i> Facebook
-                                </button>
-                            </div>
-                            <div class="col-lg">
-                                <button type="submit" class="btn btn2 btn-block color-white bgc-gogle mb0"><i
-                                        class="fa fa-google float-left mt5"></i> Google
-                                </button>
-                            </div>
-                        </div>
+{{--                        <div class="divide">--}}
+{{--                            <span class="lf_divider">Or</span>--}}
+{{--                            <hr>--}}
+{{--                        </div>--}}
+{{--                        <div class="row mt40">--}}
+{{--                            <div class="col-lg">--}}
+{{--                                <button type="submit" class="btn btn-block color-white bgc-fb mb0"><i--}}
+{{--                                        class="fa fa-facebook float-left mt5"></i> Facebook--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg">--}}
+{{--                                <button type="submit" class="btn btn2 btn-block color-white bgc-gogle mb0"><i--}}
+{{--                                        class="fa fa-google float-left mt5"></i> Google--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
