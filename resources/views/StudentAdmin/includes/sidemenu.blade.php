@@ -27,7 +27,7 @@
                         <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Appointment
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="page-my-order.html">
                         <span class="flaticon-shopping-bag-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Order
@@ -47,7 +47,7 @@
             <h4>Account</h4>
             <ul>
                 <li class="{{request()->segment(1) == 'instructor-personal-profile' ? 'active' : ''}}">
-                    <a href="{{route('personalProfile')}}">
+                    <a href="{{route('studentPersonalProfile')}}">
                         <span class="flaticon-settings" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Settings
                     </a>
                 </li>

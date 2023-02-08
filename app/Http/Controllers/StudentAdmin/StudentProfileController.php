@@ -32,10 +32,10 @@ class StudentProfileController extends Controller
     {
         $userId =auth()->user()->id;
 
-        $data['instructor'] = User::whereId($userId)->first();
-        $data['instructor_coueses_count'] = Course::where('teacher_id',$userId)->count();
-        $data['instructor_rate_count'] = Order::where('teacher_id',$userId)->count();
-        $data['instructor_students_count'] = Order::where('teacher_id',$userId)->count();
+        $data['student'] = User::whereId($userId)->first();
+        $data['student_coueses_count'] = Course::where('teacher_id',$userId)->count();
+        $data['student_rate_count'] = Order::where('teacher_id',$userId)->count();
+        $data['student_students_count'] = Order::where('teacher_id',$userId)->count();
 
         return view('StudentAdmin.pages.personal_profile',compact('data'));
     }
@@ -44,10 +44,10 @@ class StudentProfileController extends Controller
     {
         $userId =auth()->user()->id;
 
-        $data['instructor'] = User::whereId($userId)->first();
-        $data['instructor_coueses_count'] = Course::where('teacher_id',$userId)->count();
-        $data['instructor_rate_count'] = Order::where('teacher_id',$userId)->count();
-        $data['instructor_students_count'] = Order::where('teacher_id',$userId)->count();
+        $data['student'] = User::whereId($userId)->first();
+        $data['student_coueses_count'] = Course::where('teacher_id',$userId)->count();
+        $data['student_rate_count'] = Order::where('teacher_id',$userId)->count();
+        $data['student_students_count'] = Order::where('teacher_id',$userId)->count();
         $data['categories'] = Category::select('id','title_' . getLang() . '  as title')->get();
 
         return view('StudentAdmin.pages.personal_profile_edit',compact('data'));

@@ -11,7 +11,7 @@
                     <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
                     <ul id="myDropdown" class="dropdown-content">
                         <li ><a href="page-dashboard.html"><span class="flaticon-puzzle-1"></span> Dashboard</a></li>
-                        <li><a href="page-instructor-courses.html"><span class="flaticon-like"></span> My Courses</a></li>
+                        <li><a href="page-student-courses.html"><span class="flaticon-like"></span> My Courses</a></li>
                         <li><a href="page-my-order.html"><span class="flaticon-shopping-bag-1"></span> Order</a></li>
                         <li><a href="page-my-message.html"><span class="flaticon-speech-bubble"></span> Messages</a></li>
                         <li><a href="page-my-review.html"><span class="flaticon-rating"></span> Reviews</a></li>
@@ -35,11 +35,11 @@
 
                     <div class="col-lg-4 col-xl-3 teacher_info"  >
                         <div class="teacher_avatar">
-                            <img  src="{{$data['instructor']->image}}" alt="teacher.png">
-                            <h3> {{$data['instructor']->name}} </h3>
-                            <span> {{ isset($data['instructor']->teacherInfo->job_title) ? $data['instructor']->teacherInfo->job_title : "Job Title" }}</span>
-                            <span> {{$data['instructor']->email}} </span>
-                            <span> {{$data['instructor']->phone }} </span>
+                            <img  src="{{$data['student']->image}}" alt="teacher.png">
+                            <h3> {{$data['student']->name}} </h3>
+{{--                            <span> {{ isset($data['student']->teacherInfo->job_title) ? $data['student']->teacherInfo->job_title : "Job Title" }}</span>--}}
+                            <span> {{$data['student']->email}} </span>
+                            <span> {{$data['student']->phone }} </span>
                         </div>
                         <br>
 {{--                        <div class="teacher_social">--}}
@@ -55,17 +55,17 @@
                             <div class="teacher_achieve_list">
 
                                 <i class="fa fa-user"></i>
-                                <h3> {{$data['instructor_students_count']}} </h3>
+                                <h3> {{$data['student_students_count']}} </h3>
                                 <span> Students </span>
                             </div>
                             <div class="teacher_achieve_list">
                                 <i class="fa fa-star"></i>
-                                <h3> {{$data['instructor_rate_count']}} </h3>
+                                <h3> {{$data['student_rate_count']}} </h3>
                                 <span> Rating </span>
                             </div>
                             <div class="teacher_achieve_list">
                                 <i class="fa fa-book"></i>
-                                <h3> {{$data['instructor_coueses_count']}} </h3>
+                                <h3> {{$data['student_coueses_count']}} </h3>
                                 <span> Courses </span>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                         <div class="teacher_about">
                             <h3> About Me</h3>
                             <p>
-                                {{$data['instructor']->teacherInfo->desctiption}}
+{{--                                'teacherInfo->desctiption'--}}
                             </p>
                             </br>
 {{--                            <p>Lorem ipsum dolor sit amet conse ctetur adipi sicing elit. Aut animi sed labo rum. Nam--}}
@@ -83,7 +83,7 @@
 {{--                            </p>--}}
                         </div>
                         <div class=" ui_kit_button search_btn mb0">
-                            <a href="{{route('personalProfileEdit')}}" type="button" class="btn dbxshad btn-lg btn-thm circle white">Edit Profile</a>
+                            <a href="{{route('studentPersonalProfileEdit')}}" type="button" class="btn dbxshad btn-lg btn-thm circle white">Edit Profile</a>
                         </div>
 
                     </div>
@@ -99,33 +99,35 @@
 
                                         <ul>
                                             <li>
-                                                Full Name <span>{{$data['instructor']->teacherInfo->full_name}}</span>
+{{--                                                Full Name <span>{{$data['student']->teacherInfo->full_name}}</span>--}}
                                             </li>
                                             <li>
-                                                Name <span>{{$data['instructor']->name}} </span>
+                                                Name <span>{{$data['student']->name}} </span>
                                             </li>
 
                                             <li>
-                                                Email <span>{{$data['instructor']->email}}</span>
+                                                Email <span>{{$data['student']->email}}</span>
                                             </li>
                                             <li>
-                                                Phone <span>{{$data['instructor']->phone}}</span>
+                                                Phone <span>{{$data['student']->phone}}</span>
                                             </li>
 {{--                                            <li>--}}
 {{--                                                Address <span>California, TX 70240 </span>--}}
 {{--                                            </li>--}}
                                             <li>
-                                                Gender    <span>{{$data['instructor']->gender}}</span>
+                                                Gender    <span>{{$data['student']->gender}}</span>
                                             </li>
 
                                             <li>
-                                                Rating <span>{{$data['instructor_rate_count']}}</span>
+                                                Rating <span>{{$data['student_rate_count']}}</span>
                                             </li>
                                             <li>
-                                                nationality <span>{{isset($data['instructor']->nationality) ? $data['instructor']->nationality : 'Saudi Arabia'}}</span>
+                                                nationality <span>{{isset($data['student']->nationality) ? $data['student']->nationality : 'Saudi Arabia'}}</span>
                                             </li>
                                             <li>
-                                                Residence id <span>{{$data['instructor']->teacherInfo->residence_id}}</span>
+                                                Residence id <span>
+{{--                                                    {{$data['student']->teacherInfo->residence_id}}--}}
+                                                </span>
                                             </li>
 
 

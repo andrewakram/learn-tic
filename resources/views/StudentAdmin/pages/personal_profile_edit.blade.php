@@ -12,7 +12,7 @@
                     </button>
                     <ul id="myDropdown" class="dropdown-content">
                         <li><a href="page-dashboard.html"><span class="flaticon-puzzle-1"></span> Dashboard</a></li>
-                        <li><a href="page-instructor-courses.html"><span class="flaticon-like"></span> My Courses</a>
+                        <li><a href="page-student-courses.html"><span class="flaticon-like"></span> My Courses</a>
                         </li>
                         <li><a href="page-my-order.html"><span class="flaticon-shopping-bag-1"></span> Order</a></li>
                         <li><a href="page-my-message.html"><span class="flaticon-speech-bubble"></span> Messages</a>
@@ -59,124 +59,26 @@
                                     <div class="col-xl-6">
                                         <div class="my_profile_setting_input form-group">
                                             <label for="formGroupExampleInput11">Email</label>
-                                            <input type="email" name="email" value="{{$data['instructor']->email}}"
+                                            <input type="email" name="email" value="{{$data['student']->email}}"
                                                    class="form-control" id="formGroupExampleInput11">
                                         </div>
                                         <div class="my_profile_setting_input form-group">
                                             <label for="formGroupExampleInput12">phone</label>
-                                            <input type="tel" name="phone" value="{{$data['instructor']->phone}}"
+                                            <input type="tel" name="phone" value="{{$data['student']->phone}}"
                                                    class="form-control" id="formGroupExampleInput12">
                                         </div>
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="formGroupExampleInput3">years_of_exper</label>
-                                            <input type="number" name="years_of_exper"
-                                                   value="{{$data['instructor']->teacherInfo->years_of_exper}}"
-                                                   class="form-control" id="formGroupExampleInput3" placeholder="$89">
-                                        </div>
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="formGroupExampleInput31">inquiry_cost_normal</label>
-                                            <input type="number" name="inquiry_cost_normal"
-                                                   value="{{$data['instructor']->teacherInfo->inquiry_cost_normal}}"
-                                                   class="form-control" id="formGroupExampleInput31" placeholder="$89">
-                                        </div>
+                                        
 
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="exampleInputlearn_type">التخصص</label>
-                                            <select name="categoey_id" id="exampleInputlearn_type"
-                                                    class="form-control">
-                                                @foreach($data['categories'] as $category)
-                                                    <option
-                                                        value="{{$category->id}}" {{$category->id == $data['instructor']->teacherInfo->categoey_id ? "selected" : ""}}>
-                                                        {{$category->title}}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="formGroupExampleInput111">national_id</label>
-                                            <input type="text" name="national_id"
-                                                   value="{{$data['instructor']->teacherInfo->national_id}}"
-                                                   class="form-control" id="formGroupExampleInput111">
-                                        </div>
                                     </div>
                                     <div class="col-xl-6">
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="formGroupExampleInput1">Full Name</label>
-                                            <input type="text" name="full_name"
-                                                   value="{{$data['instructor']->teacherInfo->full_name}}"
-                                                   class="form-control" id="formGroupExampleInput1">
-                                        </div>
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="formGroupExampleInput2">university</label>
-                                            <input type="text" name="university"
-                                                   value="{{$data['instructor']->teacherInfo->university}}"
-                                                   class="form-control" id="formGroupExampleInput2">
-                                        </div>
 
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="exampleInputQualifications">qualifications</label>
-                                            <select name="qualifications" id="exampleInputQualifications"
-                                                    class="form-control">
-                                                <option
-                                                    value="PHD" {{$data['instructor']->teacherInfo->qualifications == "PHD" ? "selected" : ""}}>
-                                                    PHD
-                                                </option>
-                                                <option
-                                                    value="Master" {{$data['instructor']->teacherInfo->qualifications == "Master" ? "selected" : ""}}>
-                                                    Master
-                                                </option>
-                                                <option
-                                                    value="Bachlore" {{$data['instructor']->teacherInfo->qualifications == "Bachlore" ? "selected" : ""}}>
-                                                    Bachlore
-                                                </option>
-                                                <option
-                                                    value="other" {{$data['instructor']->teacherInfo->qualifications == "other" ? "selected" : ""}}>
-                                                    other
-                                                </option>
-                                            </select>
-                                        </div>
-
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="formGroupExampleInput32">inquiry_cost_urgent</label>
-                                            <input type="number" name="inquiry_cost_urgent"
-                                                   value="{{$data['instructor']->teacherInfo->inquiry_cost_urgent}}"
-                                                   class="form-control" id="formGroupExampleInput32" placeholder="$89">
-                                        </div>
-
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="exampleInputlearn_type">طريقة التعلم</label>
-                                            <select name="learn_type" id="exampleInputlearn_type"
-                                                    class="form-control">
-                                                <option
-                                                    value="remote" {{$data['instructor']->teacherInfo->learn_type == "remote" ? "selected" : ""}}>
-                                                    remote
-                                                </option>
-
-                                                <option
-                                                    value="site" {{$data['instructor']->teacherInfo->learn_type == "site" ? "selected" : ""}}>
-                                                    on site
-                                                </option>
-                                            </select>
-                                        </div>
-
-                                        <div class="my_profile_setting_input form-group">
-                                            <label for="formGroupExampleInput1112">residence_id</label>
-                                            <input type="text" name="residence_id"
-                                                   value="{{$data['instructor']->teacherInfo->residence_id}}"
-                                                   class="form-control" id="formGroupExampleInput1112">
-                                        </div>
                                     </div>
 
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="my_resume_textarea">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">description</label>
-                                        <textarea class="form-control" name="desctiption"
-                                                  id="exampleFormControlTextarea1"
-                                                  rows="7">{{$data['instructor']->teacherInfo->desctiption}}</textarea>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

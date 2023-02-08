@@ -16,6 +16,7 @@ use App\Http\Controllers\Web\InstructorAuthController;
 use App\Http\Controllers\Web\InstructorLoginController;
 use App\Http\Controllers\Web\StudentRegisterController;
 use App\Http\Controllers\Web\InstructorRegisterController;
+use App\Http\Controllers\Web\ConsultationController;
 use App\Http\Controllers\InstructorAdmin\AppointmentController;
 use App\Http\Controllers\InstructorAdmin\InstructorCourseController;
 use App\Http\Controllers\InstructorAdmin\InstructorProfileController;
@@ -87,11 +88,14 @@ Route::group([
     Route::any('payment/pay', 'App\Http\Controllers\Web\PaymentController@pay')->name('payment.pay');
     Route::any('payment/callback', 'App\Http\Controllers\Web\PaymentController@callback')->name('payment.callback');
 
+    Route::get('send-consultation-request/{instructor_id}', [ConsultationController::class,'sendConsultationRequest'])->name('sendConsultationRequest');
+    Route::any('payment/consultation/callback', 'App\Http\Controllers\Web\PaymentController@callbackConsultationRequest')->name('payment.consultation.callback');
+
     //instructor Admin
     Route::group([
         'middleware' => 'auth:web',
     ], function () {
-        Route::get('my-profile', [InstructorProfileController::class,'myProfile'])->name('my_profile');
+        Route::get('instructor/my-profile', [InstructorProfileController::class,'myProfile'])->name('my_profile');
         Route::get('instructor-personal-profile', [InstructorProfileController::class,'personalProfile'])->name('personalProfile');
         Route::get('instructor-personal-profile-edit', [InstructorProfileController::class,'personalProfileEdit'])->name('personalProfileEdit');
         Route::post('instructor-personal-profile-update', [InstructorProfileController::class,'personalProfileUpdate'])->name('personalProfileUpdate');
