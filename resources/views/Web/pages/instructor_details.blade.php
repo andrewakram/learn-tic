@@ -479,7 +479,7 @@
 
                     <div class="teacher_achieve">
                         <div class="tm_footer">
-                            <a href="{{route('sendConsultationRequest',$teacher_details->id)}}">
+                            <a href="{{route('sendConsultationRequest',[$teacher_details->id,'urgent_consultation'])}}">
                                 <ul class="" style="background-color: #009181a1">
                                     <li class="list-inline-item btn" style="font-weight: bolder">
                                         طلب استشارة فورية
@@ -490,12 +490,12 @@
                                     </li>
                                 </ul>
                             </a>
-                            <a href="{{route('sendConsultationRequest',$teacher_details->id)}}">
+                            <a href="{{route('sendConsultationRequest',[$teacher_details->id,'normal_consultation'])}}">
                                 <ul class="" style="background-color: #009181a1">
                                     <li class="list-inline-item btn btn-info" style="font-weight: bolder">
                                         طلب استشارة عادية
                                         (
-                                        {{$teacher_details->teacherInfo->inquiry_cost_urgent}}
+                                        {{$teacher_details->teacherInfo->inquiry_cost_normal}}
                                         )
                                         SAR
                                     </li>

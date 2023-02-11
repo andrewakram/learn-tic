@@ -16,7 +16,7 @@ class ConsultationController extends Controller
         $this->paymentController = $paymentController;
     }
 
-    public function sendConsultationRequest(Request $request,$instructorId)
+    public function sendConsultationRequest(Request $request,$instructorId,$type='urgent_consultation')
     {
         $user = Auth::guard('web')->user();
         if(!$user){
@@ -24,13 +24,17 @@ class ConsultationController extends Controller
         }
 
         $teacher = TeacherInfo::where('teacher_id',$instructorId)->first();
+
+        $inquiryCost = $type == 'normal_consultation' ? $teacher->inquiry_cost_normal : $teacher->inquiry_cost_urgent;
+        $type = ($type == 'normal_consultation') ? 'normal_consultation' : 'urgent_consultation';
+
         $order = Order::create([
-            'type' => 'consultation',
+            'type' => $type,
             'teacher_id' => $instructorId,
             'student_id' => $user->id,
-            'price_after' => $teacher->inquiry_cost_urgent,
+            'price_after' => $inquiryCost,
         ]);
-        return $this->paymentController->payConsultationRequest($order->id,$teacher->inquiry_cost_urgent,$teacher->teacher->email);
+        return $this->paymentController->payConsultationRequest($order->id,$teacher->inquiry_cost_urgent,$user->email);
 //        session()->flash('success', 'تم ارسال الطلب بنجاح');
         return back();
     }

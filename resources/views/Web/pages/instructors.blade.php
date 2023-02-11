@@ -352,7 +352,7 @@
                                         </ul>
                                     </div>
                                     <div class="tm_footer">
-                                        <a href="{{route('sendConsultationRequest',$instructor->teacher_id)}}">
+                                        <a href="{{route('sendConsultationRequest',[$instructor->teacher_id,'urgent_consultation'])}}">
                                             <ul class="" style="background-color: #009181a1">
                                                 <li class="list-inline-item" style="font-weight: bolder">
                                                     طلب استشارة فورية
