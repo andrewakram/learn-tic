@@ -23,6 +23,7 @@ use App\Http\Controllers\InstructorAdmin\InstructorProfileController;
 use App\Http\Controllers\StudentAdmin\StudentAppointmentController;
 use App\Http\Controllers\StudentAdmin\StudentCourseController;
 use App\Http\Controllers\StudentAdmin\StudentProfileController;
+use App\Http\Controllers\StudentAdmin\StudentPaymentController;
 
 
 /*
@@ -91,6 +92,9 @@ Route::group([
     Route::get('send-consultation-request/{instructor_id}', [ConsultationController::class,'sendConsultationRequest'])->name('sendConsultationRequest');
     Route::any('payment/consultation/callback', 'App\Http\Controllers\Web\PaymentController@callbackConsultationRequest')->name('payment.consultation.callback');
 
+    Route::get('buy-course/{instructor_id}', [ConsultationController::class,'buyCourse'])->name('buyCourse');
+    Route::any('payment/buy-course/callback', 'App\Http\Controllers\Web\PaymentController@callbackConsultationRequest')->name('payment.buy-course.callback');
+
     //instructor Admin
     Route::group([
         'middleware' => 'auth:web',
@@ -129,9 +133,8 @@ Route::group([
         Route::post('student-update-course', [StudentCourseController::class,'update'])->name('student_update_course');
         Route::post('student-delete-course', [StudentCourseController::class,'delete'])->name('student_delete_course');
         Route::get('student-appointment', [StudentAppointmentController::class,'index'])->name('student_appointment');
-        Route::get('student-create-appointment', [StudentAppointmentController::class,'create'])->name('student_create_appointment');
-        Route::post('student-store-appointment', [StudentAppointmentController::class,'store'])->name('student_store_appointment');
-        Route::post('student-delete-appointment', [StudentAppointmentController::class,'destroy'])->name('student_delete_appointment');
+
+        Route::get('student-payments', [StudentPaymentController::class,'index'])->name('student-payments');
 
     });
 

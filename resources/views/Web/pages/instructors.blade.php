@@ -356,6 +356,10 @@
                                             <ul class="" style="background-color: #009181a1">
                                                 <li class="list-inline-item" style="font-weight: bolder">
                                                     طلب استشارة فورية
+                                                    (
+                                                    {{$instructor->inquiry_cost_urgent}}
+                                                    )
+                                                    SAR
                                                 </li>
                                             </ul>
                                         </a>

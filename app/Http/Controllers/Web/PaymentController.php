@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Blog;
 use App\Models\Page;
 use App\Models\Category;
+use App\Models\Payment;
 use App\Models\UserComment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -130,11 +131,12 @@ class PaymentController extends Controller
     public function payConsultationRequest($orderId,$cost,$email)
     {
         $amount = $cost;
-        $email = "andrewalbert93501@gmail.com";
+//        $email = "andrewalbert93501@gmail.com";
 
-        $idorder = 'PHP_'. rand(100000,999999) . time();//Customer Order ID
+        $idorder = 'num_'. rand(100000,999999) . time();//Customer Order ID
 
-        DB::table('payments')->insert([
+        Payment::create([
+            'user_id' => auth()->user()->id,
             'order_id' => $orderId,
             'track_id' => $idorder,
             'email' => $email,

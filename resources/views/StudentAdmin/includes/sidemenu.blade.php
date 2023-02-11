@@ -10,7 +10,7 @@
         <div class="dashbord_nav_list">
             <ul>
                 <li class="{{request()->segment(1) == 'my-profile' ? 'active' : ''}}">
-                    <a href="{{route('my_profile')}}">
+                    <a href="{{route('student_my_profile')}}">
                         <span class="flaticon-puzzle-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Dashboard
                     </a>
                 </li>
@@ -18,8 +18,8 @@
                     <a href="{{route('instructor_courses')}}"><span class="flaticon-like" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> My Courses</a>
                 </li>
                 <li class="{{request()->segment(1) == 'instructor-add-course' ? 'active' : ''}}">
-                    <a href="{{route('instructor_add_course')}}">
-                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Course
+                    <a href="{{route('student-payments')}}">
+                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> payments
                     </a>
                 </li>
                 <li class="{{request()->segment(1) == 'instructor-appointment' ? 'active' : ''}}">

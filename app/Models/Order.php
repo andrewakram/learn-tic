@@ -9,8 +9,10 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'teacher_id','student_id','course_id','price_before','price_after','points',
-        'status','payment_status'
-    ];
+    protected $guarded=[];
+
+//    protected $fillable = [
+//        'teacher_id','student_id','course_id','price_before','price_after','points',
+//        'status','payment_status','type'
+//    ];
 }

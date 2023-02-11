@@ -20,41 +20,41 @@
             <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
             <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
                 <li>
-                    <a href="index.html"><span class="title">Home</span></a>
+                    <a href="{{asset('/')}}"><span class="title">Home</span></a>
                 </li>
                 <li>
-                    <a href="page-course-v3.html"><span class="title">Courses</span></a>
+                    <a href="{{asset('/courses')}}"><span class="title">Courses</span></a>
                     <!-- Level Two-->
-                    <ul>
-                        <li>
-                        <li><a href="page-course-single-v2.html">Course Detailes </a></li>
-                        </li>
-                    </ul>
+                    {{--                    <ul>--}}
+                    {{--                        <li>--}}
+                    {{--                        <li><a href="page-course-single-v2.html">Course Detailes </a></li>--}}
+                    {{--                        </li>--}}
+                    {{--                    </ul>--}}
                 </li>
                 <li>
-                    <a href="page-instructors.html"><span class="title">Instructors</span></a>
+                    <a href="{{asset('/instructors')}}"><span class="title">Instructors</span></a>
                     <!-- Level Two-->
-                    <ul>
-                        <li>
-                        <li><a href="page-instructors-single.html">Instructor Detailes </a></li>
-                        </li>
-                    </ul>
+                    {{--                    <ul>--}}
+                    {{--                        <li>--}}
+                    {{--                        <li><a href="page-instructors-single.html">Instructor Detailes </a></li>--}}
+                    {{--                        </li>--}}
+                    {{--                    </ul>--}}
                 </li>
 
                 <li>
-                    <a href="page-about.html"><span class="title">About Us</span></a>
+                    <a href="{{asset('/about-us')}}"><span class="title">About Us</span></a>
                 </li>
 
 
                 <li>
-                    <a href="page-blog-v1.html"><span class="title">Blog</span></a>
-                    <ul>
-                        <li><a href="page-blog-single.html">Single Post</a></li>
-                    </ul>
+                    <a href="{{asset('/blogs')}}"><span class="title">Blog</span></a>
+                    {{--                    <ul>--}}
+                    {{--                        <li><a href="page-blog-single.html">Single Post</a></li>--}}
+                    {{--                    </ul>--}}
                 </li>
 
                 <li class="last">
-                    <a href="page-contact.html"><span class="title">Contact</span></a>
+                    <a href="{{asset('/contact-us')}}"><span class="title">Contact</span></a>
                 </li>
 
             </ul>
@@ -154,7 +154,7 @@
                                 <p>{{auth()->user()->name}}<br><span class="address">{{auth()->user()->email}}</span></p>
                             </div>
                             <div class="user_setting_content">
-                                <a class="dropdown-item active" href="{{ route('my_profile') }}">My Profile</a>
+                                <a class="dropdown-item active" href="{{ route('student_my_profile') }}">My Profile</a>
 {{--                                <a class="dropdown-item" href="#">Messages</a>--}}
 {{--                                <a class="dropdown-item" href="#">Purchase history</a>--}}
 {{--                                <a class="dropdown-item" href="#">Help</a>--}}
