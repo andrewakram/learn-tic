@@ -14,7 +14,7 @@ class AddTypeUrlToOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->enum('type',['course','consultation','other'])->after('id')->default('other');
+            $table->enum('type',['course','consultation','normal_consultation','other'])->after('id')->default('other');
             $table->text('url')->nullable();
         });
     }
