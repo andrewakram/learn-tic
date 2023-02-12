@@ -16,7 +16,21 @@ class ConsultationController extends Controller
         $this->paymentController = $paymentController;
     }
 
-    public function sendConsultationRequest(Request $request,$instructorId,$type='urgent_consultation')
+    public function studentConsultation(){
+        $user = Auth::guard('web')->user();
+        if(!$user){
+            return back()->with('error', 'يرجي تسجيل الدخول اولا');
+        }
+
+        $data['consultations'] = Order::orderBy('id','desc')
+            ->where('student_id',$user->id)
+            ->whereIn('type',['urgent_consultation','normal_consultation'])
+            ->get();
+
+        return view('StudentAdmin.pages.consultations',compact('data'));
+    }
+
+    public function sendConsultationRequest($instructorId,$type='urgent_consultation')
     {
         $user = Auth::guard('web')->user();
         if(!$user){

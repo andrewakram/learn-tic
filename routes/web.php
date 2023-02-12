@@ -89,8 +89,12 @@ Route::group([
     Route::any('payment/pay', 'App\Http\Controllers\Web\PaymentController@pay')->name('payment.pay');
     Route::any('payment/callback', 'App\Http\Controllers\Web\PaymentController@callback')->name('payment.callback');
 
+    Route::get('student-consultation', [ConsultationController::class,'studentConsultation'])->name('student-consultation');
     Route::get('send-consultation-request/{instructor_id}/{type?}', [ConsultationController::class,'sendConsultationRequest'])->name('sendConsultationRequest');
     Route::any('payment/consultation/callback', 'App\Http\Controllers\Web\PaymentController@callbackConsultationRequest')->name('payment.consultation.callback');
+
+    Route::get('pay-consultation-request/{order_id}', 'App\Http\Controllers\Web\PaymentController@payConsultationRequest')
+        ->name('pay-consultation-request');
 
     Route::get('buy-course/{instructor_id}', [ConsultationController::class,'buyCourse'])->name('buyCourse');
     Route::any('payment/buy-course/callback', 'App\Http\Controllers\Web\PaymentController@callbackConsultationRequest')->name('payment.buy-course.callback');

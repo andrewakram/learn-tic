@@ -17,14 +17,14 @@
                 <li class="{{request()->segment(1) == 'instructor-courses' ? 'active' : ''}}">
                     <a href="{{route('instructor_courses')}}"><span class="flaticon-like" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> My Courses</a>
                 </li>
-                <li class="{{request()->segment(1) == 'instructor-add-course' ? 'active' : ''}}">
+                <li class="{{request()->segment(1) == 'student-payments' ? 'active' : ''}}">
                     <a href="{{route('student-payments')}}">
-                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> payments
+                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> المدفوعات
                     </a>
                 </li>
-                <li class="{{request()->segment(1) == 'instructor-appointment' ? 'active' : ''}}">
-                    <a href="{{route('instructor_appointment')}}">
-                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Appointment
+                <li class="{{request()->segment(1) == 'student-consultation' ? 'active' : ''}}">
+                    <a href="{{route('student-consultation')}}">
+                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> الاستشارات
                     </a>
                 </li>
 

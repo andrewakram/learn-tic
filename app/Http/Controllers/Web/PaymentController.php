@@ -10,6 +10,7 @@ use App\Models\Payment;
 use App\Models\UserComment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use DB;
@@ -19,9 +20,6 @@ class PaymentController extends Controller
 
     public function pay()
     {
-
-
-
 //        $order = Order::findOrFail(Session::get('order_id'));
 //        $amount = $order->grand_total;
         $amount = rand(100,1000);
@@ -128,9 +126,10 @@ class PaymentController extends Controller
         //dd($request->all(),session()->get('order_id'));
     }
 
-    public function payConsultationRequest($orderId,$cost,$email)
+    public function payConsultationRequest($orderId,$cost=null,$email=null)
     {
-        $amount = $cost;
+        $amount = $cost == null ? Order::whereId($orderId)->first()->price_after : $cost;
+        $email = $email == null ? Auth::guard('web')->user()->email : $email;
 //        $email = "andrewalbert93501@gmail.com";
 
         $idorder = 'num_'. rand(100000,999999) . time();//Customer Order ID

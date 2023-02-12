@@ -64,7 +64,9 @@
                                                 <td>{{$teacher_appointment->topic}}</td>
                                                 <td>{{$teacher_appointment->start_at}}</td>
                                                 <td>{{$teacher_appointment->duration}}</td>
-                                                <td class="text-danger"><a href="{{$teacher_appointment->join_url}}" target="_blank">انضم الان</a></td>
+                                                <td class="text-danger">
+                                                    <a href="{{$teacher_appointment->join_url}}" target="_blank">انضم الان</a>
+                                                </td>
                                                 <td>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$teacher_appointment->meeting_id}}" ><i class="fa fa-trash"></i></button>
                                                 </td>
