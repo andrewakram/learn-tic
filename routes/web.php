@@ -17,6 +17,7 @@ use App\Http\Controllers\Web\InstructorLoginController;
 use App\Http\Controllers\Web\StudentRegisterController;
 use App\Http\Controllers\Web\InstructorRegisterController;
 use App\Http\Controllers\Web\ConsultationController;
+use App\Http\Controllers\InstructorAdmin\ConsultationController as InstructorConsultationController;
 use App\Http\Controllers\InstructorAdmin\AppointmentController;
 use App\Http\Controllers\InstructorAdmin\InstructorCourseController;
 use App\Http\Controllers\InstructorAdmin\InstructorProfileController;
@@ -83,6 +84,10 @@ Route::group([
 
     Route::get('instructorFilter', [InstructorsController::class,'instructorFilter'])->name('instructorFilter');
     Route::get('courseFilter', [CoursesController::class,'courseFilter'])->name('courseFilter');
+    Route::get('instructor-consultation', [InstructorConsultationController::class,'instructorConsultation'])
+        ->name('instructor-consultation');
+    Route::get('instructor-accept-consultation/{order_id}', [InstructorConsultationController::class,'instructorAcceptConsultation'])
+        ->name('instructor-accept-consultation');
 
 
 

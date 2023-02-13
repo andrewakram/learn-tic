@@ -14,6 +14,11 @@
                         <span class="flaticon-puzzle-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Dashboard
                     </a>
                 </li>
+                <li class="{{request()->segment(1) == 'instructor-consultation' ? 'active' : ''}}">
+                    <a href="{{route('instructor-consultation')}}">
+                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> الاستشارات
+                    </a>
+                </li>
                 <li class="{{request()->segment(1) == 'instructor-courses' ? 'active' : ''}}">
                     <a href="{{route('instructor_courses')}}"><span class="flaticon-like" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> My Courses</a>
                 </li>
@@ -27,7 +32,7 @@
                         <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Appointment
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="page-my-order.html">
                         <span class="flaticon-shopping-bag-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Order
