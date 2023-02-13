@@ -17,7 +17,8 @@ class InstructorsController extends Controller
 {
     public function index()
     {
-        $instractors = TeacherInfo::select('id', 'full_name', 'teacher_id', 'categoey_id')->with(['category' => function ($query) {
+        $instractors = TeacherInfo::select('id', 'full_name', 'teacher_id', 'categoey_id','inquiry_cost_normal','inquiry_cost_urgent')
+            ->with(['category' => function ($query) {
             $query->select('id','title_' . getLang() . '  as title');
         }])->get();
         $data['categories'] = Category::select('id', 'title_' . getLang() . '  as title')->withCount(['courses'])->get();
@@ -46,7 +47,7 @@ class InstructorsController extends Controller
         $instructor_name_id = $request->instructor_name_id;
         $subject_name_id = $request->subject_name_id;
         $stage_name_id = $request->stage_name_id;
-        
+
 
         $instractors = TeacherInfo::where(function ($q) use($gender,$qualification,$category,$city,$learn_type,$instructor_name_id,$subject_name_id,$stage_name_id ){
             if (isset($qualification) && !empty($qualification)) {
@@ -110,7 +111,7 @@ class InstructorsController extends Controller
         //     return response()->json($city_filter);
         // }
 
-       
+
 
     }
 

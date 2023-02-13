@@ -25,20 +25,20 @@
                 <li>
                     <a href="{{asset('/courses')}}"><span class="title">Courses</span></a>
                     <!-- Level Two-->
-{{--                    <ul>--}}
-{{--                        <li>--}}
-{{--                        <li><a href="page-course-single-v2.html">Course Detailes </a></li>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+                    {{--                    <ul>--}}
+                    {{--                        <li>--}}
+                    {{--                        <li><a href="page-course-single-v2.html">Course Detailes </a></li>--}}
+                    {{--                        </li>--}}
+                    {{--                    </ul>--}}
                 </li>
                 <li>
                     <a href="{{asset('/instructors')}}"><span class="title">Instructors</span></a>
                     <!-- Level Two-->
-{{--                    <ul>--}}
-{{--                        <li>--}}
-{{--                        <li><a href="page-instructors-single.html">Instructor Detailes </a></li>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+                    {{--                    <ul>--}}
+                    {{--                        <li>--}}
+                    {{--                        <li><a href="page-instructors-single.html">Instructor Detailes </a></li>--}}
+                    {{--                        </li>--}}
+                    {{--                    </ul>--}}
                 </li>
 
                 <li>
@@ -48,9 +48,9 @@
 
                 <li>
                     <a href="{{asset('/blogs')}}"><span class="title">Blog</span></a>
-{{--                    <ul>--}}
-{{--                        <li><a href="page-blog-single.html">Single Post</a></li>--}}
-{{--                    </ul>--}}
+                    {{--                    <ul>--}}
+                    {{--                        <li><a href="page-blog-single.html">Single Post</a></li>--}}
+                    {{--                    </ul>--}}
                 </li>
 
                 <li class="last">
@@ -154,7 +154,7 @@
                                 <p>{{auth()->user()->name}}<br><span class="address">{{auth()->user()->email}}</span></p>
                             </div>
                             <div class="user_setting_content">
-                                <a class="dropdown-item active" href="{{ route('my_profile') }}">My Profile</a>
+                                <a class="dropdown-item active" href="{{ route('student_my_profile') }}">My Profile</a>
 {{--                                <a class="dropdown-item" href="#">Messages</a>--}}
 {{--                                <a class="dropdown-item" href="#">Purchase history</a>--}}
 {{--                                <a class="dropdown-item" href="#">Help</a>--}}

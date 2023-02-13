@@ -65,7 +65,13 @@
 
                                         <li class="list_content">
 
-                                            <a href="{{ route('my_profile') }}" class="btn btn-thm cart_btns"> حسابي </a>
+                                            <a href="
+                                            @if(\Illuminate\Support\Facades\Auth::user()->type == 'user')
+                                                {{ route('student_my_profile') }}
+                                            @elseif(\Illuminate\Support\Facades\Auth::user()->type == 'teacher')
+                                                {{ route('my_profile') }}
+                                            @endif
+                                                " class="btn btn-thm cart_btns"> حسابي </a>
                                             <a href="{{ route('logout') }}" class="btn btn-thm3 checkout_btns">تسجيل خروج </a>
                                         </li>
 

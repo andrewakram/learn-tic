@@ -1,38 +1,10 @@
-@extends('InstructorAdmin.index')
+@extends('StudentAdmin.index')
 @section('style')
 
 @endsection
 @section('content')
 
 <div class="row">
-    <div class="col-lg-12">
-        <div class="dashboard_navigationbar dn db-991">
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation
-                </button>
-                <ul id="myDropdown" class="dropdown-content">
-                    <li><a href="page-dashboard.html"><span class="flaticon-puzzle-1"></span> Dashboard</a></li>
-                    <li><a href="page-instructor-courses.html"><span class="flaticon-like"></span> My Courses</a>
-                    </li>
-                    <li><a href="page-my-order.html"><span class="flaticon-shopping-bag-1"></span> Order</a></li>
-                    <li><a href="page-my-message.html"><span class="flaticon-speech-bubble"></span> Messages</a>
-                    </li>
-                    <li><a href="page-my-review.html"><span class="flaticon-rating"></span> Reviews</a></li>
-                    <li class="active"><a href="page-add-course.html"><span class="flaticon-add-contact"></span> Add
-                            Course</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-12">
-        <nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
-            <h4 class="title float-left">Instructor Appointments</h4>
-            <ol class="breadcrumb float-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-            </ol>
-        </nav>
-    </div>
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
@@ -64,9 +36,7 @@
                                                 <td>{{$teacher_appointment->topic}}</td>
                                                 <td>{{$teacher_appointment->start_at}}</td>
                                                 <td>{{$teacher_appointment->duration}}</td>
-                                                <td class="text-danger">
-                                                    <a href="{{$teacher_appointment->join_url}}" target="_blank">انضم الان</a>
-                                                </td>
+                                                <td class="text-danger"><a href="{{$teacher_appointment->join_url}}" target="_blank">انضم الان</a></td>
                                                 <td>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$teacher_appointment->meeting_id}}" ><i class="fa fa-trash"></i></button>
                                                 </td>

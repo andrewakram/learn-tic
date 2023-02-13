@@ -33,12 +33,9 @@ class HomeController extends Controller
          ->orWhere('type' ,'home_about' )
        ->get() ;
 
-
        $var_title='title_'.Session::get('lang');
 
-
-
         return view('Web.pages.home',compact('data', 'var_title'));
-     
+
     }
 }

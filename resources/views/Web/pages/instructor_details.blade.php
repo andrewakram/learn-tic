@@ -80,10 +80,19 @@
 
                                                             <div class="tc_price float-right">
                                                                 @if(!empty($course->price_after))
-                                                                    <del class="original_price">${{ $course->price_after}}</del>
+                                                                    <del class="original_price">SAR{{ $course->price_after}}</del>
                                                                 @endif
-                                                                ${{$course->price_before}}
+                                                                SAR{{$course->price_before}}
                                                              </div>
+                                                        </div>
+                                                        <div class="tm_footer text-center">
+                                                            <a href="{{route('buyCourse',$teacher_details->id)}}">
+                                                                <ul class="" style="background-color: #009181a1">
+                                                                    <li class="list-inline-item btn" style="font-weight: bolder">
+                                                                        أريد شراء هذا الكورس
+                                                                    </li>
+                                                                </ul>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -305,7 +314,7 @@
                                                             <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;display: inline-block">Afternoon</h3>
                                                             <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px; display: inline-block;padding-bottom: 15px;float: left;">Duration</h3>
                                                             <ul class="uk-list-time">
-                                                               
+
                                                                 <li class="time">6:30pm - 7:00pm
                                                                    <span style="float: left;  margin-right: 19%;"> 60 m </span>
                                                                     <a href="{{$teacher_apppintment -> join_url }}" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
@@ -468,7 +477,32 @@
                         <a href="" class="fa fa-youtube"></a>
                     </div>
 
-
+                    <div class="teacher_achieve">
+                        <div class="tm_footer">
+                            <a href="{{route('sendConsultationRequest',[$teacher_details->id,'urgent_consultation'])}}">
+                                <ul class="" style="background-color: #009181a1">
+                                    <li class="list-inline-item btn" style="font-weight: bolder">
+                                        طلب استشارة فورية
+                                        (
+                                        {{$teacher_details->teacherInfo->inquiry_cost_urgent}}
+                                        )
+                                        SAR
+                                    </li>
+                                </ul>
+                            </a>
+                            <a href="{{route('sendConsultationRequest',[$teacher_details->id,'normal_consultation'])}}">
+                                <ul class="" style="background-color: #009181a1">
+                                    <li class="list-inline-item btn btn-info" style="font-weight: bolder">
+                                        طلب استشارة عادية
+                                        (
+                                        {{$teacher_details->teacherInfo->inquiry_cost_normal}}
+                                        )
+                                        SAR
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
 
                     <div class="teacher_achieve">
                         <div class="teacher_achieve_list">

@@ -10,34 +10,24 @@
         <div class="dashbord_nav_list">
             <ul>
                 <li class="{{request()->segment(1) == 'my-profile' ? 'active' : ''}}">
-                    <a href="{{route('my_profile')}}">
+                    <a href="{{route('student_my_profile')}}">
                         <span class="flaticon-puzzle-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Dashboard
-                    </a>
-                </li>
-                <li class="{{request()->segment(1) == 'instructor-consultation' ? 'active' : ''}}">
-                    <a href="{{route('instructor-consultation')}}">
-                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> الاستشارات
                     </a>
                 </li>
                 <li class="{{request()->segment(1) == 'instructor-courses' ? 'active' : ''}}">
                     <a href="{{route('instructor_courses')}}"><span class="flaticon-like" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> My Courses</a>
                 </li>
-                <li class="{{request()->segment(1) == 'instructor-add-course' ? 'active' : ''}}">
-                    <a href="{{route('instructor_add_course')}}">
-                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Course
+                <li class="{{request()->segment(1) == 'student-payments' ? 'active' : ''}}">
+                    <a href="{{route('student-payments')}}">
+                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> المدفوعات
                     </a>
                 </li>
-                <li class="{{request()->segment(1) == 'instructor-appointment' ? 'active' : ''}}">
-                    <a href="{{route('instructor_appointment')}}">
-                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Appointment
+                <li class="{{request()->segment(1) == 'student-consultation' ? 'active' : ''}}">
+                    <a href="{{route('student-consultation')}}">
+                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> الاستشارات
                     </a>
                 </li>
-                <li class="{{request()->segment(1) == 'instructor-appointment2' ? 'active' : ''}}">
-                    <a href="{{route('instructor_appointment2')}}">
-                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Appointment2
-                    </a>
-                </li>
-                
+
                 <li>
                     <a href="page-my-order.html">
                         <span class="flaticon-shopping-bag-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Order
@@ -57,7 +47,7 @@
             <h4>Account</h4>
             <ul>
                 <li class="{{request()->segment(1) == 'instructor-personal-profile' ? 'active' : ''}}">
-                    <a href="{{route('personalProfile')}}">
+                    <a href="{{route('studentPersonalProfile')}}">
                         <span class="flaticon-settings" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Settings
                     </a>
                 </li>

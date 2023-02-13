@@ -29,10 +29,6 @@ class InstructorAuthController extends Controller
     }
 
     public function instructorDoRegister(Request $request){
-        $checkIfEmailExists = User::where('email',$request->email)->first();
-        if($checkIfEmailExists && $checkIfEmailExists->active == 1)
-            return back()->with('error', 'الايميل مستخدم من قبل');
-
         $checkIfPhoneExists = User::where('phone',$request->phone)->first();
         if($checkIfPhoneExists && $checkIfPhoneExists->active == 1)
             return back()->with('error', 'الجوال مستخدم من قبل');
@@ -40,6 +36,16 @@ class InstructorAuthController extends Controller
         if($request->password != $request->c_password)
             return back()->with('error','كلمة المرور غير متطابقة');
 
+        $checkIfEmailExists = User::where('email',$request->email)->first();
+        if($checkIfEmailExists && $checkIfEmailExists->active == 1){
+            return back()->with('error', 'الايميل مستخدم من قبل');
+        }elseif ($checkIfEmailExists && $checkIfEmailExists->active == 0){
+            $this->verify($request);
+
+            session()->flash('success', 'تم ارسال كود التفعيل علي بريدك الالكتروني');
+            $type = 'teacher';
+            return view('Web.pages.activate_account',compact('type'));
+        }
 
         $user = User::create([
             'name' => $request->name,
@@ -57,38 +63,13 @@ class InstructorAuthController extends Controller
             'categoey_id' =>  $request->categoey_id
         ]);
 
-
-
         if($user && $teacherInfo) {
 
-            $activation_code = generateActivationCode();
+            $this->verify($request);
 
-            Verfication::updateOrcreate
-            (
-                [
-                    'type' => 'activate',
-                    'email' => $request->email,
-                ],
-                [
-                    'code' => $activation_code,
-                    'expire_at' => Carbon::now()->addHour()->toDateTimeString()
-                ]
-            );
-
-            $data = [
-                'name' => $request->name,
-                'subject' => 'هذا هو كود التفعيل في تطبيق Learn Tic ',
-                'code' => $activation_code
-            ];
-            $email = $request->email;
-            session()->put('email',$email);
-            Mail::send('activation', $data, function ($message) use ($data,$email) {
-                $message->from('info@learn-tic.com','Activation@Learn-Tic')
-                    ->to($email)
-                    ->subject('تفعيل الحساب | Learn Tic');
-            });
             session()->flash('success', 'تم ارسال كود التفعيل علي بريدك الالكتروني');
-            return view('Web.pages.activate_account');
+            $type = 'teacher';
+            return view('Web.pages.activate_account',compact('type'));
         }else{
             return back()->with('error', 'Invalid Credentials');
         }
@@ -125,5 +106,33 @@ class InstructorAuthController extends Controller
         }
     }
 
+    public function verify($request){
+        $activation_code = generateActivationCode();
+
+        Verfication::updateOrcreate
+        (
+            [
+                'type' => 'activate',
+                'email' => $request->email,
+            ],
+            [
+                'code' => $activation_code,
+                'expire_at' => Carbon::now()->addHour()->toDateTimeString()
+            ]
+        );
+
+        $data = [
+            'name' => $request->name,
+            'subject' => 'هذا هو كود التفعيل في تطبيق Learn Tic ',
+            'code' => $activation_code
+        ];
+        $email = $request->email;
+        session()->put('email',$email);
+            Mail::send('activation', $data, function ($message) use ($data,$email) {
+                $message->from('info@learn-tic.com','Activation@Learn-Tic')
+                    ->to($email)
+                    ->subject('تفعيل الحساب | Learn Tic');
+            });
+    }
 
 }

@@ -16,9 +16,15 @@ use App\Http\Controllers\Web\InstructorAuthController;
 use App\Http\Controllers\Web\InstructorLoginController;
 use App\Http\Controllers\Web\StudentRegisterController;
 use App\Http\Controllers\Web\InstructorRegisterController;
+use App\Http\Controllers\Web\ConsultationController;
+use App\Http\Controllers\InstructorAdmin\ConsultationController as InstructorConsultationController;
 use App\Http\Controllers\InstructorAdmin\AppointmentController;
 use App\Http\Controllers\InstructorAdmin\InstructorCourseController;
 use App\Http\Controllers\InstructorAdmin\InstructorProfileController;
+use App\Http\Controllers\StudentAdmin\StudentAppointmentController;
+use App\Http\Controllers\StudentAdmin\StudentCourseController;
+use App\Http\Controllers\StudentAdmin\StudentProfileController;
+use App\Http\Controllers\StudentAdmin\StudentPaymentController;
 
 
 /*
@@ -70,23 +76,39 @@ Route::group([
     Route::get('student-login', [StudentLoginController::class,'index'])->name('student_login');
     Route::post('student-login', [StudentAuthController::class,'studentDoLogin'])->name('studentDoLogin');
     Route::get('student-signup', [StudentRegisterController::class,'index'])->name('student_register');
+    Route::post('student-signup', [StudentAuthController::class,'studentDoRegister'])->name('studentDoRegister');
+    Route::post('student-activate-account', [StudentAuthController::class,'studentActivateAccount'])->name('studentActivateAccount');
+
     Route::get('logout', [StudentAuthController::class,'logout'])->name('logout');
     Route::get('categories', [CategoriesController::class,'index'])->name('catigories');
 
     Route::get('instructorFilter', [InstructorsController::class,'instructorFilter'])->name('instructorFilter');
     Route::get('courseFilter', [CoursesController::class,'courseFilter'])->name('courseFilter');
+    Route::get('instructor-consultation', [InstructorConsultationController::class,'instructorConsultation'])
+        ->name('instructor-consultation');
+    Route::get('instructor-accept-consultation/{order_id}', [InstructorConsultationController::class,'instructorAcceptConsultation'])
+        ->name('instructor-accept-consultation');
 
 
 
     Route::any('payment/pay', 'App\Http\Controllers\Web\PaymentController@pay')->name('payment.pay');
     Route::any('payment/callback', 'App\Http\Controllers\Web\PaymentController@callback')->name('payment.callback');
 
+    Route::get('student-consultation', [ConsultationController::class,'studentConsultation'])->name('student-consultation');
+    Route::get('send-consultation-request/{instructor_id}/{type?}', [ConsultationController::class,'sendConsultationRequest'])->name('sendConsultationRequest');
+    Route::any('payment/consultation/callback', 'App\Http\Controllers\Web\PaymentController@callbackConsultationRequest')->name('payment.consultation.callback');
+
+    Route::get('pay-consultation-request/{order_id}', 'App\Http\Controllers\Web\PaymentController@payConsultationRequest')
+        ->name('pay-consultation-request');
+
+    Route::get('buy-course/{instructor_id}', [ConsultationController::class,'buyCourse'])->name('buyCourse');
+    Route::any('payment/buy-course/callback', 'App\Http\Controllers\Web\PaymentController@callbackConsultationRequest')->name('payment.buy-course.callback');
 
     //instructor Admin
     Route::group([
         'middleware' => 'auth:web',
     ], function () {
-        Route::get('my-profile', [InstructorProfileController::class,'myProfile'])->name('my_profile');
+        Route::get('instructor/my-profile', [InstructorProfileController::class,'myProfile'])->name('my_profile');
         Route::get('instructor-personal-profile', [InstructorProfileController::class,'personalProfile'])->name('personalProfile');
         Route::get('instructor-personal-profile-edit', [InstructorProfileController::class,'personalProfileEdit'])->name('personalProfileEdit');
         Route::post('instructor-personal-profile-update', [InstructorProfileController::class,'personalProfileUpdate'])->name('personalProfileUpdate');
@@ -107,10 +129,28 @@ Route::group([
         Route::post('instructor-delete-appointment2', [AppointmentController::class,'destroy2'])->name('instructor_delete_appointment2');
         
 
-        
-        
     });
 
+    //student Admin
+    Route::group([
+        'middleware' => 'auth:web',
+    ], function () {
+        Route::get('student/my-profile', [StudentProfileController::class,'myProfile'])->name('student_my_profile');
+        Route::get('student-personal-profile', [StudentProfileController::class,'personalProfile'])->name('studentPersonalProfile');
+        Route::get('student-personal-profile-edit', [StudentProfileController::class,'personalProfileEdit'])->name('studentPersonalProfileEdit');
+        Route::post('student-personal-profile-update', [StudentProfileController::class,'personalProfileUpdate'])->name('studentPersonalProfileUpdate');
+        Route::get('student-courses', [StudentCourseController::class,'index'])->name('student_courses');
+        Route::post('student-courses', [StudentCourseController::class,'search'])->name('search_student_courses');
+        Route::get('student-add-course', [StudentCourseController::class,'add'])->name('student_add_course');
+        Route::post('student-store-course', [StudentCourseController::class,'store'])->name('student_store_course');
+        Route::get('student-edit-course/{course_id}', [StudentCourseController::class,'edit'])->name('student_edit_course');
+        Route::post('student-update-course', [StudentCourseController::class,'update'])->name('student_update_course');
+        Route::post('student-delete-course', [StudentCourseController::class,'delete'])->name('student_delete_course');
+        Route::get('student-appointment', [StudentAppointmentController::class,'index'])->name('student_appointment');
+
+        Route::get('student-payments', [StudentPaymentController::class,'index'])->name('student-payments');
+
+    });
 
 });
 

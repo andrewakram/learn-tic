@@ -29,7 +29,15 @@
                         <div class="heading">
                             <h3 class="text-center">تفعيل الحساب</h3>
                         </div>
-                        <form  action="{{route('instructorActivateAccount')}}" method="post">
+                        <form
+                            @if($type == 'teacher')
+                                action="{{route('instructorActivateAccount')}}"
+                            @elseif($type == 'user')
+                                action="{{route('studentActivateAccount')}}"
+                            @endif
+
+                            method="post"
+                        >
                             @csrf
                             <div class="form-group">
                                 <input type="hidden" name="email" value="{{session()->get('email')}}" class="form-control" id="exampleInputEmail13"
