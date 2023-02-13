@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\InstructorAdmin;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\TeacherApppintment;
 use MacsiDigital\Zoom\Facades\Zoom;
@@ -18,12 +19,26 @@ class AppointmentController extends Controller
         return view('InstructorAdmin.pages.instructor_appointments', compact('teacher_appointments'));  
     }
 
+    public function index2()
+    {
+        $teacher_appointments = TeacherApppintment::where('teacher_id', auth()->user()->id)->get();
+        return view('InstructorAdmin.pages.instructor_appointments2', compact('teacher_appointments'));  
+    }
+
     public function create()
     {
         
         return view('InstructorAdmin.pages.instructor_create_appointments');  
 
     }
+
+    public function create2()
+    {
+        
+        return view('InstructorAdmin.pages.instructor_create_appointments2');  
+
+    }
+
 
     
     public function store(Request $request)
@@ -45,6 +60,27 @@ class AppointmentController extends Controller
          ]);
         // toastr()->success(trans('messages.success'));
          return redirect()->route('instructor_appointment');
+        
+    }
+
+    public function store2(Request $request)
+    {
+     //   dd($request->from_time);
+      //  dd($request->duration);
+        $to_time = Carbon::parse($request->from_time)->addMinutes($request->duration);
+       // dd($to_time);
+         TeacherApppintment::create([
+            
+             'teacher_id' => auth()->user()->id,
+             'topic' => $request->topic,
+             'from' => $request->from_time,
+             //'to' => $to_time ,
+             'duration' => $request->duration,
+             'day' => $request->days_week,
+            
+         ]);
+        // toastr()->success(trans('messages.success'));
+         return redirect()->route('instructor_appointment2');
         
     }
 
@@ -75,6 +111,18 @@ class AppointmentController extends Controller
             TeacherApppintment::where('meeting_id', $request->id)->delete();
             session()->flash('success', 'تم الحذف بنجاح');
             return redirect()->route('instructor_appointment');
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
+    }
+    public function destroy2(Request $request)
+    {
+       // dd($request->id);
+        try {
+         
+            TeacherApppintment::where('id', $request->id)->delete();
+            session()->flash('success', 'تم الحذف بنجاح');
+            return redirect()->route('instructor_appointment2');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }

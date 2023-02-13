@@ -17,7 +17,7 @@ class CreateTeacherApppintmentsTable extends Migration
             $table->id();
             $table->foreignId('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('from')->nullable();
-            $table->string('to')->nullable();
+          //  $table->string('to')->nullable();
             $table->enum('day',
                 ['Saturday','Sunday','Monday','Tuesday','Wednsday','Thursday','Friday'])
                 ->default('Saturday');

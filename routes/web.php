@@ -98,9 +98,13 @@ Route::group([
         Route::post('instructor-update-course', [InstructorCourseController::class,'update'])->name('instructor_update_course');
         Route::post('instructor-delete-course', [InstructorCourseController::class,'delete'])->name('instructor_delete_course');
         Route::get('instructor-appointment', [AppointmentController::class,'index'])->name('instructor_appointment');
+        Route::get('instructor-appointment2', [AppointmentController::class,'index2'])->name('instructor_appointment2');
         Route::get('instructor-create-appointment', [AppointmentController::class,'create'])->name('instructor_create_appointment');
+        Route::get('instructor-create-appointment2', [AppointmentController::class,'create2'])->name('instructor_create_appointment2');
         Route::post('instructor-store-appointment', [AppointmentController::class,'store'])->name('instructor_store_appointment');
+        Route::post('instructor-store-appointment2', [AppointmentController::class,'store2'])->name('instructor_store_appointment2');
         Route::post('instructor-delete-appointment', [AppointmentController::class,'destroy'])->name('instructor_delete_appointment');
+        Route::post('instructor-delete-appointment2', [AppointmentController::class,'destroy2'])->name('instructor_delete_appointment2');
         
 
         
