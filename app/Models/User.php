@@ -64,6 +64,10 @@ class User extends Authenticatable
         return $this->hasMany(Course::class,'teacher_id');
     }
 
+    public function uploadedFiles(){
+        return $this->hasMany(TeacherUpload::class,'teacher_id');
+    }
+
     public function getImageAttribute($image)
     {
         if (!empty($image)) {

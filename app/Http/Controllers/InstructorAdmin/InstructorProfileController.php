@@ -7,6 +7,7 @@ use App\Models\Chat;
 use App\Models\Course;
 use App\Models\Exam;
 use App\Models\Order;
+use App\Models\TeacherUpload;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\TeacherInfo;
@@ -75,6 +76,54 @@ class InstructorProfileController extends Controller
             $user->image = $request->image;
         }
         $user->save();
+        if(isset($request->graduate)){
+            TeacherUpload::updateOrCreate(
+                [
+                    'teacher_id' => $userId,
+                    'type' => 'graduate',
+                ],
+                [
+                    'file' => $request->graduate
+                ]
+            );
+        }
+
+        if(isset($request->certificate)){
+            TeacherUpload::updateOrCreate(
+                [
+                    'teacher_id' => $userId,
+                    'type' => 'certificate',
+                ],
+                [
+                    'file' => $request->certificate
+                ]
+            );
+        }
+
+        if(isset($request->national_id_file)){
+            TeacherUpload::updateOrCreate(
+                [
+                    'teacher_id' => $userId,
+                    'type' => 'national_id',
+                ],
+                [
+                    'file' => $request->national_id_file
+                ]
+            );
+        }
+
+        if(isset($request->residence_id_file)){
+            TeacherUpload::updateOrCreate(
+                [
+                    'teacher_id' => $userId,
+                    'type' => 'residence_id',
+                ],
+                [
+                    'file' => $request->residence_id_file
+                ]
+            );
+        }
+
         TeacherInfo::where('teacher_id',$userId)->update([
             'full_name' => $request->full_name,
             'categoey_id' => $request->categoey_id,

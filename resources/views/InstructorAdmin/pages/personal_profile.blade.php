@@ -135,74 +135,74 @@
 
                             </div>
                         </div>
-                        <div class="my_course_content_container">
-                            <div class="my_setting_content mb30">
-                                <div class="my_setting_content_header">
+{{--                        <div class="my_course_content_container">--}}
+{{--                            <div class="my_setting_content mb30">--}}
+{{--                                <div class="my_setting_content_header">--}}
 
-                                    <div class="my_sch_title">
-                                        <h4 class="m0">Category Details</h4>
-                                        <ul>
-                                            <li>
-                                                Category  <span> Arabic</span>
-                                            </li>
-                                            <li>
-                                                Years Of Experience  <span> 12 Year</span>
-                                            </li>
-                                            <li>
-                                                Qualification   <span>Master</span>
-                                            </li>
-                                            <li>
-                                                University     <span>Ain Shams</span>
-                                            </li>
-                                            <li>
-                                                learn Type   <span> Online</span>
-                                            </li>
+{{--                                    <div class="my_sch_title">--}}
+{{--                                        <h4 class="m0">Category Details</h4>--}}
+{{--                                        <ul>--}}
+{{--                                            <li>--}}
+{{--                                                Category  <span> Arabic</span>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                Years Of Experience  <span> 12 Year</span>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                Qualification   <span>Master</span>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                University     <span>Ain Shams</span>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                learn Type   <span> Online</span>--}}
+{{--                                            </li>--}}
 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="my_course_content_container">
-                            <div class="my_setting_content mb30">
-                                <div class="my_setting_content_header">
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="my_course_content_container">--}}
+{{--                            <div class="my_setting_content mb30">--}}
+{{--                                <div class="my_setting_content_header">--}}
 
-                                    <div class="my_sch_title">
-                                        <h4 class="m0">Query Cost</h4>
-                                        <ul>
-                                            <li>
-                                                Query Cost Normal    <span> 23$ / Hour</span>
-                                            </li>
-                                            <li>
-                                                Query Cost Urgent    <span> 30$ / Hour</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                                    <div class="my_sch_title">--}}
+{{--                                        <h4 class="m0">Query Cost</h4>--}}
+{{--                                        <ul>--}}
+{{--                                            <li>--}}
+{{--                                                Query Cost Normal    <span> 23$ / Hour</span>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                Query Cost Urgent    <span> 30$ / Hour</span>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="my_course_content_container">
-                            <div class="my_setting_content mb30">
-                                <div class="my_setting_content_header">
+{{--                        <div class="my_course_content_container">--}}
+{{--                            <div class="my_setting_content mb30">--}}
+{{--                                <div class="my_setting_content_header">--}}
 
-                                    <div class="my_sch_title">
-                                        <h4 class="m0">My Uploads</h4>
-                                        <ul>
-                                            <li>
-                                                My CV <span><button class="btn"><i class="fa fa-download"></i> Download My CV</button>																</span>
-                                            </li>
-                                            <li>
-                                                Specialization Certificate <span><button class="btn"><i class="fa fa-download"></i> Download Specialization Certificate</button>																</span>
-                                            </li>
-                                            <li>
-                                                National Identity <span><button class="btn"><i class="fa fa-download"></i> Download National identity</button>																</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                                    <div class="my_sch_title">--}}
+{{--                                        <h4 class="m0">My Uploads</h4>--}}
+{{--                                        <ul>--}}
+{{--                                            <li>--}}
+{{--                                                My CV <span><button class="btn"><i class="fa fa-download"></i> Download My CV</button>																</span>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                Specialization Certificate <span><button class="btn"><i class="fa fa-download"></i> Download Specialization Certificate</button>																</span>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                National Identity <span><button class="btn"><i class="fa fa-download"></i> Download National identity</button>																</span>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                     </div>
                 </div>

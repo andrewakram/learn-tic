@@ -56,6 +56,58 @@
                     <input type="hidden" name="row_id" value="{{$row->id}}">
                     <!--begin::Aside column-->
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px">
+
+                        @foreach($row->uploadedFiles as $uploadedFile)
+                            <!--begin::Thumbnail settings-->
+                                <div class="card card-flush py-4">
+                                    <!--begin::Card header-->
+                                    <div class="card-header">
+                                        <!--begin::Card title-->
+                                        <div class="card-title">
+                                            <h2>{{$uploadedFile->type}}</h2>
+                                        </div>
+                                        <!--end::Card title-->
+                                    </div>
+                                    <!--end::Card header-->
+                                    <!--begin::Card body-->
+                                    <div class="card-body text-center pt-0">
+                                        <!--begin::Image input-->
+                                        <div class="image-input image-input-empty image-input-outline mb-3" data-kt-image-input="true" style="">
+                                            <!--begin::Preview existing avatar-->
+                                            <div class="image-input-wrapper w-150px h-150px" style="background-image: url({{$uploadedFile->file}})"></div>
+                                            <!--end::Preview existing avatar-->
+                                            <!--begin::Label-->
+{{--                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="إختر الصورة">--}}
+{{--                                                <i class="bi bi-pencil-fill fs-7"></i>--}}
+{{--                                                <!--begin::Inputs-->--}}
+{{--                                                <input type="file" name="image" accept=".png, .jpg, .jpeg" />--}}
+{{--                                                <input type="hidden"  />--}}
+{{--                                                <!--end::Inputs-->--}}
+{{--                                            </label>--}}
+                                            <!--end::Label-->
+                                            <!--begin::Cancel-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="إلغاء الصورة">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+                                            <!--end::Cancel-->
+                                            <!--begin::Remove-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="حذف الصورة">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+                                            <!--end::Remove-->
+                                        </div>
+                                        <!--end::Image input-->
+                                        <!--begin::Description-->
+                                        <div class="text-danger fs-7">
+                                            <a href="{{$uploadedFile->file}}" target="_blank" class="btn btn-sm btn-success">عرض </a>
+                                        </div>
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Card body-->
+                                </div>
+                                <!--end::Thumbnail settings-->
+                        @endforeach
+
                         <!--begin::Thumbnail settings-->
                         <div class="card card-flush py-4">
                             <!--begin::Card header-->
@@ -107,89 +159,7 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Thumbnail settings-->
-                        <!--begin::Status-->
-                        <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <!--begin::Card title-->
-                                <div class="card-title">
-                                    <h2>الحالة</h2>
-                                </div>
-                                <!--end::Card title-->
-                                <!--begin::Card toolbar-->
-                                <div class="card-toolbar">
-                                    <div class="rounded-circle bg-success w-15px h-15px"
-                                         id="kt_ecommerce_add_product_status"></div>
-                                </div>
-                                <!--begin::Card toolbar-->
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <!--begin::Select2-->
-                                <select name="active" required class="form-select form-select-lg form-select-solid"
-                                        data-control="select2"
-                                        id="">
-                                    <option></option>
-                                    <option value="1" {{$row->active == 1 ? "selected" : ""}}>مفعل</option>
-                                    <option value="0" {{$row->active == 0 ? "selected" : ""}}>غير مفعل</option>
-                                </select>
-                                <!--end::Select2-->
-                                <!--begin::Description-->
-                            {{--                                <div class="text-muted fs-7">Set the product status.</div>--}}
-                            <!--end::Description-->
-                                <!--begin::Datepicker-->
-                            {{--                                <div class="d-none mt-10">--}}
-                            {{--                                    <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>--}}
-                            {{--                                    <input class="form-control" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" />--}}
-                            {{--                                </div>--}}
-                            <!--end::Datepicker-->
-                            </div>
-                            <!--end::Card body-->
-                        </div>
-                        <!--end::Status-->
 
-                        <!--begin::Status-->
-                        <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <!--begin::Card title-->
-                                <div class="card-title">
-                                    <h2>حالة الإيقاف</h2>
-                                </div>
-                                <!--end::Card title-->
-                                <!--begin::Card toolbar-->
-                                <div class="card-toolbar">
-                                    <div class="rounded-circle bg-danger w-15px h-15px"
-                                         id="kt_ecommerce_add_product_status"></div>
-                                </div>
-                                <!--begin::Card toolbar-->
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <!--begin::Select2-->
-                                <select name="suspend" required class="form-select mb-2" data-control="select2"
-                                        data-hide-search="true" data-placeholder="إختر الحالة"
-                                        id="kt_ecommerce_add_product_status_select">
-                                    <option></option>
-                                    <option value="1" {{$row->suspend == 1 ? "selected" : ""}}>إيقاف</option>
-                                    <option value="0" {{$row->suspend == 0 ? "selected" : ""}}>إلغاء الإيقاف</option>
-                                </select>
-                                <!--end::Select2-->
-                                <!--begin::Description-->
-                            {{--                                <div class="text-muted fs-7">Set the product status.</div>--}}
-                            <!--end::Description-->
-                                <!--begin::Datepicker-->
-                            {{--                                <div class="d-none mt-10">--}}
-                            {{--                                    <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>--}}
-                            {{--                                    <input class="form-control" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" />--}}
-                            {{--                                </div>--}}
-                            <!--end::Datepicker-->
-                            </div>
-                            <!--end::Card body-->
-                        </div>
-                        <!--end::Status-->
 
                     </div>
                     <!--end::Aside column-->
@@ -633,6 +603,96 @@
                             </div>
                             <!--end::Tab pane-->
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--begin::Status-->
+                                <div class="card card-flush py-4">
+                                    <!--begin::Card header-->
+                                    <div class="card-header">
+                                        <!--begin::Card title-->
+                                        <div class="card-title">
+                                            <h2>الحالة</h2>
+                                        </div>
+                                        <!--end::Card title-->
+                                        <!--begin::Card toolbar-->
+                                        <div class="card-toolbar">
+                                            <div class="rounded-circle bg-success w-15px h-15px"
+                                                 id="kt_ecommerce_add_product_status"></div>
+                                        </div>
+                                        <!--begin::Card toolbar-->
+                                    </div>
+                                    <!--end::Card header-->
+                                    <!--begin::Card body-->
+                                    <div class="card-body pt-0">
+                                        <!--begin::Select2-->
+                                        <select name="active" required class="form-select form-select-lg form-select-solid"
+                                                data-control="select2"
+                                                id="">
+                                            <option></option>
+                                            <option value="1" {{$row->active == 1 ? "selected" : ""}}>مفعل</option>
+                                            <option value="0" {{$row->active == 0 ? "selected" : ""}}>غير مفعل</option>
+                                        </select>
+                                        <!--end::Select2-->
+                                        <!--begin::Description-->
+                                    {{--                                <div class="text-muted fs-7">Set the product status.</div>--}}
+                                    <!--end::Description-->
+                                        <!--begin::Datepicker-->
+                                    {{--                                <div class="d-none mt-10">--}}
+                                    {{--                                    <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>--}}
+                                    {{--                                    <input class="form-control" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" />--}}
+                                    {{--                                </div>--}}
+                                    <!--end::Datepicker-->
+                                    </div>
+                                    <!--end::Card body-->
+                                </div>
+                                <!--end::Status-->
+                            </div>
+                            <div class="col-md-6">
+                                <!--begin::Status-->
+                                <div class="card card-flush py-4">
+                                    <!--begin::Card header-->
+                                    <div class="card-header">
+                                        <!--begin::Card title-->
+                                        <div class="card-title">
+                                            <h2>حالة الإيقاف</h2>
+                                        </div>
+                                        <!--end::Card title-->
+                                        <!--begin::Card toolbar-->
+                                        <div class="card-toolbar">
+                                            <div class="rounded-circle bg-danger w-15px h-15px"
+                                                 id="kt_ecommerce_add_product_status"></div>
+                                        </div>
+                                        <!--begin::Card toolbar-->
+                                    </div>
+                                    <!--end::Card header-->
+                                    <!--begin::Card body-->
+                                    <div class="card-body pt-0">
+                                        <!--begin::Select2-->
+                                        <select name="suspend" required class="form-select mb-2" data-control="select2"
+                                                data-hide-search="true" data-placeholder="إختر الحالة"
+                                                id="kt_ecommerce_add_product_status_select">
+                                            <option></option>
+                                            <option value="1" {{$row->suspend == 1 ? "selected" : ""}}>إيقاف</option>
+                                            <option value="0" {{$row->suspend == 0 ? "selected" : ""}}>إلغاء الإيقاف</option>
+                                        </select>
+                                        <!--end::Select2-->
+                                        <!--begin::Description-->
+                                    {{--                                <div class="text-muted fs-7">Set the product status.</div>--}}
+                                    <!--end::Description-->
+                                        <!--begin::Datepicker-->
+                                    {{--                                <div class="d-none mt-10">--}}
+                                    {{--                                    <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>--}}
+                                    {{--                                    <input class="form-control" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date &amp; time" />--}}
+                                    {{--                                </div>--}}
+                                    <!--end::Datepicker-->
+                                    </div>
+                                    <!--end::Card body-->
+                                </div>
+                                <!--end::Status-->
+                            </div>
+                        </div>
+
                         <!--end::Tab content-->
                         <div class="d-flex justify-content-end">
                             <!--begin::Button-->

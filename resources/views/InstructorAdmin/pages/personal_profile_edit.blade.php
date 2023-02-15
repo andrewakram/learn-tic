@@ -1,6 +1,10 @@
 @extends('InstructorAdmin.index')
 @section('style')
-
+    <style>
+        .my_setting_content_header {
+            border-bottom: 10px solid #eeeeee;
+        }
+    </style>
 @endsection
 @section('content')
 
@@ -180,6 +184,101 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="my_setting_content_header style2 bold">
+                            <div class="my_sch_title bold">
+                            </div>
+                        </div>
+                        <div class="my_setting_content_header style2">
+                            <div class="my_sch_title">
+                                <h4 class="m0">تحميل الملفات</h4>
+                            </div>
+                        </div>
+                        <div class="row my_setting_content_details pb0">
+                            <div class="col-xl-6">
+                                <div class="password_change_form">
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1z">شهادة التخرج</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="file" name="graduate" class="form-control"
+                                                       id="exampleInputPassword1z" placeholder="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                @if($data['instructor']->uploadedFiles)
+                                                    @if($data['instructor']->uploadedFiles->where('type','graduate')->first())
+                                                        <a href="{{$data['instructor']->uploadedFiles->where('type','graduate')->first()->file}}"
+                                                           class="btn btn-primary" target="_blank">عرض</a>
+                                                    @endif
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1z1">certificate</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="file" name="certificate" class="form-control"
+                                                       id="exampleInputPassword1z1" placeholder="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                @if($data['instructor']->uploadedFiles)
+                                                    @if($data['instructor']->uploadedFiles->where('type','certificate')->first())
+                                                        <a href="{{$data['instructor']->uploadedFiles->where('type','certificate')->first()->file}}"
+                                                           class="btn btn-primary" target="_blank">عرض</a>
+                                                    @endif
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1z12">صورة الهوية</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="file" name="national_id_file" class="form-control"
+                                                       id="exampleInputPassword1z12" placeholder="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                @if($data['instructor']->uploadedFiles)
+                                                    @if($data['instructor']->uploadedFiles->where('type','national_id')->first())
+                                                        <a href="{{$data['instructor']->uploadedFiles->where('type','national_id')->first()->file}}"
+                                                           class="btn btn-primary" target="_blank">عرض</a>
+                                                    @endif
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1z123">صورة الاقامة</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="file" name="residence_id_file" class="form-control"
+                                                       id="exampleInputPassword1z123" placeholder="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                @if($data['instructor']->uploadedFiles)
+                                                    @if($data['instructor']->uploadedFiles->where('type','residence_id')->first())
+                                                        <a href="{{$data['instructor']->uploadedFiles->where('type','residence_id')->first()->file}}"
+                                                           class="btn btn-primary" target="_blank">عرض</a>
+                                                    @endif
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="my_setting_content_header style2">
+                            <div class="my_sch_title">
+                            </div>
+                        </div>
+
                         <div class="my_setting_content_header style2">
                             <div class="my_sch_title">
                                 <h4 class="m0">Change password</h4>
