@@ -32,7 +32,12 @@
                         <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Appointment
                     </a>
                 </li>
-
+                <li class="{{request()->segment(1) == 'instructor-appointment2' ? 'active' : ''}}">
+                    <a href="{{route('instructor_appointment2')}}">
+                        <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Appointment2
+                    </a>
+                </li>
+                
                 <li>
                     <a href="page-my-order.html">
                         <span class="flaticon-shopping-bag-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Order

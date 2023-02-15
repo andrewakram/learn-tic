@@ -123,7 +123,9 @@ class CommentController extends Controller
 
     public function destroy($id)
     {
-        //
+        UserComment::findOrFail($id)->delete();
+        session()->flash('success', 'تم الحذف بنجاح');
+        return back();
     }
     public function getData()
     {

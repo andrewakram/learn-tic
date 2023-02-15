@@ -88,7 +88,7 @@
 
                     </div>
 
-                    <div class=" col-lg-8 col-xl-9">
+                    <div class=" col-lg-8 col-xl-9 personal_data">
 
                         <div class="my_course_content_container">
                             <div class="my_setting_content mb30">
