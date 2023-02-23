@@ -37,22 +37,22 @@
                         <span class="flaticon-add-contact" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Add Appointment2
                     </a>
                 </li>
-                
-                <li>
-                    <a href="page-my-order.html">
-                        <span class="flaticon-shopping-bag-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Order
-                    </a>
-                </li>
-                <li>
-                    <a href="page-my-message.html">
-                        <span class="flaticon-speech-bubble" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Messages
-                    </a>
-                </li>
-                <li>
-                    <a href="page-my-review.html">
-                        <span class="flaticon-rating" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Reviews
-                    </a>
-                </li>
+
+{{--                <li>--}}
+{{--                    <a href="page-my-order.html">--}}
+{{--                        <span class="flaticon-shopping-bag-1" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Order--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a href="page-my-message.html">--}}
+{{--                        <span class="flaticon-speech-bubble" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Messages--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a href="page-my-review.html">--}}
+{{--                        <span class="flaticon-rating" dir="{{session()->get('lang') == 'ar' ? 'rtl' : 'ltr'}}"></span> Reviews--}}
+{{--                    </a>--}}
+{{--                </li>--}}
             </ul>
             <h4>Account</h4>
             <ul>
