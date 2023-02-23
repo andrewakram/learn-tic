@@ -21,6 +21,7 @@ class CreateTeacherApppintmentsTable extends Migration
             $table->enum('day',
                 ['Saturday','Sunday','Monday','Tuesday','Wednsday','Thursday','Friday'])
                 ->default('Saturday');
+                //$table->date('day')->nullable();
 
            
            

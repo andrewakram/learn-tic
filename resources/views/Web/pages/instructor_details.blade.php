@@ -300,32 +300,119 @@
                                       <!--//////////// -->
                                       <!-- Slider -->
                                         <div class="appointment">
-                                            <div uk-slider="center: true">
+                                            <div class="row">
+                                            @foreach($teacher_apppintments as $teacher_apppintment )
 
-                                                <ul class="uk-slider-items uk-child-width-1-2@s ">
-                                                @foreach($teacher_apppintments as $teacher_apppintment )
+                                             <div class="col-lg-6 col-xl-6">
+                                                <div class="uk-card-calendar uk-card-hover">
+                                                        <!-- <h1>{{$teacher_apppintment -> day }}</h1> -->
+                                                        <i class="fa fa-calendar-day"></i>
+                                                        <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">{{$teacher_apppintment -> topic }}</h3>
+                                                        <h4 style="font-size: 14px;">3/4/2023</h4>
+                                                        <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;display: inline-block">بداية الحصة</h3>
+                                                        <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;display: inline-block ; margin-right: 24%;">نهاية الحصة</h3>
+                                                        <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px; display: inline-block;padding-bottom: 15px;float: left;">وقت الحصة</h3>
+                                                        <ul class="uk-list-time">
+
+                                                            <li class="time">  
+                                                            <span>{{$teacher_apppintment -> from }}</span>
+                                                            <span style="margin-right: 28%;">  {{$teacher_apppintment -> to }}</span>
+                                                            <span style="float: left;  margin-right: 19%;">{{$teacher_apppintment -> duration }}</span>
+                                                            </li>
+
+                                                        </ul>
+                                                        <div class="tm_footer text-center">
+                                                             <a href="{{$teacher_apppintment -> join_url }}" type="button" class="btn btn-thm  apointment_btn" style="">
+                                                                 أريد حجز هذا الموعد         
+                                                               
+                                                            </a>
+                                                        </div>
+                                                  </div>
+                                             </div>
+                                                
+                                            @endforeach
+                                                 <!-- <div class="col-lg-6 col-xl-4">
+                                                     <div class="uk-card-calendar uk-card-hover">
+                                                            <h1>29</h1>
+                                                            <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">Friday</h3>
+                                                            <h4 style="font-size: 14px;">from 9:00am-6:00pm</h4>
+                                                            <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;">Afternoon</h3>
+                                                            <ul class="uk-list-time">
+                                                                <li class="time">2:30pm - 3:00pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                                <li class="time">3:30pm - 4:00pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                                <h3 style="color: #000; font-size: 16px; padding-top: 15px; padding-bottom: 15px;">Evening</h3>
+                                                                <li class="time">  5:30pm - 6:00pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                                <li class="time">6:00pm - 6:30pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                                <li class="time">6:30pm - 7:00pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-xl-4">
+                                                     <div class="uk-card-calendar uk-card-hover">
+                                                            <h1>29</h1>
+                                                            <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">Friday</h3>
+                                                            <h4 style="font-size: 14px;">from 9:00am-6:00pm</h4>
+                                                            <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;">Afternoon</h3>
+                                                            <ul class="uk-list-time">
+                                                                <li class="time">2:30pm - 3:00pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                                <li class="time">3:30pm - 4:00pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                                <h3 style="color: #000; font-size: 16px; padding-top: 15px; padding-bottom: 15px;">Evening</h3>
+                                                                <li class="time">  5:30pm - 6:00pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                                <li class="time">6:00pm - 6:30pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                                <li class="time">6:30pm - 7:00pm
+                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div> -->
+                                                
+                                            </div>
+                                        
+                                            <!-- <div uk-slider="center: true">
+
+                                                <ul class="uk-slider-items uk-child-width-1-2@s "> -->
+                                                <!-- @foreach($teacher_apppintments as $teacher_apppintment )
 
                                                     <li class="appointment_time">
                                                         <div class="none">
                                                         <div class="uk-card-calendar uk-card-hover">
-                                                            <h1>{{$teacher_apppintment -> start_at }}</h1>
-                                                            <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">Thursday</h3>
+                                                            <h1>{{$teacher_apppintment -> day }}</h1>
+                                                            <i class="fa fa-calendar-day"></i>
+                                                            <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">{{$teacher_apppintment -> day }}</h3>
                                                             <h4 style="font-size: 14px;">from 9:00am-6:00pm</h4>
                                                             <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;display: inline-block">Afternoon</h3>
                                                             <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px; display: inline-block;padding-bottom: 15px;float: left;">Duration</h3>
                                                             <ul class="uk-list-time">
 
-                                                                <li class="time">6:30pm - 7:00pm
-                                                                   <span style="float: left;  margin-right: 19%;"> 60 m </span>
+                                                                <li class="time"> {{$teacher_apppintment -> from }}  - {{$teacher_apppintment -> to }}
+                                                                   <span style="float: left;  margin-right: 19%;">{{$teacher_apppintment -> duration }}</span>
                                                                     <a href="{{$teacher_apppintment -> join_url }}" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
                                                         </div>
                                                     </li>
-                                                    @endforeach
+                                                    @endforeach -->
                                                     <!-- Friday -->
-                                                    <li class="appointment_time">
+                                                    <!-- <li class="appointment_time">
                                                         <div class="none">
                                                         <div class="uk-card-calendar uk-card-hover">
                                                             <h1>29</h1>
@@ -352,9 +439,9 @@
                                                             </ul>
                                                         </div>
                                                         </div>
-                                                    </li>
+                                                    </li> -->
                                                     <!-- Monday -->
-                                                    <li class="appointment_time">
+                                                    <!-- <li class="appointment_time">
                                                         <div class="none">
                                                         <div class="uk-card-calendar uk-card-hover">
                                                             <h1>30</h1>
@@ -381,72 +468,15 @@
                                                             </ul>
                                                         </div>
                                                         </div>
-                                                    </li>
-                                                    <!-- Tuesday -->
-                                                    <li class="appointment_time">
-                                                        <div class="none">
-                                                        <div class="uk-card-calendar uk-card-hover">
-                                                            <h1>31</h1>
-                                                            <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">Tuesday</h3>
-                                                            <h4 style="font-size: 14px;">from 9:00am-6:00pm</h4>
-                                                            <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;">Afternoon</h3>
-                                                            <ul class="uk-list-time">
-                                                                <li class="time">2:30pm - 3:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <li class="time">3:30pm - 4:00pm\
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <h3 style="color: #000; font-size: 16px; padding-top: 15px; padding-bottom: 15px;">Evening</h3>
-                                                                <li class="time">  5:30pm - 6:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <li class="time">6:00pm - 6:30pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <li class="time">6:30pm - 7:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        </div>
-                                                    </li>
-                                                    <!-- Wednesday -->
-                                                    <li class="appointment_time">
-                                                        <div class="none">
-                                                        <div class="uk-card-calendar uk-card-hover">
-                                                            <h1>01</h1>
-                                                            <h3 style="color: #009688; padding-top: 25px; font-size: 25px;">Wednesday</h3>
-                                                            <h4 style="font-size: 14px;">from 9:00am-6:00pm</h4>
-                                                            <h3 style="color: #000; font-size: 16px; padding-top: 35px; padding-bottom: 15px;">Afternoon</h3>
-                                                            <ul class="uk-list-time">
-                                                                <li class="time">2:30pm - 3:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <li class="time">3:30pm - 4:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <h3 style="color: #000; font-size: 16px; padding-top: 15px; padding-bottom: 15px;">Evening</h3>
-                                                                <li class="time">  5:30pm - 6:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <li class="time">6:00pm - 6:30pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                                <li class="time">6:30pm - 7:00pm
-                                                                    <a href="#" type="button" class="btn dbxshad btn-lg btn-thm circle white apply_btn">Apply Now</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                    </li> -->
+                                               
+                                                <!-- </ul> -->
 
 
                                                 <!-- Indicator -->
-                                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                                <!-- <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
                                                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                                            </div>
+                                            </div> -->
                                             </div>
 
                                       <!-- //////////-->

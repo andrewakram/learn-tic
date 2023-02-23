@@ -30,9 +30,9 @@ class InstructorsController extends Controller
     public function instructorDetails(Request $request)
     {
         $teacher_details = User::findOrFail($request->instructor_id);
-        $teacher_apppintments = TeacherApppintment::select('id','teacher_id', 'topic' , 'start_at' ,'duration' ,'join_url')
-        ->where('teacher_id' , $request->instructor_id)
+        $teacher_apppintments = TeacherApppintment::where('teacher_id' , $request->instructor_id)
         ->get();
+        //dd($teacher_apppintments);
         return view('Web.pages.instructor_details', compact('teacher_details','teacher_apppintments'));
     }
 

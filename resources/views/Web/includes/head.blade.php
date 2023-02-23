@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('project')}}/css/ar-bootstrap.min.css">
     <!-- <link rel="stylesheet" href="{{asset('project')}}/css/bootstrap.min.css"> -->
      <link rel="stylesheet" href="{{asset('project')}}/css/ar-style.css">
-    <link rel="stylesheet" href="{{asset('project')}}/css/ar-responsive">
+    <link rel="stylesheet" href="{{asset('project')}}/css/ar-responsive.css">
 @else
     <link rel="stylesheet" href="{{asset('project')}}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('project')}}/css/style.css">

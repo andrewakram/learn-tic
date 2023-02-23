@@ -46,12 +46,21 @@ class AppointmentController extends Controller
         $meeting = $this->createMeeting($request);
         // dd($request);
          //create meeting in database
+         $start_time = $request->start_time;
+        $duration  = $request->duration;
+        $from = Carbon::parse($start_time)->format('H:i:s');
+         $new_time = Carbon::parse($start_time)->addMinutes($duration);
+         $day = Carbon::parse($new_time)->format('Y-m-d');
+         $to = Carbon::parse($new_time)->format('H:i:s');
          TeacherApppintment::create([
             
              'teacher_id' => auth()->user()->id,
              'meeting_id' => $meeting->id,
              'topic' => $request->topic,
-             'start_at' => $request->start_time,
+             //'start_at' => $request->start_time,
+             'from' =>   $from ,
+             'to' => $to ,
+             'day_date' => $day ,
              ///request
              'duration' => $meeting->duration,
              'password' => $meeting->password,

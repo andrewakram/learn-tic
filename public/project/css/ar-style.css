@@ -519,7 +519,7 @@ display: none;
     color: #000 !important;
     letter-spacing: -2px;
     font-size: 32px;
-    font-family: Eina03-Regular, Avenir;
+    /* font-family: Eina03-Regular, Avenir; */
     text-align: right;
     margin: 0px;
     line-height: 1;
@@ -530,7 +530,7 @@ display: none;
     color: #000;
     letter-spacing: -.7px;
     font-size: 22px;
-    font-family: Eina03-Regular, Avenir;
+    /* font-family: Eina03-Regular, Avenir; */
     margin: 0px;
     text-align: right;
     line-height: 1.5;
@@ -540,7 +540,7 @@ display: none;
     color: grey !important;
     letter-spacing: -.2px;
     font-size: 16px;
-    font-family: Eina03-Regular, Avenir;
+    /* font-family: Eina03-Regular, Avenir; */
     margin: 0px;
     line-height: 2;
   }
@@ -549,7 +549,7 @@ display: none;
     font-weight: 100;
     color: #000 !important;
     font-size: 12px;
-    font-family: Eina03-Regular, Avenir;
+    /* font-family: Eina03-Regular, Avenir; */
     margin: 0px;
   }
 
@@ -564,14 +564,14 @@ display: none;
   .time {
     border-bottom: 1px solid #eaeaea;
     padding: 15px 0px 15px 20px;
-    font-family: Eina03-Regular, Avenir;
+    /* font-family: Eina03-Regular, Avenir; */
     font-weight: 500;
     color: #000;
   }
   .active-time {
     border-bottom: 1px solid #eaeaea;
     padding: 15px 0px 15px 20px;
-    font-family: Eina03-Regular, Avenir;
+    /* font-family: Eina03-Regular, Avenir; */
     font-weight: 500;
     color: #222;
     font-weight: 600;
@@ -595,14 +595,20 @@ display: none;
   }
 
   .uk-card-calendar {
-    font-family: Eina03-Regular, Avenir;
-    padding: 40px 20px 40px 20px;
+    padding: 2px 20px 15px 20px;
     border: 1px solid #eaeaea;
     background: transparent;
     border-radius: 5px 5px 5px 5px;
-    max-width: 400px;
+    margin-top: 40px;
+    /* width: 400px; */
+    
   }
+.apointment_btn
+{
+  width: 100%;
+  font-family: 'Cairo';
 
+}
 
   /* <-- Slider Indicator --> */
 
@@ -11072,24 +11078,27 @@ ul.mc_parent_list ul.mc_child_list:hover .pricing_btn{
   outline: none;
 }
 .btn-thm {
-  background-color: #009182 ;
-  border: 2px solid #009182 ;
+  background-color: #009181a1 ;
+  /* border: 2px solid #009181a1 ; */
   border-radius: 5px;
-  color: #ffffff;
+  font-weight: bold;
+  padding-bottom: 10px;
+  color: #000;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;}
 
 .btn-thm.rounded {
-  background-color: #009182 ;
+  background-color: #009181a1 ;
   border-radius: 5px;
-  color: #ffffff;}
+  color: #000;}
 
 .btn-thm:hover,
 .btn-thm:active,
 .btn-thm:focus{
   background-color: #ffffff;
   border-color: #009182 ;
+  font-weight: bold;
   color: #009182 ; }
 
 .btn-thm.white:hover,

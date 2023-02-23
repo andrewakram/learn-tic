@@ -50,7 +50,9 @@
                                             <th>#</th>
                                             <th>المعلم</th>
                                             <th>عنوان الحصة</th>
-                                            <th>تاريخ البداية</th>
+                                            <th> تاريخ الحصة</th>
+                                            <th> بداية الحصة </th>
+                                            <th> نهاية الحصة</th>
                                             <th> وقت الحصة بالدقايق</th>
                                             <th>رابط الحصة</th>
                                             <th>العمليات</th>
@@ -62,7 +64,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                                 <td>{{$teacher_appointment->teacher->name}}</td>
                                                 <td>{{$teacher_appointment->topic}}</td>
-                                                <td>{{$teacher_appointment->start_at}}</td>
+                                                <td>{{$teacher_appointment->day_date}}</td>
+                                                <td>{{$teacher_appointment->from}}</td>
+                                                <td>{{$teacher_appointment->to}}</td>
                                                 <td>{{$teacher_appointment->duration}}</td>
                                                 <td class="text-danger">
                                                     <a href="{{$teacher_appointment->join_url}}" target="_blank">انضم الان</a>
