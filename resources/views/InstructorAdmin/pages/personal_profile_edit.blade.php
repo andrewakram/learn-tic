@@ -50,15 +50,26 @@
 
                         <div class="row my_setting_content_details pb0">
 
+{{--                            <div class="col-xl-3">--}}
+{{--                                <div class="wrap-custom-file">--}}
+{{--                                    <input type="file" name="image1" id="image1" accept=".gif, .jpg, .png"/>--}}
+{{--                                    <label for="image1">--}}
+{{--                                        <span>Browse</span>--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div class="col-xl-3">
-                                <div class="wrap-custom-file">
-                                    <input type="file" name="image1" id="image1" accept=".gif, .jpg, .png"/>
-                                    <label for="image1">
-                                        <span>Browse</span>
-                                    </label>
+                                <div class="about_thumb">
+                                    <img class="img-fluid" src="{{$data['instructor']->image}}" alt="about us.jpg">
                                 </div>
                             </div>
                             <div class="col-xl-9">
+{{--                                <div class="row">--}}
+                                    <div class="my_profile_setting_input form-group">
+                                        <label for="formGroupExampleInput14w11">صورة الملف الشخصي</label>
+                                        <input type="file" name="image" class="form-control" id="formGroupExampleInput14w11" accept=".gif, .jpg, .png"/>
+                                    </div>
+{{--                                </div>--}}
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="my_profile_setting_input form-group">

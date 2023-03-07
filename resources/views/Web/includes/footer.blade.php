@@ -45,9 +45,10 @@
                 <div class="footer_program_widget">
                     <h4>{{ trans('lang.more') }}</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#">{{ trans('lang.about_us') }}</a></li>
-                        <li><a href="#">{{ trans('lang.contact_us') }}</a></li>
-                        <li><a href="#"> {{ trans('lang.blogs') }}</a></li>
+                        <li><a target="_blank" href="{{route('about_us')}}">{{ trans('lang.about_us') }}</a></li>
+                        <li><a target="_blank" href="{{route('contact_us')}}">{{ trans('lang.contact_us') }}</a></li>
+                        <li><a target="_blank" href="{{route('blogs')}}"> {{ trans('lang.blogs') }}</a></li>
+                        <li><a target="_blank" href="{{route('terms_conditions')}}"> {{ trans('lang.terms_conditions') }}</a></li>
 
                     </ul>
                 </div>

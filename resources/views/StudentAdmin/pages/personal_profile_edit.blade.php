@@ -34,7 +34,7 @@
             </nav>
         </div>
         <div class="col-lg-12">
-            <form method="post" action="{{route('personalProfileUpdate')}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('studentPersonalProfileUpdate')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="my_course_content_container">
                     <div class="my_setting_content mb30">
@@ -46,17 +46,26 @@
 
                         <div class="row my_setting_content_details pb0">
 
-                            <div class="col-xl-3">
-                                <div class="wrap-custom-file">
-                                    <input type="file" name="image1" id="image1" accept=".gif, .jpg, .png"/>
-                                    <label for="image1">
-                                        <span>Browse</span>
-                                    </label>
-                                </div>
+                            <div class="col-xl-2">
+{{--                                <div class="">--}}
+{{--                                    <input type="file" name="image" id="image" accept=".gif, .jpg, .png"/>--}}
+{{--                                    <label for="image">--}}
+{{--                                        <span>Browse</span>--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
                             </div>
-                            <div class="col-xl-9">
+                            <div class="col-xl-8">
                                 <div class="row">
                                     <div class="col-xl-6">
+                                        <div class="my_profile_setting_input form-group">
+                                            <label for="formGroupExampleInput14w11">صورة الملف الشخصي</label>
+                                            <input type="file" name="image" class="form-control" id="formGroupExampleInput14w11" accept=".gif, .jpg, .png"/>
+                                        </div>
+                                        <div class="my_profile_setting_input form-group">
+                                            <label for="formGroupExampleInput141">Name</label>
+                                            <input type="text" name="name" value="{{$data['student']->name}}"
+                                                   class="form-control" id="formGroupExampleInput141">
+                                        </div>
                                         <div class="my_profile_setting_input form-group">
                                             <label for="formGroupExampleInput11">Email</label>
                                             <input type="email" name="email" value="{{$data['student']->email}}"
@@ -67,15 +76,18 @@
                                             <input type="tel" name="phone" value="{{$data['student']->phone}}"
                                                    class="form-control" id="formGroupExampleInput12">
                                         </div>
-                                        
+
 
                                     </div>
                                     <div class="col-xl-6">
-
+                                        <div class="about_thumb">
+                                            <img class="img-fluid" src="{{$data['student']->image}}" alt="about us.jpg">
+                                        </div>
                                     </div>
 
                                 </div>
                             </div>
+
                             <div class="col-lg-12">
                                 <div class="my_resume_textarea">
 

@@ -64,6 +64,18 @@
                                     </select>
 								</div>
 
+                                <div class="form-group   form-control" >
+                                    <div style="padding-top:10px">
+                                        <input type="checkbox" name="terms" style="margin: 5px">
+                                        <span>أوافق علي </span>
+                                        <a target="_blank"
+                                           style="text-decoration: underline;color: #009181;font-size: larger"
+                                           href="{{route('terms_conditions')}}">
+                                            {{ trans('lang.terms_conditions') }}
+                                        </a>
+                                    </div>
+                                </div>
+
 								<!--
 								<div class="form-group custom-control custom-checkbox">
 									<input type="checkbox" class="custom-control-input" id="exampleCheck3">

@@ -13,7 +13,7 @@ class Page extends Model
     public function getImageAttribute($image)
     {
         if (!empty($image)) {
-            return asset('uploads/Blog') . '/' . $image;
+            return asset('uploads/Page') . '/' . $image;
         }
         return asset('default.png');
     }
@@ -22,7 +22,7 @@ class Page extends Model
     {
         if (is_file($image)) {
             $img_name = time() . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('/uploads/Blog/'), $img_name);
+            $image->move(public_path('/uploads/Page/'), $img_name);
             $this->attributes['image'] = $img_name;
         } else {
             $this->attributes['image'] = $image;

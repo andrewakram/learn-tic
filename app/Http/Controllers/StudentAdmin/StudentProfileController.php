@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\StudentAdmin;
 
-use App\Http\Requests\InstructorAdmin\InstructorUpdateProfileRequest;
+use App\Http\Requests\StudentAdmin\StudentUpdateProfileRequest;
 use App\Models\Chat;
 use App\Models\Course;
 use App\Models\Exam;
@@ -53,7 +53,7 @@ class StudentProfileController extends Controller
         return view('StudentAdmin.pages.personal_profile_edit',compact('data'));
     }
 
-    public function personalProfileUpdate(InstructorUpdateProfileRequest $request)
+    public function personalProfileUpdate(StudentUpdateProfileRequest $request)
     {
         $validator = $request->validated();
         if (!is_array($validator) && $validator->fails()) {
@@ -63,7 +63,7 @@ class StudentProfileController extends Controller
         $userId =auth()->user()->id;
         $user = User::findOrFail($userId);
 
-        $user->name = $request->full_name;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
         if(isset($request->password) && isset($request->new_password) &&

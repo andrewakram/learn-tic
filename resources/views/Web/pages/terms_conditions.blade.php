@@ -25,12 +25,12 @@
 		<div class="container">
 		@foreach($data['terms'] as $key => $term)
 		@if($key == 0 or $key == 2 )
-			
+
 			<div class="row">
 			{!! $term->body !!}
 			<div class="col-lg-6">
 				<div class="about_thumb">
-					<img class="img-fluid" src="{{asset('project')}}/images/terms/1.png" alt="about us.jpg">
+					<img class="img-fluid" src="{{$term->image}}" alt="about us.jpg">
 				</div>
 			</div>
 
@@ -43,7 +43,7 @@
 			</div>
 			{!! $term->body !!}
 		@endif
-				
+
 			</div>
 		@endforeach
 
@@ -56,29 +56,29 @@
 				<div class="col-lg-6">
 					<div class="terms_conditions">
 						<h3>
-						 شروط استرداد المبلغ  
+						 شروط استرداد المبلغ
 						</h3>
-		
+
 						<ul class="terms_ul">
 							<li><i class="fa fa-check"></i>   في حالة تأخر أحد الطرفين خلال مدة أقصاها ١٥ دقيقة، يحق للطرف الثاني إلغاء الموعد واسترداد جزء من المبلغ.</li>
-							<li><i class="fa fa-check"></i> في حالة حدوث ظرف طارئ لأحد الطرفين يجب التبليغ قبل الموعد بساعة، والإلغاء بحيث يحق له أحد الخيارين 
+							<li><i class="fa fa-check"></i> في حالة حدوث ظرف طارئ لأحد الطرفين يجب التبليغ قبل الموعد بساعة، والإلغاء بحيث يحق له أحد الخيارين
 
-								<ol> 
+								<ol>
 									<li><strong> 1- </strong> إما استرداد كامل المبلغ. </li>
 									<li><strong> 2- </strong>  أو حفظ المبلغ في المحفظة الخاصة بالطالب، على أن يتم استخدام المبلغ في مدة أقصاها سنة.</li>
 								</ol>
-						
+
 							</li>
-								
+
 							<li><i class="fa fa-check"></i>  في حال وجود أكثر من ٣ شكاوى على أحد الطرفين سيتم إقصاء الطرف المعني بالشكوى.</li>
 							<li><i class="fa fa-check"></i> في حالة الإخلال بالآداب العامة سيسترد كامل المبلغ. </li>
 							<li><i class="fa fa-check"></i>  في حالة عدم الرضا عن الخدمة المقدمة الرجاء التواصل على أحد وسائل التواصل الموضحة في الصفحة الرئيسية، وسيتم اختيار الوسيلة الأنسب لحل المشكلة. </li>
 						</ul>
-						
+
 
 					</div>
 				</div>
-				
+
 			</div>
 
 			<div class="row">
@@ -87,7 +87,7 @@
 						<h3>
 							الاسعار و المجموعات
 						</h3>
-		
+
 
 						<span>الأسعار: (السعر بالحصة الواحدة)</span>
 						<ul class="terms_ul">
@@ -115,11 +115,11 @@
 					</div>
 				</div>
 			</div> -->
-			
+
 		</div>
 	</section>
 
-	
+
 @endsection
 
 @section('script')
