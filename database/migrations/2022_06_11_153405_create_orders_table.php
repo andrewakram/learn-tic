@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('student_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreignId('course_id')->references('id')->on('courses')->nullable()->onDelete('cascade');
             $table->string('price_before')->nullable();
             $table->string('price_after')->nullable();
             $table->bigInteger('points')->nullable();
